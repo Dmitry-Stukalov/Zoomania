@@ -9,7 +9,7 @@ public class WaterBuilding : MonoBehaviour, IPointerClickHandler                
 {
 	public IncomeResource IncomeWater = new IncomeResource(2, 1);                                   //Переменная отвечающая за получение ресурсов
 
-	public Level CurrentLevel = new Level(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
 
 	public event Action OnChange;
 
@@ -18,7 +18,6 @@ public class WaterBuilding : MonoBehaviour, IPointerClickHandler                
 	{
 		IncomeWater.OnIncomePerSecond += IncomePerSecond;
 		IncomeWater.ResourceTimer.OnTimerEnd += Change;
-		CurrentLevel.LevelUp();
 		UpdateData();
 	}
 

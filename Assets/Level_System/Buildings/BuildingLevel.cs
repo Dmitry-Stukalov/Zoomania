@@ -2,29 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level
+public class BuildingLevel
 {
 	public int CurrentLevelNumber {  get; set; }
 	public int IncomePerSecondValue { get; set; }
 	public int IncomePerClickValue { get; set; }
-	public int NewLevelIncomeValueS { get; set; }
-	public int NewLevelIncomeValueC { get; set; }
+	public int MoneyForUpgrage {  get; set; }
 
-	public Level() { }
-
-	public Level(int incomePerSecondValue, int incomePerClickValue, int newLevelIncomeValueS, int newLevelIncomeValueC)
+	public BuildingLevel(int currentlevel, int incomePerSecondValue, int incomePerClickValue, int moneyforupgrade)
 	{
-		CurrentLevelNumber = 1;
+		CurrentLevelNumber = currentlevel;
 		IncomePerSecondValue = incomePerSecondValue;
 		IncomePerClickValue = incomePerClickValue;
-		NewLevelIncomeValueS = newLevelIncomeValueS;
-		NewLevelIncomeValueC = newLevelIncomeValueC;
-	}
-
-	public void LevelUp()																//Надо сделать условие которое будет проверять количество монет
-	{
-		CurrentLevelNumber++;
-		IncomePerSecondValue += NewLevelIncomeValueS;
-		IncomePerClickValue += NewLevelIncomeValueC;
+		MoneyForUpgrage = moneyforupgrade;
 	}
 }

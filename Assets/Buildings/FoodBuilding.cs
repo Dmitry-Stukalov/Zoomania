@@ -9,7 +9,7 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 {
 	public IncomeResource IncomeFood = new IncomeResource(1, 1);                                    //Переменная отвечающая за получение ресурсов
 
-	public Level CurrentLevel = new Level(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
 
 	public event Action OnChange;
 
@@ -18,7 +18,6 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 	{
 		IncomeFood.OnIncomePerSecond += IncomePerSecond;
 		IncomeFood.ResourceTimer.OnTimerEnd += Change;
-		CurrentLevel.LevelUp();
 		UpdateData();
 	}
 

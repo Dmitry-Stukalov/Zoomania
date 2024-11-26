@@ -27,9 +27,10 @@ namespace Animal
 		public GameObject FoodBuilding;
 
 		public FoodBuilding foodbuildingscript;
+
+        public MoneyPerClick moneyperclick;
         public Timer UpgradeTime { get; private set; }
         public Timer Eating { get; private set; }
-
 
 
 		public event Action OnChange;
@@ -58,6 +59,9 @@ namespace Animal
             Eating = new Timer(7);
             Eating.OnTimerEnd += Eat;
             Eating.OnTimerEnd += Drink;
+
+            moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+			IncomeMoney.ResourceTimer.OnTimerEnd += GetMoney;
 		}
 
 		public void InitializeLevels()
@@ -95,6 +99,12 @@ namespace Animal
 
 			Eating.ResetTimer(false);
 		}
+
+        public void GetMoney()
+        {
+            if ((waterbuildingscript.GetData() < CurrentLevel.RequiredWater || foodbuildingscript.GetData() < CurrentLevel.RequiredFood)) moneyperclick.UpdateDataPerSecond(1);
+            else moneyperclick.UpdateDataPerSecond(IncomeMoney.IncomePerSecondValue);
+        }
 
         public void Upgrade()
         {

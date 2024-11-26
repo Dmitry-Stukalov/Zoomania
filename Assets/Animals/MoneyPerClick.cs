@@ -28,15 +28,15 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 		Barn = GameObject.Find("Àלבאנ");
 		BarnScript = Barn.GetComponent<Barn>();
 		BarnScript.Spawn += SpawnPause.Continue;
-		SpawnPause.OnTimerEnd += UpdateData;
+		SpawnPause.OnTimerEnd += UpdateDataSpawn;
 	}
 
-	public void UpdateData()
+	public void UpdateDataSpawn()
 	{
 
 		MoneyPerClickValue.ChangeValue(0);
 
-		BarnScript.Animals[BarnScript.Animals.Count-1].GetComponent<Animals>().LevelUp += UpdateData;
+		BarnScript.Animals[BarnScript.Animals.Count-1].GetComponent<Animals>().LevelUp += UpdateDataSpawn;
 
 		for (int i = 0; i < BarnScript.Animals.Count; i++)
 		{
@@ -48,6 +48,12 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 		SpawnPause.ResetTimer(true);
 
+		OnChange?.Invoke();
+	}
+
+	public void UpdateDataPerSecond(int value)
+	{
+		IncomeMoney.Resource.SetValue(value, true);
 		OnChange?.Invoke();
 	}
 

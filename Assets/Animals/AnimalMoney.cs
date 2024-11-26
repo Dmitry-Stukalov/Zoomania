@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class AnimalMoney : MonoBehaviour															//Этот класс пока не используется
 {
-	public Level CurrentLevel = new Level(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
 
 	public IncomeResource IncomeMoney = new IncomeResource(1, 0);                                    //Переменная отвечающая за получение ресурсов
 
