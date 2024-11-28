@@ -12,6 +12,7 @@ namespace Animal
 	{
 		public int CurrentLevelNumber { get; set; }
 
+		public Sprite View { get; set; }
 		public int RequiredWater { get; set; }
 		public int RequiredFood { get; set; }
 		public int MoneyPerClick { get; set; }
@@ -20,9 +21,10 @@ namespace Animal
 		public int FoodForUpgrade { get; set; }
 
 
-		public AnimalLevel(int levelnumber, int requiredwater, int requiredfood, int moneyperclick, int moneypersecond, int waterforupgrade, int foodforupgrade)
+		public AnimalLevel(int levelnumber, Sprite view, int requiredwater, int requiredfood, int moneyperclick, int moneypersecond, int waterforupgrade, int foodforupgrade)
 		{
 			CurrentLevelNumber = levelnumber;
+			View = view;
 			RequiredWater = requiredwater;
 			RequiredFood = requiredfood;
 			MoneyPerClick = moneyperclick;
