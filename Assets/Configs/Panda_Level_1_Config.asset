@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb529aebc8cfd24bb11c67a9f12ff0b, type: 3}
   m_Name: Panda_Level_1_Config
   m_EditorClassIdentifier: 
-  <ClicksToCreate>k__BackingField: 1
+  <View>k__BackingField: {fileID: 21300000, guid: 078e718a1da2cc344b0f9e594d9beb00, type: 3}
   <RequiredWater>k__BackingField: 1
   <RequiredFood>k__BackingField: 1
   <MoneyPerClick>k__BackingField: 1

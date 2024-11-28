@@ -66,10 +66,10 @@ namespace Animal
 
 		public void InitializeLevels()
         {
-            levels.Add(new AnimalLevel(1, config1.RequiredWater, config1.RequiredFood, config1.MoneyPerClick, config1.MoneyPerSecond, config1.WaterForUpgrade, config1.FoodForUpgrade));
-			levels.Add(new AnimalLevel(2, config2.RequiredWater, config2.RequiredFood, config2.MoneyPerClick, config2.MoneyPerSecond, config2.WaterForUpgrade, config2.FoodForUpgrade));
-			levels.Add(new AnimalLevel(3, config3.RequiredWater, config3.RequiredFood, config3.MoneyPerClick, config3.MoneyPerSecond, config3.WaterForUpgrade, config3.FoodForUpgrade));
-			levels.Add(new AnimalLevel(4, config4.RequiredWater, config4.RequiredFood, config4.MoneyPerClick, config4.MoneyPerSecond, config4.WaterForUpgrade, config4.FoodForUpgrade));
+            levels.Add(new AnimalLevel(1, config1.View, config1.RequiredWater, config1.RequiredFood, config1.MoneyPerClick, config1.MoneyPerSecond, config1.WaterForUpgrade, config1.FoodForUpgrade));
+			levels.Add(new AnimalLevel(2, config2.View, config2.RequiredWater, config2.RequiredFood, config2.MoneyPerClick, config2.MoneyPerSecond, config2.WaterForUpgrade, config2.FoodForUpgrade));
+			levels.Add(new AnimalLevel(3, config3.View, config3.RequiredWater, config3.RequiredFood, config3.MoneyPerClick, config3.MoneyPerSecond, config3.WaterForUpgrade, config3.FoodForUpgrade));
+			levels.Add(new AnimalLevel(4, config4.View, config4.RequiredWater, config4.RequiredFood, config4.MoneyPerClick, config4.MoneyPerSecond, config4.WaterForUpgrade, config4.FoodForUpgrade));
 		}
 
 		public void UpdateData()
@@ -114,6 +114,7 @@ namespace Animal
             foodbuildingscript.SetData(CurrentLevel.FoodForUpgrade);
 
             CurrentLevel = levels[CurrentLevel.CurrentLevelNumber];
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 
             IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
             IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;
