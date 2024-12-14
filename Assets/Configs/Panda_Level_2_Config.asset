@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Panda_Level_2_Config
   m_EditorClassIdentifier: 
   <View>k__BackingField: {fileID: 21300000, guid: 94b9ad67dbd885e4d86ee666c1e05ac5, type: 3}
-  <RequiredWater>k__BackingField: 2
-  <RequiredFood>k__BackingField: 2
-  <MoneyPerClick>k__BackingField: 2
-  <MoneyPerSecond>k__BackingField: 2
-  <WaterForUpgrade>k__BackingField: 2
-  <FoodForUpgrade>k__BackingField: 2
+  <RequiredWater>k__BackingField: 8
+  <RequiredFood>k__BackingField: 8
+  <MoneyPerClick>k__BackingField: 5
+  <MoneyPerSecond>k__BackingField: 4
+  <WaterForUpgrade>k__BackingField: 500
+  <FoodForUpgrade>k__BackingField: 500
+  <UpgradeTime>k__BackingField: 120

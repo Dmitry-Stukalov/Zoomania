@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class Barn : MonoBehaviour, IPointerClickHandler
 {
 	public GameObject Animal;
 
 	public List<GameObject> Animals = new List<GameObject>();
+
 	public IntStorage ClicksToSpawn { get; set; }
 	public int MaxClicksToSpawn { get; set; } = 2;
 	public int ClicksValueChange { get; set; } = 2;
