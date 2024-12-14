@@ -25,7 +25,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void Start()
 	{
 		SpawnPause.SetPause();
-		Barn = GameObject.Find("Àלבאנ");
+		Barn = GameObject.FindGameObjectWithTag("Barn");
 		BarnScript = Barn.GetComponent<Barn>();
 		BarnScript.Spawn += SpawnPause.Continue;
 		SpawnPause.OnTimerEnd += UpdateDataSpawn;
@@ -40,7 +40,8 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 		for (int i = 0; i < BarnScript.Animals.Count; i++)
 		{
-			MoneyPerClickValue.SetValue(BarnScript.Animals[i].GetComponent<Animals>().IncomeMoney.IncomePerClickValue, true);
+			if (BarnScript.Animals[i].GetComponent<Animals>().Hungry) MoneyPerClickValue.SetValue(0, true);
+			else MoneyPerClickValue.SetValue(BarnScript.Animals[i].GetComponent<Animals>().IncomeMoney.IncomePerClickValue, true);
 		}
 
 
@@ -66,6 +67,11 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void OnPointerClick(PointerEventData data)
 	{
 		IncomePerClick();
+	}
+
+	public void SetMoneyValue(int value)
+	{
+		IncomeMoney.Resource.SetValue(value, false);
 	}
 
 	public void Update()

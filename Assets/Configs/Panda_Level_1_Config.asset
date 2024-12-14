@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb529aebc8cfd24bb11c67a9f12ff0b, type: 3}
   m_Name: Panda_Level_1_Config
   m_EditorClassIdentifier: 
-  <ClicksToCreate>k__BackingField: 1
-  <RequiredWater>k__BackingField: 1
-  <RequiredFood>k__BackingField: 1
+  <View>k__BackingField: {fileID: 21300000, guid: 43998fc50fe9afd4abb2498f6c481138, type: 3}
+  <RequiredWater>k__BackingField: 2
+  <RequiredFood>k__BackingField: 2
   <MoneyPerClick>k__BackingField: 1
   <MoneyPerSecond>k__BackingField: 1
-  <WaterForUpgrade>k__BackingField: 1
-  <FoodForUpgrade>k__BackingField: 1
+  <WaterForUpgrade>k__BackingField: 100
+  <FoodForUpgrade>k__BackingField: 100
+  <UpgradeTime>k__BackingField: 60

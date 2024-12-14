@@ -9,23 +9,24 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 {
 	public IncomeResource IncomeFood = new IncomeResource(1, 1);                                    //Переменная отвечающая за получение ресурсов
 
-	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 1);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 25);                                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+
+	private MoneyPerClick moneyperclick;
+
+	public ParticleSystem Click;
 
 	public event Action OnChange;
+	public event Action OnLevelUp;
 
 
 	private void Start()
 	{
-		IncomeFood.OnIncomePerSecond += IncomePerSecond;
+		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+
 		IncomeFood.ResourceTimer.OnTimerEnd += Change;
 		UpdateData();
 	}
 
-
-	public void IncomePerSecond()                                                                   //Функция, которая срабатывает при пассивном получении ресурсов (через каждое N количество секунд)
-	{
-		
-	}
 
 	public void IncomePerClick()                                                                    //Функция, которая срабатывает при активном получении ресурсов (При каждом нажатии)
 	{
@@ -36,6 +37,7 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 	public void OnPointerClick(PointerEventData data)
 	{
 		IncomePerClick();
+		Click.Play();
 	}
 
 	public void Change()                                                                            //Функция, которая срабатывает при изменении количества ресурсов или при улучшении
@@ -47,6 +49,7 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 	public void SetData(int foodcount)
 	{
 		IncomeFood.Resource.SetValue(foodcount, false);
+		OnChange?.Invoke();
 	}
 
 	public int GetData()
@@ -60,7 +63,23 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 		IncomeFood.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
 	}
 
+	public void LevelUp()
+	{
+		if (moneyperclick.IncomeMoney.Resource.GetValue() < CurrentLevel.MoneyForUpgrage)
+		{
+			Debug.Log("Недостаточно монет");
+			return;
+		}
 
+		moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrage);
+
+		if (CurrentLevel.CurrentLevelNumber == 1) CurrentLevel = new BuildingLevel(CurrentLevel.CurrentLevelNumber + 1, CurrentLevel.IncomePerSecondValue + 4, CurrentLevel.IncomePerClickValue + 4, CurrentLevel.MoneyForUpgrage * 4);
+		else CurrentLevel = new BuildingLevel(CurrentLevel.CurrentLevelNumber + 1, CurrentLevel.IncomePerSecondValue + 5, CurrentLevel.IncomePerClickValue + 5, CurrentLevel.MoneyForUpgrage * 4);
+
+		Change();
+
+		OnLevelUp?.Invoke();
+	}
 	void Update()                                                                                   //Функция, срабатывающая каждый кадр, которая отвечает за работу таймера
 	{
 		IncomeFood.Update(Time.deltaTime);
