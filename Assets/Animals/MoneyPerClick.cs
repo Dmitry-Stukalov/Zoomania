@@ -25,7 +25,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void Start()
 	{
 		SpawnPause.SetPause();
-		Barn = GameObject.Find("Àלבאנ");
+		Barn = GameObject.FindGameObjectWithTag("Barn");
 		BarnScript = Barn.GetComponent<Barn>();
 		BarnScript.Spawn += SpawnPause.Continue;
 		SpawnPause.OnTimerEnd += UpdateDataSpawn;

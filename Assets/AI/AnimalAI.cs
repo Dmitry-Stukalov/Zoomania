@@ -46,12 +46,9 @@ public class AnimalAI : MonoBehaviour
 		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
 		DoAction.OnTimerEnd += RandomActions;
-		DoAction.OnTimerEnd += IsHungry;
 
 		RandomActions();
 	}
-
-	// Функция для расчета адаптивных границ экрана
 
 	public void RandomActions()
 	{
@@ -108,14 +105,19 @@ public class AnimalAI : MonoBehaviour
 		{
 			foodbuilding.SetData(gameObject.GetComponent<Animals>().CurrentLevel.RequiredFood);
 
+			if (Animal.Hungry == false && foodbuilding.GetData() == 0)
+			{
+				Animal.Hungry = true;
+				moneyperclick.UpdateDataSpawn();
+			}
+
 			return;
 		}
 
+		Animal.Hungry = false;
+
 		IsDoAction = true;
 		IsEating = true;
-
-		//if (foodbuilding.GetData() == 0) Animal.Hungry = true;
-		//else Animal.Hungry = false;
 
 		moneyperclick.UpdateDataSpawn();
 
@@ -130,15 +132,19 @@ public class AnimalAI : MonoBehaviour
 		if (IsDrinking == true)
 		{
 			waterbuilding.SetData(gameObject.GetComponent<Animals>().CurrentLevel.RequiredWater);
+			if (Animal.Hungry == false && waterbuilding.GetData() == 0)
+			{
+				Animal.Hungry = true;
+				moneyperclick.UpdateDataSpawn();
+			}
 
 			return;
 		}
 
+		Animal.Hungry = false;
+
 		IsDoAction = true;
 		IsDrinking = true;
-
-		//if (waterbuilding.GetData() == 0) Animal.Hungry = true;
-		//else Animal.Hungry = false;
 
 		moneyperclick.UpdateDataSpawn();
 
@@ -146,13 +152,6 @@ public class AnimalAI : MonoBehaviour
 
 		Debug.Log("Панда пьет");
 		return;
-	}
-
-	public void IsHungry()
-	{
-		if (IsDrinking || IsEating)
-			if (waterbuilding.GetData() == 0 || foodbuilding.GetData() == 0) Animal.Hungry = true;
-			else Animal.Hungry = false;
 	}
 
 	public void Update()

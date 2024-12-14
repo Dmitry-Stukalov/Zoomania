@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5108895461425992510}
   - component: {fileID: 4318620096283553321}
   m_Layer: 0
-  m_Name: "\u041F\u0430\u043D\u0434\u0430"
+  m_Name: PREF_Panda
   m_TagString: Panda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,12 +175,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 078e718a1da2cc344b0f9e594d9beb00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43998fc50fe9afd4abb2498f6c481138, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.22, y: 6.51}
+  m_Size: {x: 4.23, y: 5.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
