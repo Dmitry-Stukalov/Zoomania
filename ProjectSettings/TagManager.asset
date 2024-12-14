@@ -9,6 +9,7 @@ TagManager:
   - Barn
   - Panda
   - Money
+  - SpawnZone
   layers:
   - Default
   - TransparentFX

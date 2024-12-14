@@ -15,12 +15,11 @@ public class UIFood : MonoBehaviour
 		FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding");
 		foodbuildingscript = FoodBuilding.GetComponent<FoodBuilding>();
 		Text = this.gameObject.GetComponent<TextMeshProUGUI>();
-		Text.text += foodbuildingscript.IncomeFood.Resource.GetValue().ToString();
 		foodbuildingscript.OnChange += UpdateUI;
 	}
 
 	public void UpdateUI()
 	{
-		Text.text = $"Количество еды: {foodbuildingscript.IncomeFood.Resource.GetValue()}";
+		Text.text = $"{foodbuildingscript.IncomeFood.Resource.GetValue()}";
 	}
 }
