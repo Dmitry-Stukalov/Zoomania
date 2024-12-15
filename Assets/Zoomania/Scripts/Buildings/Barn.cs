@@ -13,6 +13,7 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 	public List<GameObject> Animals = new List<GameObject>();
 
 	private GameObject SpawnZone;
+	public AudioSource Audio;
 	public IntStorage ClicksToSpawn { get; set; }
 	public int MaxClicksToSpawn { get; set; } = 2;
 	public int ClicksValueChange { get; set; } = 2;
@@ -30,6 +31,7 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 	{
 		ClicksToSpawn.SetValue(1, false);
 		if (ClicksToSpawn.GetValue() == 0) SpawnAnimal();
+		Audio.Play();
 	}
 
 	public void SpawnAnimal()

@@ -32,7 +32,6 @@ namespace Animal
         public ProgressBar Bar;
 
 
-		public event Action OnChange;
         public event Action LevelUp;
 
         public bool Hungry { get; set; } = false;
