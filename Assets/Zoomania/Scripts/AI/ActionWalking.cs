@@ -14,10 +14,6 @@ public class ActionWalking
 
 	public Timer WalkingTime = new Timer(0);
 
-	public event Action OnTick;
-	public event Action ActionEnd;
-
-
 	public void CalculateScreenBounds()
 	{
 		ScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));

@@ -24,7 +24,6 @@ public class AnimalAI : MonoBehaviour
 	private int Action {  get; set; }
 
 	public event Action OnTick;
-	public event Action ActionEnd;
 
 	// Флаги состояний
 	public bool IsDoAction = false;
