@@ -16993,6 +16993,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2996130443026327704, guid: d2b8818d7c005124abaeac7be5faf904, type: 3}
   m_PrefabInstance: {fileID: 1789346389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1808929258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4215569940301881201, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+  m_PrefabInstance: {fileID: 3325820340957909117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1808929261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3960642048276335780, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+  m_PrefabInstance: {fileID: 3325820340957909117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808929258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1808929263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808929258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98290fd708a2ef541b811b35ae1e84dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoodBuilding: {fileID: 1936886670}
+  Text: {fileID: 1808929261}
+  foodbuildingscript: {fileID: 1936886671}
 --- !u!1001 &1812793920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18233,6 +18264,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4086790262683416468, guid: 012c0cbf8a5f4a54f99ebdba0bc384e5, type: 3}
   m_PrefabInstance: {fileID: 1924622773}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1936886670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1200371128407484109, guid: d0675a07a12ee944ebfa6bb9b5726ec6, type: 3}
+  m_PrefabInstance: {fileID: 453946526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1936886671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5731998749355608511, guid: d0675a07a12ee944ebfa6bb9b5726ec6, type: 3}
+  m_PrefabInstance: {fileID: 453946526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936886670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa861616915b054fabe6da444c38ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1947603879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20517,6 +20564,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3960642048276335780, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_fontSize
+      value: 55.45
+      objectReference: {fileID: 0}
     - target: {fileID: 4055254597123099827, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -20529,6 +20580,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6055278253022438807, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: FoodBuilding
+      value: 
+      objectReference: {fileID: 1936886670}
+    - target: {fileID: 6055278253022438807, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: foodbuildingscript
+      value: 
+      objectReference: {fileID: 1936886671}
     - target: {fileID: 6813580417594118482, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -20572,7 +20631,10 @@ PrefabInstance:
     - {fileID: 6415488367690240568, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     - {fileID: 3356996904510395493, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4215569940301881201, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1808929263}
   m_SourcePrefab: {fileID: 100100000, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
 --- !u!1001 &7703387329294232335
 PrefabInstance:
