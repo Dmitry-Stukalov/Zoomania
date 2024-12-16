@@ -11,6 +11,8 @@ TagManager:
   - Money
   - SpawnZone
   - MovementArea
+  - Audio
+  - Music
   layers:
   - Default
   - TransparentFX

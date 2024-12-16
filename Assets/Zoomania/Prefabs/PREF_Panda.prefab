@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1256280039541729931}
   m_Layer: 0
   m_Name: Audio_Level_Up
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 3020826293548422841}
   m_Layer: 0
   m_Name: Audio_Spawn
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
