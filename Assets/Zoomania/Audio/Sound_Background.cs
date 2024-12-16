@@ -7,6 +7,7 @@ public class Sound_Background : MonoBehaviour
 	public AudioSource Audio;
 	void Start()
 	{
+		Audio.mute = false;
 		Audio.Play();
 	}
 }
