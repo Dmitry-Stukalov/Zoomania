@@ -31,19 +31,22 @@ namespace Animal
         
         public ProgressBar Bar;
 
+        public AudioSource SoundLevelUp;
+		public AudioSource SoundSpawn;
 
-        public event Action LevelUp;
+		public event Action LevelUp;
 
         public bool Hungry { get; set; } = false;
 
 
 		public void Start()
         {
+
             InitializeLevels();
 
             CurrentLevel = levels[0];
 
-            IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick);
+			IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick);
 
 			WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding");
 			waterbuildingscript = WaterBuilding.GetComponent<WaterBuilding>();
@@ -52,14 +55,16 @@ namespace Animal
 			FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding");
 			foodbuildingscript = FoodBuilding.GetComponent<FoodBuilding>();
 			foodbuildingscript.OnChange += UpdateData;
-
-            Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
+			
+			Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
 
             Bar.SetTimer(CurrentLevel.UpgradeTime);
             Bar.UpgradeTime.OnTimerEnd += Upgrade;
 
             moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 			IncomeMoney.ResourceTimer.OnTimerEnd += GetMoney;
+
+			SoundSpawn.Play();
 		}
 
 		public void InitializeLevels()
@@ -78,7 +83,7 @@ namespace Animal
 
         public void GetMoney()
         {
-            if (/*(waterbuildingscript.GetData() < CurrentLevel.RequiredWater || foodbuildingscript.GetData() < CurrentLevel.RequiredFood)*/Hungry) moneyperclick.UpdateDataPerSecond(1);
+            if (Hungry) moneyperclick.UpdateDataPerSecond(1);
             else moneyperclick.UpdateDataPerSecond(IncomeMoney.IncomePerSecondValue);
         }
 
@@ -100,7 +105,8 @@ namespace Animal
             IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;
 
             Bar.UpgradeTime.ResetTimer(false);
-            Debug.Log($"Данные моего нового уровня: {CurrentLevel.RequiredWater}, {CurrentLevel.RequiredFood}, {CurrentLevel.MoneyPerClick}, {CurrentLevel.MoneyPerSecond}, {CurrentLevel.WaterForUpgrade}, {CurrentLevel.FoodForUpgrade}");
+
+            SoundLevelUp.Play();
 
             LevelUp?.Invoke();
         }

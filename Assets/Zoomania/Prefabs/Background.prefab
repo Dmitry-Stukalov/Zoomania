@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 912712251001841591}
   - component: {fileID: 7393389749723252005}
-  - component: {fileID: 6218670912660566173}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -86,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6218670912660566173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8336f1e622b5eb4429c0d9e151793db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Audio: {fileID: 5124640713869101729}
 --- !u!1 &6868502633013535024
 GameObject:
   m_ObjectHideFlags: 0
