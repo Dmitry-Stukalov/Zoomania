@@ -17,6 +17,8 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 	public Timer SpawnPause = new Timer(0.1f);
 
+	public AudioSource Money;
+
 
 
 	public event Action OnChange;
@@ -67,6 +69,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void OnPointerClick(PointerEventData data)
 	{
 		IncomePerClick();
+		Money.Play();
 	}
 
 	public void SetMoneyValue(int value)
