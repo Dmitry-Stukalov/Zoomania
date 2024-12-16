@@ -10,6 +10,7 @@ TagManager:
   - Panda
   - Money
   - SpawnZone
+  - MovementArea
   layers:
   - Default
   - TransparentFX
