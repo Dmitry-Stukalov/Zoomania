@@ -20608,11 +20608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 853875398487260447, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 853875398487260447, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 853875398487260447, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_enableAutoSizing
@@ -20760,7 +20760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794091942242240894, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4794091942242240894, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_fontStyle
@@ -20768,7 +20768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794091942242240894, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4794091942242240894, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_enableAutoSizing
