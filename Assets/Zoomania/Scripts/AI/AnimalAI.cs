@@ -62,14 +62,14 @@ public class AnimalAI : MonoBehaviour
         if (MandatoryEating == 5) Action = UnityEngine.Random.Range(16, 22);
         else Action = UnityEngine.Random.Range(0, 22);
 
-        if (Action >= 0 && Action <= 9)
+        if (Action >= 0 && Action <= 6)
         {
             IsDoAction = true;
             Resting();
             MandatoryEating++;
         }
 
-        if (Action >= 10 && Action <= 15)
+        if (Action >= 7 && Action <= 15)
         {
             IsDoAction = true;
             AnimalWalking.Walking(this.gameObject);

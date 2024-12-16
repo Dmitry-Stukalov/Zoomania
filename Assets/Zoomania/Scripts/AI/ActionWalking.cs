@@ -7,7 +7,7 @@ public class ActionWalking
     public Vector2 RandomPosition { get; set; }
     public Vector2 AnimalPosition { get; set; }
     public bool IsMoving { get; set; }
-    public float Speed { get; set; } = 0.0005f;
+    public float Speed { get; set; } = 0.05f;
 
     public MovementArea MovementArea { get; set; }
 

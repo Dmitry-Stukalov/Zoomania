@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UnMuteMusic : MonoBehaviour, IPointerClickHandler
+public class ExceptButton : MonoBehaviour, IPointerClickHandler
 {
+	public GameObject NonMoney;
+
 	public void OnPointerClick(PointerEventData data)
 	{
-		GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute = false;
+		NonMoney.SetActive(true);
 	}
 }
