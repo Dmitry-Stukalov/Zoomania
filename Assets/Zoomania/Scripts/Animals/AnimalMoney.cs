@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class AnimalMoney : MonoBehaviour															//Ётот класс пока не используетс€
 {
-	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 1);                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
+	//public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 1);                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
 
 	public IncomeResource IncomeMoney = new IncomeResource(1, 0);                                   //ѕеременна€ отвечающа€ за получение ресурсов
 
@@ -25,8 +25,8 @@ public class AnimalMoney : MonoBehaviour															//Ётот класс пока не испо
 
 	public void UpdateData()                                                                        //‘ункци€, котора€ обновл€ет значени€ получаемых ресурсов
 	{
-		IncomeMoney.IncomePerSecondValue = CurrentLevel.IncomePerSecondValue;
-		IncomeMoney.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
+		//IncomeMoney.IncomePerSecondValue = CurrentLevel.IncomePerSecondValue;
+		//IncomeMoney.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
 	}
 
 	void Update()                                                                                   //‘ункци€, срабатывающа€ каждый кадр, котора€ отвечает за работу таймера

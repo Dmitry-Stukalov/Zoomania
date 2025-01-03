@@ -12,8 +12,8 @@ public class AnimalAI : MonoBehaviour
     private ActionWalking AnimalWalking = new ActionWalking();
 
     private Animals Animal { get; set; }
-    private FoodBuilding foodbuilding { get; set; }
-    private WaterBuilding waterbuilding { get; set; }
+    private ResourceBuilding foodbuilding { get; set; }
+    private ResourceBuilding waterbuilding { get; set; }
     private MoneyPerClick moneyperclick { get; set; }
 
     private Timer DoAction { get; set; } = new Timer(0);
@@ -36,8 +36,8 @@ public class AnimalAI : MonoBehaviour
 
         Animal = gameObject.GetComponent<Animals>();
 
-        foodbuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<FoodBuilding>();
-        waterbuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuilding>();
+        foodbuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+        waterbuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
         moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
         MovementArea movementArea = FindObjectOfType<MovementArea>();
@@ -103,7 +103,7 @@ public class AnimalAI : MonoBehaviour
     {
         if (IsEating == true)
         {
-            foodbuilding.SetData(gameObject.GetComponent<Animals>()./*CurrentLevel*/levels_config.levels[0].RequiredFood);
+            foodbuilding.SetData(gameObject.GetComponent<Animals>().CurrentLevel.RequiredFood);
 
             if (Animal.Hungry == false && foodbuilding.GetData() == 0)
             {
@@ -131,7 +131,7 @@ public class AnimalAI : MonoBehaviour
     {
         if (IsDrinking == true)
         {
-            waterbuilding.SetData(gameObject.GetComponent<Animals>()./*CurrentLevel*/levels_config.levels[0].RequiredWater);
+            waterbuilding.SetData(gameObject.GetComponent<Animals>().CurrentLevel.RequiredWater);
             if (Animal.Hungry == false && waterbuilding.GetData() == 0)
             {
                 Animal.Hungry = true;

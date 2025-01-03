@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class WaterShopText : MonoBehaviour
 {
-	private WaterBuilding waterBuilding;
+	private ResourceBuilding waterBuilding;
 	private TextMeshProUGUI text;
 
 	public void Start()
 	{
-		waterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuilding>();
+		waterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
 
 		text = gameObject.GetComponent<TextMeshProUGUI>();
 		text.text = $"Уровень {waterBuilding.CurrentLevel.CurrentLevelNumber} -> {waterBuilding.CurrentLevel.CurrentLevelNumber + 1}\n";

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FoodBuilding : MonoBehaviour, IPointerClickHandler                                     // ласс, который прикрепл€етс€ к кормушке
-																									//ѕо идее работает, но нужно сделать систему уровней из которой будут братьс€ значени€ дл€ количества ресурсов в секунду и при нажатии
+public class ResourceBuilding : MonoBehaviour, IPointerClickHandler                                    // ласс, который прикрепл€етс€ к поилке
+																									   //ѕо идее работает, но нужно сделать систему уровней из которой будут братьс€ значени€ дл€ количества ресурсов в секунду и при нажатии
 {
-	public IncomeResource IncomeFood = new IncomeResource(1, 1);                                    //ѕеременна€ отвечающа€ за получение ресурсов
+	public IncomeResource IncomeResources = new IncomeResource(1, 1);                                   //ѕеременна€ отвечающа€ за получение ресурсов
 
-	public BuildingLevel CurrentLevel;                                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel;                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
 
 	public Building_Levels_Config levels_config;
 
@@ -28,14 +28,13 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 
 		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
-		IncomeFood.ResourceTimer.OnTimerEnd += Change;
+		IncomeResources.ResourceTimer.OnTimerEnd += Change;
 		UpdateData();
 	}
 
-
 	public void IncomePerClick()                                                                    //‘ункци€, котора€ срабатывает при активном получении ресурсов (ѕри каждом нажатии)
 	{
-		IncomeFood.IncomePerClick();
+		IncomeResources.IncomePerClick();
 		OnChange?.Invoke();
 	}
 
@@ -52,21 +51,21 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 		UpdateData();
 	}
 
-	public void SetData(int foodcount)
+	public void SetData(int watercount)
 	{
-		IncomeFood.Resource.SetValue(foodcount, false);
+		IncomeResources.Resource.SetValue(watercount, false);
 		OnChange?.Invoke();
 	}
 
 	public int GetData()
 	{
-		return IncomeFood.Resource.GetValue();
+		return IncomeResources.Resource.GetValue();
 	}
 
 	public void UpdateData()                                                                        //‘ункци€, котора€ обновл€ет значени€ получаемых ресурсов
 	{
-		IncomeFood.IncomePerSecondValue = CurrentLevel.IncomePerSecondValue;
-		IncomeFood.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
+		IncomeResources.IncomePerSecondValue = CurrentLevel.IncomePerSecondValue;
+		IncomeResources.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
 	}
 
 	public void LevelUp()
@@ -85,9 +84,9 @@ public class FoodBuilding : MonoBehaviour, IPointerClickHandler                 
 
 		OnLevelUp?.Invoke();
 	}
+
 	void Update()                                                                                   //‘ункци€, срабатывающа€ каждый кадр, котора€ отвечает за работу таймера
 	{
-		IncomeFood.Update(Time.deltaTime);
+		IncomeResources.Update(Time.deltaTime);
 	}
-
 }

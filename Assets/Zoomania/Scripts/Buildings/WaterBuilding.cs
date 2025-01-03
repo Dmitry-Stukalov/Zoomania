@@ -9,7 +9,9 @@ public class WaterBuilding : MonoBehaviour, IPointerClickHandler                
 {
 	public IncomeResource IncomeWater = new IncomeResource(1, 1);                                   //Переменная отвечающая за получение ресурсов
 
-	public BuildingLevel CurrentLevel = new BuildingLevel(1, 1, 1, 25);                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel;                              //Переменная отвечающая за уровень и количество получаемых ресурсов
+
+	public Building_Levels_Config levels_config;
 
 	private MoneyPerClick moneyperclick;
 
@@ -22,6 +24,8 @@ public class WaterBuilding : MonoBehaviour, IPointerClickHandler                
 
 	private void Start() 
 	{
+		CurrentLevel = levels_config.levels[0];
+
 		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
 		IncomeWater.ResourceTimer.OnTimerEnd += Change;
@@ -74,8 +78,7 @@ public class WaterBuilding : MonoBehaviour, IPointerClickHandler                
 
 		moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrage);
 
-		if (CurrentLevel.CurrentLevelNumber == 1) CurrentLevel = new BuildingLevel(CurrentLevel.CurrentLevelNumber + 1, CurrentLevel.IncomePerSecondValue+4, CurrentLevel.IncomePerClickValue+4, CurrentLevel.MoneyForUpgrage*4);
-		else CurrentLevel = new BuildingLevel(CurrentLevel.CurrentLevelNumber + 1, CurrentLevel.IncomePerSecondValue + 5, CurrentLevel.IncomePerClickValue + 5, CurrentLevel.MoneyForUpgrage * 4);
+		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 
 		Change();
 

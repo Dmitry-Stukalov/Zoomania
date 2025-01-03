@@ -15,11 +15,11 @@ namespace Animal
 
 		public GameObject WaterBuilding { get; private set; }
 
-		public WaterBuilding waterbuildingscript { get; private set; }
+		public ResourceBuilding waterbuildingscript { get; private set; }
 
 		public GameObject FoodBuilding { get; private set; }
 
-		public FoodBuilding foodbuildingscript { get; private set; }
+		public ResourceBuilding foodbuildingscript { get; private set; }
 
 		public MoneyPerClick moneyperclick { get; private set; }
 
@@ -41,11 +41,11 @@ namespace Animal
             IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick);
 
             WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding");
-            waterbuildingscript = WaterBuilding.GetComponent<WaterBuilding>();
+            waterbuildingscript = WaterBuilding.GetComponent<ResourceBuilding>();
             waterbuildingscript.OnChange += UpdateData;
 
             FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding");
-            foodbuildingscript = FoodBuilding.GetComponent<FoodBuilding>();
+            foodbuildingscript = FoodBuilding.GetComponent<ResourceBuilding>();
             foodbuildingscript.OnChange += UpdateData;
 
             Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
@@ -61,8 +61,8 @@ namespace Animal
 
 		public void UpdateData()
         {
-            waterbuildingscript = WaterBuilding.GetComponent<WaterBuilding>();
-            foodbuildingscript = FoodBuilding.GetComponent<FoodBuilding>();
+            waterbuildingscript = WaterBuilding.GetComponent<ResourceBuilding>();
+            foodbuildingscript = FoodBuilding.GetComponent<ResourceBuilding>();
 		}
 
         public void GetMoney()

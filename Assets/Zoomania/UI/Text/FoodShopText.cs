@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class FoodShopText : MonoBehaviour
 {
-	private FoodBuilding foodBuilding;
+	private ResourceBuilding foodBuilding;
 	private TextMeshProUGUI text;
 
 	public void Start()
 	{
-		foodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<FoodBuilding>();
+		foodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
 
 		text = gameObject.GetComponent<TextMeshProUGUI>();
 		text.text = $"Уровень {foodBuilding.CurrentLevel.CurrentLevelNumber} -> {foodBuilding.CurrentLevel.CurrentLevelNumber + 1}\n";
