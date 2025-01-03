@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e493a3737259f419c9a939ebdbcf64, type: 3}
+  m_Name: Panda_Levels_Config
+  m_EditorClassIdentifier: 
+  levels:
+  - <CurrentLevelNumber>k__BackingField: 1
+    <View>k__BackingField: {fileID: 21300000, guid: 43998fc50fe9afd4abb2498f6c481138, type: 3}
+    <RequiredWater>k__BackingField: 2
+    <RequiredFood>k__BackingField: 2
+    <MoneyPerClick>k__BackingField: 1
+    <MoneyPerSecond>k__BackingField: 1
+    <WaterForUpgrade>k__BackingField: 100
+    <FoodForUpgrade>k__BackingField: 100
+    <UpgradeTime>k__BackingField: 60
+  - <CurrentLevelNumber>k__BackingField: 2
+    <View>k__BackingField: {fileID: 21300000, guid: 7beaeeaa8e8f8ba43a07046318d31d0d, type: 3}
+    <RequiredWater>k__BackingField: 8
+    <RequiredFood>k__BackingField: 8
+    <MoneyPerClick>k__BackingField: 5
+    <MoneyPerSecond>k__BackingField: 4
+    <WaterForUpgrade>k__BackingField: 500
+    <FoodForUpgrade>k__BackingField: 500
+    <UpgradeTime>k__BackingField: 120
+  - <CurrentLevelNumber>k__BackingField: 3
+    <View>k__BackingField: {fileID: 21300000, guid: fff096a310381dd429ed4ef2a528b0a5, type: 3}
+    <RequiredWater>k__BackingField: 32
+    <RequiredFood>k__BackingField: 32
+    <MoneyPerClick>k__BackingField: 15
+    <MoneyPerSecond>k__BackingField: 10
+    <WaterForUpgrade>k__BackingField: 5000
+    <FoodForUpgrade>k__BackingField: 5000
+    <UpgradeTime>k__BackingField: 180
+  - <CurrentLevelNumber>k__BackingField: 4
+    <View>k__BackingField: {fileID: 21300000, guid: 5f10f9e8ea4a74845937f29801ea6313, type: 3}
+    <RequiredWater>k__BackingField: 128
+    <RequiredFood>k__BackingField: 128
+    <MoneyPerClick>k__BackingField: 30
+    <MoneyPerSecond>k__BackingField: 20
+    <WaterForUpgrade>k__BackingField: 1
+    <FoodForUpgrade>k__BackingField: 1
+    <UpgradeTime>k__BackingField: 1

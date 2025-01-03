@@ -1,4 +1,5 @@
 using Animal;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -8,31 +9,17 @@ using UnityEngine;
 
 namespace Animal
 {
+	[Serializable]
 	public class AnimalLevel
 	{
-		public int CurrentLevelNumber { get; set; }
-
-		public Sprite View { get; set; }
-		public int RequiredWater { get; set; }
-		public int RequiredFood { get; set; }
-		public int MoneyPerClick { get; set; }
-		public int MoneyPerSecond { get; set; }
-		public int WaterForUpgrade { get; set; }
-		public int FoodForUpgrade { get; set; }
-		public int UpgradeTime { get; set; }
-
-
-		public AnimalLevel(int levelnumber, Sprite view, int requiredwater, int requiredfood, int moneyperclick, int moneypersecond, int waterforupgrade, int foodforupgrade, int upgradetime)
-		{
-			CurrentLevelNumber = levelnumber;
-			View = view;
-			RequiredWater = requiredwater;
-			RequiredFood = requiredfood;
-			MoneyPerClick = moneyperclick;
-			MoneyPerSecond = moneypersecond;
-			WaterForUpgrade = waterforupgrade;
-			FoodForUpgrade = foodforupgrade;
-			UpgradeTime = upgradetime;
-		}
+		[field: SerializeField] public int CurrentLevelNumber { get; set; }
+		[field: SerializeField] public Sprite View { get; set; }
+		[field: SerializeField] public int RequiredWater { get; set; }
+		[field: SerializeField] public int RequiredFood { get; set; }
+		[field: SerializeField] public int MoneyPerClick { get; set; }
+		[field: SerializeField] public int MoneyPerSecond { get; set; }
+		[field: SerializeField] public int WaterForUpgrade { get; set; }
+		[field: SerializeField] public int FoodForUpgrade { get; set; }
+		[field: SerializeField] public int UpgradeTime { get; set; }
 	}
 }

@@ -387,16 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392af8ae57bea86469d0a3b5ee764d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config1: {fileID: 11400000, guid: 23cc23eaf2374c64eb19ed21d7db0664, type: 2}
-  config2: {fileID: 11400000, guid: e8c2e9905a639b64b8eb62c17433c109, type: 2}
-  config3: {fileID: 11400000, guid: fcd32d9815326bf48bc7af9ec59090c7, type: 2}
-  config4: {fileID: 11400000, guid: 3d6e529074d616b499c3775eb5175c71, type: 2}
-  WaterBuilding: {fileID: 0}
-  waterbuildingscript: {fileID: 0}
-  FoodBuilding: {fileID: 0}
-  foodbuildingscript: {fileID: 0}
-  moneyperclick: {fileID: 0}
-  Bar: {fileID: 0}
+  levels_config: {fileID: 11400000, guid: 466e62300c80e6b4c8e5d34cfc97e370, type: 2}
   SoundLevelUp: {fileID: 1256280039541729931}
   SoundSpawn: {fileID: 3020826293548422841}
 --- !u!1 &4799000247787231655

@@ -3,11 +3,11 @@ using UnityEngine;
 public class ActionWalking
 {
     public Camera MainCamera { get; set; }
-    public Vector2 ScreenBounds { get; set; }
-    public Vector2 RandomPosition { get; set; }
-    public Vector2 AnimalPosition { get; set; }
-    public bool IsMoving { get; set; }
-    public float Speed { get; set; } = 0.01f;
+    public Vector2 ScreenBounds { get; private set; }
+	public Vector2 RandomPosition { get; private set; }
+	public Vector2 AnimalPosition { get; set; }
+	public bool IsMoving { get; set; }
+	public float Speed { get; private set; } = 0.01f;
 
     public MovementArea MovementArea { get; set; }
 

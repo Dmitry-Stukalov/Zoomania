@@ -9,9 +9,9 @@ using UnityEngine.Rendering.Universal;
 
 public class AnimalAI : MonoBehaviour
 {
-    public ActionWalking AnimalWalking = new ActionWalking();
+    private ActionWalking AnimalWalking = new ActionWalking();
 
-    public Animals Animal { get; set; }
+    private Animals Animal { get; set; }
     private FoodBuilding foodbuilding { get; set; }
     private WaterBuilding waterbuilding { get; set; }
     private MoneyPerClick moneyperclick { get; set; }
@@ -103,7 +103,7 @@ public class AnimalAI : MonoBehaviour
     {
         if (IsEating == true)
         {
-            foodbuilding.SetData(gameObject.GetComponent<Animals>().CurrentLevel.RequiredFood);
+            foodbuilding.SetData(gameObject.GetComponent<Animals>()./*CurrentLevel*/levels_config.levels[0].RequiredFood);
 
             if (Animal.Hungry == false && foodbuilding.GetData() == 0)
             {
@@ -131,7 +131,7 @@ public class AnimalAI : MonoBehaviour
     {
         if (IsDrinking == true)
         {
-            waterbuilding.SetData(gameObject.GetComponent<Animals>().CurrentLevel.RequiredWater);
+            waterbuilding.SetData(gameObject.GetComponent<Animals>()./*CurrentLevel*/levels_config.levels[0].RequiredWater);
             if (Animal.Hungry == false && waterbuilding.GetData() == 0)
             {
                 Animal.Hungry = true;
