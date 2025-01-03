@@ -21,6 +21,6 @@ public class UIMoney : MonoBehaviour
 
 	public void UpdateUI()
 	{
-		Text.text = $"{animalmoneyscript.IncomeMoney.Resource.GetValue()}";
+		Text.text = $"{animalmoneyscript.IncomeMoney.Resource}";
 	}
 }

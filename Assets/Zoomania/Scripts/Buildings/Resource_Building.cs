@@ -9,11 +9,11 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 {
 	public IncomeResource IncomeResources = new IncomeResource(1, 1);                                   //ѕеременна€ отвечающа€ за получение ресурсов
 
-	public BuildingLevel CurrentLevel;                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
+	public BuildingLevel CurrentLevel { get; set; }                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
 
 	public Building_Levels_Config levels_config;
 
-	private MoneyPerClick moneyperclick;
+	private MoneyPerClick moneyperclick { get; set; }
 
 	public ParticleSystem Click;
 	public AudioSource Audio;
@@ -53,13 +53,13 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 
 	public void SetData(int watercount)
 	{
-		IncomeResources.Resource.SetValue(watercount, false);
+		IncomeResources.Resource -= watercount;
 		OnChange?.Invoke();
 	}
 
 	public int GetData()
 	{
-		return IncomeResources.Resource.GetValue();
+		return IncomeResources.Resource;
 	}
 
 	public void UpdateData()                                                                        //‘ункци€, котора€ обновл€ет значени€ получаемых ресурсов
@@ -70,7 +70,7 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 
 	public void LevelUp()
 	{
-		if (moneyperclick.IncomeMoney.Resource.GetValue() < CurrentLevel.MoneyForUpgrage)
+		if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrage)
 		{
 			Debug.Log("Ќедостаточно монет");
 			return;

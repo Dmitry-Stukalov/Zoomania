@@ -20,6 +20,6 @@ public class UIFood : MonoBehaviour
 
 	public void UpdateUI()
 	{
-		Text.text = $"{foodbuildingscript.IncomeResources.Resource.GetValue()}";
+		Text.text = $"{foodbuildingscript.IncomeResources.Resource}";
 	}
 }

@@ -20,6 +20,6 @@ public class UIWater : MonoBehaviour
 
 	public void UpdateUI()
 	{
-		Text.text = $"{waterbuildingscript.IncomeResources.Resource.GetValue()}";
+		Text.text = $"{waterbuildingscript.IncomeResources.Resource}";
 	}
 }
