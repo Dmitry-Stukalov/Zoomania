@@ -1,34 +1,29 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class ActionWalking
 {
-    public Camera MainCamera { get; set; }
+	public GameObject MoveArea { get; set; }
+	public Camera MainCamera { get; set; }
     public Vector2 ScreenBounds { get; private set; }
 	public Vector2 RandomPosition { get; private set; }
 	public Vector2 AnimalPosition { get; set; }
 	public bool IsMoving { get; set; }
 	public float Speed { get; private set; } = 0.01f;
 
-    public MovementArea MovementArea { get; set; }
-
     public Timer WalkingTime = new Timer(0);
 
-    public void CalculateScreenBounds()
+    public ActionWalking(GameObject _MoveArea)
     {
-        ScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
-        return;
+        MoveArea = _MoveArea;
     }
 
     public Vector2 GetRandomPointWithinBounds()
     {
-        if (MovementArea != null)
-        {
-            return MovementArea.GetRandomPointWithinBounds();
-        }
+        float randomX = UnityEngine.Random.Range(MoveArea.transform.position.x - MoveArea.transform.localScale.x / 2, MoveArea.transform.position.x + MoveArea.transform.localScale.x / 2);
+		float randomY = UnityEngine.Random.Range(MoveArea.transform.position.y - MoveArea.transform.localScale.y / 2, MoveArea.transform.position.y + MoveArea.transform.localScale.y / 2);
 
-        float randomX = UnityEngine.Random.Range(-ScreenBounds.x, ScreenBounds.x);
-        float randomY = UnityEngine.Random.Range(-ScreenBounds.y, ScreenBounds.y);
-        return new Vector2(randomX, randomY);
+		return new Vector2(randomX, randomY);
     }
 
     public void Walking(GameObject animal)

@@ -53,8 +53,8 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 
 	public void SetData(int watercount)
 	{
-		if (IncomeResources.Resource > 0) IncomeResources.Resource -= watercount;
-		else IncomeResources.Resource = 0;
+		IncomeResources.Resource -= watercount;
+		if (IncomeResources.Resource < 0) IncomeResources.Resource = 0;
 
 		OnChange?.Invoke();
 	}

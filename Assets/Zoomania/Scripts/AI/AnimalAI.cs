@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 public class AnimalAI : MonoBehaviour
 {
-    private ActionWalking AnimalWalking = new ActionWalking();
+    private ActionWalking AnimalWalking;
     private ActionEating AnimalEating;
     private ActionResting AnimalResting = new ActionResting();
 
@@ -24,8 +24,10 @@ public class AnimalAI : MonoBehaviour
 
     public void Start()
     {
-        AnimalWalking.MainCamera = Camera.main;
-        AnimalWalking.CalculateScreenBounds();
+		//AnimalWalking.MainCamera = Camera.main;
+		//AnimalWalking.CalculateScreenBounds();
+		
+        AnimalWalking = new ActionWalking(GameObject.FindGameObjectWithTag("MovementArea"));
 
 		Animal = gameObject.GetComponent<Animals>();
 		AnimalEating = new ActionEating(Animal);
@@ -34,7 +36,13 @@ public class AnimalAI : MonoBehaviour
         AnimalEating.EatingTime.OnTimerEnd += RandomActions;
         AnimalResting.RestingTime.OnTimerEnd += RandomActions;
 
-        RandomActions();
+		/*MovementArea movementArea = FindObjectOfType<MovementArea>();
+		if (movementArea != null)
+		{
+			AnimalWalking.MovementArea = movementArea;
+		}*/
+
+		RandomActions();
     }
 
     public void RandomActions()
