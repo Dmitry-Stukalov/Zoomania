@@ -23,10 +23,7 @@ public class AnimalAI : MonoBehaviour
     public bool IsDoAction = false;
 
     public void Start()
-    {
-		//AnimalWalking.MainCamera = Camera.main;
-		//AnimalWalking.CalculateScreenBounds();
-		
+    {		
         AnimalWalking = new ActionWalking(GameObject.FindGameObjectWithTag("MovementArea"));
 
 		Animal = gameObject.GetComponent<Animals>();
@@ -35,12 +32,6 @@ public class AnimalAI : MonoBehaviour
 		AnimalWalking.WalkingTime.OnTimerEnd += RandomActions;
         AnimalEating.EatingTime.OnTimerEnd += RandomActions;
         AnimalResting.RestingTime.OnTimerEnd += RandomActions;
-
-		/*MovementArea movementArea = FindObjectOfType<MovementArea>();
-		if (movementArea != null)
-		{
-			AnimalWalking.MovementArea = movementArea;
-		}*/
 
 		RandomActions();
     }
