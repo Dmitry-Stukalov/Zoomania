@@ -16,12 +16,12 @@ public class IncomeResource																// ласс, который отвечает за получени
 
 	public Timer ResourceTimer;															//ѕеременна€, котора€ отвечает за врем€ пассивно получаемых ресурсов
 
-	public IncomeResource(int incomepersecondvalue, int incomeperclickvalue)
+	public IncomeResource(int incomepersecondvalue, int incomeperclickvalue, int timerlength)
 	{
 		IncomePerSecondValue = incomepersecondvalue;
 		IncomePerClickValue = incomeperclickvalue;
 
-		ResourceTimer = new Timer(5);
+		ResourceTimer = new Timer(timerlength);
 
 		ResourceTimer.OnTimerEnd += IncomePerSecond;
 	}

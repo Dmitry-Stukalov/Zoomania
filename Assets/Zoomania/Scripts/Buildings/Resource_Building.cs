@@ -11,8 +11,8 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 	public BuildingLevel CurrentLevel { get; set; }                              //Переменная отвечающая за уровень и количество получаемых ресурсов
 
 	public Building_Levels_Config levels_config;
-
 	private MoneyPerClick moneyperclick { get; set; }
+	private int TimerForGetResourses = 3;
 
 	public ParticleSystem Click;
 	public AudioSource Audio;
@@ -25,7 +25,7 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 	{
 		CurrentLevel = levels_config.levels[0];
 
-		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue);
+		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue, TimerForGetResourses);
 
 		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 

@@ -9,9 +9,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 {
 	public int MoneyPerClickValue;
 
-	public IncomeResource IncomeMoney = new IncomeResource(0, 0);
-
-	public GameObject Barn;
+	public IncomeResource IncomeMoney = new IncomeResource(0, 0, 5);
 
 	public Barn BarnScript;
 
@@ -27,8 +25,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void Start()
 	{
 		SpawnPause.SetPause();
-		Barn = GameObject.FindGameObjectWithTag("Barn");
-		BarnScript = Barn.GetComponent<Barn>();
+		BarnScript = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
 		BarnScript.Spawn += SpawnPause.Continue;
 		SpawnPause.OnTimerEnd += UpdateDataSpawn;
 	}
