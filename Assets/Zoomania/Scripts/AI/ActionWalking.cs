@@ -18,20 +18,21 @@ public class ActionWalking
         MoveArea = _MoveArea;
     }
 
-    public Vector2 GetRandomPointWithinBounds()
-    {
+
+    public Vector2 GetRandomPointWithinBounds()                                             //Задается рандомная точка в пределах объекта MoveArea
+	{
         float randomX = UnityEngine.Random.Range(MoveArea.transform.position.x - MoveArea.transform.localScale.x / 2, MoveArea.transform.position.x + MoveArea.transform.localScale.x / 2);
 		float randomY = UnityEngine.Random.Range(MoveArea.transform.position.y - MoveArea.transform.localScale.y / 2, MoveArea.transform.position.y + MoveArea.transform.localScale.y / 2);
 
 		return new Vector2(randomX, randomY);
     }
 
-    public void Walking(GameObject animal)
+    public void Walking(GameObject animal)                                                  //Двигает панду к рандомно сгенерированной точке
     {
         IsMoving = true;
         AnimalPosition = new Vector2(animal.transform.position.x, animal.transform.position.y);
         RandomPosition = GetRandomPointWithinBounds();
-        WalkingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));
-        return;
+        WalkingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));                      //Продолжительность этого действия
+		return;
     }
 }

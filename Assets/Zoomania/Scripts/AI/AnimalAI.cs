@@ -36,7 +36,7 @@ public class AnimalAI : MonoBehaviour
 		RandomActions();
     }
 
-    public void RandomActions()
+    public void RandomActions()                                                                                       //Рандомно выбирает действие для панды
     {
         AnimalWalking.IsMoving = false;
         AnimalEating.IsEating = false;
@@ -90,8 +90,7 @@ public class AnimalAI : MonoBehaviour
         return;
 	}
 
-
-    public void Update()
+    public void Update()                                                                                       //Запускает таймер у активного действия
     {
         if (AnimalWalking.IsMoving)
         {

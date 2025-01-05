@@ -8,33 +8,33 @@ using UnityEngine.UIElements;
 
 public class Barn : MonoBehaviour, IPointerClickHandler
 {
-	public GameObject Animal;
-
-	public List<GameObject> Animals = new List<GameObject>();
-
-	private GameObject SpawnZone;
-	public AudioSource Audio;
-	public int ClicksToSpawn { get; set; }
-	public int MaxClicksToSpawn { get; set; } = 2;
-	public int ClicksValueChange { get; set; } = 2;
-	public int AnimalCount { get; set; } = 0;
+	[field: SerializeField] private GameObject Animal {  get; set; }
+	public List<GameObject> Animals { get; private set; }
+	private GameObject SpawnZone { get; set; }
+	[field: SerializeField] private AudioSource Audio { get; set; }
+	private int ClicksToSpawn { get; set; }
+	private int MaxClicksToSpawn { get; set; } = 2;
+	private int ClicksValueChange { get; set; } = 2;
+	public int AnimalCount { get; private set; } = 0;
 
 	public event Action Spawn;
 
 	public void Start()
 	{
+		Animals = new List<GameObject>();
+
 		ClicksToSpawn = MaxClicksToSpawn;
 		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
 	}
 
-	public void OnPointerClick(PointerEventData data)
+	public void OnPointerClick(PointerEventData data)											//Срабатывает при нажатии. Уменьшает количество кликов требуемых для создания панды.
 	{
 		ClicksToSpawn--;
 		if (ClicksToSpawn == 0) SpawnAnimal();
 		Audio.Play();
 	}
 
-	public void SpawnAnimal()
+	public void SpawnAnimal()																	//Спавнит панду когда количество кликов требуемых для создания панды становится равным 0
 	{
 		Animals.Add(Instantiate(Animal, SpawnZone.transform.position, Quaternion.identity));
 		AnimalCount++;

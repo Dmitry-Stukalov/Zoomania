@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ResourceBuilding : MonoBehaviour, IPointerClickHandler                                    // ласс, который прикрепл€етс€ к поилке
-																									   //ѕо идее работает, но нужно сделать систему уровней из которой будут братьс€ значени€ дл€ количества ресурсов в секунду и при нажатии
+public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 {
-	public IncomeResource IncomeResources { get; set; }                                   //ѕеременна€ отвечающа€ за получение ресурсов
-	public BuildingLevel CurrentLevel { get; set; }                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
+	public IncomeResource IncomeResources { get; set; }
+	public BuildingLevel CurrentLevel { get; set; }
 
 	public Building_Levels_Config levels_config;
 	private MoneyPerClick moneyperclick { get; set; }
@@ -33,7 +32,7 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 		UpdateData();
 	}
 
-	public void IncomePerClick()                                                                    //‘ункци€, котора€ срабатывает при активном получении ресурсов (ѕри каждом нажатии)
+	public void IncomePerClick()                                                                    //—рабатывает при активном получении ресурсов (ѕри каждом нажатии)
 	{
 		IncomeResources.IncomePerClick();
 		OnChange?.Invoke();
@@ -46,13 +45,13 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 		Audio.Play();
 	}
 
-	public void Change()                                                                            //‘ункци€, котора€ срабатывает при изменении количества ресурсов или при улучшении
+	public void Change()                                                                            //—рабатывает при изменении количества ресурсов или при улучшении
 	{
 		OnChange?.Invoke();
 		UpdateData();
 	}
 
-	public void SetData(int watercount)
+	public void SetData(int watercount)																//”меньшает количество текущих ресурсов на величину передаваемой переменной
 	{
 		IncomeResources.Resource -= watercount;
 		if (IncomeResources.Resource < 0) IncomeResources.Resource = 0;
@@ -65,13 +64,13 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 		return IncomeResources.Resource;
 	}
 
-	public void UpdateData()                                                                        //‘ункци€, котора€ обновл€ет значени€ получаемых ресурсов
+	public void UpdateData()                                                                        //ќбновл€ет значени€ получаемых ресурсов
 	{
 		IncomeResources.IncomePerSecondValue = CurrentLevel.IncomePerSecondValue;
 		IncomeResources.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
 	}
 
-	public void LevelUp()
+	public void LevelUp()																			//ѕоднимает уровень здани€ если достаточно монет
 	{
 		if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrage)
 		{
@@ -88,14 +87,14 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 		OnLevelUp?.Invoke();
 	}
 
-	public BuildingLevel NextLevelData()
+	public BuildingLevel NextLevelData()															//ѕозвол€ет получить данные следующего уровн€ (»спользуетс€ дл€ магазина)
 	{
 		BuildingLevel nextlevel = new BuildingLevel();
 		nextlevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		return nextlevel;
 	}
 
-	void Update()                                                                                   //‘ункци€, срабатывающа€ каждый кадр, котора€ отвечает за работу таймера
+	void Update()                                                                                   //—рабатывает каждый кадр, отвечает за работу таймера
 	{
 		IncomeResources.Update(Time.deltaTime);
 	}

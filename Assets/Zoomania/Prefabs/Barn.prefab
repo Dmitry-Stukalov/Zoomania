@@ -325,9 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deafba0da2e94074d8b10ab3ec3eefa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animal: {fileID: 4354971729221301545, guid: cd3084f5853525345822e588db860004, type: 3}
-  Animals: []
-  Audio: {fileID: 1264011975287486216}
+  <Animal>k__BackingField: {fileID: 0}
+  <Audio>k__BackingField: {fileID: 1264011975287486216}
 --- !u!114 &2945095277553612636
 MonoBehaviour:
   m_ObjectHideFlags: 0

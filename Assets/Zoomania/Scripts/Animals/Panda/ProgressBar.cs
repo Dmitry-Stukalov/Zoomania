@@ -19,13 +19,13 @@ public class ProgressBar : MonoBehaviour
 		Value = BarBackground.transform.localScale.x / UpgradeTime.MaxTime;
 	}
 
-	public void SetTimer(int value)
+	public void SetTimer(int value)													//Изменение максимального значения таймера
 	{
 		UpgradeTime.SetMaxTimeAndReset(value);
 		Value = BarBackground.transform.localScale.x / UpgradeTime.MaxTime;
 	}
 
-	public void BarUpdate()
+	public void BarUpdate()															//Увеличивает размер ProgressBar
 	{
 		this.transform.localScale = new Vector3(UpgradeTime.CurrentTime * Value, BarBackground.transform.localScale.y, BarBackground.transform.localScale.z);
 	}

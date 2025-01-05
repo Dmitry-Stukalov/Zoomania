@@ -48,13 +48,13 @@ namespace Animal
 			SoundSpawn.Play();
         }
 
-        public void GetMoney()
+        public void GetMoney()                                                                  //Пассивное получение монет
         {
             if (Hungry) moneyperclick.UpdateDataPerSecond(1);
             else moneyperclick.UpdateDataPerSecond(IncomeMoney.IncomePerSecondValue);
         }
 
-        public void Upgrade()
+        public void Upgrade()                                                                   //Повышение уровня панды
         {
             if (waterbuildingscript.GetData() < CurrentLevel.WaterForUpgrade || foodbuildingscript.GetData() < CurrentLevel.FoodForUpgrade)
             {

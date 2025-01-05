@@ -48,7 +48,7 @@ public class ActionEating
 
 			moneyperclick.UpdateDataSpawn();
 
-			EatingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));
+			EatingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));                      //Продолжительность этого действия
 
 			Debug.Log("Панда ест");
 
@@ -74,17 +74,11 @@ public class ActionEating
 
 			moneyperclick.UpdateDataSpawn();
 
-			EatingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));
+			EatingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));                      //Продолжительность этого действия
 
 			Debug.Log("Панда пьет");
 
 			return;
 		}
-	}
-
-	public void Stop()
-	{
-		IsEating = false;
-		IsDrinking = false;
 	}
 }

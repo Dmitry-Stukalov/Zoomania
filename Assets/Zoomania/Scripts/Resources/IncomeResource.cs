@@ -40,7 +40,7 @@ public class IncomeResource																//Класс, который отвечает за получени
 		OnIncomePerClick?.Invoke();
 	}
 
-	public void Update(float time)																	//Функция, срабатывающая каждый кадр, которая отвечает за работу таймера
+	public void Update(float time)															//Функция, срабатывающая каждый кадр, которая отвечает за работу таймера
 	{
 		ResourceTimer.Tick(time);
 		OnTick?.Invoke();

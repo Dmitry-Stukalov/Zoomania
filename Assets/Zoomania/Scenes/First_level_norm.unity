@@ -3646,6 +3646,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8981818364618240944, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
+      propertyPath: <Animal>k__BackingField
+      value: 
+      objectReference: {fileID: 4354971729221301545, guid: cd3084f5853525345822e588db860004, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4723,6 +4727,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 969556398}
+--- !u!82 &499279720 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2925242950359425463, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
+  m_PrefabInstance: {fileID: 7703387329294232335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &521851031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20956,6 +20965,10 @@ PrefabInstance:
       propertyPath: BarnScript
       value: 
       objectReference: {fileID: 375655706}
+    - target: {fileID: 9177604423858672345, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
+      propertyPath: <Money>k__BackingField
+      value: 
+      objectReference: {fileID: 499279720}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

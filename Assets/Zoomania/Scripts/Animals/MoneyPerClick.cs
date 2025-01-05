@@ -7,16 +7,11 @@ using UnityEngine.EventSystems;
 
 public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 {
-	public int MoneyPerClickValue;
-
-	public IncomeResource IncomeMoney = new IncomeResource(0, 0, 5);
-
-	public Barn BarnScript;
-
-	public Timer SpawnPause = new Timer(0.1f);
-
-	public AudioSource Money;
-
+	private int MoneyPerClickValue { get; set; }
+	public IncomeResource IncomeMoney { get; private set; }
+	private Barn BarnScript { get; set; }
+	private Timer SpawnPause { get; set; } = new Timer(0.1f);
+	[field: SerializeField] private AudioSource Money { get; set; }
 
 
 	public event Action OnChange;
@@ -24,13 +19,17 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 	public void Start()
 	{
+		IncomeMoney = new IncomeResource(0, 0, 5);
+
 		SpawnPause.SetPause();
+
 		BarnScript = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
 		BarnScript.Spawn += SpawnPause.Continue;
+
 		SpawnPause.OnTimerEnd += UpdateDataSpawn;
 	}
 
-	public void UpdateDataSpawn()
+	public void UpdateDataSpawn()										//ќбновл€ет количество получаемых за клик монет
 	{
 
 		MoneyPerClickValue = 0;
