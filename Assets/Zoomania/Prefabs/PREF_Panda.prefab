@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6b26f05c1eae24f9d095b607e334e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Bar>k__BackingField: {fileID: 1176741792129845854}
+  <BarBackground>k__BackingField: {fileID: 7315664311931419857}
 --- !u!1 &4354971729221301545
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDoAction: 0
-  IsEating: 0
-  IsDrinking: 0
 --- !u!114 &4318620096283553321
 MonoBehaviour:
   m_ObjectHideFlags: 0
