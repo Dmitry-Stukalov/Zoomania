@@ -9,6 +9,5 @@ namespace Animal
     public class Panda_Levels_Config : ScriptableObject
     {
         [field: SerializeField] public List<AnimalLevel> levels;
-
 	}
 }

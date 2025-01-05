@@ -9,14 +9,11 @@ using UnityEngine.Rendering.Universal;
 
 public class AnimalAI : MonoBehaviour
 {
-    private ActionWalking AnimalWalking = new ActionWalking();
+    private ActionWalking AnimalWalking;
+    private ActionEating AnimalEating;
+    private ActionResting AnimalResting = new ActionResting();
 
     private Animals Animal { get; set; }
-    private FoodBuilding foodbuilding { get; set; }
-    private WaterBuilding waterbuilding { get; set; }
-    private MoneyPerClick moneyperclick { get; set; }
-
-    private Timer DoAction { get; set; } = new Timer(0);
 
     private int MandatoryEating { get; set; }
     private int Action { get; set; }
@@ -24,38 +21,27 @@ public class AnimalAI : MonoBehaviour
     public event Action OnTick;
 
     public bool IsDoAction = false;
-    public bool IsEating = false;
-    public bool IsDrinking = false;
 
     public void Start()
-    {
-        AnimalWalking.MainCamera = Camera.main;
-        AnimalWalking.CalculateScreenBounds();
+    {		
+        AnimalWalking = new ActionWalking(GameObject.FindGameObjectWithTag("MovementArea"));
 
-        AnimalWalking.WalkingTime.OnTimerEnd += RandomActions;
+		Animal = gameObject.GetComponent<Animals>();
+		AnimalEating = new ActionEating(Animal);
 
-        Animal = gameObject.GetComponent<Animals>();
+		AnimalWalking.WalkingTime.OnTimerEnd += RandomActions;
+        AnimalEating.EatingTime.OnTimerEnd += RandomActions;
+        AnimalResting.RestingTime.OnTimerEnd += RandomActions;
 
-        foodbuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<FoodBuilding>();
-        waterbuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuilding>();
-        moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
-
-        MovementArea movementArea = FindObjectOfType<MovementArea>();
-        if (movementArea != null)
-        {
-            AnimalWalking.MovementArea = movementArea;
-        }
-
-        DoAction.OnTimerEnd += RandomActions;
-
-        RandomActions();
+		RandomActions();
     }
 
-    public void RandomActions()
+    public void RandomActions()                                                                                       //Рандомно выбирает действие для панды
     {
         AnimalWalking.IsMoving = false;
-        IsEating = false;
-        IsDrinking = false;
+        AnimalEating.IsEating = false;
+		AnimalEating.IsDrinking = false;
+        AnimalResting.IsResting = false;
 
         CancelInvoke();
 
@@ -65,8 +51,8 @@ public class AnimalAI : MonoBehaviour
         if (Action >= 0 && Action <= 6)
         {
             IsDoAction = true;
-            Resting();
-            MandatoryEating++;
+			AnimalResting.Resting();
+			MandatoryEating++;
         }
 
         if (Action >= 7 && Action <= 15)
@@ -86,75 +72,25 @@ public class AnimalAI : MonoBehaviour
         if (Action >= 19 && Action <= 21)
         {
             IsDoAction = true;
-            InvokeRepeating("Drinking", 0f, 1f);
-            MandatoryEating = 0;
+			InvokeRepeating("Drinking", 0f, 1f);
+			MandatoryEating = 0;
         }
     }
 
-    public void Resting()
-    {
-        IsDoAction = true;
-        DoAction.SetMaxTimeAndReset(UnityEngine.Random.Range(7, 10));
-        Debug.Log("Панда отдыхает");
-        return;
-    }
 
     public void Eating()
     {
-        if (IsEating == true)
-        {
-            foodbuilding.SetData(gameObject.GetComponent<Animals>()./*CurrentLevel*/levels_config.levels[0].RequiredFood);
-
-            if (Animal.Hungry == false && foodbuilding.GetData() == 0)
-            {
-                Animal.Hungry = true;
-                moneyperclick.UpdateDataSpawn();
-            }
-
-            return;
-        }
-
-        Animal.Hungry = false;
-
-        IsDoAction = true;
-        IsEating = true;
-
-        moneyperclick.UpdateDataSpawn();
-
-        DoAction.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));
-
-        Debug.Log("Панда ест");
-        return;
-    }
+        AnimalEating.Eating(true);
+		return;
+	}
 
     public void Drinking()
     {
-        if (IsDrinking == true)
-        {
-            waterbuilding.SetData(gameObject.GetComponent<Animals>()./*CurrentLevel*/levels_config.levels[0].RequiredWater);
-            if (Animal.Hungry == false && waterbuilding.GetData() == 0)
-            {
-                Animal.Hungry = true;
-                moneyperclick.UpdateDataSpawn();
-            }
-
-            return;
-        }
-
-        Animal.Hungry = false;
-
-        IsDoAction = true;
-        IsDrinking = true;
-
-        moneyperclick.UpdateDataSpawn();
-
-        DoAction.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));
-
-        Debug.Log("Панда пьет");
+		AnimalEating.Eating(false);
         return;
-    }
+	}
 
-    public void Update()
+    public void Update()                                                                                       //Запускает таймер у активного действия
     {
         if (AnimalWalking.IsMoving)
         {
@@ -163,7 +99,11 @@ public class AnimalAI : MonoBehaviour
             AnimalWalking.WalkingTime.Tick(Time.deltaTime);
         }
 
-        DoAction.Tick(Time.deltaTime);
+        if (AnimalEating.IsEating || AnimalEating.IsDrinking) 
+            AnimalEating.EatingTime.Tick(Time.deltaTime);
+
+        if (AnimalResting.IsResting) 
+            AnimalResting.RestingTime.Tick(Time.deltaTime);
 
         OnTick?.Invoke();
     }

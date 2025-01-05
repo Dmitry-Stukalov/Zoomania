@@ -8,20 +8,20 @@ public class IncomeResource																//Класс, который отвечает за получени
 	public int IncomePerSecondValue { get; set; }                                       //Переменная, которая отвечает за количество пассивно получаемых ресурсов (через каждое N количество секунд)
 	public int IncomePerClickValue { get; set; }                                        //Переменная, которая отвечает за количество активно получаемых русурсов (При каждом нажатии)
 
-	public IntStorage Resource = new IntStorage();										//Переменная, которая хранит в себе текущее количество ресурсов игрока
+	public int Resource;																//Переменная, которая хранит в себе текущее количество ресурсов игрока
 
 	public event Action OnTick;															//Событие, вызываемое каждый тик
 	public event Action OnIncomePerSecond;												//Событие, вызываемое когда происходит пассивное получение ресурсов
 	public event Action OnIncomePerClick;												//Событие, вызываемое когда происходит активное получение ресурсов (нажатие)
 
-	public Timer ResourceTimer;														//Переменная, которая отвечает за время пассивно получаемых ресурсов
+	public Timer ResourceTimer;															//Переменная, которая отвечает за время пассивно получаемых ресурсов
 
-	public IncomeResource(int incomepersecondvalue, int incomeperclickvalue)
+	public IncomeResource(int incomepersecondvalue, int incomeperclickvalue, int timerlength)
 	{
 		IncomePerSecondValue = incomepersecondvalue;
 		IncomePerClickValue = incomeperclickvalue;
 
-		ResourceTimer = new Timer(5);
+		ResourceTimer = new Timer(timerlength);
 
 		ResourceTimer.OnTimerEnd += IncomePerSecond;
 	}
@@ -29,18 +29,18 @@ public class IncomeResource																//Класс, который отвечает за получени
 
 	public void IncomePerSecond()															//Функция, которая срабатывает при пассивном получении ресурсов (через каждое N количество секунд)
 	{
-		Resource.SetValue(IncomePerSecondValue, true);
+		Resource += IncomePerSecondValue;
 		ResourceTimer.ResetTimer(false);
 		OnIncomePerSecond?.Invoke();
 	}
 
 	public void IncomePerClick()                                                            //Функция, которая срабатывает при активном получении ресурсов (При каждом нажатии)
 	{
-		Resource.SetValue(IncomePerClickValue, true);
+		Resource += IncomePerClickValue;
 		OnIncomePerClick?.Invoke();
 	}
 
-	public void Update(float time)																	//Функция, срабатывающая каждый кадр, которая отвечает за работу таймера
+	public void Update(float time)															//Функция, срабатывающая каждый кадр, которая отвечает за работу таймера
 	{
 		ResourceTimer.Tick(time);
 		OnTick?.Invoke();

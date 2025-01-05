@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4355787656599015048}
   - component: {fileID: 5929934331688558747}
-  - component: {fileID: 8036305626922978261}
   - component: {fileID: 4551603669373436013}
   - component: {fileID: 2704969355835979019}
+  - component: {fileID: -6168967477695698237}
   m_Layer: 0
   m_Name: WaterBuilding
   m_TagString: WaterBuilding
@@ -93,20 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8036305626922978261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715487072302968196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6da044e55a91284ea6d78daf24f09f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 2019599291115964168}
-  Audio: {fileID: 2303098999568420176}
 --- !u!114 &4551603669373436013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +182,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.43, y: 4.14}
   m_EdgeRadius: 0
+--- !u!114 &-6168967477695698237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715487072302968196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentLevel:
+    <View>k__BackingField: {fileID: 0}
+    <CurrentLevelNumber>k__BackingField: 0
+    <IncomePerSecondValue>k__BackingField: 0
+    <IncomePerClickValue>k__BackingField: 0
+    <MoneyForUpgrage>k__BackingField: 0
+  levels_config: {fileID: 11400000, guid: b24e0798bf318d14cba561b8c48180da, type: 2}
+  Click: {fileID: 2019599291115964168}
+  Audio: {fileID: 2303098999568420176}
 --- !u!1 &3093252819673857325
 GameObject:
   m_ObjectHideFlags: 0

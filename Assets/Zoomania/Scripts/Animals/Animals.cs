@@ -12,17 +12,9 @@ namespace Animal
 
 		public IncomeResource IncomeMoney { get; private set; }
         public AnimalLevel CurrentLevel { get; private set; }
-
-		public GameObject WaterBuilding { get; private set; }
-
-		public WaterBuilding waterbuildingscript { get; private set; }
-
-		public GameObject FoodBuilding { get; private set; }
-
-		public FoodBuilding foodbuildingscript { get; private set; }
-
+		public ResourceBuilding waterbuildingscript { get; private set; }
+		public ResourceBuilding foodbuildingscript { get; private set; }
 		public MoneyPerClick moneyperclick { get; private set; }
-
 		public ProgressBar Bar { get; private set; }
 
         public AudioSource SoundLevelUp;
@@ -30,6 +22,7 @@ namespace Animal
 
 		public event Action LevelUp;
 
+        private int TimerForGetMoney = 5;
         public bool Hungry { get; set; } = false;
 
 
@@ -38,15 +31,11 @@ namespace Animal
 
             CurrentLevel = levels_config.levels[0];
 
-            IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick);
+            IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick, TimerForGetMoney);
 
-            WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding");
-            waterbuildingscript = WaterBuilding.GetComponent<WaterBuilding>();
-            waterbuildingscript.OnChange += UpdateData;
+            waterbuildingscript = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
 
-            FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding");
-            foodbuildingscript = FoodBuilding.GetComponent<FoodBuilding>();
-            foodbuildingscript.OnChange += UpdateData;
+            foodbuildingscript = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
 
             Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
 
@@ -59,19 +48,13 @@ namespace Animal
 			SoundSpawn.Play();
         }
 
-		public void UpdateData()
-        {
-            waterbuildingscript = WaterBuilding.GetComponent<WaterBuilding>();
-            foodbuildingscript = FoodBuilding.GetComponent<FoodBuilding>();
-		}
-
-        public void GetMoney()
+        public void GetMoney()                                                                  //Пассивное получение монет
         {
             if (Hungry) moneyperclick.UpdateDataPerSecond(1);
             else moneyperclick.UpdateDataPerSecond(IncomeMoney.IncomePerSecondValue);
         }
 
-        public void Upgrade()
+        public void Upgrade()                                                                   //Повышение уровня панды
         {
             if (waterbuildingscript.GetData() < CurrentLevel.WaterForUpgrade || foodbuildingscript.GetData() < CurrentLevel.FoodForUpgrade)
             {

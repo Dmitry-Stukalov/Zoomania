@@ -7,18 +7,11 @@ using UnityEngine.EventSystems;
 
 public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 {
-	public IntStorage MoneyPerClickValue = new IntStorage();
-
-	public IncomeResource IncomeMoney = new IncomeResource(0, 0);
-
-	public GameObject Barn;
-
-	public Barn BarnScript;
-
-	public Timer SpawnPause = new Timer(0.1f);
-
-	public AudioSource Money;
-
+	private int MoneyPerClickValue { get; set; }
+	public IncomeResource IncomeMoney { get; private set; }
+	private Barn BarnScript { get; set; }
+	private Timer SpawnPause { get; set; } = new Timer(0.1f);
+	[field: SerializeField] private AudioSource Money { get; set; }
 
 
 	public event Action OnChange;
@@ -26,28 +19,31 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 	public void Start()
 	{
+		IncomeMoney = new IncomeResource(0, 0, 5);
+
 		SpawnPause.SetPause();
-		Barn = GameObject.FindGameObjectWithTag("Barn");
-		BarnScript = Barn.GetComponent<Barn>();
+
+		BarnScript = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
 		BarnScript.Spawn += SpawnPause.Continue;
+
 		SpawnPause.OnTimerEnd += UpdateDataSpawn;
 	}
 
-	public void UpdateDataSpawn()
+	public void UpdateDataSpawn()										//ќбновл€ет количество получаемых за клик монет
 	{
 
-		MoneyPerClickValue.ChangeValue(0);
+		MoneyPerClickValue = 0;
 
 		BarnScript.Animals[BarnScript.Animals.Count-1].GetComponent<Animals>().LevelUp += UpdateDataSpawn;
 
 		for (int i = 0; i < BarnScript.Animals.Count; i++)
 		{
-			if (BarnScript.Animals[i].GetComponent<Animals>().Hungry) MoneyPerClickValue.SetValue(0, true);
-			else MoneyPerClickValue.SetValue(BarnScript.Animals[i].GetComponent<Animals>().IncomeMoney.IncomePerClickValue, true);
+			if (BarnScript.Animals[i].GetComponent<Animals>().Hungry) MoneyPerClickValue += 0;
+			else MoneyPerClickValue += BarnScript.Animals[i].GetComponent<Animals>().IncomeMoney.IncomePerClickValue;
 		}
 
-
-		IncomeMoney.IncomePerClickValue = MoneyPerClickValue.GetValue();
+		 
+		IncomeMoney.IncomePerClickValue = MoneyPerClickValue;
 
 		SpawnPause.ResetTimer(true);
 
@@ -56,7 +52,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateDataPerSecond(int value)
 	{
-		IncomeMoney.Resource.SetValue(value, true);
+		IncomeMoney.Resource += value;
 		OnChange?.Invoke();
 	}
 
@@ -74,7 +70,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 	public void SetMoneyValue(int value)
 	{
-		IncomeMoney.Resource.SetValue(value, false);
+		IncomeMoney.Resource -= value;
 	}
 
 	public void Update()

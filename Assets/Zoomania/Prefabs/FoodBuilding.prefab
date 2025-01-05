@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8202044019747682797}
   - component: {fileID: 3348262662037920442}
   - component: {fileID: 6114658090147596357}
-  - component: {fileID: 5731998749355608511}
+  - component: {fileID: 7291713998312490054}
   m_Layer: 0
   m_Name: FoodBuilding
   m_TagString: FoodBuilding
@@ -182,7 +182,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.08, y: 6.07}
   m_EdgeRadius: 0
---- !u!114 &5731998749355608511
+--- !u!114 &7291713998312490054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,9 +191,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200371128407484109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa861616915b054fabe6da444c38ce3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel:
+    <View>k__BackingField: {fileID: 0}
+    <CurrentLevelNumber>k__BackingField: 0
+    <IncomePerSecondValue>k__BackingField: 0
+    <IncomePerClickValue>k__BackingField: 0
+    <MoneyForUpgrage>k__BackingField: 0
+  levels_config: {fileID: 11400000, guid: b2cd336de1897a44dbd1439d42c4d191, type: 2}
   Click: {fileID: 2964879331433105907}
   Audio: {fileID: 4038835357330775121}
 --- !u!1 &3857453642011213362
