@@ -16283,6 +16283,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2916599329938824465, guid: 3bea57487e4550741af7093e363e762f, type: 3}
   m_PrefabInstance: {fileID: 1695739655}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1701793733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7291713998312490054, guid: d0675a07a12ee944ebfa6bb9b5726ec6, type: 3}
+  m_PrefabInstance: {fileID: 996081534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1712786180
 GameObject:
   m_ObjectHideFlags: 0
@@ -20564,6 +20575,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4086790262683416468, guid: 012c0cbf8a5f4a54f99ebdba0bc384e5, type: 3}
   m_PrefabInstance: {fileID: 2134528864}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140110239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6168967477695698237, guid: dd5b5144df18f554e931d1ea89c03f42, type: 3}
+  m_PrefabInstance: {fileID: 198904094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2145594854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20674,6 +20696,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 2064661841184430284, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <resourceBuiding>k__BackingField
+      value: 
+      objectReference: {fileID: 1701793733}
     - target: {fileID: 2160092367633484006, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -20782,6 +20808,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3435597928799771821, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <resourceBuiding>k__BackingField
+      value: 
+      objectReference: {fileID: 2140110239}
     - target: {fileID: 3889170336966823812, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -20794,6 +20824,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4077003841693601224, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <resourceBuilding>k__BackingField
+      value: 
+      objectReference: {fileID: 1701793733}
     - target: {fileID: 4484292555182403795, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -20818,6 +20852,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4855522156049095565, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <resourceBuilding>k__BackingField
+      value: 
+      objectReference: {fileID: 2140110239}
     - target: {fileID: 6055278253022438807, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: FoodBuilding
       value: 
@@ -20862,7 +20900,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8443177663130953548, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 5049598619917161585, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+    - {fileID: 8443177663130953548, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3918105438856607486, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     - {fileID: 7369871897061669311, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}

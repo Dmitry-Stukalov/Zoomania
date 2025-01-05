@@ -7,8 +7,7 @@ using UnityEngine.EventSystems;
 public class ResourceBuilding : MonoBehaviour, IPointerClickHandler                                    // ласс, который прикрепл€етс€ к поилке
 																									   //ѕо идее работает, но нужно сделать систему уровней из которой будут братьс€ значени€ дл€ количества ресурсов в секунду и при нажатии
 {
-	public IncomeResource IncomeResources = new IncomeResource(1, 1);                                   //ѕеременна€ отвечающа€ за получение ресурсов
-
+	public IncomeResource IncomeResources { get; set; }                                   //ѕеременна€ отвечающа€ за получение ресурсов
 	public BuildingLevel CurrentLevel { get; set; }                              //ѕеременна€ отвечающа€ за уровень и количество получаемых ресурсов
 
 	public Building_Levels_Config levels_config;
@@ -25,6 +24,8 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 	private void Start()
 	{
 		CurrentLevel = levels_config.levels[0];
+
+		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue);
 
 		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
@@ -85,6 +86,13 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler             
 		Change();
 
 		OnLevelUp?.Invoke();
+	}
+
+	public BuildingLevel NextLevelData()
+	{
+		BuildingLevel nextlevel = new BuildingLevel();
+		nextlevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		return nextlevel;
 	}
 
 	void Update()                                                                                   //‘ункци€, срабатывающа€ каждый кадр, котора€ отвечает за работу таймера

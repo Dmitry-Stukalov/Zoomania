@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7911379443290624985}
   - component: {fileID: 1107056314175264564}
   - component: {fileID: 853875398487260447}
-  - component: {fileID: 5049598619917161585}
+  - component: {fileID: 4077003841693601224}
   m_Layer: 5
   m_Name: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F"
   m_TagString: Untagged
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5049598619917161585
+--- !u!114 &4077003841693601224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 310319391009301545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472a93c85f2fb4c4b9a6ae6035c9b2d6, type: 3}
+  m_Script: {fileID: 11500000, guid: eb08c07ff2e1f1f4aaf814f5489b82c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <resourceBuilding>k__BackingField: {fileID: 0}
 --- !u!1 &351471845528929964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,8 +2531,8 @@ GameObject:
   - component: {fileID: 7418382222785986504}
   - component: {fileID: 3253723550278768196}
   - component: {fileID: 442561788504306153}
-  - component: {fileID: 261660471413370505}
   - component: {fileID: 6775123319827057235}
+  - component: {fileID: 3435597928799771821}
   m_Layer: 5
   m_Name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C\u041A\u043D\u043E\u043F\u043A\u0430"
   m_TagString: Untagged
@@ -2641,19 +2642,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &261660471413370505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4261863242046673894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf541ef8dafe76458b3464c7a38d2cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyperclick: {fileID: 0}
 --- !u!114 &6775123319827057235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,6 +2655,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 2380171836120664358}
+--- !u!114 &3435597928799771821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261863242046673894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fb8bb2573b97f4590b1f77e359aa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <resourceBuiding>k__BackingField: {fileID: 0}
 --- !u!1 &4444108900211503802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,8 +2680,8 @@ GameObject:
   - component: {fileID: 6588644013599735527}
   - component: {fileID: 8791896519107548897}
   - component: {fileID: 6640821942701098939}
-  - component: {fileID: 3281514870244147757}
   - component: {fileID: 9016537098807542008}
+  - component: {fileID: 2064661841184430284}
   m_Layer: 5
   m_Name: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C\u041A\u043D\u043E\u043F\u043A\u0430"
   m_TagString: Untagged
@@ -2790,19 +2791,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3281514870244147757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4444108900211503802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5050c0aeb3b9d4e99b3a522149c2f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyperclick: {fileID: 0}
 --- !u!114 &9016537098807542008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2816,6 +2804,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 2380171836120664358}
+--- !u!114 &2064661841184430284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444108900211503802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fb8bb2573b97f4590b1f77e359aa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <resourceBuiding>k__BackingField: {fileID: 0}
 --- !u!1 &4475193765478866733
 GameObject:
   m_ObjectHideFlags: 0
@@ -4454,7 +4455,7 @@ GameObject:
   - component: {fileID: 3664911972126688985}
   - component: {fileID: 2854967031593540869}
   - component: {fileID: 4794091942242240894}
-  - component: {fileID: 8443177663130953548}
+  - component: {fileID: 4855522156049095565}
   m_Layer: 5
   m_Name: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F"
   m_TagString: Untagged
@@ -4582,7 +4583,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8443177663130953548
+--- !u!114 &4855522156049095565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4591,9 +4592,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7098883889610966978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71bb6b4946720464b9c53690f50c281a, type: 3}
+  m_Script: {fileID: 11500000, guid: eb08c07ff2e1f1f4aaf814f5489b82c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <resourceBuilding>k__BackingField: {fileID: 0}
 --- !u!1 &7300466580880502909
 GameObject:
   m_ObjectHideFlags: 0
