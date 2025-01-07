@@ -34,7 +34,7 @@ namespace Animal
 
             Barn = GameObject.FindGameObjectWithTag("Barn");
 
-            this.transform.parent = Barn.transform;
+            ChangeParent(Barn);
 
             IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick, TimerForGetMoney);
 
@@ -82,6 +82,12 @@ namespace Animal
 
             LevelUp?.Invoke();
         }
+
+        public void ChangeParent(GameObject newparent)
+        {
+            this.transform.parent = newparent.transform;
+
+		}
 
 		void Update()
 		{
