@@ -16,6 +16,7 @@ namespace Animal
 		public ResourceBuilding foodbuildingscript { get; private set; }
 		public MoneyPerClick moneyperclick { get; private set; }
 		public ProgressBar Bar { get; private set; }
+        private GameObject Barn { get; set; }
 
         public AudioSource SoundLevelUp;
         public AudioSource SoundSpawn;
@@ -30,6 +31,10 @@ namespace Animal
         {
 
             CurrentLevel = levels_config.levels[0];
+
+            Barn = GameObject.FindGameObjectWithTag("Barn");
+
+            this.transform.parent = Barn.transform;
 
             IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick, TimerForGetMoney);
 

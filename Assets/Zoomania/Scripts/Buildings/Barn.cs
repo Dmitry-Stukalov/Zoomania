@@ -36,11 +36,19 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 	public void SpawnAnimal()																	//Спавнит панду когда количество кликов требуемых для создания панды становится равным 0
 	{
-		Animals.Add(Instantiate(Animal, SpawnZone.transform.position, Quaternion.identity));
+		Animals.Add(Instantiate(Animal, RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
 		MaxClicksToSpawn += ClicksValueChange;
 		ClicksToSpawn = MaxClicksToSpawn;
 		
 		Spawn?.Invoke();
+	}
+
+	public Vector2 RandomSpawnPoint()
+	{
+		float randomX = UnityEngine.Random.Range(SpawnZone.transform.position.x - SpawnZone.transform.lossyScale.x / 2, SpawnZone.transform.position.x + SpawnZone.transform.lossyScale.x / 2);
+		float randomY = UnityEngine.Random.Range(SpawnZone.transform.position.y - SpawnZone.transform.lossyScale.y / 2, SpawnZone.transform.position.y + SpawnZone.transform.lossyScale.y / 2);
+
+		return new Vector2(randomX, randomY);
 	}
 }
