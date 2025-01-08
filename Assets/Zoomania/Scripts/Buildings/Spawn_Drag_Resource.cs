@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+	[field: SerializeField] private GameObject Resource { get; set; }
 	private Vector3 offset { get; set; }
-	private Camera mainCamera { get; set; }
+	private GameObject resource {  get; set; }
+	public Camera mainCamera { get; set; }
 
-	public void Start()
+	public void OnBeginDrag(PointerEventData eventData)
 	{
 		mainCamera = Camera.main;
-	}
-
-	public void OnPointerDown(PointerEventData eventData)
-	{
+		resource = Instantiate(Resource, this.transform.position, Quaternion.identity);
+		resource.transform.SetParent(this.transform, true);
 		Vector3 mouseWorldPosition = GetMouseWorldPosition();
 		offset = transform.position - mouseWorldPosition;
 	}
@@ -22,7 +22,12 @@ public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDra
 	public void OnDrag(PointerEventData eventData)
 	{
 		Vector3 mouseWorldPosition = GetMouseWorldPosition();
-		transform.position = mouseWorldPosition + offset;
+		resource.transform.position = mouseWorldPosition + offset;
+	}
+
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		Destroy(resource.gameObject);
 	}
 
 	private Vector3 GetMouseWorldPosition()

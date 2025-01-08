@@ -10,7 +10,7 @@ public class UIWater : MonoBehaviour
 	public TextMeshProUGUI Text;
 	public ResourceBuilding waterbuildingscript;
 
-	void Start()
+	void OnAwake()
 	{
 		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding");
 		waterbuildingscript = WaterBuilding.GetComponent<ResourceBuilding>();

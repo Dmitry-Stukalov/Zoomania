@@ -15,6 +15,7 @@ TagManager:
   - Music
   - FirstScene
   - SecondScene
+  - Background
   layers:
   - Default
   - TransparentFX

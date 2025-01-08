@@ -11,9 +11,10 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Panda")
 		{
-			/*AnimalPlace = collision.gameObject;*/
-			collision.gameObject.GetComponent<Animals>().ChangeParent(AnimalPlace);
+			collision.gameObject.GetComponent<Animals>().ChangeParent(AnimalPlace, true);
 			collision.gameObject.transform.parent = AnimalPlace.transform;
+			collision.gameObject.transform.localScale *= 7;
+			collision.gameObject.transform.position = AnimalPlace.transform.position;
 		}
 	}
 }
