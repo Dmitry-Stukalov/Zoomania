@@ -85,7 +85,6 @@ namespace Animal
 
         public void ChangeParent(GameObject newparent, bool flag)
         {
-            //this.transform.parent = newparent.transform;
             this.transform.SetParent(newparent.transform, flag);
 		}
 

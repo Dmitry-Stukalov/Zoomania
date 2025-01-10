@@ -7,6 +7,7 @@ public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDra
 {
 	private Vector3 offset { get; set; }
 	private Camera mainCamera { get; set; }
+	public bool InPersonalPaddock { get; set; } = false;
 
 	public void Start()
 	{
@@ -15,14 +16,20 @@ public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDra
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		Vector3 mouseWorldPosition = GetMouseWorldPosition();
-		offset = transform.position - mouseWorldPosition;
+        if (!InPersonalPaddock)
+        {
+			Vector3 mouseWorldPosition = GetMouseWorldPosition();
+			offset = transform.position - mouseWorldPosition;
+		}
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		Vector3 mouseWorldPosition = GetMouseWorldPosition();
-		transform.position = mouseWorldPosition + offset;
+		if (!InPersonalPaddock)
+		{
+			Vector3 mouseWorldPosition = GetMouseWorldPosition();
+			transform.position = mouseWorldPosition + offset;
+		}
 	}
 
 	private Vector3 GetMouseWorldPosition()
@@ -31,4 +38,5 @@ public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDra
 		mouseScreenPosition.z = 0f;
 		return mainCamera.ScreenToWorldPoint(mouseScreenPosition);
 	}
+
 }

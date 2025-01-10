@@ -16,6 +16,8 @@ TagManager:
   - FirstScene
   - SecondScene
   - Background
+  - Water
+  - Food
   layers:
   - Default
   - TransparentFX

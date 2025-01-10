@@ -21,13 +21,19 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		Vector3 mouseWorldPosition = GetMouseWorldPosition();
-		resource.transform.position = mouseWorldPosition + offset;
+		if (resource != null)
+		{
+			Vector3 mouseWorldPosition = GetMouseWorldPosition();
+			resource.transform.position = mouseWorldPosition + offset;
+		}
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		Destroy(resource.gameObject);
+		if (resource != null)
+		{
+			Destroy(resource.gameObject);
+		}
 	}
 
 	private Vector3 GetMouseWorldPosition()
