@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -9,9 +10,11 @@ using UnityEngine.UIElements;
 public class Barn : MonoBehaviour, IPointerClickHandler
 {
 	[field: SerializeField] private GameObject Animal {  get; set; }
+	[field: SerializeField] private AudioSource Audio { get; set; }
+	[field: SerializeField] private TextMeshPro ClicksCount { get; set; }
 	public List<GameObject> Animals { get; private set; }
 	private GameObject SpawnZone { get; set; }
-	[field: SerializeField] private AudioSource Audio { get; set; }
+	
 	private int ClicksToSpawn { get; set; }
 	private int MaxClicksToSpawn { get; set; } = 2;
 	private int ClicksValueChange { get; set; } = 2;
@@ -25,11 +28,13 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 		ClicksToSpawn = MaxClicksToSpawn;
 		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
+		UpdateText(ClicksToSpawn);
 	}
 
 	public void OnPointerClick(PointerEventData data)											//Срабатывает при нажатии. Уменьшает количество кликов требуемых для создания панды.
 	{
 		ClicksToSpawn--;
+		UpdateText(ClicksToSpawn);
 		if (ClicksToSpawn == 0) SpawnAnimal();
 		Audio.Play();
 	}
@@ -40,7 +45,8 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 		AnimalCount++;
 		MaxClicksToSpawn += ClicksValueChange;
 		ClicksToSpawn = MaxClicksToSpawn;
-		
+		UpdateText(ClicksToSpawn);
+
 		Spawn?.Invoke();
 	}
 
@@ -50,5 +56,10 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 		float randomY = UnityEngine.Random.Range(SpawnZone.transform.position.y - SpawnZone.transform.lossyScale.y / 2, SpawnZone.transform.position.y + SpawnZone.transform.lossyScale.y / 2);
 
 		return new Vector2(randomX, randomY);
+	}
+
+	public void UpdateText(int count)
+	{
+		ClicksCount.text = count.ToString();
 	}
 }
