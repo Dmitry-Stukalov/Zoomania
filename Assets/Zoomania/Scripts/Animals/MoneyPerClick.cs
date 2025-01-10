@@ -38,8 +38,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 		for (int i = 0; i < BarnScript.Animals.Count; i++)
 		{
-			if (BarnScript.Animals[i].GetComponent<Animals>().Hungry) MoneyPerClickValue += 0;
-			else MoneyPerClickValue += BarnScript.Animals[i].GetComponent<Animals>().IncomeMoney.IncomePerClickValue;
+			MoneyPerClickValue += BarnScript.Animals[i].GetComponent<Animals_New>().IncomeMoney.IncomePerClickValue;
 		}
 
 		 

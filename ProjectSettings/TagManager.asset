@@ -13,6 +13,11 @@ TagManager:
   - MovementArea
   - Audio
   - Music
+  - FirstScene
+  - SecondScene
+  - Background
+  - Water
+  - Food
   layers:
   - Default
   - TransparentFX

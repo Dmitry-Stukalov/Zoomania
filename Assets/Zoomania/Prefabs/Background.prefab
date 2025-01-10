@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 912712251001841591}
   - component: {fileID: 7393389749723252005}
-  - component: {fileID: 7597421267947604504}
+  - component: {fileID: 439530030383287906}
+  - component: {fileID: 4445317578383412085}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7597421267947604504
+--- !u!114 &439530030383287906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,6 +100,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 1758907279430193097}
+--- !u!114 &4445317578383412085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e589e3f5fadf0346ac6a69b2ec0e05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0

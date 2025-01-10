@@ -10,7 +10,7 @@ public class UIFood : MonoBehaviour
 	public TextMeshProUGUI Text;
 	public ResourceBuilding foodbuildingscript;
 
-	void Start()
+	void OnAwake()
 	{
 		FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding");
 		foodbuildingscript = FoodBuilding.GetComponent<ResourceBuilding>();
