@@ -15,7 +15,7 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 			collision.gameObject.transform.parent = AnimalPlace.transform;
 			collision.gameObject.transform.localScale *= 7;
 			collision.gameObject.transform.position = AnimalPlace.transform.position;
-			collision.gameObject.GetComponent<AnimalAI_New>().InPersonalPaddock = true;
+			collision.gameObject.GetComponent<AnimalAI_New>().PersonalPaddock();
 			collision.gameObject.GetComponent<ReplaceToPersonalPaddock>().InPersonalPaddock = true;
 		}
 	}

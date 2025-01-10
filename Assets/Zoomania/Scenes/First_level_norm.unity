@@ -3420,6 +3420,10 @@ PrefabInstance:
       propertyPath: BypassEffects
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2104794080021377060, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2810644789684918928, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: m_SortingOrder
       value: -1
@@ -3523,7 +3527,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4015046640160135895, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
 --- !u!114 &375655706 stripped
 MonoBehaviour:
@@ -21508,6 +21515,10 @@ PrefabInstance:
       propertyPath: Barn
       value: 
       objectReference: {fileID: 375655707}
+    - target: {fileID: 9177604423858672345, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9177604423858672345, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
       propertyPath: BarnScript
       value: 
