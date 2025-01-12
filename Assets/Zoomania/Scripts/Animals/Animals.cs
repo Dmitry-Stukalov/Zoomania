@@ -15,7 +15,7 @@ namespace Animal
 		public ResourceBuilding waterbuildingscript { get; private set; }
 		public ResourceBuilding foodbuildingscript { get; private set; }
 		public MoneyPerClick moneyperclick { get; private set; }
-		public ProgressBar Bar { get; private set; }
+		//public ProgressBar Bar { get; private set; }
         private GameObject Barn { get; set; }
 
         public AudioSource SoundLevelUp;
@@ -42,10 +42,10 @@ namespace Animal
 
             foodbuildingscript = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
 
-            Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
+            //Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
 
-            Bar.SetTimer(CurrentLevel.UpgradeTime);
-            Bar.UpgradeTime.OnTimerEnd += Upgrade;
+            //Bar.SetTimer(CurrentLevel.UpgradeTime);
+            //Bar.UpgradeTime.OnTimerEnd += Upgrade;
 
             moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
             IncomeMoney.ResourceTimer.OnTimerEnd += GetMoney;
@@ -63,7 +63,7 @@ namespace Animal
         {
             if (waterbuildingscript.GetData() < CurrentLevel.WaterForUpgrade || foodbuildingscript.GetData() < CurrentLevel.FoodForUpgrade)
             {
-                Bar.UpgradeTime.ResetTimer(false);
+                //Bar.UpgradeTime.ResetTimer(false);
                 return;
             }
 
@@ -76,7 +76,7 @@ namespace Animal
             IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
             IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;
 
-            Bar.UpgradeTime.ResetTimer(false);
+            //Bar.UpgradeTime.ResetTimer(false);
 
 			SoundLevelUp.Play();
 
@@ -93,8 +93,8 @@ namespace Animal
             IncomeMoney.Update(Time.deltaTime);
             if (CurrentLevel.CurrentLevelNumber < 4 && waterbuildingscript.GetData() >= CurrentLevel.WaterForUpgrade && foodbuildingscript.GetData() >= CurrentLevel.FoodForUpgrade)
             {
-                Bar.UpgradeTime.Tick(Time.deltaTime);
-                Bar.BarUpdate();
+                //Bar.UpgradeTime.Tick(Time.deltaTime);
+                //Bar.BarUpdate();
             }
 		}
 	}

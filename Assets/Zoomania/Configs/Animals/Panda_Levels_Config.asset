@@ -24,8 +24,8 @@ MonoBehaviour:
     <UpgradeTime>k__BackingField: 60
   - <CurrentLevelNumber>k__BackingField: 2
     <View>k__BackingField: {fileID: 21300000, guid: 7beaeeaa8e8f8ba43a07046318d31d0d, type: 3}
-    <RequiredWater>k__BackingField: 8
-    <RequiredFood>k__BackingField: 8
+    <RequiredWater>k__BackingField: 2
+    <RequiredFood>k__BackingField: 2
     <MoneyPerClick>k__BackingField: 5
     <MoneyPerSecond>k__BackingField: 4
     <WaterForUpgrade>k__BackingField: 500
@@ -33,8 +33,8 @@ MonoBehaviour:
     <UpgradeTime>k__BackingField: 120
   - <CurrentLevelNumber>k__BackingField: 3
     <View>k__BackingField: {fileID: 21300000, guid: fff096a310381dd429ed4ef2a528b0a5, type: 3}
-    <RequiredWater>k__BackingField: 32
-    <RequiredFood>k__BackingField: 32
+    <RequiredWater>k__BackingField: 2
+    <RequiredFood>k__BackingField: 2
     <MoneyPerClick>k__BackingField: 15
     <MoneyPerSecond>k__BackingField: 10
     <WaterForUpgrade>k__BackingField: 5000
@@ -42,8 +42,8 @@ MonoBehaviour:
     <UpgradeTime>k__BackingField: 180
   - <CurrentLevelNumber>k__BackingField: 4
     <View>k__BackingField: {fileID: 21300000, guid: 5f10f9e8ea4a74845937f29801ea6313, type: 3}
-    <RequiredWater>k__BackingField: 128
-    <RequiredFood>k__BackingField: 128
+    <RequiredWater>k__BackingField: 2
+    <RequiredFood>k__BackingField: 2
     <MoneyPerClick>k__BackingField: 30
     <MoneyPerSecond>k__BackingField: 20
     <WaterForUpgrade>k__BackingField: 1
