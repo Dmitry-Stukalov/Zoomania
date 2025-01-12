@@ -9,7 +9,7 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Panda")
+		if (collision.gameObject.tag == "Panda" && AnimalPlace.transform.childCount == 0)
 		{
 			collision.gameObject.GetComponent<Animals>().ChangeParent(AnimalPlace, true);
 			collision.gameObject.transform.parent = AnimalPlace.transform;
@@ -18,5 +18,6 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 			collision.gameObject.GetComponent<AnimalAI_New>().PersonalPaddock();
 			collision.gameObject.GetComponent<ReplaceToPersonalPaddock>().InPersonalPaddock = true;
 		}
+		else Debug.Log("Личный загон занят");
 	}
 }

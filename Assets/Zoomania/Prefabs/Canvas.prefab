@@ -512,6 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9caf21da9df1464429d3cf80fee6057f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <WaterResource>k__BackingField: {fileID: 0}
+  <FoodResource>k__BackingField: {fileID: 0}
 --- !u!114 &5850071777513349030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2178,6 +2180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3c7c37ad3392b4286476525fd6693d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AnimalPlace>k__BackingField: {fileID: 0}
+  <Barn>k__BackingField: {fileID: 0}
+  <Fence>k__BackingField: {fileID: 0}
 --- !u!1 &4001788358566599627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,7 +2478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodBuilding: {fileID: 0}
-  Text: {fileID: 0}
+  Text: {fileID: 3960642048276335780}
   foodbuildingscript: {fileID: 0}
 --- !u!1 &4261863242046673894
 GameObject:

@@ -7,6 +7,8 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 {
 	private List<GameObject> FirstScene = new List<GameObject>();
 	private List<GameObject> SecondScene = new List<GameObject>();
+	[field: SerializeField] GameObject WaterResource {  get; set; }
+	[field: SerializeField] GameObject FoodResource { get; set; }
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
@@ -18,9 +20,13 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 			SecondScene[i].SetActive(true);
 		}
 
+		WaterResource.GetComponent<Available_Resources>().Initialize();
+		FoodResource.GetComponent<Available_Resources>().Initialize();
+
 		for (int i = 0; i < FirstScene.Count; i++)
 		{
 			FirstScene[i].SetActive(false);
 		}
+
 	}
 }

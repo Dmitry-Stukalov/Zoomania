@@ -6,17 +6,29 @@ using UnityEngine.EventSystems;
 public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 	[field: SerializeField] private GameObject Resource { get; set; }
+	private Available_Resources availableResources { get; set; }
 	private Vector3 offset { get; set; }
 	private GameObject resource {  get; set; }
 	public Camera mainCamera { get; set; }
+	private bool start { get; set; } = false;
+
+	public void Start()
+	{
+		availableResources = this.GetComponent<Available_Resources>();
+	}
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
-		mainCamera = Camera.main;
-		resource = Instantiate(Resource, this.transform.position, Quaternion.identity);
-		resource.transform.SetParent(this.transform, true);
-		Vector3 mouseWorldPosition = GetMouseWorldPosition();
-		offset = transform.position - mouseWorldPosition;
+		if (availableResources.CurrentResources.IncomeResources.Resource > 0)
+		{
+			mainCamera = Camera.main;
+			resource = Instantiate(Resource, this.transform.position, Quaternion.identity);
+			resource.transform.SetParent(this.transform, true);
+			Vector3 mouseWorldPosition = GetMouseWorldPosition();
+			offset = transform.position - mouseWorldPosition;
+
+			availableResources.TakeResource();
+		}
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -32,6 +44,7 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 	{
 		if (resource != null)
 		{
+			availableResources.PutResource();
 			Destroy(resource.gameObject);
 		}
 	}

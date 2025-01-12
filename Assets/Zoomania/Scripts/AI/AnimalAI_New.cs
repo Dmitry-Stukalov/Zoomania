@@ -30,23 +30,26 @@ public class AnimalAI_New : MonoBehaviour
 
 	public void RandomActions()                                                                                       //–андомно выбирает действие дл€ панды
 	{
-		AnimalWalking.IsMoving = false;
-		AnimalResting.IsResting = false;
-
-		CancelInvoke();
-
-		Action = UnityEngine.Random.Range(0, 15);
-
-		if (Action >= 0 && Action <= 6)
+		if (!InPersonalPaddock)
 		{
-			IsDoAction = true;
-			AnimalResting.Resting();
-		}
+			AnimalWalking.IsMoving = false;
+			AnimalResting.IsResting = false;
 
-		if (Action >= 7 && Action <= 15)
-		{
-			IsDoAction = true;
-			AnimalWalking.Walking(this.gameObject);
+			CancelInvoke();
+
+			Action = UnityEngine.Random.Range(0, 15);
+
+			if (Action >= 0 && Action <= 6)
+			{
+				IsDoAction = true;
+				AnimalResting.Resting();
+			}
+
+			if (Action >= 7 && Action <= 15)
+			{
+				IsDoAction = true;
+				AnimalWalking.Walking(this.gameObject);
+			}
 		}
 	}
 
@@ -59,8 +62,6 @@ public class AnimalAI_New : MonoBehaviour
 			AnimalWalking.WalkingTime.Tick(Time.deltaTime);
 		}
 		if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
-
-		if (InPersonalPaddock) CancelInvoke();
 	}
 
 	public void PersonalPaddock()
@@ -70,6 +71,10 @@ public class AnimalAI_New : MonoBehaviour
 			InPersonalPaddock = false;
 			RandomActions();
 		}
-		else InPersonalPaddock = true;
+		else
+		{
+			InPersonalPaddock = true;
+			CancelInvoke();
+		}
 	}
 }

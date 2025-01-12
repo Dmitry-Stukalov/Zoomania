@@ -17,49 +17,59 @@ MonoBehaviour:
     <CurrentLevelNumber>k__BackingField: 1
     <IncomePerSecondValue>k__BackingField: 1
     <IncomePerClickValue>k__BackingField: 1
+    <DragResourceCapacity>k__BackingField: 1
     <MoneyForUpgrage>k__BackingField: 25
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 2
     <IncomePerSecondValue>k__BackingField: 5
     <IncomePerClickValue>k__BackingField: 5
+    <DragResourceCapacity>k__BackingField: 2
     <MoneyForUpgrage>k__BackingField: 100
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 3
     <IncomePerSecondValue>k__BackingField: 10
     <IncomePerClickValue>k__BackingField: 10
+    <DragResourceCapacity>k__BackingField: 3
     <MoneyForUpgrage>k__BackingField: 400
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 4
     <IncomePerSecondValue>k__BackingField: 15
     <IncomePerClickValue>k__BackingField: 15
+    <DragResourceCapacity>k__BackingField: 4
     <MoneyForUpgrage>k__BackingField: 1600
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 5
     <IncomePerSecondValue>k__BackingField: 20
     <IncomePerClickValue>k__BackingField: 20
+    <DragResourceCapacity>k__BackingField: 5
     <MoneyForUpgrage>k__BackingField: 6400
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 6
     <IncomePerSecondValue>k__BackingField: 25
     <IncomePerClickValue>k__BackingField: 25
+    <DragResourceCapacity>k__BackingField: 6
     <MoneyForUpgrage>k__BackingField: 25600
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 7
     <IncomePerSecondValue>k__BackingField: 30
     <IncomePerClickValue>k__BackingField: 30
+    <DragResourceCapacity>k__BackingField: 7
     <MoneyForUpgrage>k__BackingField: 102400
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 8
     <IncomePerSecondValue>k__BackingField: 35
     <IncomePerClickValue>k__BackingField: 35
+    <DragResourceCapacity>k__BackingField: 8
     <MoneyForUpgrage>k__BackingField: 409600
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 9
     <IncomePerSecondValue>k__BackingField: 40
     <IncomePerClickValue>k__BackingField: 40
+    <DragResourceCapacity>k__BackingField: 9
     <MoneyForUpgrage>k__BackingField: 1638400
   - <View>k__BackingField: {fileID: 21300000, guid: 77b5274ff46555f43bfdf7ae78e34cc5, type: 3}
     <CurrentLevelNumber>k__BackingField: 10
     <IncomePerSecondValue>k__BackingField: 45
     <IncomePerClickValue>k__BackingField: 45
+    <DragResourceCapacity>k__BackingField: 10
     <MoneyForUpgrage>k__BackingField: 0

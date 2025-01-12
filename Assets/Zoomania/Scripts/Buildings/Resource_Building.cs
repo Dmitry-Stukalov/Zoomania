@@ -87,6 +87,16 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 		OnLevelUp?.Invoke();
 	}
 
+	public BuildingLevel CurrentLevelData()                                                         //Позволяет получить данные текущего уровня (Используется для личного загона)
+	{
+		return CurrentLevel;
+	}
+
+	public int DragResourceValue()
+	{
+		return CurrentLevel.DragResourceCapacity;
+	}
+
 	public BuildingLevel NextLevelData()															//Позволяет получить данные следующего уровня (Используется для магазина)
 	{
 		BuildingLevel nextlevel = new BuildingLevel();
