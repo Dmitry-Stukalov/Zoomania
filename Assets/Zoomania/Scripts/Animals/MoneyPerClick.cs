@@ -34,11 +34,13 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 		MoneyPerClickValue = 0;
 
-		BarnScript.Animals[BarnScript.Animals.Count-1].GetComponent<Animals>().LevelUp += UpdateDataSpawn;
+		BarnScript.Animals[BarnScript.Animals.Count-1].GetComponent<Animals_New>().LevelUp += UpdateDataSpawn;
+		BarnScript.Animals[BarnScript.Animals.Count - 1].GetComponent<Animals_New>().ChangePaddock += UpdateDataSpawn;
 
 		for (int i = 0; i < BarnScript.Animals.Count; i++)
 		{
-			MoneyPerClickValue += BarnScript.Animals[i].GetComponent<Animals_New>().IncomeMoney.IncomePerClickValue;
+			if (BarnScript.Animals[i].GetComponent<Animals_New>().InPersonalPaddock) MoneyPerClickValue += 0;
+			else MoneyPerClickValue += BarnScript.Animals[i].GetComponent<Animals_New>().IncomeMoney.IncomePerClickValue;
 		}
 
 		 

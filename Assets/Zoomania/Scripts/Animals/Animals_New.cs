@@ -12,11 +12,13 @@ public class Animals_New : MonoBehaviour
 	public AnimalLevel CurrentLevel { get; private set; }
 	public MoneyPerClick moneyperclick { get; private set; }
 	private GameObject Barn { get; set; }
+	public bool InPersonalPaddock { get; private set; } = true;
 
 	public AudioSource SoundLevelUp;
 	public AudioSource SoundSpawn;
 
 	public event Action LevelUp;
+	public event Action ChangePaddock;
 
 	private int TimerForGetMoney = 5;
 
@@ -53,5 +55,10 @@ public class Animals_New : MonoBehaviour
 	public void ChangeParent(GameObject newparent, bool flag)
 	{
 		this.transform.SetParent(newparent.transform, flag);
+
+		if (InPersonalPaddock) InPersonalPaddock = false;
+		else InPersonalPaddock = true;
+
+		ChangePaddock?.Invoke();
 	}
 }
