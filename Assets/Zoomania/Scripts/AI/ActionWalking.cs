@@ -33,6 +33,7 @@ public class ActionWalking
         AnimalPosition = new Vector2(animal.transform.position.x, animal.transform.position.y);
         RandomPosition = GetRandomPointWithinBounds();
         WalkingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));                      //Продолжительность этого действия
+        Speed = Vector2.Distance(AnimalPosition, RandomPosition) / WalkingTime.MaxTime;
 		return;
     }
 }

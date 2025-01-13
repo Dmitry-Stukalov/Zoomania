@@ -57,7 +57,7 @@ public class AnimalAI_New : MonoBehaviour
 	{
 		if (AnimalWalking.IsMoving)
 		{
-			AnimalWalking.AnimalPosition = Vector2.MoveTowards(AnimalWalking.AnimalPosition, AnimalWalking.RandomPosition, AnimalWalking.Speed);
+			AnimalWalking.AnimalPosition = Vector2.MoveTowards(AnimalWalking.AnimalPosition, AnimalWalking.RandomPosition, AnimalWalking.Speed * Time.deltaTime);
 			gameObject.transform.position = AnimalWalking.AnimalPosition;
 			AnimalWalking.WalkingTime.Tick(Time.deltaTime);
 		}
