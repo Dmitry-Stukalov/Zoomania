@@ -10,6 +10,7 @@ public class Animal_Feeding : MonoBehaviour
 	private bool IsDrinking { get; set; } = false;
 	private int RequiredWater { get; set; }
 	private int RequiredFood { get; set; }
+	private int ReturnedResource { get; set; }
 
 	public void Start()
 	{
@@ -20,34 +21,50 @@ public class Animal_Feeding : MonoBehaviour
 		ChangeVisibility();
 	}
 
-	public void OnCollisionEnter2D(Collision2D collision)
+	public int Drinking(int drinkvalue)
 	{
-		if (Animal.CurrentLevel.CurrentLevelNumber == 4) return;
-        
-        if (collision.gameObject.tag == "Water" && Animal.CurrentLevel.CurrentLevelNumber < 4)
-		{
-			if (!IsDrinking)
-			{
+		if (Animal.CurrentLevel.CurrentLevelNumber == 4) return drinkvalue;
 
-				Debug.Log("Ïüþ");
-				RequiredWater -= collision.gameObject.GetComponent<Resource_New>().GetCapacity();
-				if (RequiredWater <= 0) IsDrinking = true;
-				Bar.BarUpdate();
-				Destroy(collision.gameObject);
-			}
-		}
-		else if (collision.gameObject.tag == "Food")
+		if (!IsDrinking)
 		{
-			if (!IsEat)
-			{
-				Debug.Log("Åì");
-				RequiredFood -= collision.gameObject.GetComponent<Resource_New>().GetCapacity();
-				if (RequiredFood <= 0) IsEat = true;
-				Bar.BarUpdate();
-				Destroy(collision.gameObject);
-			}
+			if (drinkvalue - RequiredWater <= 0) ReturnedResource = 0;
+			else ReturnedResource = drinkvalue - RequiredWater;
+
+			RequiredWater -= drinkvalue;
+			if (RequiredWater <= 0) IsDrinking = true;
+			Bar.BarUpdate();
+			
+			CheckSatiety();
+
+			return ReturnedResource;
 		}
 
+		return drinkvalue;
+	}
+
+	public int Eating(int foodvalue)
+	{
+		if (Animal.CurrentLevel.CurrentLevelNumber == 4) return foodvalue;
+
+		if (!IsEat)
+		{
+			if (foodvalue - RequiredFood <= 0) ReturnedResource = 0;
+			else ReturnedResource = foodvalue - RequiredFood;
+
+			RequiredFood -= foodvalue;
+			if (RequiredFood <= 0) IsEat = true;
+			Bar.BarUpdate();
+
+			CheckSatiety();
+
+			return ReturnedResource;
+		}
+
+		return foodvalue;
+	}
+
+	public void CheckSatiety()
+	{
 		if (IsEat && IsDrinking)
 		{
 			IsDrinking = false;

@@ -7,8 +7,9 @@ public class Available_Resources : MonoBehaviour
 {
 	private BuildingLevel CurrentLevelData { get; set; }
 	public ResourceBuilding CurrentResources { get; set; }
-	[field: SerializeField] private string ResourceBuildingName { get; set; }
-	private int DragResourceCapacity { get; set; }
+	[field: SerializeField] private GameObject ResourceBuilding { get; set; }
+	[field: SerializeField] private GameObject Resource { get; set; }
+	public Resource_New Resource_New { get; private set; }
 	private bool start { get; set; } = false;
 	private bool someresources { get; set; } = false;
 
@@ -19,8 +20,12 @@ public class Available_Resources : MonoBehaviour
 	{
 		if (!start)
 		{
-			CurrentResources = GameObject.FindGameObjectWithTag(ResourceBuildingName).GetComponent<ResourceBuilding>();
-			DragResourceCapacity = CurrentResources.DragResourceValue();
+			CurrentResources = ResourceBuilding.GetComponent<ResourceBuilding>();
+			Resource_New = Resource.GetComponent<Resource_New>();
+			Resource_New.ChangeCapacity(CurrentResources.DragResourceValue());
+
+			Debug.Log(Resource_New.GetCapacity());
+
 			CurrentResources.OnLevelUp += UpdateData;
 
 			start = true;
@@ -28,50 +33,47 @@ public class Available_Resources : MonoBehaviour
 		OnChange?.Invoke();
 	}
 
+	public void UpdateDragResource()
+	{
+		if (someresources)
+		{
+			UpdateData();
+			someresources = false;
+		}
+
+		if (Resource_New.GetCapacity() > CurrentResources.IncomeResources.Resource) TakeSomeResource();
+		else TakeResource();
+
+		OnChange?.Invoke();
+		CurrentResources.Change();
+	}
+
 	private void UpdateData()
 	{
-		DragResourceCapacity = CurrentLevelData.DragResourceCapacity;
+		Resource_New.ChangeCapacity(CurrentResources.DragResourceValue());
 		OnChange?.Invoke();
 	}
 
 	public void TakeResource()
 	{
-		if (someresources)
-		{
-			UpdateDragResource();
-			someresources = false;
-		}
-
-		if (DragResourceCapacity > CurrentResources.IncomeResources.Resource) TakeSomeResource();
-		else CurrentResources.IncomeResources.Resource -= DragResourceCapacity;
+		Debug.Log(Resource_New.GetCapacity());
+		CurrentResources.IncomeResources.Resource -= Resource_New.GetCapacity();
 
 		OnChange?.Invoke();
 		CurrentResources.Change();
 	}
 
-	public void PutResource()
-	{
-		CurrentResources.IncomeResources.Resource += DragResourceCapacity;
-		OnChange?.Invoke();
-		CurrentResources.Change();
-	}
-	
 	public void TakeSomeResource()
 	{
-		DragResourceCapacity = CurrentResources.IncomeResources.Resource;
-		CurrentResources.IncomeResources.Resource -= DragResourceCapacity;
+		Resource_New.ChangeCapacity(CurrentResources.IncomeResources.Resource);
+		CurrentResources.IncomeResources.Resource -= Resource_New.GetCapacity();
 		someresources = true;
 	}
 
-	public void PutSomeResources(int count)
+	public void PutResource(int value)
 	{
-		CurrentResources.IncomeResources.Resource += count;
+		CurrentResources.IncomeResources.Resource += value;
 		OnChange?.Invoke();
 		CurrentResources.Change();
-	}
-
-	public void UpdateDragResource()
-	{
-		DragResourceCapacity = CurrentResources.DragResourceValue();
 	}
 }

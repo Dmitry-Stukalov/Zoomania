@@ -22,12 +22,16 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 		if (availableResources.CurrentResources.IncomeResources.Resource > 0)
 		{
 			mainCamera = Camera.main;
+
 			resource = Instantiate(Resource, this.transform.position, Quaternion.identity);
 			resource.transform.SetParent(this.transform, true);
+
+			availableResources.UpdateDragResource();
+
+			resource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
+
 			Vector3 mouseWorldPosition = GetMouseWorldPosition();
 			offset = transform.position - mouseWorldPosition;
-
-			availableResources.TakeResource();
 		}
 	}
 
@@ -44,7 +48,7 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 	{
 		if (resource != null)
 		{
-			availableResources.PutResource();
+			availableResources.PutResource(resource.GetComponent<Resource_New>().TryFeedAnimal());
 			Destroy(resource.gameObject);
 		}
 	}

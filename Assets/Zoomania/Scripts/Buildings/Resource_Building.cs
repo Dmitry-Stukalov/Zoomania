@@ -8,8 +8,8 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 {
 	public IncomeResource IncomeResources { get; set; }
 	public BuildingLevel CurrentLevel { get; set; }
-
-	public Building_Levels_Config levels_config;
+	
+	[field: SerializeField] private Building_Levels_Config levels_config {  get; set; }
 	private MoneyPerClick moneyperclick { get; set; }
 	private int TimerForGetResourses = 3;
 
@@ -99,9 +99,8 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 
 	public BuildingLevel NextLevelData()															//Позволяет получить данные следующего уровня (Используется для магазина)
 	{
-		BuildingLevel nextlevel = new BuildingLevel();
-		nextlevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		return nextlevel;
+		if (CurrentLevel.CurrentLevelNumber <= levels_config.levels.Count - 1) return levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		else return null;
 	}
 
 	void Update()                                                                                   //Срабатывает каждый кадр, отвечает за работу таймера

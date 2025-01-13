@@ -26,6 +26,7 @@ public class Upgrade_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
+		if (resourceBuiding.CurrentLevel.CurrentLevelNumber == 10) this.gameObject.SetActive(false);
 		Text.text = resourceBuiding.CurrentLevel.MoneyForUpgrage.ToString();
 	}
 }

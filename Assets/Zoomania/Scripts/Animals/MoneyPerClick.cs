@@ -72,6 +72,7 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void SetMoneyValue(int value)
 	{
 		IncomeMoney.Resource -= value;
+		OnChange?.Invoke();
 	}
 
 	public void Update()
