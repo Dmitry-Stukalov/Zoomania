@@ -18,8 +18,5 @@ namespace Animal
 		[field: SerializeField] public int RequiredFood { get; set; }
 		[field: SerializeField] public int MoneyPerClick { get; set; }
 		[field: SerializeField] public int MoneyPerSecond { get; set; }
-		[field: SerializeField] public int WaterForUpgrade { get; set; }
-		[field: SerializeField] public int FoodForUpgrade { get; set; }
-		[field: SerializeField] public int UpgradeTime { get; set; }
 	}
 }

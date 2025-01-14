@@ -25,11 +25,22 @@ public class Resource_Building_Shop_Text : MonoBehaviour
 	{
 		LevelData = resourceBuilding.NextLevelData();
 
-		text.text = $"Уровень {resourceBuilding.CurrentLevel.CurrentLevelNumber} -> {LevelData.CurrentLevelNumber}\n";
+		if (LevelData == null)
+		{
+			text.text = $"Уровень max: {resourceBuilding.CurrentLevel.CurrentLevelNumber}\n";
 
-		text.text += $"Доход за время {resourceBuilding.CurrentLevel.IncomePerSecondValue} -> {LevelData.IncomePerSecondValue}\n";
+			text.text += $"Доход max: {resourceBuilding.CurrentLevel.IncomePerSecondValue}\n";
 
-		text.text += $"Доход за клик {resourceBuilding.CurrentLevel.IncomePerClickValue} -> {LevelData.IncomePerClickValue}\n";
+			text.text += $"Доход max: {resourceBuilding.CurrentLevel.IncomePerClickValue}\n";
+		}
+		else
+		{
+			text.text = $"Уровень {resourceBuilding.CurrentLevel.CurrentLevelNumber} -> {LevelData.CurrentLevelNumber}\n";
+
+			text.text += $"Доход за время {resourceBuilding.CurrentLevel.IncomePerSecondValue} -> {LevelData.IncomePerSecondValue}\n";
+
+			text.text += $"Доход за клик {resourceBuilding.CurrentLevel.IncomePerClickValue} -> {LevelData.IncomePerClickValue}\n";
+		}
 
 	}
 }

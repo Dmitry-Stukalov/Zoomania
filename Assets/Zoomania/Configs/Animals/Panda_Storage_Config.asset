@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c10e9c4c924304b87165da3942991c, type: 3}
+  m_Name: Panda_Storage_Config
+  m_EditorClassIdentifier: 
+  Animals:
+  - {fileID: 4354971729221301545, guid: cd3084f5853525345822e588db860004, type: 3}
+  - {fileID: 4354971729221301545, guid: 8cfdf3cb5085124408e359cdcbee0b97, type: 3}

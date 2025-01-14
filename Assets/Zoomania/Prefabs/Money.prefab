@@ -273,9 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fe89ac8f5256d4eaff2a7790f4f466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Barn: {fileID: 0}
-  BarnScript: {fileID: 0}
-  Money: {fileID: 2925242950359425463}
+  <Money>k__BackingField: {fileID: 0}
 --- !u!114 &5735070082583396230
 MonoBehaviour:
   m_ObjectHideFlags: 0
