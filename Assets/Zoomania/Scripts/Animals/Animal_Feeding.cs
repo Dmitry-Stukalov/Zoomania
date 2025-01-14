@@ -72,7 +72,7 @@ public class Animal_Feeding : MonoBehaviour
 			Animal.Upgrade();
 			RequiredWater = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredWater;
 			RequiredFood = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredFood;
-			Bar.BarUpdate();
+			Bar.BarUpgrade();
 		}
 
 		if (Animal.CurrentLevel.CurrentLevelNumber == 4)

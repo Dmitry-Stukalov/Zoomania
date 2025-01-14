@@ -61,14 +61,14 @@ namespace Animal
 
         public void Upgrade()                                                                   //Повышение уровня панды
         {
-            if (waterbuildingscript.GetData() < CurrentLevel.WaterForUpgrade || foodbuildingscript.GetData() < CurrentLevel.FoodForUpgrade)
-            {
+            //if (waterbuildingscript.GetData() < CurrentLevel.WaterForUpgrade || foodbuildingscript.GetData() < CurrentLevel.FoodForUpgrade)
+            //{
                 //Bar.UpgradeTime.ResetTimer(false);
-                return;
-            }
+            //    return;
+            //}
 
-            waterbuildingscript.SetData(CurrentLevel.WaterForUpgrade);
-            foodbuildingscript.SetData(CurrentLevel.FoodForUpgrade);
+            //waterbuildingscript.SetData(CurrentLevel.WaterForUpgrade);
+            //foodbuildingscript.SetData(CurrentLevel.FoodForUpgrade);
 
 			CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 			this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
@@ -90,12 +90,12 @@ namespace Animal
 
 		void Update()
 		{
-            IncomeMoney.Update(Time.deltaTime);
-            if (CurrentLevel.CurrentLevelNumber < 4 && waterbuildingscript.GetData() >= CurrentLevel.WaterForUpgrade && foodbuildingscript.GetData() >= CurrentLevel.FoodForUpgrade)
-            {
+            //IncomeMoney.Update(Time.deltaTime);
+            //if (CurrentLevel.CurrentLevelNumber < 4 && waterbuildingscript.GetData() >= CurrentLevel.WaterForUpgrade && foodbuildingscript.GetData() >= CurrentLevel.FoodForUpgrade)
+            //{
                 //Bar.UpgradeTime.Tick(Time.deltaTime);
                 //Bar.BarUpdate();
-            }
+            //}
 		}
 	}
 }

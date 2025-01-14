@@ -25,7 +25,7 @@ public class Upgrade_Button_Barn : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		if (Barn.CurrentLevel.CurrentLevelNumber == 3) this.gameObject.SetActive(false);
+		if (Barn.CurrentLevel.CurrentLevelNumber == 5) this.gameObject.SetActive(false);
 		Text.text = Barn.CurrentLevel.MoneyForUpgrade.ToString();
 	}
 }

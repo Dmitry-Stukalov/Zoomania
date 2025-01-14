@@ -56,7 +56,6 @@ public class Available_Resources : MonoBehaviour
 
 	public void TakeResource()
 	{
-		Debug.Log(Resource_New.GetCapacity());
 		CurrentResources.IncomeResources.Resource -= Resource_New.GetCapacity();
 
 		OnChange?.Invoke();

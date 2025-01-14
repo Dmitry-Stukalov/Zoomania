@@ -18,58 +18,58 @@ MonoBehaviour:
     <IncomePerSecondValue>k__BackingField: 1
     <IncomePerClickValue>k__BackingField: 1
     <DragResourceCapacity>k__BackingField: 1
-    <MoneyForUpgrage>k__BackingField: 25
+    <MoneyForUpgrage>k__BackingField: 50
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 2
-    <IncomePerSecondValue>k__BackingField: 5
-    <IncomePerClickValue>k__BackingField: 5
+    <IncomePerSecondValue>k__BackingField: 2
+    <IncomePerClickValue>k__BackingField: 2
     <DragResourceCapacity>k__BackingField: 2
-    <MoneyForUpgrage>k__BackingField: 100
+    <MoneyForUpgrage>k__BackingField: 150
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 3
-    <IncomePerSecondValue>k__BackingField: 10
-    <IncomePerClickValue>k__BackingField: 10
+    <IncomePerSecondValue>k__BackingField: 3
+    <IncomePerClickValue>k__BackingField: 3
     <DragResourceCapacity>k__BackingField: 3
     <MoneyForUpgrage>k__BackingField: 400
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 4
-    <IncomePerSecondValue>k__BackingField: 15
-    <IncomePerClickValue>k__BackingField: 15
+    <IncomePerSecondValue>k__BackingField: 4
+    <IncomePerClickValue>k__BackingField: 4
     <DragResourceCapacity>k__BackingField: 4
-    <MoneyForUpgrage>k__BackingField: 1600
+    <MoneyForUpgrage>k__BackingField: 900
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 5
-    <IncomePerSecondValue>k__BackingField: 20
-    <IncomePerClickValue>k__BackingField: 20
+    <IncomePerSecondValue>k__BackingField: 5
+    <IncomePerClickValue>k__BackingField: 5
     <DragResourceCapacity>k__BackingField: 5
-    <MoneyForUpgrage>k__BackingField: 6400
+    <MoneyForUpgrage>k__BackingField: 1500
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 6
-    <IncomePerSecondValue>k__BackingField: 25
-    <IncomePerClickValue>k__BackingField: 25
+    <IncomePerSecondValue>k__BackingField: 6
+    <IncomePerClickValue>k__BackingField: 6
     <DragResourceCapacity>k__BackingField: 6
-    <MoneyForUpgrage>k__BackingField: 25600
+    <MoneyForUpgrage>k__BackingField: 2500
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 7
-    <IncomePerSecondValue>k__BackingField: 30
-    <IncomePerClickValue>k__BackingField: 30
+    <IncomePerSecondValue>k__BackingField: 7
+    <IncomePerClickValue>k__BackingField: 7
     <DragResourceCapacity>k__BackingField: 7
-    <MoneyForUpgrage>k__BackingField: 102400
+    <MoneyForUpgrage>k__BackingField: 4000
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 8
-    <IncomePerSecondValue>k__BackingField: 35
-    <IncomePerClickValue>k__BackingField: 35
+    <IncomePerSecondValue>k__BackingField: 8
+    <IncomePerClickValue>k__BackingField: 8
     <DragResourceCapacity>k__BackingField: 8
-    <MoneyForUpgrage>k__BackingField: 409600
+    <MoneyForUpgrage>k__BackingField: 7000
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 9
-    <IncomePerSecondValue>k__BackingField: 40
-    <IncomePerClickValue>k__BackingField: 40
+    <IncomePerSecondValue>k__BackingField: 9
+    <IncomePerClickValue>k__BackingField: 9
     <DragResourceCapacity>k__BackingField: 9
-    <MoneyForUpgrage>k__BackingField: 1638400
+    <MoneyForUpgrage>k__BackingField: 10000
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
-    <CurrentLevelNumber>k__BackingField: 9
-    <IncomePerSecondValue>k__BackingField: 45
-    <IncomePerClickValue>k__BackingField: 45
+    <CurrentLevelNumber>k__BackingField: 10
+    <IncomePerSecondValue>k__BackingField: 10
+    <IncomePerClickValue>k__BackingField: 10
     <DragResourceCapacity>k__BackingField: 10
     <MoneyForUpgrage>k__BackingField: 0

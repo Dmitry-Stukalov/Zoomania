@@ -16,12 +16,20 @@ MonoBehaviour:
   - <View>k__BackingField: {fileID: 21300000, guid: 66f8770f85289444081182ae303f550f, type: 3}
     <CurrentLevelNumber>k__BackingField: 1
     <ClicksAtTime>k__BackingField: 1
-    <MoneyForUpgrade>k__BackingField: 25
+    <MoneyForUpgrade>k__BackingField: 500
   - <View>k__BackingField: {fileID: 21300000, guid: 66f8770f85289444081182ae303f550f, type: 3}
     <CurrentLevelNumber>k__BackingField: 2
     <ClicksAtTime>k__BackingField: 2
-    <MoneyForUpgrade>k__BackingField: 50
+    <MoneyForUpgrade>k__BackingField: 1500
   - <View>k__BackingField: {fileID: 21300000, guid: 66f8770f85289444081182ae303f550f, type: 3}
     <CurrentLevelNumber>k__BackingField: 3
     <ClicksAtTime>k__BackingField: 3
+    <MoneyForUpgrade>k__BackingField: 3000
+  - <View>k__BackingField: {fileID: 21300000, guid: 66f8770f85289444081182ae303f550f, type: 3}
+    <CurrentLevelNumber>k__BackingField: 4
+    <ClicksAtTime>k__BackingField: 4
+    <MoneyForUpgrade>k__BackingField: 5000
+  - <View>k__BackingField: {fileID: 21300000, guid: 66f8770f85289444081182ae303f550f, type: 3}
+    <CurrentLevelNumber>k__BackingField: 5
+    <ClicksAtTime>k__BackingField: 5
     <MoneyForUpgrade>k__BackingField: 0

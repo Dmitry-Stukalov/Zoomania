@@ -3435,6 +3435,10 @@ PrefabInstance:
       propertyPath: <levels_config>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 7eacb04c77ca2b74291bf6be9bf3379c, type: 2}
+    - target: {fileID: 8981818364618240944, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
+      propertyPath: <Panda_Storage_Config>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fba32f7f8d0eda45b593fa9e8f2bb29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6172,6 +6176,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4086790262683416468, guid: 012c0cbf8a5f4a54f99ebdba0bc384e5, type: 3}
   m_PrefabInstance: {fileID: 700816138}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &701848863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7393638479082453690, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
+  m_PrefabInstance: {fileID: 4858580613930812329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &716512901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8665,6 +8674,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &1020060408 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2303098999568420176, guid: dd5b5144df18f554e931d1ea89c03f42, type: 3}
+  m_PrefabInstance: {fileID: 1758389787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1027730394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16504,6 +16518,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1361254374}
     m_Modifications:
     - target: {fileID: -6168967477695698237, guid: dd5b5144df18f554e931d1ea89c03f42, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1020060408}
+    - target: {fileID: -6168967477695698237, guid: dd5b5144df18f554e931d1ea89c03f42, type: 3}
       propertyPath: <levels_config>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: b24e0798bf318d14cba561b8c48180da, type: 2}
@@ -16511,6 +16529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterBuilding
       objectReference: {fileID: 0}
+    - target: {fileID: 2303098999568420176, guid: dd5b5144df18f554e931d1ea89c03f42, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 85f039b3b1308be439fc042d3fd0c3c7, type: 3}
     - target: {fileID: 4355787656599015048, guid: dd5b5144df18f554e931d1ea89c03f42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19242,7 +19264,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 325242807393969507, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
   m_PrefabInstance: {fileID: 4858580613930812329}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 701848863}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 471791de1501ca24eacbfef8325b855c, type: 3}
@@ -20949,6 +20971,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3972951288398399212, guid: cdd235ea3077f7c47b3e726fd3a3dcfd, type: 3}
+      propertyPath: <Resource>k__BackingField
+      value: 
+      objectReference: {fileID: 509004086154684891, guid: cba891707f8b9614888ce76d2ec74204, type: 3}
+    - target: {fileID: 3972951288398399212, guid: cdd235ea3077f7c47b3e726fd3a3dcfd, type: 3}
       propertyPath: <AllObjects>k__BackingField
       value: 
       objectReference: {fileID: 210467388}
@@ -20959,7 +20985,7 @@ PrefabInstance:
     - target: {fileID: 3972951288398399212, guid: cdd235ea3077f7c47b3e726fd3a3dcfd, type: 3}
       propertyPath: <ResourceBuilding>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 905368613}
     - target: {fileID: 3972951288398399212, guid: cdd235ea3077f7c47b3e726fd3a3dcfd, type: 3}
       propertyPath: <ResourceBuildingName>k__BackingField
       value: WaterBuilding
@@ -21195,7 +21221,7 @@ PrefabInstance:
     - target: {fileID: 3435597928799771821, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <resourceBuiding>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1758389789}
     - target: {fileID: 3639426324210746706, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <Barn>k__BackingField
       value: 
@@ -21271,7 +21297,7 @@ PrefabInstance:
     - target: {fileID: 4855522156049095565, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <resourceBuilding>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1758389789}
     - target: {fileID: 5052771095606245197, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: Audio
       value: 
@@ -21331,7 +21357,7 @@ PrefabInstance:
     - target: {fileID: 6896689729513201850, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <FoodResource>k__BackingField
       value: 
-      objectReference: {fileID: 7393638479082453690, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
+      objectReference: {fileID: 701848863}
     - target: {fileID: 6896689729513201850, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <WaterResource>k__BackingField
       value: 
@@ -21435,6 +21461,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1723522088}
     m_Modifications:
     - target: {fileID: 325242807393969507, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
+      propertyPath: <Resource>k__BackingField
+      value: 
+      objectReference: {fileID: 509004086154684891, guid: fe243392cefdf6d4fa52429546fd4c30, type: 3}
+    - target: {fileID: 325242807393969507, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
       propertyPath: <AllObjects>k__BackingField
       value: 
       objectReference: {fileID: 210467388}
@@ -21445,7 +21475,7 @@ PrefabInstance:
     - target: {fileID: 325242807393969507, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
       propertyPath: <ResourceBuilding>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1889624856}
     - target: {fileID: 325242807393969507, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
       propertyPath: <ResourceBuildingName>k__BackingField
       value: FoodBuilding

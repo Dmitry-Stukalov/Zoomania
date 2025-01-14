@@ -9,17 +9,20 @@ using UnityEngine.UIElements;
 
 public class Barn : MonoBehaviour, IPointerClickHandler
 {
-	[field: SerializeField] private GameObject Animal {  get; set; }
+	//[field: SerializeField] private GameObject Animal {  get; set; }
 	[field: SerializeField] private AudioSource Audio { get; set; }
 	[field: SerializeField] private TextMeshPro ClicksCount { get; set; }
 	[field: SerializeField] private Barn_Levels_Config levels_config { get; set; }
+	[field: SerializeField] private Panda_Storage_Config Panda_Storage_Config { get; set; }
 	public Barn_Level CurrentLevel { get; private set; }
 	public List<GameObject> Animals { get; private set; }
+	private MoneyPerClick moneyperclick { get; set; }
 	private GameObject SpawnZone { get; set; }
 	private int ClicksToSpawn { get; set; }
-	private int MaxClicksToSpawn { get; set; } = 2;
-	private int ClicksValueChange { get; set; } = 2;
+	private int MaxClicksToSpawn { get; set; } = 10;
+	private int ClicksValueChange { get; set; } = 5;
 	public int AnimalCount { get; private set; } = 0;
+	private int RandomNumber { get; set; }
 
 	public event Action Spawn;
 	public event Action OnLevelUp;
@@ -33,6 +36,9 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 		ClicksToSpawn = MaxClicksToSpawn;
 		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
+
+		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+
 		UpdateText(ClicksToSpawn);
 	}
 
@@ -46,7 +52,9 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 	public void SpawnAnimal()																	//Спавнит панду когда количество кликов требуемых для создания панды становится равным 0
 	{
-		Animals.Add(Instantiate(Animal, RandomSpawnPoint(), Quaternion.identity));
+		RandomNumber = UnityEngine.Random.Range(0, Panda_Storage_Config.Animals.Count);
+
+		Animals.Add(Instantiate(Panda_Storage_Config.Animals[RandomNumber], RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
 		MaxClicksToSpawn += ClicksValueChange;
 		ClicksToSpawn = MaxClicksToSpawn;
@@ -65,6 +73,13 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 	public void Upgrade()
 	{
+		if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrade)
+		{
+			Debug.Log("Недостаточно монет");
+			return;
+		}
+
+		moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrade);
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 		OnLevelUp?.Invoke();

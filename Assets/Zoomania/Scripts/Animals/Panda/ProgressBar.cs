@@ -11,23 +11,25 @@ public class ProgressBar : MonoBehaviour
 	private int MaxFeedValue { get; set; }
 	private int CurrentFeedValue { get; set; }
 
-
-	private float Value { get; set; }
-
 	private void Start()
 	{
 		AnimalFeeding = gameObject.GetComponentInParent<Animal_Feeding>();
 
 		this.transform.localScale = new Vector3(0, 0, 0);
 		MaxFeedValue = AnimalFeeding.GetRequiredResources();
-
-		Value = BarBackground.transform.localScale.x/MaxFeedValue;
 	}
 
 	public void BarUpdate()															//Увеличивает размер ProgressBar
 	{
 		CurrentFeedValue = MaxFeedValue - AnimalFeeding.GetRequiredResources();
 		this.transform.localScale = new Vector3(BarBackground.transform.localScale.x/MaxFeedValue*CurrentFeedValue, BarBackground.transform.localScale.y, BarBackground.transform.localScale.z);
+	}
+
+	public void BarUpgrade()
+	{
+		MaxFeedValue = AnimalFeeding.GetRequiredResources();
+		CurrentFeedValue = MaxFeedValue - AnimalFeeding.GetRequiredResources();
+		this.transform.localScale = new Vector3(BarBackground.transform.localScale.x / MaxFeedValue * CurrentFeedValue, BarBackground.transform.localScale.y, BarBackground.transform.localScale.z);
 	}
 
 	public void GrownUp()
