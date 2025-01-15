@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fb8bb2573b97f4590b1f77e359aa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <resourceBuiding>k__BackingField: {fileID: 0}
+  <Buiding>k__BackingField: {fileID: 0}
 --- !u!1 &4235285589623992499
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 4419616769408580049}
   - component: {fileID: 2888814450562867725}
   - component: {fileID: 5548937444791711350}
-  - component: {fileID: 5542672890460988549}
+  - component: {fileID: 7753294395854373518}
   m_Layer: 5
   m_Name: UpgradeDescription
   m_TagString: Untagged
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5542672890460988549
+--- !u!114 &7753294395854373518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7858092253502535882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb08c07ff2e1f1f4aaf814f5489b82c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5825cd212364d484d8af54508d2c0321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <resourceBuilding>k__BackingField: {fileID: 0}
+  <Building>k__BackingField: {fileID: 0}

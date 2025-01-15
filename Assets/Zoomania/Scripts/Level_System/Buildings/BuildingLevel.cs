@@ -12,6 +12,6 @@ public class BuildingLevel
 	[field: SerializeField] public int IncomePerSecondValue { get; set; }
 	[field: SerializeField] public int IncomePerClickValue { get; set; }
 	[field: SerializeField] public int DragResourceCapacity { get; set; }
-	[field: SerializeField] public int MoneyForUpgrage { get; set; }
+	[field: SerializeField] public int MoneyForUpgrade { get; set; }
 
 }
