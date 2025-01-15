@@ -9,14 +9,13 @@ using UnityEngine.UIElements;
 
 public class Barn : MonoBehaviour, IPointerClickHandler
 {
-	//[field: SerializeField] private GameObject Animal {  get; set; }
 	[field: SerializeField] private AudioSource Audio { get; set; }
 	[field: SerializeField] private TextMeshPro ClicksCount { get; set; }
 	[field: SerializeField] private Barn_Levels_Config levels_config { get; set; }
 	[field: SerializeField] private Panda_Storage_Config Panda_Storage_Config { get; set; }
 	public Barn_Level CurrentLevel { get; private set; }
 	public List<GameObject> Animals { get; private set; }
-	private MoneyPerClick moneyperclick { get; set; }
+	//private MoneyPerClick moneyperclick { get; set; }
 	private GameObject SpawnZone { get; set; }
 	private int ClicksToSpawn { get; set; }
 	private int MaxClicksToSpawn { get; set; } = 10;
@@ -37,7 +36,7 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 		ClicksToSpawn = MaxClicksToSpawn;
 		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
 
-		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+		//moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
 		UpdateText(ClicksToSpawn);
 	}
@@ -45,6 +44,14 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 	public void OnPointerClick(PointerEventData data)											//—рабатывает при нажатии. ”меньшает количество кликов требуемых дл€ создани€ панды.
 	{
 		ClicksToSpawn -= CurrentLevel.ClicksAtTime;
+		UpdateText(ClicksToSpawn);
+		if (ClicksToSpawn <= 0) SpawnAnimal();
+		Audio.Play();
+	}
+
+	public void OnPointerClick(PointerEventData data, int clicksattime)                                           //—рабатывает при нажатии. ”меньшает количество кликов требуемых дл€ создани€ панды.
+	{
+		ClicksToSpawn -= clicksattime;
 		UpdateText(ClicksToSpawn);
 		if (ClicksToSpawn <= 0) SpawnAnimal();
 		Audio.Play();
@@ -73,13 +80,13 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 	public void Upgrade()
 	{
-		if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrade)
+		/*if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrade)
 		{
 			Debug.Log("Ќедостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrade);
+		moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrade);*/
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 		OnLevelUp?.Invoke();
