@@ -15,6 +15,7 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 	private Animal_Feeding PandaAF { get; set; }
 
 
+
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		if (AnimalPlace.transform.childCount != 0)
@@ -25,7 +26,11 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 			PandaAF = AnimalPlace.GetComponentInChildren<Animal_Feeding>();
 
 			Panda.ChangeParent(Barn, false);
-			Panda.transform.position = Fence.transform.position;
+
+			float randomX = UnityEngine.Random.Range(Fence.transform.position.x - Fence.transform.localScale.x / 2, Fence.transform.position.x + Fence.transform.localScale.x / 2);
+			float randomY = UnityEngine.Random.Range(Fence.transform.position.y - Fence.transform.localScale.y / 2, Fence.transform.position.y + Fence.transform.localScale.y / 2);
+
+			Panda.transform.position = new Vector2(randomX, randomY);
 
 			PandaAI.PersonalPaddock();
 			PandaPP.InPersonalPaddock = false;

@@ -98,6 +98,8 @@ public class Upgrade_Button : MonoBehaviour, IPointerClickHandler
 
 			if (IsSleeping)
 			{
+				moneyperclick.SetMoneyValue(Head.CurrentLevel.MoneyForUpgrade);
+
 				Head.gameObject.SetActive(true);
 				IsSleeping = false;
 				Head.Upgrade();
