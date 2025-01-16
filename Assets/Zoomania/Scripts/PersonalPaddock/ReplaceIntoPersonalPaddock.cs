@@ -1,4 +1,5 @@
 using Animal;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ using UnityEngine;
 public class ReplaceIntoPersonalPaddock : MonoBehaviour
 {
 	[field: SerializeField] private GameObject AnimalPlace;
+
+	public event Action OnChange;
+
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -17,6 +21,8 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 			collision.gameObject.GetComponent<AnimalAI_New>().PersonalPaddock();
 			collision.gameObject.GetComponent<ReplaceToPersonalPaddock>().InPersonalPaddock = true;
 			collision.gameObject.GetComponent<Animal_Feeding>().ChangeVisibility();
+
+			OnChange?.Invoke();
 		}
 		else Debug.Log("Личный загон занят");
 	}

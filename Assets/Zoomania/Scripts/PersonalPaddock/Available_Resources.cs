@@ -24,8 +24,6 @@ public class Available_Resources : MonoBehaviour
 			Resource_New = Resource.GetComponent<Resource_New>();
 			Resource_New.ChangeCapacity(CurrentResources.DragResourceValue());
 
-			Debug.Log(Resource_New.GetCapacity());
-
 			CurrentResources.OnLevelUp += UpdateData;
 
 			start = true;

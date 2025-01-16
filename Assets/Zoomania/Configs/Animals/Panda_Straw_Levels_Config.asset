@@ -14,25 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - <CurrentLevelNumber>k__BackingField: 1
-    <View>k__BackingField: {fileID: 21300000, guid: 1dbbf96e6bc790d4ea9bd908e326cdc2, type: 3}
+    <View>k__BackingField: {fileID: 21300000, guid: 9f0bbfaf442f16f41b9185df2d136dc3, type: 3}
     <RequiredWater>k__BackingField: 40
     <RequiredFood>k__BackingField: 40
     <MoneyPerClick>k__BackingField: 1
     <MoneyPerSecond>k__BackingField: 1
   - <CurrentLevelNumber>k__BackingField: 2
-    <View>k__BackingField: {fileID: 21300000, guid: d9179da38f496e447ad2e6e6355908a5, type: 3}
+    <View>k__BackingField: {fileID: 21300000, guid: b41e8e245d32bb0418b049efa475539a, type: 3}
     <RequiredWater>k__BackingField: 170
     <RequiredFood>k__BackingField: 170
     <MoneyPerClick>k__BackingField: 3
     <MoneyPerSecond>k__BackingField: 3
   - <CurrentLevelNumber>k__BackingField: 3
-    <View>k__BackingField: {fileID: 21300000, guid: c1dbad287f4f1324e86b4c4e69c5e4e7, type: 3}
+    <View>k__BackingField: {fileID: 21300000, guid: 571277f61ffe1b3468a6bda86ccebb9f, type: 3}
     <RequiredWater>k__BackingField: 600
     <RequiredFood>k__BackingField: 600
     <MoneyPerClick>k__BackingField: 5
     <MoneyPerSecond>k__BackingField: 5
   - <CurrentLevelNumber>k__BackingField: 4
-    <View>k__BackingField: {fileID: 21300000, guid: 1b69fa1d44f695745aeed1a292955d12, type: 3}
+    <View>k__BackingField: {fileID: 21300000, guid: 1c24f5008aaf6d441b024b1c9c023e10, type: 3}
     <RequiredWater>k__BackingField: 0
     <RequiredFood>k__BackingField: 0
     <MoneyPerClick>k__BackingField: 10

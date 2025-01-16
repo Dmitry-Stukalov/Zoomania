@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 {
 	[field: SerializeField] private GameObject AnimalPlace { get; set; }
-	[field: SerializeField] GameObject Barn { get; set; }
-	[field: SerializeField] GameObject Fence { get; set; }
+	[field: SerializeField] private GameObject Barn { get; set; }
+	[field: SerializeField] private GameObject Fence { get; set; }
+
 	private Animals_New Panda { get; set; }
 	private AnimalAI_New PandaAI { get; set; }
 	private ReplaceToPersonalPaddock PandaPP { get; set; }
 	private Animal_Feeding PandaAF { get; set; }
+
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
@@ -31,4 +33,5 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 			PandaAF.ChangeVisibility();
 		}
 	}
+
 }
