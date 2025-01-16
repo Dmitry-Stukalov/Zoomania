@@ -14,8 +14,8 @@ public class Resource_View : MonoBehaviour
 	{
 		CurrentResources = ResourceBuilding.GetComponent<Available_Resources>();
 		Text = this.gameObject.GetComponent<TextMeshPro>();
-		Text.text = "0";
 		CurrentResources.OnChange += UpdateUI;
+		UpdateUI();
 	}
 
 	public void UpdateUI()
