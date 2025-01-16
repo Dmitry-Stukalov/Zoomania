@@ -3310,6 +3310,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2810644789684918928, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e8c15a76eb7bb24383c7816df0fbb9f, type: 3}
+    - target: {fileID: 2810644789684918928, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
@@ -21052,6 +21056,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3708393992077005904, guid: cdd235ea3077f7c47b3e726fd3a3dcfd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3364a0d4770831c448ba5a596a69431c, type: 3}
     - target: {fileID: 3972951288398399212, guid: cdd235ea3077f7c47b3e726fd3a3dcfd, type: 3}
       propertyPath: <Resource>k__BackingField
       value: 
@@ -21104,10 +21112,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 158676342}
     m_Modifications:
+    - target: {fileID: 374754357415994296, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Name
+      value: WaterBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 461160858959839924, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Buiding>k__BackingField
+      value: 
+      objectReference: {fileID: 1889624856}
     - target: {fileID: 467198898390067025, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 606555666612046303, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b8cfb9b352abf84ba8cf8c0441efd69, type: 3}
     - target: {fileID: 710336638836684985, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -21140,6 +21160,14 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1046743333938734784, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Building>k__BackingField
+      value: 
+      objectReference: {fileID: 1889624856}
+    - target: {fileID: 1137302855150435287, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1732275068}
     - target: {fileID: 1144656125443779482, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: WaterBuilding
       value: 
@@ -21236,6 +21264,10 @@ PrefabInstance:
       propertyPath: foodbuildingscript
       value: 
       objectReference: {fileID: 1889624857}
+    - target: {fileID: 2423413421850062859, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1732275068}
     - target: {fileID: 2633040350347005867, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21316,6 +21348,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2932589539990415446, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1732275068}
     - target: {fileID: 2973096199065616157, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Name
       value: WaterCount
@@ -21416,6 +21452,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4762914293764075902, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Name
+      value: MoneyBackground
+      objectReference: {fileID: 0}
     - target: {fileID: 4794091942242240894, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_fontSize
       value: 24
@@ -21440,6 +21480,14 @@ PrefabInstance:
       propertyPath: <resourceBuilding>k__BackingField
       value: 
       objectReference: {fileID: 1758389789}
+    - target: {fileID: 5025314426970885604, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025314426970885604, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f0326e9546cbb9d47b983b0829d500e5, type: 3}
     - target: {fileID: 5052771095606245197, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: Audio
       value: 
@@ -21456,6 +21504,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5959896017116654645, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Buiding>k__BackingField
+      value: 
+      objectReference: {fileID: 1536040476}
+    - target: {fileID: 5984548800929317854, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b8cfb9b352abf84ba8cf8c0441efd69, type: 3}
+    - target: {fileID: 6000556166451466268, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Building>k__BackingField
+      value: 
+      objectReference: {fileID: 375655707}
     - target: {fileID: 6031699403915844499, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -21492,6 +21552,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6509202322679154753, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Building>k__BackingField
+      value: 
+      objectReference: {fileID: 1536040476}
+    - target: {fileID: 6604206512836326504, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Buiding>k__BackingField
+      value: 
+      objectReference: {fileID: 375655707}
     - target: {fileID: 6813580417594118482, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -21556,14 +21624,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8093432035143741502, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b8cfb9b352abf84ba8cf8c0441efd69, type: 3}
     - target: {fileID: 8189000169689404851, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <Buiding>k__BackingField
       value: 
       objectReference: {fileID: 1536040476}
+    - target: {fileID: 8226906920844710247, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_Name
+      value: FoodBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375681863816987549, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Building>k__BackingField
+      value: 
+      objectReference: {fileID: 905368613}
     - target: {fileID: 8443177663130953548, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8462865306658021002, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1732275068}
     - target: {fileID: 8577383057434195704, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_TagString
       value: Untagged
@@ -21577,6 +21661,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1147840381}
     - target: {fileID: 8591409524205645276, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Replace>k__BackingField
+      value: 
+      objectReference: {fileID: 2138288025}
+    - target: {fileID: 8591409524205645276, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <AnimalPlace>k__BackingField
       value: 
       objectReference: {fileID: 18695746}
@@ -21584,6 +21672,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 29.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8997346087934027753, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: <Buiding>k__BackingField
+      value: 
+      objectReference: {fileID: 905368613}
     - target: {fileID: 9084665030224141033, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: <Buiding>k__BackingField
       value: 
@@ -21599,6 +21691,7 @@ PrefabInstance:
     - {fileID: 6415488367690240568, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     - {fileID: 3356996904510395493, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     - {fileID: 4621913674118492630, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+    - {fileID: 3342984920440701655, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
@@ -21635,6 +21728,10 @@ PrefabInstance:
       propertyPath: <ResourceBuildingName>k__BackingField
       value: FoodBuilding
       objectReference: {fileID: 0}
+    - target: {fileID: 1560264921237163785, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f8d63e7f8759804bbba55aa18083a8d, type: 3}
     - target: {fileID: 3293117313189491179, guid: 3af5b6c75ebec934c87e5ebf0bf122b6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
