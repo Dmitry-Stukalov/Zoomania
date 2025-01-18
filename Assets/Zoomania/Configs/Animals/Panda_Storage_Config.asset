@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Panda_Storage_Config
   m_EditorClassIdentifier: 
   Animals:
-  - {fileID: 4354971729221301545, guid: cd3084f5853525345822e588db860004, type: 3}
-  - {fileID: 4354971729221301545, guid: 8cfdf3cb5085124408e359cdcbee0b97, type: 3}
+  - {fileID: 827252754475448843, guid: 96963daf533b0bf4f8be2dbfd5759117, type: 3}

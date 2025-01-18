@@ -7,7 +7,6 @@ using UnityEngine;
 public class Animals_New : MonoBehaviour
 {
 	public Panda_Levels_Config levels_config;
-
 	public IncomeResource IncomeMoney { get; private set; }
 	public AnimalLevel CurrentLevel { get; private set; }
 	public MoneyPerClick moneyperclick { get; private set; }
@@ -25,8 +24,9 @@ public class Animals_New : MonoBehaviour
 
 	public void Start()
 	{
-
 		CurrentLevel = levels_config.levels[0];
+
+		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 
 		Barn = GameObject.FindGameObjectWithTag("Barn");
 
@@ -43,6 +43,7 @@ public class Animals_New : MonoBehaviour
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		Debug.Log(CurrentLevel.View);
 
 		IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
 		IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;

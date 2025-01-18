@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Animal_Feeding : MonoBehaviour
 {
-	[field: SerializeField] private ProgressBar Bar { get; set; }
+	[field: SerializeField] private GameObject Water { get; set; }
+	[field: SerializeField] private GameObject Food { get; set; }
+	private TextMeshPro WaterText { get; set; }
+	private TextMeshPro FoodText { get; set; }
 	private Animals_New Animal { get; set; }
 	private bool IsEat { get; set; } = false;
 	private bool IsDrinking { get; set; } = false;
@@ -14,10 +18,16 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void Start()
 	{
-		Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
 		Animal = this.gameObject.GetComponent<Animals_New>();
 		RequiredWater = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredWater;
 		RequiredFood = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredFood;
+
+		WaterText = Water.GetComponentInChildren<TextMeshPro>();
+		FoodText = Food.GetComponentInChildren<TextMeshPro>();
+
+		WaterText.text = RequiredWater.ToString();
+		FoodText.text = RequiredFood.ToString();
+
 		ChangeVisibility();
 	}
 
@@ -31,9 +41,13 @@ public class Animal_Feeding : MonoBehaviour
 			else ReturnedResource = drinkvalue - RequiredWater;
 
 			RequiredWater -= drinkvalue;
-			if (RequiredWater <= 0) IsDrinking = true;
-			Bar.BarUpdate();
-			
+			if (RequiredWater <= 0)
+			{
+				IsDrinking = true;
+				RequiredWater = 0;
+			}
+			WaterText.text = RequiredWater.ToString();
+
 			CheckSatiety();
 
 			return ReturnedResource;
@@ -52,8 +66,12 @@ public class Animal_Feeding : MonoBehaviour
 			else ReturnedResource = foodvalue - RequiredFood;
 
 			RequiredFood -= foodvalue;
-			if (RequiredFood <= 0) IsEat = true;
-			Bar.BarUpdate();
+			if (RequiredFood <= 0)
+			{
+				IsEat = true;
+				RequiredFood = 0;
+			}
+			FoodText.text = RequiredFood.ToString();
 
 			CheckSatiety();
 
@@ -72,13 +90,18 @@ public class Animal_Feeding : MonoBehaviour
 			Animal.Upgrade();
 			RequiredWater = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredWater;
 			RequiredFood = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredFood;
-			Bar.BarUpgrade();
+			WaterText.text = RequiredWater.ToString();
+			FoodText.text = RequiredFood.ToString();
+
+			Water.transform.position = new Vector2(Water.transform.position.x, Water.transform.position.y - 0.15f);
+			Food.transform.position = new Vector2(Food.transform.position.x, Food.transform.position.y - 0.15f);
 		}
 
 		if (Animal.CurrentLevel.CurrentLevelNumber == 4)
 		{
 			Debug.Log("Панда больше не вырастет");
-			Bar.GrownUp();
+			Destroy(Water.gameObject);
+			Destroy(Food.gameObject);
 			return;
 		}
 	}
@@ -90,6 +113,15 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void ChangeVisibility()
 	{
-		Bar.SetSpriteRender();
+		if (Water.activeSelf)
+		{
+			Water.SetActive(false);
+			Food.SetActive(false);
+		}
+		else
+		{
+			Water.SetActive(true);
+			Food.SetActive(true);
+		}
 	}
 }
