@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -121,19 +122,29 @@ public class Upgrade_Button : MonoBehaviour, IPointerClickHandler
 		if (IsResourceBuilding)
 		{
 			if (resourceBuiding.CurrentLevel.CurrentLevelNumber == 10) this.gameObject.SetActive(false);
-			Text.text = resourceBuiding.CurrentLevel.MoneyForUpgrade.ToString();
+			Text.text = TextConversion(resourceBuiding.CurrentLevel.MoneyForUpgrade);
 		}
 
 		if (IsBarn)
 		{
 			if (Barn.CurrentLevel.CurrentLevelNumber == 10) this.gameObject.SetActive(false);
-			Text.text = Barn.CurrentLevel.MoneyForUpgrade.ToString();
+			Text.text = TextConversion(Barn.CurrentLevel.MoneyForUpgrade);
 		}
 
 		if (IsHead)
 		{
 			if (Head.CurrentLevel.CurrentLevelNumber == 5) this.gameObject.SetActive(false);
-			Text.text = Head.CurrentLevel.MoneyForUpgrade.ToString();
+			Text.text = TextConversion(Head.CurrentLevel.MoneyForUpgrade);
 		}
+	}
+	public string TextConversion(int value)
+	{
+		string text;
+		string strvalue = value.ToString();
+		if (value < 1000) return strvalue;
+		if (value >= 1000 && value < 1000000) return text = strvalue.Remove(strvalue.Length-3, strvalue.Length) + "k";
+		if (value >= 10000000) return text = strvalue.Remove(strvalue.Length - 6, strvalue.Length) + "M";
+
+		return null;
 	}
 }

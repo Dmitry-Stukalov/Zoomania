@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler//, IPointerClickHandler
+public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
 	[field: SerializeField] private GameObject Resource { get; set; }
+	[field: SerializeField] private GameObject AnimalPlace { get; set; }
 	private Available_Resources availableResources { get; set; }
 	private Vector3 offset { get; set; }
-	private GameObject resource {  get; set; }
+	private List<GameObject> resources {  get; set; } = new List<GameObject>();
+	private GameObject resource { get; set; }
+	private GameObject dragresource { get; set; }
 	public Camera mainCamera { get; set; }
-	//private Timer WalkTime { get; set; }
-	private bool start { get; set; } = false;
+	private float Speed { get; set; }
 
 	public void Start()
 	{
 		availableResources = this.GetComponent<Available_Resources>();
 	}
 
-	/*public void OnPointerClick(PointerEventData eventData)
+	public void OnPointerClick(PointerEventData eventData)
 	{
 		if (availableResources.CurrentResources.IncomeResources.Resource > 0)
 		{
@@ -31,9 +33,12 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 			resource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
 
+			Speed = Random.Range(15f, 20f);
 
+			resource.GetComponent<Resource_New>().MoveToPoint(AnimalPlace.transform.position, Speed);
+			resources.Add(resource);
 		}
-	}*/
+	}
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
@@ -41,12 +46,12 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 		{
 			mainCamera = Camera.main;
 
-			resource = Instantiate(Resource, this.transform.position, Quaternion.identity);
-			resource.transform.SetParent(this.transform, true);
+			dragresource = Instantiate(Resource, this.transform.position, Quaternion.identity);
+			dragresource.transform.SetParent(this.transform, true);
 
 			availableResources.UpdateDragResource();
 
-			resource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
+			dragresource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
 
 			Vector3 mouseWorldPosition = GetMouseWorldPosition();
 			offset = transform.position - mouseWorldPosition;
@@ -55,19 +60,19 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		if (resource != null)
+		if (dragresource != null)
 		{
 			Vector3 mouseWorldPosition = GetMouseWorldPosition();
-			resource.transform.position = mouseWorldPosition + offset;
+			dragresource.transform.position = mouseWorldPosition + offset;
 		}
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		if (resource != null)
+		if (dragresource != null)
 		{
-			availableResources.PutResource(resource.GetComponent<Resource_New>().TryFeedAnimal());
-			Destroy(resource.gameObject);
+			availableResources.PutResource(dragresource.GetComponent<Resource_New>().TryFeedAnimal());
+			Destroy(dragresource.gameObject);
 		}
 	}
 

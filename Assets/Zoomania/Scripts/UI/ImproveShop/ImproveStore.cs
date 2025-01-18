@@ -6,6 +6,9 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
 {
     [field: SerializeField] private GameObject TargetMenu { get; set; }
 	[field: SerializeField] private GameObject BlockingButton { get; set; }
+	[field: SerializeField] GameObject CoinMenuResource { get; set; }
+	[field: SerializeField] GameObject FoodMenuResource { get; set; }
+	[field: SerializeField] GameObject WaterMenuResource { get; set; }
 	private bool IsHide { get; set; } = false;
 
     void Start()
@@ -28,7 +31,11 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
     {
         TargetMenu.SetActive(!TargetMenu.activeSelf);
 
-        UpdateButtonInteractability();
+		//CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
+		FoodMenuResource.GetComponent<Background_Resource>().SetAnimation();
+		WaterMenuResource.GetComponent<Background_Resource>().SetAnimation();
+
+		UpdateButtonInteractability();
     }
 
     void UpdateButtonInteractability()

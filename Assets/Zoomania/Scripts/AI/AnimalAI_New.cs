@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AnimalAI_New : MonoBehaviour
 {
+
 	private ActionWalking AnimalWalking;
 	private ActionResting AnimalResting = new ActionResting();
 
@@ -32,6 +33,7 @@ public class AnimalAI_New : MonoBehaviour
 	{
 		if (!InPersonalPaddock)
 		{
+
 			AnimalWalking.IsMoving = false;
 			AnimalResting.IsResting = false;
 
