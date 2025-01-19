@@ -31,7 +31,6 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
     {
         TargetMenu.SetActive(!TargetMenu.activeSelf);
 
-		//CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
 		FoodMenuResource.GetComponent<Background_Resource>().SetAnimation();
 		WaterMenuResource.GetComponent<Background_Resource>().SetAnimation();
 

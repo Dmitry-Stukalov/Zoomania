@@ -43,7 +43,6 @@ public class Animals_New : MonoBehaviour
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
-		Debug.Log(CurrentLevel.View);
 
 		IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
 		IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;

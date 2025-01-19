@@ -2,12 +2,14 @@ using Animal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class AnimalAI_New : MonoBehaviour
 {
-
-	private ActionWalking AnimalWalking;
+	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
+	//private ActionWalking AnimalWalking;
+	private ActionWalking_New AnimalWalking;
 	private ActionResting AnimalResting = new ActionResting();
 
 	private Animals Animal { get; set; }
@@ -19,7 +21,14 @@ public class AnimalAI_New : MonoBehaviour
 
 	public void Start()
 	{
-		AnimalWalking = new ActionWalking(GameObject.FindGameObjectWithTag("MovementArea"));
+		foreach (var area in GameObject.FindGameObjectsWithTag("MovementArea"))
+		{
+			MoveAreas.Add(area);
+		}
+
+		Debug.Log(MoveAreas.Count);
+		//AnimalWalking = new ActionWalking(GameObject.FindGameObjectWithTag("MovementArea"));
+		AnimalWalking = new ActionWalking_New(MoveAreas);
 
 		Animal = gameObject.GetComponent<Animals>();
 
@@ -55,17 +64,6 @@ public class AnimalAI_New : MonoBehaviour
 		}
 	}
 
-	public void Update()                                                                                       //Запускает таймер у активного действия
-	{
-		if (AnimalWalking.IsMoving)
-		{
-			AnimalWalking.AnimalPosition = Vector2.MoveTowards(AnimalWalking.AnimalPosition, AnimalWalking.RandomPosition, AnimalWalking.Speed * Time.deltaTime);
-			gameObject.transform.position = AnimalWalking.AnimalPosition;
-			AnimalWalking.WalkingTime.Tick(Time.deltaTime);
-		}
-		if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
-	}
-
 	public void PersonalPaddock()
 	{
 		if (InPersonalPaddock)
@@ -78,5 +76,16 @@ public class AnimalAI_New : MonoBehaviour
 			InPersonalPaddock = true;
 			CancelInvoke();
 		}
+	}
+
+	public void Update()                                                                                       //Запускает таймер у активного действия
+	{
+		if (AnimalWalking.IsMoving)
+		{
+			AnimalWalking.AnimalPosition = Vector2.MoveTowards(AnimalWalking.AnimalPosition, AnimalWalking.RandomPosition, AnimalWalking.Speed * Time.deltaTime);
+			gameObject.transform.position = AnimalWalking.AnimalPosition;
+			AnimalWalking.WalkingTime.Tick(Time.deltaTime);
+		}
+		if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
 	}
 }

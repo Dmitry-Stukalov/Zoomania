@@ -33,9 +33,10 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 			resource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
 
-			Speed = Random.Range(15f, 20f);
+			Speed = Random.Range(8f, 12f);
 
-			resource.GetComponent<Resource_New>().MoveToPoint(AnimalPlace.transform.position, Speed);
+			resource.GetComponent<Resource_New>().FindAllPoints(AnimalPlace.transform.position, Speed);
+			resource.GetComponent<Resource_New>().IsMove = true;
 			resources.Add(resource);
 		}
 	}

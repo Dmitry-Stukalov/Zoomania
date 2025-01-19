@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Resource_New : MonoBehaviour
 {
@@ -8,9 +10,16 @@ public class Resource_New : MonoBehaviour
 	private GameObject Animal { get; set; }
 	private int Capacity { get; set; } = 0;
 	private int ReturnedCapacity { get; set; } = 0;
-	private Vector3 Point { get; set; }
+	private Vector2 Point { get; set; }
 	private float Speed { get; set; }
-	private bool IsMove { get; set; } = false;
+	private Vector2 IntermediatePoint { get; set; }	
+	private Vector2 MotionVector { get; set; }
+	private Vector2 ThisPoint { get; set; }
+	private float DistanceLength { get; set; }
+	private int PointCount { get; set; }
+	private Vector2[] Points { get; set; }
+	public bool IsMove { get; set; } = false;
+	public bool IsMoving { get; set; } = false;
 	private bool OnAnimal { get; set; } = false;
 
 	public void OnCollisionEnter2D(Collision2D collision)
@@ -57,26 +66,60 @@ public class Resource_New : MonoBehaviour
 		return Capacity;
 	}
 
-	public void MoveToPoint(Vector3 point, float speed)
+	public void FindAllPoints(Vector3 point, float speed)
 	{
 		Point = point;
 		Speed = speed;
 
-		this.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-		IsMove = true;
+		ThisPoint = new Vector2(transform.position.x, transform.position.y);
+
+		DistanceLength = Vector2.Distance(transform.position, Point);
+		
+		PointCount = UnityEngine.Random.Range(1, 4);
+		Points = new Vector2[PointCount];
+
+		MotionVector = Point - new Vector2(transform.position.x, transform.position.y);
+
+		for (int i = 0; i < PointCount; i++)
+		{
+			float randomX = UnityEngine.Random.Range((MotionVector / PointCount * (i+1) + ThisPoint).x - 1f, (MotionVector / PointCount * (i + 1) + ThisPoint).x + 1f);
+			float randomY = UnityEngine.Random.Range((MotionVector / PointCount * (i+1) + ThisPoint).y - 1f, (MotionVector / PointCount * (i + 1) + ThisPoint).y + 1f);
+
+			Points[i] = new Vector2(randomX, randomY);
+		}
+		Points[Points.Length-1] = new Vector2(point.x, point.y);
+		PointCount = 0;
+	}
+
+	public Vector2 MoveToPoint(int pointnumber)
+	{
+		return Points[pointnumber];
 	}
 
 	public void Update()
 	{
 		if (IsMove)
 		{
-			this.gameObject.transform.position = Vector2.MoveTowards(this.transform.position, Point, Speed * Time.deltaTime);
-
-			if (this.gameObject.transform.position.x == Point.x)
+			if (!IsMoving)
 			{
+				IntermediatePoint = MoveToPoint(PointCount);
+				IsMoving = true;
+			}
 
-				this.GetComponentInParent<Available_Resources>().PutResource(TryFeedAnimal());
-				Destroy(this.gameObject);
+			if (IsMoving)
+			{
+				transform.position = Vector2.MoveTowards(transform.position, IntermediatePoint, Speed * Time.deltaTime);
+
+				if (Vector2.Distance(transform.position, IntermediatePoint) <= 0.01f)
+				{
+					PointCount++;
+					if (PointCount == Points.Length)
+					{
+						this.GetComponentInParent<Available_Resources>().PutResource(TryFeedAnimal());
+						Destroy(this.gameObject);
+					}
+					IsMoving = false;
+				}
 			}
 		}
 	}
