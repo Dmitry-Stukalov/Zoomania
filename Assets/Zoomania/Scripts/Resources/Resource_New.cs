@@ -82,8 +82,8 @@ public class Resource_New : MonoBehaviour
 
 		for (int i = 0; i < PointCount; i++)
 		{
-			float randomX = UnityEngine.Random.Range((MotionVector / PointCount * (i+1) + ThisPoint).x - 1f, (MotionVector / PointCount * (i + 1) + ThisPoint).x + 1f);
-			float randomY = UnityEngine.Random.Range((MotionVector / PointCount * (i+1) + ThisPoint).y - 1f, (MotionVector / PointCount * (i + 1) + ThisPoint).y + 1f);
+			float randomX = UnityEngine.Random.Range((MotionVector / PointCount * (i+1) + ThisPoint).x - 2f, (MotionVector / PointCount * (i + 1) + ThisPoint).x + 2f);
+			float randomY = UnityEngine.Random.Range((MotionVector / PointCount * (i+1) + ThisPoint).y - 2f, (MotionVector / PointCount * (i + 1) + ThisPoint).y + 2f);
 
 			Points[i] = new Vector2(randomX, randomY);
 		}

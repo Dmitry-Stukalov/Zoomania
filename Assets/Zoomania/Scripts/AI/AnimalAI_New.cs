@@ -7,10 +7,12 @@ using UnityEngine;
 
 public class AnimalAI_New : MonoBehaviour
 {
+	[field: SerializeField] Animator animator { get; set; }
 	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
-	//private ActionWalking AnimalWalking;
 	private ActionWalking_New AnimalWalking;
 	private ActionResting AnimalResting = new ActionResting();
+
+	private int RandomAnimation {  get; set; }
 
 	private Animals Animal { get; set; }
 	private int Action { get; set; }
@@ -26,8 +28,6 @@ public class AnimalAI_New : MonoBehaviour
 			MoveAreas.Add(area);
 		}
 
-		Debug.Log(MoveAreas.Count);
-		//AnimalWalking = new ActionWalking(GameObject.FindGameObjectWithTag("MovementArea"));
 		AnimalWalking = new ActionWalking_New(MoveAreas);
 
 		Animal = gameObject.GetComponent<Animals>();
@@ -46,6 +46,9 @@ public class AnimalAI_New : MonoBehaviour
 			AnimalWalking.IsMoving = false;
 			AnimalResting.IsResting = false;
 
+			animator.SetBool("IsMoving", false);
+			animator.SetBool("IsMoving2", false);
+
 			CancelInvoke();
 
 			Action = UnityEngine.Random.Range(0, 15);
@@ -58,9 +61,18 @@ public class AnimalAI_New : MonoBehaviour
 
 			if (Action >= 7 && Action <= 15)
 			{
+				RandomAnimation = UnityEngine.Random.Range(1, 3);
+				if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
+				if (RandomAnimation == 2) animator.SetBool("IsMoving2", true);
+
 				IsDoAction = true;
 				AnimalWalking.Walking(this.gameObject);
 			}
+		}
+		else
+		{
+			animator.SetBool("IsMoving", false);
+			animator.SetBool("IsMoving2", false);
 		}
 	}
 
@@ -80,12 +92,15 @@ public class AnimalAI_New : MonoBehaviour
 
 	public void Update()                                                                                       //Запускает таймер у активного действия
 	{
-		if (AnimalWalking.IsMoving)
+		if (!InPersonalPaddock)
 		{
-			AnimalWalking.AnimalPosition = Vector2.MoveTowards(AnimalWalking.AnimalPosition, AnimalWalking.RandomPosition, AnimalWalking.Speed * Time.deltaTime);
-			gameObject.transform.position = AnimalWalking.AnimalPosition;
-			AnimalWalking.WalkingTime.Tick(Time.deltaTime);
+			if (AnimalWalking.IsMoving)
+			{
+				AnimalWalking.AnimalPosition = Vector2.MoveTowards(AnimalWalking.AnimalPosition, AnimalWalking.RandomPosition, AnimalWalking.Speed * Time.deltaTime);
+				gameObject.transform.position = AnimalWalking.AnimalPosition;
+				AnimalWalking.WalkingTime.Tick(Time.deltaTime);
+			}
+			if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
 		}
-		if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
 	}
 }

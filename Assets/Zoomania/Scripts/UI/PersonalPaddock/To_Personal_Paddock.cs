@@ -17,8 +17,6 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
-		//FoodMenuResource.GetComponent<Background_Resource>().SetAnimation();
-		//WaterMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
 		FirstScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetFirstSceneObjects();
 		SecondScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetSecondSceneObjects();

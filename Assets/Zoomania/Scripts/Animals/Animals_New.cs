@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Animals_New : MonoBehaviour
 {
+
 	public Panda_Levels_Config levels_config;
 	public IncomeResource IncomeMoney { get; private set; }
 	public AnimalLevel CurrentLevel { get; private set; }

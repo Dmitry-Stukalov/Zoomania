@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,7 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 {
 	[field: SerializeField] private GameObject Resource { get; set; }
 	[field: SerializeField] private GameObject AnimalPlace { get; set; }
+	//[field: SerializeField] private GameObject Parent { get; set; }
 	private Available_Resources availableResources { get; set; }
 	private Vector3 offset { get; set; }
 	private List<GameObject> resources {  get; set; } = new List<GameObject>();
@@ -14,6 +16,7 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 	private GameObject dragresource { get; set; }
 	public Camera mainCamera { get; set; }
 	private float Speed { get; set; }
+
 
 	public void Start()
 	{
@@ -33,11 +36,12 @@ public class Spawn_Drag_Resource:MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 			resource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
 
-			Speed = Random.Range(8f, 12f);
+			Speed = Random.Range(10f, 15f);
 
 			resource.GetComponent<Resource_New>().FindAllPoints(AnimalPlace.transform.position, Speed);
 			resource.GetComponent<Resource_New>().IsMove = true;
 			resources.Add(resource);
+
 		}
 	}
 

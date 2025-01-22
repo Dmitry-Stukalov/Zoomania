@@ -41,7 +41,7 @@ public class ActionWalking_New
 				break;
 			}
 		}
-		Debug.Log(CanMove);
+
 		if (CanMove)
 		{
 			int pointcount = 10;

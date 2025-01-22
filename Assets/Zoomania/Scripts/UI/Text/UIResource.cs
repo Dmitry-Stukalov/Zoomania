@@ -6,21 +6,21 @@ using UnityEngine.Rendering.UI;
 
 public class UIResource : MonoBehaviour
 {
-	[field: SerializeField] private string BuildingName {  get; set; }
+	[field: SerializeField] private GameObject Building {  get; set; }
 	private TextMeshProUGUI Text { get; set; }
 	private ResourceBuilding resourcebuildingscript { get; set; }
 	private MoneyPerClick moneyscript { get; set; }
 
 	public void Start()
 	{
-		if (BuildingName == "FoodBuilding" || BuildingName == "WaterBuilding")
+		if (Building.tag == "FoodBuilding" || Building.tag == "WaterBuilding")
 		{
-			resourcebuildingscript = GameObject.FindGameObjectWithTag(BuildingName).GetComponent<ResourceBuilding>();
+			resourcebuildingscript = Building.GetComponent<ResourceBuilding>();
 			resourcebuildingscript.OnChange += UpdateUI;
 		}
-		if (BuildingName == "Money")
+		if (Building.tag == "Money")
 		{
-			moneyscript = GameObject.FindGameObjectWithTag(BuildingName).GetComponent<MoneyPerClick>();
+			moneyscript = Building.GetComponent<MoneyPerClick>();
 			moneyscript.OnChange += UpdateUI;
 		}
 
@@ -29,11 +29,11 @@ public class UIResource : MonoBehaviour
 
 	public void UpdateUI()
 	{
-		if (BuildingName == "FoodBuilding" || BuildingName == "WaterBuilding")
+		if (Building.tag == "FoodBuilding" || Building.tag == "WaterBuilding")
 		{
 			Text.text = TextConversion(resourcebuildingscript.IncomeResources.Resource);
 		}
-		if (BuildingName == "Money")
+		if (Building.tag == "Money")
 		{
 			Text.text = TextConversion(moneyscript.IncomeMoney.Resource);
 		}

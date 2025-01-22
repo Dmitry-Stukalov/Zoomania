@@ -30,20 +30,4 @@ public class All_Objects : MonoBehaviour
 	{
 		return SecondScene;
 	}
-
-	/*public GameObject FindObjectForTag(int scene, string tag)
-	{
-		if (scene == 1)
-			foreach (var objects in FirstScene)
-			{
-				if (objects.transform.tag == tag) return objects;
-			}
-		if (scene == 2)
-			foreach (var objects in SecondScene)
-			{
-				if (objects.transform.tag == tag) return objects;
-			}
-
-		return null;
-	}*/
 }
