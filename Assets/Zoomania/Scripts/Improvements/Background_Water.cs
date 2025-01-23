@@ -14,10 +14,17 @@ public class Background_Water : MonoBehaviour
 		animator = GetComponent<Animator>();
 	}
 
+	public void OnEnable()
+	{
+		animator = GetComponent<Animator>();
+		animator.Rebind();
+		animator.Update(0f);
+		animator.Play("Water_Idle");
+	}
+
 	public void RandomAnimation()
 	{
-		RandomNumber = Random.Range(1, 2);
-		Debug.Log(RandomNumber);
+		RandomNumber = Random.Range(1, 3);
 		animator.SetBool(RandomNumber.ToString(), true);
 	}
 

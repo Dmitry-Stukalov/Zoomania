@@ -20,16 +20,36 @@ MonoBehaviour:
   - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
     <CurrentLevelNumber>k__BackingField: 2
     <ClicksAtTime>k__BackingField: 2
-    <MoneyForUpgrade>k__BackingField: 1500
+    <MoneyForUpgrade>k__BackingField: 1000
   - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
     <CurrentLevelNumber>k__BackingField: 3
     <ClicksAtTime>k__BackingField: 3
-    <MoneyForUpgrade>k__BackingField: 3000
+    <MoneyForUpgrade>k__BackingField: 2500
   - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
     <CurrentLevelNumber>k__BackingField: 4
     <ClicksAtTime>k__BackingField: 4
-    <MoneyForUpgrade>k__BackingField: 5000
+    <MoneyForUpgrade>k__BackingField: 4000
   - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
     <CurrentLevelNumber>k__BackingField: 5
     <ClicksAtTime>k__BackingField: 5
+    <MoneyForUpgrade>k__BackingField: 7000
+  - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
+    <CurrentLevelNumber>k__BackingField: 6
+    <ClicksAtTime>k__BackingField: 6
+    <MoneyForUpgrade>k__BackingField: 10000
+  - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
+    <CurrentLevelNumber>k__BackingField: 7
+    <ClicksAtTime>k__BackingField: 7
+    <MoneyForUpgrade>k__BackingField: 15000
+  - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
+    <CurrentLevelNumber>k__BackingField: 8
+    <ClicksAtTime>k__BackingField: 8
+    <MoneyForUpgrade>k__BackingField: 20000
+  - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
+    <CurrentLevelNumber>k__BackingField: 9
+    <ClicksAtTime>k__BackingField: 9
+    <MoneyForUpgrade>k__BackingField: 40000
+  - <View>k__BackingField: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
+    <CurrentLevelNumber>k__BackingField: 10
+    <ClicksAtTime>k__BackingField: 10
     <MoneyForUpgrade>k__BackingField: 0

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class AnimalAI_New : MonoBehaviour
 {
-	[field: SerializeField] Animator animator { get; set; }
+	Animator animator { get; set; }
 	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
 	private ActionWalking_New AnimalWalking;
 	private ActionResting AnimalResting = new ActionResting();
@@ -23,6 +23,8 @@ public class AnimalAI_New : MonoBehaviour
 
 	public void Start()
 	{
+		animator = GetComponent<Animator>();
+
 		foreach (var area in GameObject.FindGameObjectsWithTag("MovementArea"))
 		{
 			MoveAreas.Add(area);
@@ -36,6 +38,19 @@ public class AnimalAI_New : MonoBehaviour
 		AnimalResting.RestingTime.OnTimerEnd += RandomActions;
 
 		RandomActions();
+	}
+
+	public void OnEnable()
+	{
+		animator = GetComponent<Animator>();
+		animator.Rebind();
+		animator.Update(0f);
+		animator.Play("A_Panda_New_Idle");
+	}
+
+	public void OnDisable()
+	{
+		PersonalPaddock();
 	}
 
 	public void RandomActions()                                                                                       //–андомно выбирает действие дл€ панды
@@ -86,6 +101,8 @@ public class AnimalAI_New : MonoBehaviour
 		else
 		{
 			InPersonalPaddock = true;
+			animator.SetBool("IsMoving", false);
+			animator.SetBool("IsMoving2", false);
 			CancelInvoke();
 		}
 	}

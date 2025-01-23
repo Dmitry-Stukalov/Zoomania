@@ -121,7 +121,7 @@ public class Upgrade_Button : MonoBehaviour, IPointerClickHandler
 	{
 		if (IsResourceBuilding)
 		{
-			if (resourceBuiding.CurrentLevel.CurrentLevelNumber == 10) this.gameObject.SetActive(false);
+			if (resourceBuiding.CurrentLevel.CurrentLevelNumber == 20) this.gameObject.SetActive(false);
 			Text.text = TextConversion(resourceBuiding.CurrentLevel.MoneyForUpgrade);
 		}
 
@@ -133,7 +133,7 @@ public class Upgrade_Button : MonoBehaviour, IPointerClickHandler
 
 		if (IsHead)
 		{
-			if (Head.CurrentLevel.CurrentLevelNumber == 5) this.gameObject.SetActive(false);
+			if (Head.CurrentLevel.CurrentLevelNumber == 10) this.gameObject.SetActive(false);
 			Text.text = TextConversion(Head.CurrentLevel.MoneyForUpgrade);
 		}
 	}

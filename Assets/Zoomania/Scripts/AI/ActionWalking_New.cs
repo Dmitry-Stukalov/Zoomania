@@ -97,7 +97,6 @@ public class ActionWalking_New
 					mindistance = Vector2.Distance(AnimalPosition, AreaPosition);
 					RandomPosition2 = AreaPosition;
 					MoveArea = MoveAreas[i];
-					Debug.Log(mindistance);
 				}
 			}
 
