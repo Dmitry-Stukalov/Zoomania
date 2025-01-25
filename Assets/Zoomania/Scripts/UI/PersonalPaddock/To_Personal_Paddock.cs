@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 {
@@ -16,6 +17,9 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		//AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Region_Map");
+
+
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
 		FirstScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetFirstSceneObjects();

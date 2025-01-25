@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class AnimalAI_New : MonoBehaviour
 {
-	Animator animator { get; set; }
+	//Animator animator { get; set; }
 	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
 	private ActionWalking_New AnimalWalking;
 	private ActionResting AnimalResting = new ActionResting();
@@ -23,7 +23,7 @@ public class AnimalAI_New : MonoBehaviour
 
 	public void Start()
 	{
-		animator = GetComponent<Animator>();
+		//animator = GetComponent<Animator>();
 
 		foreach (var area in GameObject.FindGameObjectsWithTag("MovementArea"))
 		{
@@ -40,14 +40,6 @@ public class AnimalAI_New : MonoBehaviour
 		RandomActions();
 	}
 
-	public void OnEnable()
-	{
-		animator = GetComponent<Animator>();
-		animator.Rebind();
-		animator.Update(0f);
-		animator.Play("A_Panda_New_Idle");
-	}
-
 	public void OnDisable()
 	{
 		PersonalPaddock();
@@ -61,8 +53,8 @@ public class AnimalAI_New : MonoBehaviour
 			AnimalWalking.IsMoving = false;
 			AnimalResting.IsResting = false;
 
-			animator.SetBool("IsMoving", false);
-			animator.SetBool("IsMoving2", false);
+			//animator.SetBool("IsMoving", false);
+			//animator.SetBool("IsMoving2", false);
 
 			CancelInvoke();
 
@@ -76,9 +68,9 @@ public class AnimalAI_New : MonoBehaviour
 
 			if (Action >= 7 && Action <= 15)
 			{
-				RandomAnimation = UnityEngine.Random.Range(1, 3);
+				/*RandomAnimation = UnityEngine.Random.Range(1, 3);
 				if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
-				if (RandomAnimation == 2) animator.SetBool("IsMoving2", true);
+				if (RandomAnimation == 2) animator.SetBool("IsMoving2", true);*/
 
 				IsDoAction = true;
 				AnimalWalking.Walking(this.gameObject);
@@ -86,8 +78,8 @@ public class AnimalAI_New : MonoBehaviour
 		}
 		else
 		{
-			animator.SetBool("IsMoving", false);
-			animator.SetBool("IsMoving2", false);
+			//animator.SetBool("IsMoving", false);
+			//animator.SetBool("IsMoving2", false);
 		}
 	}
 
@@ -101,8 +93,8 @@ public class AnimalAI_New : MonoBehaviour
 		else
 		{
 			InPersonalPaddock = true;
-			animator.SetBool("IsMoving", false);
-			animator.SetBool("IsMoving2", false);
+			//animator.SetBool("IsMoving", false);
+			//animator.SetBool("IsMoving2", false);
 			CancelInvoke();
 		}
 	}
