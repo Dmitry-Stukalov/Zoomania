@@ -30,4 +30,5 @@ public class All_Objects : MonoBehaviour
 	{
 		return SecondScene;
 	}
+
 }

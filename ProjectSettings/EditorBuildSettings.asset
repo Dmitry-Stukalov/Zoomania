@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Zoomania/Scenes/Scene_First_Level.unity
     guid: c0716e1a954a13d41954afca8616d16a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Zoomania/Scenes/Region_map.unity
     guid: ccfbf7347b508d3469cf77ae413ccdce
   - enabled: 1
