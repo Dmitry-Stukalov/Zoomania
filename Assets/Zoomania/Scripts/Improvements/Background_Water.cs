@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Background_Water : MonoBehaviour
 {
-	/*private Animator animator { get; set; }
+	private Animator animator { get; set; }
 	private int RandomNumber { get; set; }
 	private bool IsOver { get; set; } = true;
 	private Timer PauseTime { get; set; } = new Timer(10);
@@ -40,5 +40,5 @@ public class Background_Water : MonoBehaviour
 		IsOver = true;
 		animator.SetBool(RandomNumber.ToString(), false);
 		PauseTime.Continue();
-	}*/
+	}
 }

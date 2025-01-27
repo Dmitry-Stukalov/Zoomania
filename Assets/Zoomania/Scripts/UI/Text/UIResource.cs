@@ -13,6 +13,7 @@ public class UIResource : MonoBehaviour
 
 	public void Start()
 	{
+
 		if (Building.tag == "FoodBuilding" || Building.tag == "WaterBuilding")
 		{
 			resourcebuildingscript = Building.GetComponent<ResourceBuilding>();

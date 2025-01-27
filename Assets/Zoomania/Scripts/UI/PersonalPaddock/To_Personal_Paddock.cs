@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,14 +15,22 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 	[field: SerializeField] GameObject FoodMenuResource { get; set; }
 	[field: SerializeField] GameObject WaterMenuResource { get; set; }
 
+
 	private List<GameObject> FirstScene = new List<GameObject>();
 	private SpriteRenderer[] spriteRenderers;
+	private TextMeshPro[] Texts;
 	private List<GameObject> SecondScene = new List<GameObject>();
+	private Camera maincamera { get; set; }
+
+
+	public void Start()
+	{
+		maincamera = Camera.main;
+	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		SceneManager.LoadSceneAsync("Region_Map", LoadSceneMode.Additive);
-
+		maincamera.transform.position = new Vector3(maincamera.transform.position.x-23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
 
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
@@ -38,24 +47,7 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 
 		for (int i = 0; i < FirstScene.Count; i++)
 		{
-			//FirstScene[i].SetActive(false);
-			if (FirstScene[i].transform.childCount > 0)
-			{
-				spriteRenderers = new SpriteRenderer[FirstScene[i].transform.childCount];
-				spriteRenderers = FirstScene[i].GetComponentsInChildren<SpriteRenderer>();
-
-				for (int j = 0; j < FirstScene[i].transform.childCount; j++)
-				{
-					spriteRenderers[j].enabled = false;
-				}
-			}
-			else
-			{
-				if (FirstScene[i].layer == 5) FirstScene[i].GetComponent<Image>().enabled = false;
-				else FirstScene[i].GetComponent<SpriteRenderer>().enabled = false;
-			}
-
+			FirstScene[i].SetActive(false);
 		}
-
 	}
 }

@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 2747809498030506963}
   - component: {fileID: 8883290900898687182}
   - component: {fileID: 2678705171620274991}
+  - component: {fileID: 643572749770537941}
   m_Layer: 5
   m_Name: WaterText
   m_TagString: Untagged
@@ -831,6 +832,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Building>k__BackingField: {fileID: 0}
+--- !u!114 &643572749770537941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542126158116124681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af1f57f8aace174691648568a05e281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1869253581388350942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1645,7 @@ GameObject:
   - component: {fileID: 4148248516875613144}
   - component: {fileID: 3960642048276335780}
   - component: {fileID: 2811579565726025060}
+  - component: {fileID: 6088710975578607689}
   m_Layer: 5
   m_Name: FoodText
   m_TagString: FoodBuilding
@@ -1768,6 +1782,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Building>k__BackingField: {fileID: 0}
+--- !u!114 &6088710975578607689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215569940301881201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e210d24aeabe34cae02b5102da7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4475193765478866733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,6 +2165,7 @@ GameObject:
   - component: {fileID: 572389859219114822}
   - component: {fileID: 6353986898805295197}
   - component: {fileID: 6956734760440818224}
+  - component: {fileID: 1266643122899350594}
   m_Layer: 5
   m_Name: MoneyText
   m_TagString: Untagged
@@ -2275,6 +2302,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Building>k__BackingField: {fileID: 0}
+--- !u!114 &1266643122899350594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033848567343983050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37985367162a044cac1904f067eecf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6108970373181838385
 GameObject:
   m_ObjectHideFlags: 0

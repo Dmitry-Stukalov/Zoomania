@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 7393389749723252005}
   - component: {fileID: 439530030383287906}
   - component: {fileID: 4445317578383412085}
+  - component: {fileID: 2862076449859216658}
+  - component: {fileID: 8843764886724460255}
+  - component: {fileID: 3610366488481981}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -112,6 +115,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e589e3f5fadf0346ac6a69b2ec0e05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2862076449859216658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb6bdfdf6ca3bb4b911a34f57ed3520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WaterBuildingScript>k__BackingField: {fileID: 0}
+--- !u!114 &8843764886724460255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee7df2e22d9b35488e0a1cdbd428f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <FoodBuildingScript>k__BackingField: {fileID: 0}
+--- !u!114 &3610366488481981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5d49556f678c4448a7b18c6cb2e723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MoneyBuildingScript>k__BackingField: {fileID: 0}
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0
