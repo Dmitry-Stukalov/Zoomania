@@ -97,6 +97,12 @@ public class AnimalAI_New : MonoBehaviour
 		}
 	}
 
+	public void Eating(bool flag)
+	{
+		if (flag) animator.SetBool("IsEat", true);
+		else animator.SetBool("IsEat", false);
+	}
+
 	public void Update()                                                                                       //Запускает таймер у активного действия
 	{
 		if (!InPersonalPaddock)

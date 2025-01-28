@@ -18,7 +18,7 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 	private GameObject SpawnZone { get; set; }
 	private int ClicksToSpawn { get; set; }
 	public int MaxClicksToSpawn { get; set; } = 10;
-	private int ClicksValueChange { get; set; } = 10;
+	private int ClicksValueChange { get; set; } = 15;
 	public int AnimalCount { get; private set; } = 0;
 	private int RandomNumber { get; set; }
 

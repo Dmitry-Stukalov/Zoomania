@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2862076449859216658}
   - component: {fileID: 8843764886724460255}
   - component: {fileID: 3610366488481981}
+  - component: {fileID: 7205765998198908044}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -154,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MoneyBuildingScript>k__BackingField: {fileID: 0}
+--- !u!114 &7205765998198908044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d131709feb9318948a115e155ea18d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0

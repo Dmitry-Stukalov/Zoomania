@@ -9,17 +9,24 @@ public class Spawn_Drag_Resource:MonoBehaviour/*, IBeginDragHandler, IDragHandle
 {
 	[field: SerializeField] private GameObject Resource { get; set; }
 	[field: SerializeField] private GameObject AnimalPlace { get; set; }
+	private ObjectPool<GameObject> Pool { get; set; }
+	private AnimalAI_New Panda {  get; set; }
 	private Available_Resources availableResources { get; set; }
 	private Vector3 offset { get; set; }
 	private GameObject resource { get; set; }
 	//private GameObject dragresource { get; set; }
 	public Camera mainCamera { get; set; }
+	private Timer FeedTime { get; set; }
 	private float Speed { get; set; }
-	private ObjectPool<GameObject> Pool { get; set; }
 
 
 	public void Start()
 	{
+		FeedTime = new Timer(1f);
+		FeedTime.SetPause();
+
+		FeedTime.OnTimerEnd += PandaDontEat;
+
 		availableResources = this.GetComponent<Available_Resources>();
 		Pool = new ObjectPool<GameObject>
 		(
@@ -34,11 +41,19 @@ public class Spawn_Drag_Resource:MonoBehaviour/*, IBeginDragHandler, IDragHandle
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+
+		if (AnimalPlace.transform.childCount > 0)
+		{
+			Panda = AnimalPlace.GetComponentInChildren<AnimalAI_New>();
+
+			FeedTime.ResetTimer(false);
+			Panda.Eating(true);
+		}
+
 		if (availableResources.CurrentResources.IncomeResources.Resource > 0)
 		{
 			mainCamera = Camera.main;
 
-			//resource = Instantiate(Resource, this.transform.position, Quaternion.identity);
 			resource = Pool.Get();
 			resource.transform.SetParent(this.transform, true);
 			resource.transform.position = transform.position;
@@ -58,6 +73,17 @@ public class Spawn_Drag_Resource:MonoBehaviour/*, IBeginDragHandler, IDragHandle
 	public void DestroyResource(GameObject _resource)
 	{
 		Pool.Release(_resource);
+	}
+
+	public void PandaDontEat()
+	{
+		Panda.Eating(false);
+		FeedTime.ResetTimer(true);
+	}
+
+	public void Update()
+	{
+		FeedTime.Tick(Time.deltaTime);
 	}
 
 	/*public void OnBeginDrag(PointerEventData eventData)

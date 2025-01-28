@@ -27,7 +27,7 @@ public class Animals_New : MonoBehaviour
 	{
 		CurrentLevel = levels_config.levels[0];
 
-		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 
 		Barn = GameObject.FindGameObjectWithTag("Barn");
 

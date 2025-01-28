@@ -21,6 +21,7 @@ TagManager:
   - Second Camera
   - Text
   - Invisible
+  - Bamboo
   layers:
   - Default
   - TransparentFX
