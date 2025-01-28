@@ -305,9 +305,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f34c38ec5d24dd9418a8c27e49c2f4ec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3ce8466d137e2a44ea36622e5a920e35, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 6893515349327954896}
   - component: {fileID: 2810644789684918928}
   - component: {fileID: 8981818364618240944}
+  - component: {fileID: 2823980541867126185}
   - component: {fileID: 2945095277553612636}
   - component: {fileID: 5691585517724996376}
   m_Layer: 0
@@ -501,6 +502,19 @@ MonoBehaviour:
   <ClicksCount>k__BackingField: {fileID: 3420044950258912447}
   <levels_config>k__BackingField: {fileID: 0}
   <Panda_Storage_Config>k__BackingField: {fileID: 0}
+--- !u!114 &2823980541867126185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160674487324062839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab85875ff8d528f4a909dfced802adb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: cf6765eb7d095b04da396b50234de62d, type: 2}
 --- !u!114 &2945095277553612636
 MonoBehaviour:
   m_ObjectHideFlags: 0

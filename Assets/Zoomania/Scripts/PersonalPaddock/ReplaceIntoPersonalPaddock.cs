@@ -18,12 +18,11 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 			collision.gameObject.GetComponent<Animals_New>().ChangeParent(AnimalPlace, false);
 			collision.gameObject.transform.parent = AnimalPlace.transform;
 			collision.gameObject.transform.position = AnimalPlace.transform.position;
-			collision.gameObject.GetComponent<AnimalAI_New>().PersonalPaddock();
-			collision.gameObject.GetComponent<ReplaceToPersonalPaddock>().InPersonalPaddock = true;
+			//collision.gameObject.GetComponent<AnimalAI_New>().PersonalPaddock();
+			collision.gameObject.GetComponent<DragAnimal>().InPersonalPaddock = true;
 			collision.gameObject.GetComponent<Animal_Feeding>().ChangeVisibility();
 
 			OnChange?.Invoke();
 		}
-		else Debug.Log("Личный загон занят");
 	}
 }

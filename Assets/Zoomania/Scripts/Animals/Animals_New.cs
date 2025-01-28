@@ -43,7 +43,8 @@ public class Animals_New : MonoBehaviour
 	public void Upgrade()                                                                   //Повышение уровня панды
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;
 
 		IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
 		IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;

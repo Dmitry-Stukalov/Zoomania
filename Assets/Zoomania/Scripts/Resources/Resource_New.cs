@@ -116,7 +116,8 @@ public class Resource_New : MonoBehaviour
 					if (PointCount == Points.Length)
 					{
 						this.GetComponentInParent<Available_Resources>().PutResource(TryFeedAnimal());
-						Destroy(this.gameObject);
+						gameObject.GetComponentInParent<Spawn_Drag_Resource>().DestroyResource(gameObject);
+						//Destroy(this.gameObject);
 					}
 					IsMoving = false;
 				}

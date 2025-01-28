@@ -11,10 +11,8 @@ public class AnimalAI_New : MonoBehaviour
 	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
 	private ActionWalking_New AnimalWalking;
 	private ActionResting AnimalResting = new ActionResting();
-
-	private int RandomAnimation {  get; set; }
-
 	private Animals Animal { get; set; }
+	private int RandomAnimation { get; set; }
 	private int Action { get; set; }
 
 
@@ -38,11 +36,6 @@ public class AnimalAI_New : MonoBehaviour
 		AnimalResting.RestingTime.OnTimerEnd += RandomActions;
 
 		RandomActions();
-	}
-
-	public void OnDisable()
-	{
-		PersonalPaddock();
 	}
 
 	public void RandomActions()                                                                                       //–андомно выбирает действие дл€ панды
@@ -78,6 +71,11 @@ public class AnimalAI_New : MonoBehaviour
 		}
 		else
 		{
+			CancelInvoke();
+
+			AnimalWalking.IsMoving = false;
+			AnimalResting.IsResting = false;
+
 			animator.SetBool("IsMoving", false);
 			animator.SetBool("IsMoving2", false);
 		}

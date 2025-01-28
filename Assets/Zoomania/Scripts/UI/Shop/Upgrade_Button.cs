@@ -137,13 +137,25 @@ public class Upgrade_Button : MonoBehaviour, IPointerClickHandler
 			Text.text = TextConversion(Head.CurrentLevel.MoneyForUpgrade);
 		}
 	}
-	public string TextConversion(int value)
+
+	public string TextConversion(float value)
 	{
 		string text;
-		string strvalue = value.ToString();
-		if (value < 1000) return strvalue;
-		if (value >= 1000 && value < 1000000) return text = strvalue.Remove(strvalue.Length-3, strvalue.Length) + "k";
-		if (value >= 10000000) return text = strvalue.Remove(strvalue.Length - 6, strvalue.Length) + "M";
+		if (value < 1000) return value.ToString();
+		if (value >= 1000 && value < 1000000)
+		{
+			value /= 1000;
+			value = Mathf.Floor(value * 10) / 10;
+			text = value.ToString() + "k";
+			return text;
+		}
+		if (value >= 10000000)
+		{
+			value /= 1000000;
+			value = Mathf.Floor(value * 10) / 10;
+			text = value.ToString() + "M";
+			return text;
+		}
 
 		return null;
 	}

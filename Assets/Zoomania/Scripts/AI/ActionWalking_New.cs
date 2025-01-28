@@ -7,6 +7,7 @@ using UnityEngine;
 public class ActionWalking_New
 {
 	[field:SerializeField] public List<GameObject> MoveAreas { get; set; }
+	private List<Collider2D> Colliders { get; set; }
 	private GameObject MoveArea {  get; set; }
 	public Camera MainCamera { get; set; }
 	public Vector2 ScreenBounds { get; private set; }
@@ -26,6 +27,17 @@ public class ActionWalking_New
 	public ActionWalking_New(List<GameObject> _MoveAreas)
 	{
 		MoveAreas = _MoveAreas;
+
+		Colliders = new List<Collider2D>();
+
+		foreach (var area in MoveAreas)
+		{
+			var collider = area.GetComponent<Collider2D>();
+			if (collider != null)
+			{
+				Colliders.Add(collider);
+			}
+		}
 	}
 
 
@@ -44,9 +56,8 @@ public class ActionWalking_New
 
 		if (CanMove)
 		{
-			int pointcount = 10;
+			int pointcount = 4;
 
-			//return new Vector2(randomX, randomY);
 
 			RandomNumber = Random.Range(0, MoveAreas.Count);
 			MoveArea = MoveAreas[RandomNumber];
