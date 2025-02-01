@@ -13,6 +13,7 @@ public class AnimalAI_New : MonoBehaviour
 	private ActionResting AnimalResting = new ActionResting();
 	private Animals Animal { get; set; }
 	private int RandomAnimation { get; set; }
+	private float RandomTime { get; set; }
 	private int Action { get; set; }
 
 
@@ -48,6 +49,7 @@ public class AnimalAI_New : MonoBehaviour
 
 			animator.SetBool("IsMoving", false);
 			animator.SetBool("IsMoving2", false);
+			animator.SetBool("IsFlip", false);
 
 			CancelInvoke();
 
@@ -55,6 +57,11 @@ public class AnimalAI_New : MonoBehaviour
 
 			if (Action >= 0 && Action <= 6)
 			{
+				RandomTime = UnityEngine.Random.Range(3, AnimalResting.RestingTime.MaxTime - 3);
+				RandomAnimation = UnityEngine.Random.Range(1, 5);
+				if (RandomAnimation == 1) animator.SetBool("IsFlip", true);
+
+
 				IsDoAction = true;
 				AnimalResting.Resting();
 			}
@@ -78,7 +85,13 @@ public class AnimalAI_New : MonoBehaviour
 
 			animator.SetBool("IsMoving", false);
 			animator.SetBool("IsMoving2", false);
+			animator.SetBool("IsFlip", false);
 		}
+	}
+
+	public void RandomAnimationOver()
+	{
+		animator.SetBool("IsFlip", false);
 	}
 
 	public void PersonalPaddock()

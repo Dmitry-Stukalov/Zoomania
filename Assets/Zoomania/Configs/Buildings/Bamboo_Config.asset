@@ -20,36 +20,36 @@ MonoBehaviour:
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 1
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 5
     <MoneyForUpgrade>k__BackingField: 200
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 2
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 7
     <MoneyForUpgrade>k__BackingField: 300
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 3
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 10
     <MoneyForUpgrade>k__BackingField: 400
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 4
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 12
     <MoneyForUpgrade>k__BackingField: 500
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 5
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 15
     <MoneyForUpgrade>k__BackingField: 600
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 6
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 17
     <MoneyForUpgrade>k__BackingField: 700
     <MaxTime>k__BackingField: 0
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 7
-    <EffectValue>k__BackingField: 0
+    <EffectValue>k__BackingField: 20
     <MoneyForUpgrade>k__BackingField: 0
     <MaxTime>k__BackingField: 0

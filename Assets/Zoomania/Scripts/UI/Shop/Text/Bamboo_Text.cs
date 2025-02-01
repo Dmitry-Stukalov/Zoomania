@@ -22,7 +22,7 @@ public class Bamboo_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		if (Bamboo.NextLevelData() == null)
+		if (Bamboo.CurrentLevel.CurrentLevelNumber == 7)
 		{
 			Text.text = $"Уровень max: {Bamboo.CurrentLevel.CurrentLevelNumber}\n";
 		}

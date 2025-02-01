@@ -75,6 +75,12 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 		OnChange?.Invoke();
 	}
 
+	public void IncreaseMoneyValue(int value)
+	{
+		IncomeMoney.Resource += value;
+		OnChange?.Invoke();
+	}
+
 	public void Update()
 	{
 		SpawnPause.Tick(Time.deltaTime);
