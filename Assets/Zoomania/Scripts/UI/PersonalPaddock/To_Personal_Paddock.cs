@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 {
@@ -11,14 +15,24 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 	[field: SerializeField] GameObject FoodMenuResource { get; set; }
 	[field: SerializeField] GameObject WaterMenuResource { get; set; }
 
+
 	private List<GameObject> FirstScene = new List<GameObject>();
+	private SpriteRenderer[] spriteRenderers;
+	private TextMeshPro[] Texts;
 	private List<GameObject> SecondScene = new List<GameObject>();
+	private Camera maincamera { get; set; }
+
+
+	public void Start()
+	{
+		maincamera = Camera.main;
+	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		maincamera.transform.position = new Vector3(maincamera.transform.position.x-23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
+
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
-		//FoodMenuResource.GetComponent<Background_Resource>().SetAnimation();
-		//WaterMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
 		FirstScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetFirstSceneObjects();
 		SecondScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetSecondSceneObjects();
@@ -35,6 +49,5 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 		{
 			FirstScene[i].SetActive(false);
 		}
-
 	}
 }

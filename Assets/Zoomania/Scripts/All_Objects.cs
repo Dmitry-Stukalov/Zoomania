@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class All_Objects : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class All_Objects : MonoBehaviour
 
 	public void Start()
 	{
+
 		foreach (var objects in GameObject.FindGameObjectsWithTag("FirstScene"))
 		{
 			FirstScene.Add(objects);
@@ -31,19 +33,9 @@ public class All_Objects : MonoBehaviour
 		return SecondScene;
 	}
 
-	/*public GameObject FindObjectForTag(int scene, string tag)
+	public GameObject GetObjectForTag(string tag)
 	{
-		if (scene == 1)
-			foreach (var objects in FirstScene)
-			{
-				if (objects.transform.tag == tag) return objects;
-			}
-		if (scene == 2)
-			foreach (var objects in SecondScene)
-			{
-				if (objects.transform.tag == tag) return objects;
-			}
+		return GameObject.FindGameObjectWithTag(tag);
+	}	
 
-		return null;
-	}*/
 }

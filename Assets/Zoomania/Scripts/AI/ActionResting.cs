@@ -12,6 +12,6 @@ public class ActionResting
 	{
 		IsResting = true;
 		Debug.Log("Панда отдыхает");
-		RestingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(7, 10));						//Продолжительность этого действия
+		RestingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(8, 12));						//Продолжительность этого действия
 	}
 }

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 {
 	private int MoneyPerClickValue { get; set; }
-	public IncomeResource IncomeMoney { get; private set; }
+	public IncomeResource IncomeMoney { get; set; }
 	private Barn BarnScript { get; set; }
 	private Timer SpawnPause { get; set; } = new Timer(0.1f);
 	[field: SerializeField] private AudioSource Money { get; set; }
@@ -72,6 +72,12 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 	public void SetMoneyValue(int value)
 	{
 		IncomeMoney.Resource -= value;
+		OnChange?.Invoke();
+	}
+
+	public void IncreaseMoneyValue(int value)
+	{
+		IncomeMoney.Resource += value;
 		OnChange?.Invoke();
 	}
 

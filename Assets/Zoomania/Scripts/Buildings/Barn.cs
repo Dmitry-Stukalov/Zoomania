@@ -15,11 +15,10 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 	[field: SerializeField] private Panda_Storage_Config Panda_Storage_Config { get; set; }
 	public Barn_Level CurrentLevel { get; private set; }
 	public List<GameObject> Animals { get; private set; }
-	//private MoneyPerClick moneyperclick { get; set; }
 	private GameObject SpawnZone { get; set; }
 	private int ClicksToSpawn { get; set; }
-	private int MaxClicksToSpawn { get; set; } = 10;
-	private int ClicksValueChange { get; set; } = 5;
+	public int MaxClicksToSpawn { get; set; } = 10;
+	private int ClicksValueChange { get; set; } = 15;
 	public int AnimalCount { get; private set; } = 0;
 	private int RandomNumber { get; set; }
 
@@ -35,8 +34,6 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 		ClicksToSpawn = MaxClicksToSpawn;
 		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
-
-		//moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
 		UpdateText(ClicksToSpawn);
 	}
@@ -80,15 +77,9 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 	public void Upgrade()
 	{
-		/*if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrade)
-		{
-			Debug.Log("Недостаточно монет");
-			return;
-		}
-
-		moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrade);*/
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		Debug.Log(CurrentLevel.CurrentLevelNumber);
 		OnLevelUp?.Invoke();
 	}
 

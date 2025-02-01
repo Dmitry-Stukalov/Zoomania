@@ -22,6 +22,8 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 
 	private void Start()
 	{
+		DontDestroyOnLoad(gameObject);
+
 		CurrentLevel = levels_config.levels[0];
 
 		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue, TimerForGetResourses);

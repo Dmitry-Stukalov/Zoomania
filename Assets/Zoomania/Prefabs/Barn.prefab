@@ -27,14 +27,14 @@ RectTransform:
   m_GameObject: {fileID: 4015046640160135895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1948817, y: 0.1948817, z: 0.1948817}
+  m_LocalScale: {x: 0.15889268, y: 0.15889268, z: 0.15889268}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6893515349327954896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 4.18, y: -7.9}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6069349963701019919
@@ -197,14 +197,14 @@ RectTransform:
   m_GameObject: {fileID: 4428256776648105099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.556514, y: 1.5, z: 1}
+  m_LocalScale: {x: 6.1711783, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6893515349327954896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -7.2}
+  m_AnchoredPosition: {x: -1.64, y: -7.73}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8273319728264102240
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -305,9 +305,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f34c38ec5d24dd9418a8c27e49c2f4ec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3ce8466d137e2a44ea36622e5a920e35, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -402,8 +402,9 @@ GameObject:
   - component: {fileID: 6893515349327954896}
   - component: {fileID: 2810644789684918928}
   - component: {fileID: 8981818364618240944}
+  - component: {fileID: 2823980541867126185}
   - component: {fileID: 2945095277553612636}
-  - component: {fileID: 5374232585332935966}
+  - component: {fileID: 5691585517724996376}
   m_Layer: 0
   m_Name: Barn
   m_TagString: Barn
@@ -474,7 +475,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e8c15a76eb7bb24383c7816df0fbb9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfd811a739a37984fbbfc10872be8762, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -501,6 +502,19 @@ MonoBehaviour:
   <ClicksCount>k__BackingField: {fileID: 3420044950258912447}
   <levels_config>k__BackingField: {fileID: 0}
   <Panda_Storage_Config>k__BackingField: {fileID: 0}
+--- !u!114 &2823980541867126185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160674487324062839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab85875ff8d528f4a909dfced802adb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: cf6765eb7d095b04da396b50234de62d, type: 2}
 --- !u!114 &2945095277553612636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +559,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &5374232585332935966
+--- !u!61 &5691585517724996376
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -574,19 +588,19 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.75, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.54, y: 9.69}
+    oldSize: {x: 10.99, y: 9.69}
     newSize: {x: 7.54, y: 9.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.54, y: 9.68}
+  m_Size: {x: 7.5, y: 9.69}
   m_EdgeRadius: 0

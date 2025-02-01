@@ -22,7 +22,7 @@ public class HeadOfBarn : MonoBehaviour
 
 		BarnScript = Barn.GetComponent<Barn>();
 
-		Timer = new Timer(3);
+		Timer = new Timer(CurrentLevel.MaxTime);
 
 		Timer.OnTimerEnd += OnBarnClick;
 
@@ -39,6 +39,7 @@ public class HeadOfBarn : MonoBehaviour
 	public void Upgrade()
 	{
 		CurrentLevel = improvement_levels_config.levels[CurrentLevel.CurrentLevelNumber+1];
+		Timer.SetMaxTimeAndReset(CurrentLevel.MaxTime);
 
 		OnUpgrade?.Invoke();
 	}

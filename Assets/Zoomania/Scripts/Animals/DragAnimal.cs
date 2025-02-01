@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class DragAnimal : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
 	private Vector3 offset { get; set; }
 	private Camera mainCamera { get; set; }
@@ -14,12 +14,14 @@ public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDra
 		mainCamera = Camera.main;
 	}
 
-	public void OnPointerDown(PointerEventData eventData)
+	public void OnBeginDrag(PointerEventData eventData)
 	{
         if (!InPersonalPaddock)
         {
 			Vector3 mouseWorldPosition = GetMouseWorldPosition();
 			offset = transform.position - mouseWorldPosition;
+
+			GetComponent<AnimalAI_New>().PersonalPaddock();
 		}
 	}
 
@@ -32,11 +34,18 @@ public class ReplaceToPersonalPaddock : MonoBehaviour, IPointerDownHandler, IDra
 		}
 	}
 
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		if (!InPersonalPaddock)
+		{
+			GetComponent<AnimalAI_New>().PersonalPaddock();
+		}
+	}
+
 	private Vector3 GetMouseWorldPosition()
 	{
 		Vector3 mouseScreenPosition = Input.mousePosition;
 		mouseScreenPosition.z = 0f;
 		return mainCamera.ScreenToWorldPoint(mouseScreenPosition);
 	}
-
 }
