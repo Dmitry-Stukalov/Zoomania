@@ -132,7 +132,7 @@ public class ActionWalking_New
 			flag = GetRandomPointWithinBounds(animal);
 		}
 
-		WalkingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(3, 8));                      //Продолжительность этого действия
+		WalkingTime.SetMaxTimeAndReset(UnityEngine.Random.Range(7, 10));                      //Продолжительность этого действия
 		Speed = Vector2.Distance(AnimalPosition, RandomPosition) / WalkingTime.MaxTime;
 		IsMoving = true;
 		flag = false;

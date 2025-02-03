@@ -5,9 +5,9 @@ using UnityEngine;
 public class Camera_Movement : MonoBehaviour
 {
 	public Camera mainCamera; // Ссылка на камеру
-	public float panSpeed = 0.5f; // Скорость перемещения
-	public Vector2 panLimitMin; // Минимальные границы перемещения (x, y)
-	public Vector2 panLimitMax; // Максимальные границы перемещения (x, y)
+	private float panSpeed = 0.05f; // Скорость перемещения
+	private Vector2 panLimitMin = new Vector2(-5, -2.25f); // Минимальные границы перемещения (x, y)
+	private Vector2 panLimitMax = new Vector2(5, 2.25f); // Максимальные границы перемещения (x, y)
 
 	private Vector3 lastTouchPosition; // Последняя позиция касания
 	private bool isPanning = false; // Флаг для отслеживания состояния перемещения
@@ -23,7 +23,7 @@ public class Camera_Movement : MonoBehaviour
 				lastTouchPosition = mainCamera.ScreenToWorldPoint(touch.position);
 				isPanning = true;
 			}
-			else if (touch.phase == TouchPhase.Moved && isPanning)
+			if (touch.phase == TouchPhase.Moved && isPanning)
 			{
 				Vector3 currentTouchPosition = mainCamera.ScreenToWorldPoint(touch.position);
 				Vector3 delta = lastTouchPosition - currentTouchPosition;
