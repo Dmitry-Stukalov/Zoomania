@@ -55,7 +55,7 @@ public class AnimalAI_New : MonoBehaviour
 
 			Action = UnityEngine.Random.Range(0, 15);
 
-			if (Action >= 0 && Action <= 6)
+			if (Action >= 0 && Action <= 9)
 			{
 				RandomTime = UnityEngine.Random.Range(3, AnimalResting.RestingTime.MaxTime - 3);
 				RandomAnimation = UnityEngine.Random.Range(1, 5);
@@ -66,7 +66,7 @@ public class AnimalAI_New : MonoBehaviour
 				AnimalResting.Resting();
 			}
 
-			if (Action >= 7 && Action <= 15)
+			if (Action >= 10 && Action <= 15)
 			{
 				RandomAnimation = UnityEngine.Random.Range(1, 3);
 				if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
