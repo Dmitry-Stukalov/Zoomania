@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class UIFoodResource : MonoBehaviour
 {
-	private FoodCountBuffer foodbuffer { get; set; }
+	[field: SerializeField] private ResourceBuilding Building { get; set; }
 	private TextMeshProUGUI Text { get; set; }
 
 	public void Start()
 	{
 		Text = gameObject.GetComponent<TextMeshProUGUI>();
-		foodbuffer = GameObject.FindGameObjectWithTag("Background").GetComponent<FoodCountBuffer>();
-		foodbuffer.OnChange += UpdateUI;
-
-		UpdateUI();
+		//Building = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+		Building.OnChange += UpdateUI;
 	}
 
 	public void UpdateUI()
 	{
-		Text.text = TextConversion(foodbuffer.GetFoodCount());
+		Text.text = TextConversion(Building.IncomeResources.Resource);
 	}
 
 	public string TextConversion(float value)

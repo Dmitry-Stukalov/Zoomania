@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
+public class MoneyPerClick : MonoBehaviour//, IPointerClickHandler
 {
 	private int MoneyPerClickValue { get; set; }
 	public IncomeResource IncomeMoney { get; set; }
@@ -59,15 +59,15 @@ public class MoneyPerClick : MonoBehaviour, IPointerClickHandler
 
 	public void IncomePerClick()
 	{
-		IncomeMoney.IncomePerClick();
+		//IncomeMoney.IncomePerClick();
 		OnChange?.Invoke();
 	}
 
-	public void OnPointerClick(PointerEventData data)
+	/*public void OnPointerClick(PointerEventData data)
 	{
 		IncomePerClick();
 		Money.Play();
-	}
+	}*/
 
 	public void SetMoneyValue(int value)
 	{

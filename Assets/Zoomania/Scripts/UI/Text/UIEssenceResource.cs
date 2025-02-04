@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
-public class UIMoneyResource : MonoBehaviour
+public class UIEssenceResource : MonoBehaviour
 {
-	private MoneyPerClick Building{ get; set; }
+	private Essence_Storage Building { get; set; }
 	private TextMeshProUGUI Text { get; set; }
+
 
 	public void Start()
 	{
-		Text = gameObject.GetComponent<TextMeshProUGUI>();
-		Building = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+		Text = this.gameObject.GetComponent<TextMeshProUGUI>();
+		Building = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
 		Building.OnChange += UpdateUI;
 	}
 
 	public void UpdateUI()
 	{
-		Text.text = TextConversion(Building.IncomeMoney.Resource);
+		Text.text = TextConversion(Building.EssenceCount);
 	}
 
 	public string TextConversion(float value)

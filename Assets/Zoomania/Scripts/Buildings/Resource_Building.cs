@@ -10,7 +10,6 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 	public BuildingLevel CurrentLevel { get; set; }
 	
 	[field: SerializeField] private Building_Levels_Config levels_config {  get; set; }
-	//private MoneyPerClick moneyperclick { get; set; }
 	private int TimerForGetResourses = 3;
 
 	public ParticleSystem Click;
@@ -22,13 +21,9 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 
 	private void Start()
 	{
-		DontDestroyOnLoad(gameObject);
-
 		CurrentLevel = levels_config.levels[0];
 
 		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue, TimerForGetResourses);
-
-		//moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
 		IncomeResources.ResourceTimer.OnTimerEnd += Change;
 		UpdateData();
@@ -74,14 +69,6 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 
 	public void LevelUp()																			//Поднимает уровень здания если достаточно монет
 	{
-		/*if (moneyperclick.IncomeMoney.Resource < CurrentLevel.MoneyForUpgrage)
-		{
-			Debug.Log("Недостаточно монет");
-			return;
-		}*/
-
-		//moneyperclick.SetMoneyValue(CurrentLevel.MoneyForUpgrage);
-
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 
 		Change();

@@ -4,9 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class AnimalAI_New : MonoBehaviour
 {
+	[field: SerializeField] GameObject Essence { get; set; }
+	private GameObject essence { get; set; }
+	private Day_And_Night Night { get; set; }
+	private ObjectPool<GameObject> Pool { get; set; }
 	Animator animator { get; set; }
 	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
 	private ActionWalking_New AnimalWalking;
@@ -16,12 +21,20 @@ public class AnimalAI_New : MonoBehaviour
 	private float RandomTime { get; set; }
 	private int Action { get; set; }
 
+	private Timer SpawnEssence { get; set; }
 
 	public bool IsDoAction { get; set; } = false;
 	public bool InPersonalPaddock { get; set; } = false;
+	public bool IsSleep { get; set; } = false;
 
 	public void Start()
 	{
+		SpawnEssence = new Timer(2);
+		SpawnEssence.OnTimerEnd += SpawnEssenceAction;
+
+		Night = GameObject.FindGameObjectWithTag("Background").GetComponent<Day_And_Night>();
+		Night.DayChange += IsCanSlip;
+
 		animator = GetComponent<Animator>();
 
 		foreach (var area in GameObject.FindGameObjectsWithTag("MovementArea"))
@@ -37,6 +50,16 @@ public class AnimalAI_New : MonoBehaviour
 		AnimalResting.RestingTime.OnTimerEnd += RandomActions;
 
 		RandomActions();
+
+		Pool = new ObjectPool<GameObject>
+		(
+			createFunc: () => Instantiate(Essence, this.transform.position, Quaternion.identity),                          // Создание нового объекта
+			actionOnGet: obj => obj.SetActive(true),                            // Действие при получении объекта
+			actionOnRelease: obj => obj.SetActive(false),                       // Действие при возврате объекта
+			actionOnDestroy: obj => Destroy(obj),                               // Действие при уничтожении объекта
+			defaultCapacity: 10,                                                // Начальная емкость пула
+			maxSize: 20                                                         // Максимальный размер пула
+		);
 	}
 
 	public void RandomActions()                                                                                       //Рандомно выбирает действие для панды
@@ -116,6 +139,33 @@ public class AnimalAI_New : MonoBehaviour
 		else animator.SetBool("IsEat", false);
 	}
 
+	public void SpawnEssenceAction()
+	{
+		essence = Pool.Get();
+		essence.transform.SetParent(this.transform, true);
+		essence.transform.position = transform.position;
+
+		SpawnEssence.ResetTimer(false);
+	}
+
+	public void DestroyEssence(GameObject _essence)
+	{
+		Destroy(_essence);
+	}
+
+	public void IsCanSlip()
+	{
+		if (Night.IsDay)
+		{
+			IsSleep = false;
+			SpawnEssence.ResetTimer(false);
+		}
+		else
+		{
+			IsSleep = true;
+		}
+	}
+
 	public void Update()                                                                                       //Запускает таймер у активного действия
 	{
 		if (!InPersonalPaddock)
@@ -128,5 +178,7 @@ public class AnimalAI_New : MonoBehaviour
 			}
 			if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
 		}
+
+		if (IsSleep) SpawnEssence.Tick(Time.deltaTime);
 	}
 }
