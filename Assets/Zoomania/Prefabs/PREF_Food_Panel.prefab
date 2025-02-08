@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 3557177966818469589}
   - component: {fileID: 8413018538618409413}
   - component: {fileID: 3245221844131682831}
-  - component: {fileID: 6781616616594933297}
+  - component: {fileID: 6541628835239927459}
   - component: {fileID: 4399763993200337564}
   m_Layer: 5
   m_Name: UpgradeButton
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 0}
---- !u!114 &6781616616594933297
+--- !u!114 &6541628835239927459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,10 +349,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6455244838969066119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3fb8bb2573b97f4590b1f77e359aa59, type: 3}
+  m_Script: {fileID: 11500000, guid: 969127d719be3524d9d1ef20365b4d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Buiding>k__BackingField: {fileID: 0}
 --- !u!114 &4399763993200337564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331272405504763476}
   - component: {fileID: 8137566125472572089}
-  - component: {fileID: 6268373782410797637}
+  - component: {fileID: 6017722976062475174}
   - component: {fileID: 8388780839492208786}
   m_Layer: 5
   m_Name: UpgradeDescription
@@ -490,7 +489,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8934303057496773028}
   m_CullTransparentMesh: 1
---- !u!114 &6268373782410797637
+--- !u!114 &6017722976062475174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,10 +498,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8934303057496773028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5825cd212364d484d8af54508d2c0321, type: 3}
+  m_Script: {fileID: 11500000, guid: d50f843e5316db24f9f9d96f7b5a461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Building>k__BackingField: {fileID: 0}
 --- !u!114 &8388780839492208786
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class UIMoneyResource : MonoBehaviour
 {
-	private MoneyCountBuffer moneybuffer { get; set; }
+	private Money Building{ get; set; }
 	private TextMeshProUGUI Text { get; set; }
 
 	public void Start()
 	{
 		Text = gameObject.GetComponent<TextMeshProUGUI>();
-		moneybuffer = GameObject.FindGameObjectWithTag("Background").GetComponent<MoneyCountBuffer>();
-		moneybuffer.OnChange += UpdateUI;
-
-		UpdateUI();
+		Building = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
+		Building.OnChange += UpdateUI;
 	}
 
 	public void UpdateUI()
 	{
-		Text.text = TextConversion(moneybuffer.GetMoneyCount());
+		Text.text = TextConversion(Building.IncomeMoney.Resource);
 	}
 
 	public string TextConversion(float value)

@@ -9,22 +9,16 @@ using UnityEngine.UI;
 
 public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 {
-	[field: SerializeField] GameObject WaterResource {  get; set; }
-	[field: SerializeField] GameObject FoodResource { get; set; }
 	[field: SerializeField] GameObject CoinMenuResource { get; set; }
-	[field: SerializeField] GameObject FoodMenuResource { get; set; }
-	[field: SerializeField] GameObject WaterMenuResource { get; set; }
-
-
-	private List<GameObject> FirstScene = new List<GameObject>();
-	private SpriteRenderer[] spriteRenderers;
-	private TextMeshPro[] Texts;
-	private List<GameObject> SecondScene = new List<GameObject>();
 	private Camera maincamera { get; set; }
-
+	private All_Objects Objects { get; set; }
+	private List<GameObject> SecondScene {  get; set; }
 
 	public void Start()
 	{
+		Objects = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>();
+		SecondScene = Objects.SecondSceneObjects();
+
 		maincamera = Camera.main;
 	}
 
@@ -34,20 +28,9 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
-		FirstScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetFirstSceneObjects();
-		SecondScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetSecondSceneObjects();
-
-		for (int i = 0; i < SecondScene.Count; i++)
+		foreach (var objects in SecondScene)
 		{
-			SecondScene[i].SetActive(true);
-		}
-
-		WaterResource.GetComponent<Available_Resources>().Initialize();
-		FoodResource.GetComponent<Available_Resources>().Initialize();
-
-		for (int i = 0; i < FirstScene.Count; i++)
-		{
-			FirstScene[i].SetActive(false);
-		}
+			objects.SetActive(true);
+		}	
 	}
 }

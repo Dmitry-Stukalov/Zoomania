@@ -6,11 +6,15 @@ public class Background_Water : MonoBehaviour
 {
 	private Animator animator { get; set; }
 	private int RandomNumber { get; set; }
-	private bool IsOver { get; set; } = true;
-	private Timer PauseTime { get; set; } = new Timer(10);
+	private bool IsOver { get; set; }
+	private Timer PauseTime { get; set; }
 
 	public void Start()
 	{
+		PauseTime = new Timer(10);
+
+		IsOver = true;
+
 		animator = GetComponent<Animator>();
 	}
 

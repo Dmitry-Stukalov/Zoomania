@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
 {
 	private GameObject Buiding { get; set; }
-	private MoneyPerClick moneyperclick { get; set; }
+	private Money moneyperclick { get; set; }
 	private TextMeshProUGUI Text { get; set; }
 	private Buy_Bamboo Bamboo { get; set; }
 
 	public void Start()
 	{
-		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
 
 		Text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 

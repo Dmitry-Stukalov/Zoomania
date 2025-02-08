@@ -7,7 +7,6 @@ using UnityEngine;
 public class ReplaceIntoPersonalPaddock : MonoBehaviour
 {
 	[field: SerializeField] private GameObject AnimalPlace;
-	[field: SerializeField] private Panda_Description AnimalDescription;
 
 	public event Action OnChange;
 
@@ -16,14 +15,11 @@ public class ReplaceIntoPersonalPaddock : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Panda" && AnimalPlace.transform.childCount == 0)
 		{
-			collision.gameObject.GetComponent<Animals_New>().ChangeParent(AnimalPlace, false);
+			collision.gameObject.GetComponent<Animals>().ChangeParent(AnimalPlace, false);
 			collision.gameObject.transform.parent = AnimalPlace.transform;
 			collision.gameObject.transform.position = AnimalPlace.transform.position;
-			//collision.gameObject.GetComponent<AnimalAI_New>().PersonalPaddock();
 			collision.gameObject.GetComponent<DragAnimal>().InPersonalPaddock = true;
 			collision.gameObject.GetComponent<Animal_Feeding>().ChangeVisibility();
-
-			AnimalDescription.SetInformaion();
 
 			OnChange?.Invoke();
 		}

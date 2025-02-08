@@ -7,10 +7,12 @@ public class DragAnimal : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 {
 	private Vector3 offset { get; set; }
 	private Camera mainCamera { get; set; }
-	public bool InPersonalPaddock { get; set; } = false;
+	public bool InPersonalPaddock { get; set; }
 
 	public void Start()
 	{
+		InPersonalPaddock = false;
+
 		mainCamera = Camera.main;
 	}
 

@@ -402,7 +402,6 @@ GameObject:
   - component: {fileID: 6893515349327954896}
   - component: {fileID: 2810644789684918928}
   - component: {fileID: 8981818364618240944}
-  - component: {fileID: 2823980541867126185}
   - component: {fileID: 2945095277553612636}
   - component: {fileID: 5691585517724996376}
   m_Layer: 0
@@ -498,23 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deafba0da2e94074d8b10ab3ec3eefa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Audio>k__BackingField: {fileID: 1264011975287486216}
-  <ClicksCount>k__BackingField: {fileID: 3420044950258912447}
-  <levels_config>k__BackingField: {fileID: 0}
   <Panda_Storage_Config>k__BackingField: {fileID: 0}
---- !u!114 &2823980541867126185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8160674487324062839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab85875ff8d528f4a909dfced802adb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: cf6765eb7d095b04da396b50234de62d, type: 2}
 --- !u!114 &2945095277553612636
 MonoBehaviour:
   m_ObjectHideFlags: 0

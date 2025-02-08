@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class UIWaterResource : MonoBehaviour
 {
-	private WaterCountBuffer waterbuffer { get; set; }
+	private ResourceBuilding Building { get; set; }
 	private TextMeshProUGUI Text { get; set; }
 
 	public void Start()
 	{
 		Text = gameObject.GetComponent<TextMeshProUGUI>();
-		waterbuffer = GameObject.FindGameObjectWithTag("Background").GetComponent<WaterCountBuffer>();
-		waterbuffer.OnChange += UpdateUI;
-
-		UpdateUI();
+		Building = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
+		Building.OnChange += UpdateUI;
 	}
 
 	public void UpdateUI()
 	{
-		Text.text = TextConversion(waterbuffer.GetWaterCount());
+		Text.text = TextConversion(Building.IncomeResources.Resource);
 	}
 
 	public string TextConversion(float value)

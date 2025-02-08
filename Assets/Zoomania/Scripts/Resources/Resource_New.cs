@@ -8,8 +8,8 @@ public class Resource_New : MonoBehaviour
 {
 	[field: SerializeField] private Sprite View { get; set; }
 	private GameObject Animal { get; set; }
-	private int Capacity { get; set; } = 0;
-	private int ReturnedCapacity { get; set; } = 0;
+	private int Capacity { get; set; }
+	private int ReturnedCapacity { get; set; }
 	private Vector2 Point { get; set; }
 	private float Speed { get; set; }
 	private Vector2 IntermediatePoint { get; set; }	
@@ -18,9 +18,20 @@ public class Resource_New : MonoBehaviour
 	private float DistanceLength { get; set; }
 	private int PointCount { get; set; }
 	private Vector2[] Points { get; set; }
-	public bool IsMove { get; set; } = false;
-	public bool IsMoving { get; set; } = false;
-	private bool OnAnimal { get; set; } = false;
+	public bool IsMove { get; set; }
+	public bool IsMoving { get; set; }
+	private bool OnAnimal { get; set; }
+
+	public void Start()
+	{
+		Capacity = 0; 
+		ReturnedCapacity = 0;
+
+		IsMove = false;
+		IsMoving = false;
+		OnAnimal = false;
+	}
+
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -117,7 +128,6 @@ public class Resource_New : MonoBehaviour
 					{
 						this.GetComponentInParent<Available_Resources>().PutResource(TryFeedAnimal());
 						gameObject.GetComponentInParent<Spawn_Drag_Resource>().DestroyResource(gameObject);
-						//Destroy(this.gameObject);
 					}
 					IsMoving = false;
 				}

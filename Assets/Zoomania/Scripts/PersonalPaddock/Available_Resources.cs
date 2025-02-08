@@ -5,18 +5,31 @@ using UnityEngine;
 
 public class Available_Resources : MonoBehaviour
 {
-	private BuildingLevel CurrentLevelData { get; set; }
-	public ResourceBuilding CurrentResources { get; set; }
 	[field: SerializeField] private GameObject ResourceBuilding { get; set; }
 	[field: SerializeField] private GameObject Resource { get; set; }
+	public ResourceBuilding CurrentResources { get; set; }
 	public Resource_New Resource_New { get; private set; }
-	private bool start { get; set; } = false;
-	private bool someresources { get; set; } = false;
+	private bool start { get; set; }
+	private bool someresources { get; set; }
 
 
 	public event Action OnChange;
 
-	public void Initialize()
+	public void Start()
+	{
+		start = false;
+		someresources = false;
+
+		CurrentResources = ResourceBuilding.GetComponent<ResourceBuilding>();
+		Resource_New = Resource.GetComponent<Resource_New>();
+		Resource_New.ChangeCapacity(1);
+
+		CurrentResources.OnUpgrade += UpdateData;
+
+		OnChange?.Invoke();
+	}
+
+	/*public void Initialize()
 	{
 		if (!start)
 		{
@@ -24,12 +37,12 @@ public class Available_Resources : MonoBehaviour
 			Resource_New = Resource.GetComponent<Resource_New>();
 			Resource_New.ChangeCapacity(CurrentResources.DragResourceValue());
 
-			CurrentResources.OnLevelUp += UpdateData;
+			CurrentResources.OnUpgrade += UpdateData;
 
 			start = true;
 		}
 		OnChange?.Invoke();
-	}
+	}*/
 
 	public void UpdateDragResource()
 	{

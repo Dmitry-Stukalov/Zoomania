@@ -105,8 +105,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c84c87dbbb2bba34a8d0c202bbc7b2d2, type: 2}
+  m_sharedMaterial: {fileID: 5707131192854318761, guid: c84c87dbbb2bba34a8d0c202bbc7b2d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 3557177966818469589}
   - component: {fileID: 8413018538618409413}
   - component: {fileID: 3245221844131682831}
-  - component: {fileID: 6781616616594933297}
+  - component: {fileID: 556430610085224674}
   - component: {fileID: 4483365186295107215}
   m_Layer: 5
   m_Name: UpgradeButton
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 0}
---- !u!114 &6781616616594933297
+--- !u!114 &556430610085224674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,10 +349,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6455244838969066119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3fb8bb2573b97f4590b1f77e359aa59, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bcfae20800df3e45bbc715d213972c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Buiding>k__BackingField: {fileID: 0}
 --- !u!114 &4483365186295107215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331272405504763476}
   - component: {fileID: 8137566125472572089}
-  - component: {fileID: 6268373782410797637}
+  - component: {fileID: 975605136685264082}
   - component: {fileID: 8388780839492208786}
   m_Layer: 5
   m_Name: UpgradeDescription
@@ -490,7 +489,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8934303057496773028}
   m_CullTransparentMesh: 1
---- !u!114 &6268373782410797637
+--- !u!114 &975605136685264082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,10 +498,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8934303057496773028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5825cd212364d484d8af54508d2c0321, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b3bba85477005c469f66b35068de6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Building>k__BackingField: {fileID: 0}
 --- !u!114 &8388780839492208786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,8 +527,8 @@ MonoBehaviour:
     \u043C\u0435\u0441\u0442\u043E \u0438\u043B\u0438 \u0432\u0440\u043E\u0434\u0435
     \u0442\u043E\u0433\u043E)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c84c87dbbb2bba34a8d0c202bbc7b2d2, type: 2}
+  m_sharedMaterial: {fileID: 5707131192854318761, guid: c84c87dbbb2bba34a8d0c202bbc7b2d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

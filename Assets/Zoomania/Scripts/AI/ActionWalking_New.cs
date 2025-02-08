@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ActionWalking_New
+public class ActionWalking																//Нужно оптимизировать
 {
 	[field:SerializeField] public List<GameObject> MoveAreas { get; set; }
 	private List<Collider2D> Colliders { get; set; }
@@ -24,7 +24,7 @@ public class ActionWalking_New
 
 	public Timer WalkingTime = new Timer(0);
 
-	public ActionWalking_New(List<GameObject> _MoveAreas)
+	public ActionWalking(List<GameObject> _MoveAreas)
 	{
 		MoveAreas = _MoveAreas;
 

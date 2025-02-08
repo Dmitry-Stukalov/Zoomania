@@ -5,16 +5,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Pool;
 
-public class Spawn_Drag_Resource:MonoBehaviour/*, IBeginDragHandler, IDragHandler, IEndDragHandler*/, IPointerClickHandler
+public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
 {
 	[field: SerializeField] private GameObject Resource { get; set; }
 	[field: SerializeField] private GameObject AnimalPlace { get; set; }
 	private ObjectPool<GameObject> Pool { get; set; }
 	private AnimalAI_New Panda {  get; set; }
 	private Available_Resources availableResources { get; set; }
-	private Vector3 offset { get; set; }
 	private GameObject resource { get; set; }
-	//private GameObject dragresource { get; set; }
 	public Camera mainCamera { get; set; }
 	private Timer FeedTime { get; set; }
 	private float Speed { get; set; }
@@ -85,47 +83,4 @@ public class Spawn_Drag_Resource:MonoBehaviour/*, IBeginDragHandler, IDragHandle
 	{
 		FeedTime.Tick(Time.deltaTime);
 	}
-
-	/*public void OnBeginDrag(PointerEventData eventData)
-	{
-		if (availableResources.CurrentResources.IncomeResources.Resource > 0)
-		{
-			mainCamera = Camera.main;
-
-			dragresource = Instantiate(Resource, this.transform.position, Quaternion.identity);
-			dragresource.transform.SetParent(this.transform, true);
-
-			availableResources.UpdateDragResource();
-
-			dragresource.GetComponent<Resource_New>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
-
-			Vector3 mouseWorldPosition = GetMouseWorldPosition();
-			offset = transform.position - mouseWorldPosition;
-		}
-	}*/
-
-	/*public void OnDrag(PointerEventData eventData)
-	{
-		if (dragresource != null)
-		{
-			Vector3 mouseWorldPosition = GetMouseWorldPosition();
-			dragresource.transform.position = mouseWorldPosition + offset;
-		}
-	}*/
-
-	/*public void OnEndDrag(PointerEventData eventData)
-	{
-		if (dragresource != null)
-		{
-			availableResources.PutResource(dragresource.GetComponent<Resource_New>().TryFeedAnimal());
-			Destroy(dragresource.gameObject);
-		}
-	}*/
-
-	/*private Vector3 GetMouseWorldPosition()
-	{
-		Vector3 mouseScreenPosition = Input.mousePosition;
-		mouseScreenPosition.z = 0f;
-		return mainCamera.ScreenToWorldPoint(mouseScreenPosition);
-	}*/
 }
