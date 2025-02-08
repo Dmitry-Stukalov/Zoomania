@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Essence : MonoBehaviour//, IPointerClickHandler
+public class Essence : MonoBehaviour
 {
 	private AnimalAI_New Panda { get; set; }
 	private GameObject Money { get; set; }
@@ -21,11 +21,6 @@ public class Essence : MonoBehaviour//, IPointerClickHandler
 
 		IsMoving = true;
 	}
-
-	/*public void OnPointerClick(PointerEventData eventData)
-	{
-		IsMoving = true;
-	}*/
 
 	public AnimalAI_New GetParent()
 	{

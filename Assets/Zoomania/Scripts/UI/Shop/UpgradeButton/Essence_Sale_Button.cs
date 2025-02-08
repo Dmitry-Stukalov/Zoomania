@@ -6,17 +6,19 @@ using UnityEngine.EventSystems;
 
 public class Essence_Sale_Button : MonoBehaviour, IPointerClickHandler
 {
-	[field: SerializeField] public GameObject Buiding { get; set; }
-	private MoneyPerClick moneyperclick { get; set; }
+	private Essence_Quality EssenceQuality { get; set; }
+	private Money moneyperclick { get; set; }
 	private Essence_Storage storage { get; set; }
 	private TextMeshProUGUI Text { get; set; }
 
 
 	public void Start()
 	{
-		moneyperclick = Buiding.GetComponent<MoneyPerClick>();
-		storage = Buiding.GetComponent<Essence_Storage>();
+		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
+		storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
 		storage.OnChange += UpdateData;
+
+		EssenceQuality = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Quality>();
 
 		Text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
@@ -25,8 +27,8 @@ public class Essence_Sale_Button : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		moneyperclick.IncomeMoney.Resource += storage.GetEssenceCount() * 5;
-		moneyperclick.IncomePerClick();
+		moneyperclick.IncomeMoney.Resource += storage.GetEssenceCount() * EssenceQuality.CurrentLevel.EffectValue;
+		moneyperclick.InvokeChanges();
 		storage.SoldOut();
 
 		UpdateData();
@@ -34,7 +36,7 @@ public class Essence_Sale_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		Text.text = TextConversion(storage.GetEssenceCount()*5);
+		Text.text = TextConversion(storage.GetEssenceCount() * EssenceQuality.CurrentLevel.EffectValue);
 	}
 
 	public string TextConversion(float value)

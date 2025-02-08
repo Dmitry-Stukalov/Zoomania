@@ -6,34 +6,43 @@ using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class AnimalAI_New : MonoBehaviour
+public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 {
 	[field: SerializeField] GameObject Essence { get; set; }
 	private GameObject essence { get; set; }
 	private Day_And_Night Night { get; set; }
 	private ObjectPool<GameObject> Pool { get; set; }
-	Animator animator { get; set; }
-	private List<GameObject> MoveAreas {  get; set; } = new List<GameObject>();
-	private ActionWalking_New AnimalWalking;
-	private ActionResting AnimalResting = new ActionResting();
+	private List<GameObject> MoveAreas {  get; set; }
+	private ActionWalking AnimalWalking { get; set; }
+	private ActionResting AnimalResting {get; set; }
 	private Animals Animal { get; set; }
+	private Animator animator { get; set; }
+	private Timer SpawnEssence { get; set; }
 	private int RandomAnimation { get; set; }
 	private float RandomTime { get; set; }
 	private int Action { get; set; }
+	public bool IsDoAction { get; set; }
+	public bool InPersonalPaddock { get; set; }
+	public bool IsSleep { get; set; }
 
-	private Timer SpawnEssence { get; set; }
-
-	public bool IsDoAction { get; set; } = false;
-	public bool InPersonalPaddock { get; set; } = false;
-	public bool IsSleep { get; set; } = false;
 
 	public void Start()
 	{
-		SpawnEssence = new Timer(2);
+		IsDoAction = false;
+		InPersonalPaddock = false;
+		IsSleep = false;
+
+		MoveAreas = new List<GameObject>();
+
+		Animal = gameObject.GetComponent<Animals>();
+		Animal.LevelUp += UpdateEssenceTimer;
+
+		SpawnEssence = new Timer(Animal.CurrentLevel.EssenceSpawnTimer);
 		SpawnEssence.OnTimerEnd += SpawnEssenceAction;
 
 		Night = GameObject.FindGameObjectWithTag("Background").GetComponent<Day_And_Night>();
-		Night.DayChange += IsCanSlip;
+		Night.OnDay += WakeUp;
+		Night.OnNight += Sleep;
 
 		animator = GetComponent<Animator>();
 
@@ -42,74 +51,79 @@ public class AnimalAI_New : MonoBehaviour
 			MoveAreas.Add(area);
 		}
 
-		AnimalWalking = new ActionWalking_New(MoveAreas);
+		AnimalResting = new ActionResting();
 
-		Animal = gameObject.GetComponent<Animals>();
+		AnimalWalking = new ActionWalking(MoveAreas);
 
 		AnimalWalking.WalkingTime.OnTimerEnd += RandomActions;
 		AnimalResting.RestingTime.OnTimerEnd += RandomActions;
 
-		RandomActions();
-
 		Pool = new ObjectPool<GameObject>
 		(
 			createFunc: () => Instantiate(Essence, this.transform.position, Quaternion.identity),                          // Создание нового объекта
-			actionOnGet: obj => obj.SetActive(true),                            // Действие при получении объекта
-			actionOnRelease: obj => obj.SetActive(false),                       // Действие при возврате объекта
+			actionOnGet: obj => obj.SetActive(true),							// Действие при получении объекта
+			actionOnRelease: obj => obj.SetActive(false),						// Действие при возврате объекта
 			actionOnDestroy: obj => Destroy(obj),                               // Действие при уничтожении объекта
-			defaultCapacity: 10,                                                // Начальная емкость пула
-			maxSize: 20                                                         // Максимальный размер пула
+			defaultCapacity: 1,                                                // Начальная емкость пула
+			maxSize: 5                                                         // Максимальный размер пула
 		);
+
+		RandomActions();
 	}
+
 
 	public void RandomActions()                                                                                       //Рандомно выбирает действие для панды
 	{
 		if (!InPersonalPaddock)
 		{
-
-			AnimalWalking.IsMoving = false;
-			AnimalResting.IsResting = false;
-
-			animator.SetBool("IsMoving", false);
-			animator.SetBool("IsMoving2", false);
-			animator.SetBool("IsFlip", false);
-
-			CancelInvoke();
-
-			Action = UnityEngine.Random.Range(0, 15);
-
-			if (Action >= 0 && Action <= 9)
+			if (!IsCanSleep())
 			{
-				RandomTime = UnityEngine.Random.Range(3, AnimalResting.RestingTime.MaxTime - 3);
-				RandomAnimation = UnityEngine.Random.Range(1, 5);
-				if (RandomAnimation == 1) animator.SetBool("IsFlip", true);
+				AbortActions();
+
+				Action = UnityEngine.Random.Range(0, 15);
+
+				if (Action >= 0 && Action <= 12)
+				{
+					RandomTime = UnityEngine.Random.Range(3, AnimalResting.RestingTime.MaxTime - 3);
+					RandomAnimation = UnityEngine.Random.Range(1, 5);
+					if (RandomAnimation == 1) animator.SetBool("IsFlip", true);
 
 
-				IsDoAction = true;
-				AnimalResting.Resting();
+					IsDoAction = true;
+					AnimalResting.Resting();
+				}
+
+				if (Action >= 13 && Action <= 15)
+				{
+					RandomAnimation = UnityEngine.Random.Range(1, 2);
+					if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
+
+					IsDoAction = true;
+					AnimalWalking.Walking(this.gameObject);
+				}
 			}
-
-			if (Action >= 10 && Action <= 15)
+			else
 			{
-				RandomAnimation = UnityEngine.Random.Range(1, 3);
-				if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
-				if (RandomAnimation == 2) animator.SetBool("IsMoving2", true);
+				AbortActions();
 
-				IsDoAction = true;
-				AnimalWalking.Walking(this.gameObject);
+				Debug.Log("Панда спит");
 			}
 		}
 		else
 		{
-			CancelInvoke();
-
-			AnimalWalking.IsMoving = false;
-			AnimalResting.IsResting = false;
-
-			animator.SetBool("IsMoving", false);
-			animator.SetBool("IsMoving2", false);
-			animator.SetBool("IsFlip", false);
+			AbortActions();
 		}
+	}
+
+	public void AbortActions()
+	{
+		CancelInvoke();
+
+		AnimalWalking.IsMoving = false;
+		AnimalResting.IsResting = false;
+
+		animator.SetBool("IsMoving", false);
+		animator.SetBool("IsFlip", false);
 	}
 
 	public void RandomAnimationOver()
@@ -122,14 +136,14 @@ public class AnimalAI_New : MonoBehaviour
 		if (InPersonalPaddock)
 		{
 			InPersonalPaddock = false;
+
 			RandomActions();
 		}
 		else
 		{
 			InPersonalPaddock = true;
-			animator.SetBool("IsMoving", false);
-			animator.SetBool("IsMoving2", false);
-			CancelInvoke();
+
+			RandomActions();
 		}
 	}
 
@@ -153,17 +167,33 @@ public class AnimalAI_New : MonoBehaviour
 		Destroy(_essence);
 	}
 
-	public void IsCanSlip()
+	public void Sleep()
 	{
-		if (Night.IsDay)
-		{
-			IsSleep = false;
-			SpawnEssence.ResetTimer(false);
-		}
-		else
-		{
-			IsSleep = true;
-		}
+		IsSleep = true;
+
+		RandomActions();
+	}
+
+	public void WakeUp()
+	{
+		IsSleep = false;
+
+		RandomActions();
+	}
+
+	public bool IsCanSleep()
+	{
+		return !Night.IsDay;
+	}
+
+	public void ChangeTime(float value)
+	{
+		SpawnEssence.UpdateTimer(value);
+	}
+
+	public void UpdateEssenceTimer()
+	{
+		SpawnEssence.SetMaxTimeAndReset(Animal.CurrentLevel.EssenceSpawnTimer);
 	}
 
 	public void Update()                                                                                       //Запускает таймер у активного действия
@@ -177,8 +207,8 @@ public class AnimalAI_New : MonoBehaviour
 				AnimalWalking.WalkingTime.Tick(Time.deltaTime);
 			}
 			if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
-		}
 
-		if (IsSleep) SpawnEssence.Tick(Time.deltaTime);
+			if (IsSleep) SpawnEssence.Tick(Time.deltaTime);
+		}
 	}
 }

@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class Animal_Feeding : MonoBehaviour
 {
-	[field: SerializeField] private GameObject Water { get; set; }
-	[field: SerializeField] private GameObject Food { get; set; }
+	private GameObject Water { get; set; }
+	private GameObject Food { get; set; }
 	private TextMeshPro WaterText { get; set; }
 	private TextMeshPro FoodText { get; set; }
-	private Animals_New Animal { get; set; }
-	private bool IsEat { get; set; } = false;
-	private bool IsDrinking { get; set; } = false;
+	private Animals Animal { get; set; }
 	private int RequiredWater { get; set; }
 	private int RequiredFood { get; set; }
 	private int ReturnedResource { get; set; }
+	private bool IsEat { get; set; } = false;
+	private bool IsDrinking { get; set; } = false;
 
 	public void Start()
 	{
-		Animal = this.gameObject.GetComponent<Animals_New>();
-		RequiredWater = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredWater;
-		RequiredFood = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredFood;
+		Water = GameObject.FindGameObjectWithTag("AnimalWater");
+		Food = GameObject.FindGameObjectWithTag("AnimalFood");
+
+		Animal = gameObject.GetComponent<Animals>();
+
+		RequiredWater = Animal.CurrentLevel.RequiredWater;
+		RequiredFood = Animal.CurrentLevel.RequiredFood;
 
 		WaterText = Water.GetComponentInChildren<TextMeshPro>();
 		FoodText = Food.GetComponentInChildren<TextMeshPro>();
@@ -88,8 +92,8 @@ public class Animal_Feeding : MonoBehaviour
 			IsDrinking = false;
 			IsEat = false;
 			Animal.Upgrade();
-			RequiredWater = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredWater;
-			RequiredFood = Animal.GetComponent<Animals_New>().CurrentLevel.RequiredFood;
+			RequiredWater = Animal.CurrentLevel.RequiredWater;
+			RequiredFood = Animal.CurrentLevel.RequiredFood;
 			WaterText.text = RequiredWater.ToString();
 			FoodText.text = RequiredFood.ToString();
 
@@ -100,8 +104,8 @@ public class Animal_Feeding : MonoBehaviour
 		if (Animal.CurrentLevel.CurrentLevelNumber == 4)
 		{
 			Debug.Log("Панда больше не вырастет");
-			Destroy(Water.gameObject);
-			Destroy(Food.gameObject);
+			//Destroy(Water.gameObject);
+			//Destroy(Food.gameObject);
 			return;
 		}
 	}

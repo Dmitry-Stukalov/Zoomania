@@ -7,18 +7,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class Barn : MonoBehaviour, IPointerClickHandler
+public class Barn : MonoBehaviour
 {
-	[field: SerializeField] private AudioSource Audio { get; set; }
-	[field: SerializeField] private TextMeshPro ClicksCount { get; set; }
-	[field: SerializeField] private Barn_Levels_Config levels_config { get; set; }
 	[field: SerializeField] private Panda_Storage_Config Panda_Storage_Config { get; set; }
-	public Barn_Level CurrentLevel { get; private set; }
 	public List<GameObject> Animals { get; private set; }
 	private GameObject SpawnZone { get; set; }
-	private int ClicksToSpawn { get; set; }
-	public int MaxClicksToSpawn { get; set; } = 10;
-	private int ClicksValueChange { get; set; } = 15;
+	public int MoneyToSpawn { get; set; }
 	public int AnimalCount { get; private set; } = 0;
 	private int RandomNumber { get; set; }
 
@@ -27,42 +21,20 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 
 	public void Start()
 	{
-		CurrentLevel = levels_config.levels[0];
-		this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
-
 		Animals = new List<GameObject>();
 
-		ClicksToSpawn = MaxClicksToSpawn;
+		MoneyToSpawn = 0;
 		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
-
-		UpdateText(ClicksToSpawn);
 	}
 
-	public void OnPointerClick(PointerEventData data)											//—рабатывает при нажатии. ”меньшает количество кликов требуемых дл€ создани€ панды.
-	{
-		ClicksToSpawn -= CurrentLevel.ClicksAtTime;
-		UpdateText(ClicksToSpawn);
-		if (ClicksToSpawn <= 0) SpawnAnimal();
-		Audio.Play();
-	}
-
-	public void OnPointerClick(PointerEventData data, int clicksattime)                                           //—рабатывает при нажатии. ”меньшает количество кликов требуемых дл€ создани€ панды.
-	{
-		ClicksToSpawn -= clicksattime;
-		UpdateText(ClicksToSpawn);
-		if (ClicksToSpawn <= 0) SpawnAnimal();
-		Audio.Play();
-	}
-
-	public void SpawnAnimal()																	//—павнит панду когда количество кликов требуемых дл€ создани€ панды становитс€ равным 0
+	public void SpawnAnimal()																	//—павнит панду
 	{
 		RandomNumber = UnityEngine.Random.Range(0, Panda_Storage_Config.Animals.Count);
 
 		Animals.Add(Instantiate(Panda_Storage_Config.Animals[RandomNumber], RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
-		MaxClicksToSpawn += ClicksValueChange;
-		ClicksToSpawn = MaxClicksToSpawn;
-		UpdateText(ClicksToSpawn);
+
+		MoneyToSpawn += 5;
 
 		Spawn?.Invoke();
 	}
@@ -75,22 +47,4 @@ public class Barn : MonoBehaviour, IPointerClickHandler
 		return new Vector2(randomX, randomY);
 	}
 
-	public void Upgrade()
-	{
-		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
-		Debug.Log(CurrentLevel.CurrentLevelNumber);
-		OnLevelUp?.Invoke();
-	}
-
-	public Barn_Level NextLevelData()
-	{
-		if (CurrentLevel.CurrentLevelNumber <= levels_config.levels.Count-1) return levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		else return null;
-	}	
-
-	public void UpdateText(int count)
-	{
-		ClicksCount.text = count.ToString();
-	}
 }

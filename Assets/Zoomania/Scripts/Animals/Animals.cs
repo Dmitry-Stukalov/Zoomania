@@ -1,101 +1,68 @@
+using Animal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
-namespace Animal
+public class Animals : MonoBehaviour												//Удалить закомментированное, если оно не нужно
 {
-    public class Animals : MonoBehaviour
-    {
-        public Panda_Levels_Config levels_config;
+	[field: SerializeField] private AudioSource SoundLevelUp { get; set; }
+	[field: SerializeField] private AudioSource SoundSpawn { get; set; }
 
-		public IncomeResource IncomeMoney { get; private set; }
-        public AnimalLevel CurrentLevel { get; private set; }
-		public ResourceBuilding waterbuildingscript { get; private set; }
-		public ResourceBuilding foodbuildingscript { get; private set; }
-		public MoneyPerClick moneyperclick { get; private set; }
-		//public ProgressBar Bar { get; private set; }
-        private GameObject Barn { get; set; }
+	[field: SerializeField] private Panda_Levels_Config levels_config { get; set; }
+	//public IncomeResource IncomeMoney { get; private set; }
+	public AnimalLevel CurrentLevel { get; private set; }
+	//public MoneyPerClick moneyperclick { get; private set; }
+	private GameObject Barn { get; set; }
+	//private int TimerForGetMoney { get; set; }
+	public bool InPersonalPaddock { get; private set; }
 
-        public AudioSource SoundLevelUp;
-        public AudioSource SoundSpawn;
-
-		public event Action LevelUp;
-
-        private int TimerForGetMoney = 5;
-        public bool Hungry { get; set; } = false;
+	public event Action LevelUp;
+	public event Action ChangePaddock;
 
 
-        public void Start()
-        {
+	public void Start()
+	{
+		InPersonalPaddock = true;
 
-            CurrentLevel = levels_config.levels[0];
+		//TimerForGetMoney = 5;
 
-            Barn = GameObject.FindGameObjectWithTag("Barn");
+		CurrentLevel = levels_config.levels[0];
 
-            ChangeParent(Barn, true);
+		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 
-            IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick, TimerForGetMoney);
+		Barn = GameObject.FindGameObjectWithTag("Barn");
 
-            waterbuildingscript = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
+		ChangeParent(Barn, true);
 
-            foodbuildingscript = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+		//IncomeMoney = new IncomeResource(CurrentLevel.MoneyPerSecond, CurrentLevel.MoneyPerClick, TimerForGetMoney);
 
-            //Bar = gameObject.GetComponentInChildren<ProgressBar>().GetComponent<ProgressBar>();
+		//moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
 
-            //Bar.SetTimer(CurrentLevel.UpgradeTime);
-            //Bar.UpgradeTime.OnTimerEnd += Upgrade;
+		SoundSpawn.Play();
+	}
 
-            moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
-            IncomeMoney.ResourceTimer.OnTimerEnd += GetMoney;
+	public void Upgrade()                                                                   //Повышение уровня панды
+	{
+		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;
 
-			SoundSpawn.Play();
-        }
+		//IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
+		//IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;
 
-        public void GetMoney()                                                                  //Пассивное получение монет
-        {
-            if (Hungry) moneyperclick.UpdateDataPerSecond(1);
-            else moneyperclick.UpdateDataPerSecond(IncomeMoney.IncomePerSecondValue);
-        }
+		SoundLevelUp.Play();
 
-        public void Upgrade()                                                                   //Повышение уровня панды
-        {
-            //if (waterbuildingscript.GetData() < CurrentLevel.WaterForUpgrade || foodbuildingscript.GetData() < CurrentLevel.FoodForUpgrade)
-            //{
-                //Bar.UpgradeTime.ResetTimer(false);
-            //    return;
-            //}
+		LevelUp?.Invoke();
+	}
 
-            //waterbuildingscript.SetData(CurrentLevel.WaterForUpgrade);
-            //foodbuildingscript.SetData(CurrentLevel.FoodForUpgrade);
+	public void ChangeParent(GameObject newparent, bool flag)
+	{
+		this.transform.SetParent(newparent.transform, flag);
 
-			CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-			this.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		if (InPersonalPaddock) InPersonalPaddock = false;
+		else InPersonalPaddock = true;
 
-            IncomeMoney.IncomePerSecondValue = CurrentLevel.MoneyPerSecond;
-            IncomeMoney.IncomePerClickValue = CurrentLevel.MoneyPerClick;
-
-            //Bar.UpgradeTime.ResetTimer(false);
-
-			SoundLevelUp.Play();
-
-            LevelUp?.Invoke();
-        }
-
-        public void ChangeParent(GameObject newparent, bool flag)
-        {
-            this.transform.SetParent(newparent.transform, flag);
-		}
-
-		void Update()
-		{
-            //IncomeMoney.Update(Time.deltaTime);
-            //if (CurrentLevel.CurrentLevelNumber < 4 && waterbuildingscript.GetData() >= CurrentLevel.WaterForUpgrade && foodbuildingscript.GetData() >= CurrentLevel.FoodForUpgrade)
-            //{
-                //Bar.UpgradeTime.Tick(Time.deltaTime);
-                //Bar.BarUpdate();
-            //}
-		}
+		ChangePaddock?.Invoke();
 	}
 }

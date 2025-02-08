@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 1199214963321737777}
   - component: {fileID: 9177604423858672345}
   - component: {fileID: -8765260503583706229}
+  - component: {fileID: 9106575569058222259}
   - component: {fileID: 5735070082583396230}
   - component: {fileID: 1054062419695843937}
   - component: {fileID: -1496916215400136343}
@@ -230,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fe89ac8f5256d4eaff2a7790f4f466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Money>k__BackingField: {fileID: 0}
 --- !u!114 &-8765260503583706229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +243,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef868a0c62988244af12c64c387e387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9106575569058222259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223025116040917291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1f7541248312a42afc4eb0ce7864df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <levels_config>k__BackingField: {fileID: 11400000, guid: 577c9bd702c47cf40b14a6a3b5956ab2, type: 2}
 --- !u!114 &5735070082583396230
 MonoBehaviour:
   m_ObjectHideFlags: 0

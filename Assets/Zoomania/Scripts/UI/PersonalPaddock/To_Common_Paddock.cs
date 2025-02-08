@@ -8,35 +8,27 @@ using UnityEngine.UI;
 public class To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 {
 	[field: SerializeField] GameObject CoinMenuResource { get; set; }
-	[field: SerializeField] GameObject FoodMenuResource { get; set; }
-	[field: SerializeField] GameObject WaterMenuResource { get; set; }
-
-	private List<GameObject> FirstScene = new List<GameObject>();
-	private List<GameObject> SecondScene = new List<GameObject>();
 	private Camera maincamera { get; set; }
+	private All_Objects Objects { get; set; }
+	private List<GameObject> SecondScene { get; set; }
 
 	public void Start()
 	{
+		Objects = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>();
+		SecondScene = Objects.SecondSceneObjects();
+
 		maincamera = Camera.main;
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		maincamera.transform.position = new Vector3(maincamera.transform.position.x + 23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
-
-		FirstScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetFirstSceneObjects();
-		SecondScene = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>().GetSecondSceneObjects();
 		
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
-		for (int i = 0; i < FirstScene.Count; i++)
+		foreach (var objects in SecondScene)
 		{
-			FirstScene[i].SetActive(true);
-		}
-
-		for (int i = 0; i < SecondScene.Count; i++)
-		{
-			SecondScene[i].SetActive(false);
+			objects.SetActive(false);
 		}
 	}
 }

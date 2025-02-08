@@ -49,7 +49,7 @@ public class Timer
 		OnTick?.Invoke();
 	}
 
-	private void UpdateTimer(float time)
+	public void UpdateTimer(float time)
 	{
 		CurrentTime += time;
 		CurrentTime = Mathf.Clamp(CurrentTime, 0, MaxTime);

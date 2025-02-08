@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class UIMoneyResource : MonoBehaviour
 {
-	private MoneyPerClick Building{ get; set; }
+	private Money Building{ get; set; }
 	private TextMeshProUGUI Text { get; set; }
 
 	public void Start()
 	{
 		Text = gameObject.GetComponent<TextMeshProUGUI>();
-		Building = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+		Building = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
 		Building.OnChange += UpdateUI;
 	}
 

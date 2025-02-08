@@ -310,8 +310,8 @@ GameObject:
   - component: {fileID: 3003902498193570495}
   - component: {fileID: 8609303636127204884}
   - component: {fileID: 3154134266362675746}
-  - component: {fileID: 5481207408641319272}
   - component: {fileID: 8281729398315597615}
+  - component: {fileID: 5481207408641319272}
   - component: {fileID: 2674579412554232676}
   - component: {fileID: 2800883758655341763}
   - component: {fileID: 469919195871652771}
@@ -439,6 +439,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8281729398315597615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840527767493723284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df01ca360134de4db59ada59d66107a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SoundLevelUp>k__BackingField: {fileID: 1784163362048883731}
+  <SoundSpawn>k__BackingField: {fileID: 8760259288809396379}
+  <levels_config>k__BackingField: {fileID: 11400000, guid: 466e62300c80e6b4c8e5d34cfc97e370, type: 2}
 --- !u!114 &5481207408641319272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,21 +467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Essence>k__BackingField: {fileID: 8740642672455206157, guid: e931339eb29213d44a24f15e4c17fac9, type: 3}
---- !u!114 &8281729398315597615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3840527767493723284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df01ca360134de4db59ada59d66107a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: 466e62300c80e6b4c8e5d34cfc97e370, type: 2}
-  SoundLevelUp: {fileID: 1784163362048883731}
-  SoundSpawn: {fileID: 8760259288809396379}
 --- !u!114 &2674579412554232676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,8 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc774140c6af6dc41b2780d7ccbd5fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Water>k__BackingField: {fileID: 5154343101160498213}
-  <Food>k__BackingField: {fileID: 6743343479795871902}
 --- !u!114 &2800883758655341763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +597,7 @@ GameObject:
   - component: {fileID: 2562994288743458787}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: AnimalWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -868,7 +866,7 @@ GameObject:
   - component: {fileID: 2466041366761027211}
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: AnimalFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

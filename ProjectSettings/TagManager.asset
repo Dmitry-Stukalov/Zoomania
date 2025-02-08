@@ -23,6 +23,9 @@ TagManager:
   - Invisible
   - Bamboo
   - Essence
+  - Night
+  - AnimalWater
+  - AnimalFood
   layers:
   - Default
   - TransparentFX

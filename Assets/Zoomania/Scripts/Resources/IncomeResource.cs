@@ -45,4 +45,9 @@ public class IncomeResource																//Класс, который отвечает за получени
 		ResourceTimer.Tick(time);
 		OnTick?.Invoke();
 	}
+
+	public void ChangeTime(int time)
+	{
+		ResourceTimer.SetMaxTimeAndReset(time);
+	}
 }

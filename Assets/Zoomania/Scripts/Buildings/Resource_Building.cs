@@ -4,19 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
+public class ResourceBuilding : MonoBehaviour
 {
-	public IncomeResource IncomeResources { get; set; }
+	[field: SerializeField] private Building_Levels_Config levels_config { get; set; }
 	public BuildingLevel CurrentLevel { get; set; }
-	
-	[field: SerializeField] private Building_Levels_Config levels_config {  get; set; }
-	private int TimerForGetResourses = 3;
-
-	public ParticleSystem Click;
-	public AudioSource Audio;
+	public IncomeResource IncomeResources { get; set; }
+	public ParticleSystem Click { get; set; }
+	public AudioSource Audio {  get; set; }
+	public int TimerForGetResourses { get; set; }
 
 	public event Action OnChange;
-	public event Action OnLevelUp;
+	public event Action OnUpgrade;
 
 
 	private void Start()
@@ -24,26 +22,17 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 		CurrentLevel = levels_config.levels[0];
 
 		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue, TimerForGetResourses);
-
 		IncomeResources.ResourceTimer.OnTimerEnd += Change;
+
+		TimerForGetResourses = 10;
+
 		UpdateData();
-	}
-
-	public void IncomePerClick()                                                                    //—рабатывает при активном получении ресурсов (ѕри каждом нажатии)
-	{
-		IncomeResources.IncomePerClick();
-		OnChange?.Invoke();
-	}
-
-	public void OnPointerClick(PointerEventData data)
-	{
-		IncomePerClick();
-		Click.Play();
-		Audio.Play();
 	}
 
 	public void Change()                                                                            //—рабатывает при изменении количества ресурсов или при улучшении
 	{
+		Click.Play();
+		Audio.Play();
 		OnChange?.Invoke();
 		UpdateData();
 	}
@@ -52,6 +41,13 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 	{
 		IncomeResources.Resource -= watercount;
 		if (IncomeResources.Resource < 0) IncomeResources.Resource = 0;
+
+		OnChange?.Invoke();
+	}
+
+	public void AddData(int watercount)
+	{
+		IncomeResources.Resource += watercount;
 
 		OnChange?.Invoke();
 	}
@@ -67,13 +63,22 @@ public class ResourceBuilding : MonoBehaviour, IPointerClickHandler
 		IncomeResources.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
 	}
 
-	public void LevelUp()																			//ѕоднимает уровень здани€ если достаточно монет
+	public void Upgrade()																			//ѕоднимает уровень здани€ если достаточно монет
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 
 		Change();
 
-		OnLevelUp?.Invoke();
+		OnUpgrade?.Invoke();
+	}
+
+	public void UpgradeTimer(int time)
+	{
+		TimerForGetResourses = time;
+
+		IncomeResources.ChangeTime(TimerForGetResourses);
+
+		OnUpgrade?.Invoke();
 	}
 
 	public BuildingLevel CurrentLevelData()                                                         //ѕозвол€ет получить данные текущего уровн€ (»спользуетс€ дл€ личного загона)

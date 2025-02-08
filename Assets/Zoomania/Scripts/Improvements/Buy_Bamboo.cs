@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Buy_Bamboo : MonoBehaviour
+public class Buy_Bamboo : MonoBehaviour																	//Поменять эффект после покупки
 {
 	[field: SerializeField] private Improvement_Levels_Config improvement_levels_config { get; set; }
-	private MoneyPerClick Money {  get; set; }
+	private Money Money {  get; set; }
 	public Improvement_Level CurrentLevel { get; private set; }
 	private List<GameObject> Bamboo { get; set; }
 
@@ -17,7 +17,7 @@ public class Buy_Bamboo : MonoBehaviour
 
 	public void Start()
 	{
-		Money = GameObject.FindGameObjectWithTag("Money").GetComponent<MoneyPerClick>();
+		Money = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
 
 		GetMoney = new Timer(3);
 

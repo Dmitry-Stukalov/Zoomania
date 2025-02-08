@@ -8,9 +8,8 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 	[field: SerializeField] private GameObject AnimalPlace { get; set; }
 	[field: SerializeField] private GameObject Barn { get; set; }
 	[field: SerializeField] private GameObject Fence { get; set; }
-	[field: SerializeField] private Panda_Description AnimalDescription { get; set; }
 
-	private Animals_New Panda { get; set; }
+	private Animals Panda { get; set; }
 	private AnimalAI_New PandaAI { get; set; }
 	private DragAnimal PandaPP { get; set; }
 	private Animal_Feeding PandaAF { get; set; }
@@ -21,9 +20,7 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 	{
 		if (AnimalPlace.transform.childCount != 0)
 		{
-			AnimalDescription.SetInformaion();
-
-			Panda = AnimalPlace.GetComponentInChildren<Animals_New>();
+			Panda = AnimalPlace.GetComponentInChildren<Animals>();
 			PandaAI = AnimalPlace.GetComponentInChildren<AnimalAI_New>();
 			PandaPP = AnimalPlace.GetComponentInChildren<DragAnimal>();
 			PandaAF = AnimalPlace.GetComponentInChildren<Animal_Feeding>();
