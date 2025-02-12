@@ -80,7 +80,7 @@ public class Available_Resources : MonoBehaviour
 		someresources = true;
 	}
 
-	public void PutResource(int value)
+	public void PutResource(float value)
 	{
 		CurrentResources.IncomeResources.Resource += value;
 		OnChange?.Invoke();

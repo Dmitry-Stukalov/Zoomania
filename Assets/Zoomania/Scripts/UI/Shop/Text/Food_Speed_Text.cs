@@ -22,17 +22,17 @@ public class Food_Speed_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == 20)
+		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetLevelsCount())
 		{
-			Text.text = $"Уровень max: {FoodBuilding.CurrentLevel.CurrentLevelNumber}\n";
+			Text.text = $"Уровень max: {FoodBuilding.CurrentImproveLevel.CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой еды: {FoodBuilding.TimerForGetResourses} сек";
+			Text.text += $"Время получаемой еды: {FoodBuilding.CurrentImproveLevel.EffectValue} сек";
 		}
 		else
 		{
-			Text.text = $"Уровень {FoodBuilding.CurrentLevel.CurrentLevelNumber} -> {FoodBuilding.NextLevelData().CurrentLevelNumber}\n";
+			Text.text = $"Уровень {FoodBuilding.CurrentImproveLevel.CurrentLevelNumber} -> {FoodBuilding.NextLevelTimerData().CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой еды: {FoodBuilding.TimerForGetResourses} сек -> {FoodBuilding.TimerForGetResourses - 1} сек";
+			Text.text += $"Время получаемой еды: {FoodBuilding.CurrentImproveLevel.EffectValue} сек -> {FoodBuilding.NextLevelTimerData().EffectValue} сек";
 		}
 	}
 }

@@ -25,10 +25,12 @@ public class Bamboo_Text : MonoBehaviour
 		if (Bamboo.CurrentLevel.CurrentLevelNumber == 7)
 		{
 			Text.text = $"”ровень max: {Bamboo.CurrentLevel.CurrentLevelNumber}\n";
+			Text.text += $"Ёффективность кликов: +{Bamboo.CurrentLevel.EffectValue}\n";
 		}
 		else
 		{
 			Text.text = $"”ровень {Bamboo.CurrentLevel.CurrentLevelNumber} -> {Bamboo.NextLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Ёффективность кликов +{Bamboo.CurrentLevel.EffectValue} -> +{Bamboo.NextLevelData().EffectValue}\n";
 		}
 	}
 }

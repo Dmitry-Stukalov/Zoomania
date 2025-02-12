@@ -30,6 +30,7 @@ public class To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 
 		foreach (var objects in SecondScene)
 		{
+			Debug.Log(objects);
 			objects.SetActive(false);
 		}
 	}

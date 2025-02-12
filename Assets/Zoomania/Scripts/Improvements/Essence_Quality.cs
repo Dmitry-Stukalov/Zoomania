@@ -27,4 +27,9 @@ public class Essence_Quality : MonoBehaviour
 	{
 		return levels_config.levels[CurrentLevel.CurrentLevelNumber];
 	}
+
+	public int GetLevelsCount()
+	{
+		return levels_config.levels.Count;
+	}
 }

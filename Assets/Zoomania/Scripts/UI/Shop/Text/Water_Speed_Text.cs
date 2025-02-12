@@ -22,17 +22,17 @@ public class Water_Speed_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == 20)
+		if (WaterBuilding.CurrentImproveLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
 		{
-			Text.text = $"Уровень max: {WaterBuilding.CurrentLevel.CurrentLevelNumber}\n";
+			Text.text = $"Уровень max: {WaterBuilding.CurrentImproveLevel.CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.TimerForGetResourses} сек";
+			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentImproveLevel.EffectValue} сек";
 		}
 		else
 		{
-			Text.text = $"Уровень {WaterBuilding.CurrentLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
+			Text.text = $"Уровень {WaterBuilding.CurrentImproveLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelTimerData().CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.TimerForGetResourses} сек -> {WaterBuilding.TimerForGetResourses-1} сек";
+			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentImproveLevel.EffectValue} сек -> {WaterBuilding.NextLevelTimerData().EffectValue} сек";
 		}
 	}
 }

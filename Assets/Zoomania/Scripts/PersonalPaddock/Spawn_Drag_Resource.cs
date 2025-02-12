@@ -26,15 +26,18 @@ public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
 		FeedTime.OnTimerEnd += PandaDontEat;
 
 		availableResources = this.GetComponent<Available_Resources>();
+
 		Pool = new ObjectPool<GameObject>
 		(
 			createFunc: () => Instantiate(Resource, this.transform.position, Quaternion.identity),							// Создание нового объекта
 			actionOnGet: obj => obj.SetActive(true),							// Действие при получении объекта
 			actionOnRelease: obj => obj.SetActive(false),						// Действие при возврате объекта
 			actionOnDestroy: obj => Destroy(obj),								// Действие при уничтожении объекта
-			defaultCapacity: 10,												// Начальная емкость пула
+			defaultCapacity: 8,												// Начальная емкость пула
 			maxSize: 15															// Максимальный размер пула
 		);
+
+		CreateFirstResources();
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -50,6 +53,7 @@ public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
 
 		if (availableResources.CurrentResources.IncomeResources.Resource > 0)
 		{
+
 			mainCamera = Camera.main;
 
 			resource = Pool.Get();
@@ -65,6 +69,19 @@ public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
 			resource.GetComponent<Resource_New>().FindAllPoints(AnimalPlace.transform.position, Speed);
 			resource.GetComponent<Resource_New>().IsMove = true;
 
+		}
+	}
+
+	public void CreateFirstResources()
+	{
+		for (int i = 0; i < 8;  i++)
+		{
+			resource = Pool.Get();
+			resource.transform.SetParent(this.transform, true);
+			resource.transform.position = transform.position;
+			Speed = Random.Range(10f, 15f);
+			resource.GetComponent<Resource_New>().FindAllPoints(AnimalPlace.transform.position, Speed);
+			resource.GetComponent<Resource_New>().IsMove = true;
 		}
 	}
 

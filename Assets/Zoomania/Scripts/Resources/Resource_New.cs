@@ -8,8 +8,8 @@ public class Resource_New : MonoBehaviour
 {
 	[field: SerializeField] private Sprite View { get; set; }
 	private GameObject Animal { get; set; }
-	private int Capacity { get; set; }
-	private int ReturnedCapacity { get; set; }
+	private float Capacity { get; set; }
+	private float ReturnedCapacity { get; set; }
 	private Vector2 Point { get; set; }
 	private float Speed { get; set; }
 	private Vector2 IntermediatePoint { get; set; }	
@@ -18,18 +18,14 @@ public class Resource_New : MonoBehaviour
 	private float DistanceLength { get; set; }
 	private int PointCount { get; set; }
 	private Vector2[] Points { get; set; }
-	public bool IsMove { get; set; }
-	public bool IsMoving { get; set; }
-	private bool OnAnimal { get; set; }
+	public bool IsMove { get; set; } = false;
+	public bool IsMoving { get; set; } = false;
+	private bool OnAnimal { get; set; } = false;
 
 	public void Start()
 	{
 		Capacity = 0; 
 		ReturnedCapacity = 0;
-
-		IsMove = false;
-		IsMoving = false;
-		OnAnimal = false;
 	}
 
 
@@ -48,7 +44,7 @@ public class Resource_New : MonoBehaviour
 		Animal = null;
 	}
 
-	public int TryFeedAnimal()
+	public float TryFeedAnimal()
 	{
 		if (!OnAnimal) return Capacity;
 		else
@@ -67,12 +63,12 @@ public class Resource_New : MonoBehaviour
 		return ReturnedCapacity;
 	}
 
-	public void ChangeCapacity(int new_capacity)
+	public void ChangeCapacity(float new_capacity)
 	{
 		Capacity = new_capacity;
 	}
 
-	public int GetCapacity()
+	public float GetCapacity()
 	{
 		return Capacity;
 	}
@@ -126,7 +122,7 @@ public class Resource_New : MonoBehaviour
 					PointCount++;
 					if (PointCount == Points.Length)
 					{
-						this.GetComponentInParent<Available_Resources>().PutResource(TryFeedAnimal());
+						GetComponentInParent<Available_Resources>().PutResource(TryFeedAnimal());
 						gameObject.GetComponentInParent<Spawn_Drag_Resource>().DestroyResource(gameObject);
 					}
 					IsMoving = false;

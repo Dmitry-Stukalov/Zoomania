@@ -39,7 +39,7 @@ public class Essence_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		if (EssenceQuality.CurrentLevel.CurrentLevelNumber == 5) this.gameObject.SetActive(false);
+		if (EssenceQuality.CurrentLevel.CurrentLevelNumber == EssenceQuality.GetLevelsCount()) gameObject.SetActive(false);
 		Text.text = TextConversion(EssenceQuality.CurrentLevel.MoneyForUpgrade);
 	}
 

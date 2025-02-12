@@ -34,14 +34,14 @@ public class Food_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 		moneyperclick.SetMoneyValue(FoodBuilding.CurrentLevel.MoneyForUpgrade);
 
-		FoodBuilding.Upgrade();
+		FoodBuilding.UpgradeValue();
 
 		UpdateData();
 	}
 
 	public void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == 20) gameObject.SetActive(false);
+		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetLevelsCount()) gameObject.SetActive(false);
 		Text.text = TextConversion(FoodBuilding.CurrentLevel.MoneyForUpgrade);
 	}
 

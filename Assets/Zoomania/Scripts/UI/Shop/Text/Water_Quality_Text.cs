@@ -25,14 +25,14 @@ public class Water_Quality_Text : MonoBehaviour
 		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == 20)
 		{
 			Text.text = $"Уровень max: {WaterBuilding.CurrentLevel.CurrentLevelNumber}\n";
-
-			Text.text += $"Количество получаемой воды: {WaterBuilding.CurrentLevel.IncomePerClickValue}";
+			Text.text += $"Количество получаемых ресурсов: {WaterBuilding.CurrentLevel.IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления: {WaterBuilding.CurrentLevel.DragResourceCapacity}\n";
 		}
 		else
 		{
-			Text.text = $"Уровень {WaterBuilding.CurrentLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
-
-			Text.text += $"Количество получаемой воды: {WaterBuilding.CurrentLevel.IncomePerClickValue} -> {WaterBuilding.NextLevelData().IncomePerClickValue}";
+			Text.text = $"Уровень {WaterBuilding.CurrentLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelValueData().CurrentLevelNumber}\n";
+			Text.text += $"Количество получаемых ресурсов {WaterBuilding.CurrentLevel.IncomePerSecondValue} -> {WaterBuilding.NextLevelValueData().IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления {WaterBuilding.CurrentLevel.DragResourceCapacity} -> {WaterBuilding.NextLevelValueData().DragResourceCapacity}\n";
 		}
 	}
 }

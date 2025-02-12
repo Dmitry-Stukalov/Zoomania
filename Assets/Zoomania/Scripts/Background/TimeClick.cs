@@ -20,8 +20,6 @@ public class TimeClick : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		Debug.Log("Z");
-
 		if (Night.IsDay)
 		{
 			Night.DayTime.UpdateTimer(DayTimeSkip);

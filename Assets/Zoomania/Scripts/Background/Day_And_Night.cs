@@ -20,7 +20,7 @@ public class Day_And_Night : MonoBehaviour
 	public void Start()	
 	{
 		Ratio = 0.078f;
-
+		 
 		NightBackground = GameObject.FindGameObjectWithTag("Night").GetComponent<Image>();
 		ChangeColorAlpha(0);
 
@@ -61,7 +61,7 @@ public class Day_And_Night : MonoBehaviour
 		if (IsDay) DayTime.Tick(Time.deltaTime);
 		if (!IsDay) NightTime.Tick(Time.deltaTime);
 
-		if (DayTime.CurrentTime >= 61 && DayTime.CurrentTime <= 65) ChangeColorAlpha(DayTime.CurrentTime % 10 * Ratio);
-		if (NightTime.CurrentTime >= 6 && NightTime.CurrentTime <= 65) ChangeColorAlpha((10 - NightTime.CurrentTime % 10) * Ratio);
+		if (DayTime.CurrentTime >= 60 && DayTime.CurrentTime <= 64) ChangeColorAlpha(DayTime.CurrentTime % 10 * Ratio + Ratio);
+		if (NightTime.CurrentTime >= 60 && NightTime.CurrentTime <= 64) ChangeColorAlpha((5 - NightTime.CurrentTime % 10 - 1) * Ratio);
 	}
 }

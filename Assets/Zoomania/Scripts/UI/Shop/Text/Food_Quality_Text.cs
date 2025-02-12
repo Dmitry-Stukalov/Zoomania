@@ -25,14 +25,14 @@ public class Food_Quality_Text : MonoBehaviour
 		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == 20)
 		{
 			Text.text = $"Уровень max: {FoodBuilding.CurrentLevel.CurrentLevelNumber}\n";
-
-			Text.text += $"Количество получаемой воды: {FoodBuilding.CurrentLevel.IncomePerClickValue}";
+			Text.text += $"Количество получаемых ресурсов: {FoodBuilding.CurrentLevel.IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления: {FoodBuilding.CurrentLevel.DragResourceCapacity}\n";
 		}
 		else
 		{
-			Text.text = $"Уровень {FoodBuilding.CurrentLevel.CurrentLevelNumber} -> {FoodBuilding.NextLevelData().CurrentLevelNumber}\n";
-
-			Text.text += $"Количество получаемой воды: {FoodBuilding.CurrentLevel.IncomePerClickValue} -> {FoodBuilding.NextLevelData().IncomePerClickValue}";
+			Text.text = $"Уровень {FoodBuilding.CurrentLevel.CurrentLevelNumber} -> {FoodBuilding.NextLevelValueData().CurrentLevelNumber}\n";
+			Text.text += $"Количество получаемых ресурсов {FoodBuilding.CurrentLevel.IncomePerSecondValue} -> {FoodBuilding.NextLevelValueData().IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления {FoodBuilding.CurrentLevel.DragResourceCapacity} -> {FoodBuilding.NextLevelValueData().DragResourceCapacity}\n";
 		}
 	}
 }

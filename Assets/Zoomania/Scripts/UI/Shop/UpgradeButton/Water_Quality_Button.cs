@@ -34,14 +34,14 @@ public class Water_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 		moneyperclick.SetMoneyValue(WaterBuilding.CurrentLevel.MoneyForUpgrade);
 
-		WaterBuilding.Upgrade();
+		WaterBuilding.UpgradeValue();
 
 		UpdateData();
 	}
 
 	public void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == 20) gameObject.SetActive(false);
+		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount()) gameObject.SetActive(false);
 		Text.text = TextConversion(WaterBuilding.CurrentLevel.MoneyForUpgrade);
 	}
 

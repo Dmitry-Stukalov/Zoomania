@@ -26,6 +26,7 @@ TagManager:
   - Night
   - AnimalWater
   - AnimalFood
+  - EssenceClick
   layers:
   - Default
   - TransparentFX

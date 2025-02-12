@@ -7,11 +7,16 @@ using UnityEngine.EventSystems;
 public class ResourceBuilding : MonoBehaviour
 {
 	[field: SerializeField] private Building_Levels_Config levels_config { get; set; }
+	[field: SerializeField] private Improvement_Levels_Config_New improvement_levels_config { get; set; }
+	[field: SerializeField] public ParticleSystem Click { get; set; }
+	[field: SerializeField] public AudioSource Audio { get; set; }
 	public BuildingLevel CurrentLevel { get; set; }
+	public Improvement_Level_New CurrentImproveLevel { get; set; }
 	public IncomeResource IncomeResources { get; set; }
-	public ParticleSystem Click { get; set; }
-	public AudioSource Audio {  get; set; }
-	public int TimerForGetResourses { get; set; }
+	public int TimeLevelNumber { get; set; }
+	private int TimeDifference { get; set; }
+	private int ValueDifference { get; set; }
+
 
 	public event Action OnChange;
 	public event Action OnUpgrade;
@@ -20,21 +25,27 @@ public class ResourceBuilding : MonoBehaviour
 	private void Start()
 	{
 		CurrentLevel = levels_config.levels[0];
+		CurrentImproveLevel = improvement_levels_config.levels[0];
 
-		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentLevel.IncomePerClickValue, TimerForGetResourses);
-		IncomeResources.ResourceTimer.OnTimerEnd += Change;
+		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentImproveLevel.EffectValue);
+		IncomeResources.ResourceTimer.OnTimerEnd += Effects;
 
-		TimerForGetResourses = 10;
-
-		UpdateData();
+		TimeLevelNumber = 1;
+		TimeDifference = 0;
+		ValueDifference = 0;
 	}
 
 	public void Change()                                                                            //—рабатывает при изменении количества ресурсов или при улучшении
 	{
+		OnChange?.Invoke();
+	}
+
+	public void Effects()
+	{
 		Click.Play();
 		Audio.Play();
+
 		OnChange?.Invoke();
-		UpdateData();
 	}
 
 	public void SetData(int watercount)																//”меньшает количество текущих ресурсов на величину передаваемой переменной
@@ -52,38 +63,27 @@ public class ResourceBuilding : MonoBehaviour
 		OnChange?.Invoke();
 	}
 
-	public int GetData()
+	public float GetData()
 	{
 		return IncomeResources.Resource;
 	}
 
-	public void UpdateData()                                                                        //ќбновл€ет значени€ получаемых ресурсов
-	{
-		IncomeResources.IncomePerSecondValue = CurrentLevel.IncomePerSecondValue;
-		IncomeResources.IncomePerClickValue = CurrentLevel.IncomePerClickValue;
-	}
-
-	public void Upgrade()																			//ѕоднимает уровень здани€ если достаточно монет
+	public void UpgradeValue()																			//ѕоднимает уровень здани€ если достаточно монет
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 
-		Change();
+		IncomeResources.ChangeIncomeValue(CurrentLevel.IncomePerSecondValue);
 
 		OnUpgrade?.Invoke();
 	}
 
-	public void UpgradeTimer(int time)
+	public void UpgradeTimer()
 	{
-		TimerForGetResourses = time;
+		CurrentImproveLevel = improvement_levels_config.levels[CurrentImproveLevel.CurrentLevelNumber];
 
-		IncomeResources.ChangeTime(TimerForGetResourses);
+		IncomeResources.ChangeTime(CurrentImproveLevel.EffectValue);
 
 		OnUpgrade?.Invoke();
-	}
-
-	public BuildingLevel CurrentLevelData()                                                         //ѕозвол€ет получить данные текущего уровн€ (»спользуетс€ дл€ личного загона)
-	{
-		return CurrentLevel;
 	}
 
 	public int DragResourceValue()
@@ -91,10 +91,25 @@ public class ResourceBuilding : MonoBehaviour
 		return CurrentLevel.DragResourceCapacity;
 	}
 
-	public BuildingLevel NextLevelData()															//ѕозвол€ет получить данные следующего уровн€ (»спользуетс€ дл€ магазина)
+	public BuildingLevel NextLevelValueData()															//ѕозвол€ет получить данные следующего уровн€ (»спользуетс€ дл€ магазина)
 	{
 		if (CurrentLevel.CurrentLevelNumber <= levels_config.levels.Count - 1) return levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		else return null;
+	}
+
+	public Improvement_Level_New NextLevelTimerData()
+	{
+		if (CurrentImproveLevel.CurrentLevelNumber <= improvement_levels_config.levels.Count - 1) return improvement_levels_config.levels[CurrentImproveLevel.CurrentLevelNumber];
+		else return null;
+	}
+	public int GetLevelsCount()
+	{
+		return levels_config.levels.Count;
+	}
+
+	public int GetImprovementLevelsCount()
+	{
+		return improvement_levels_config.levels.Count;
 	}
 
 	void Update()                                                                                   //—рабатывает каждый кадр, отвечает за работу таймера

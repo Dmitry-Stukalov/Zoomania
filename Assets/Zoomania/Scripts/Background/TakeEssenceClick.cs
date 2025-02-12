@@ -44,5 +44,11 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 			}
 		}
 	}
+	
+	public void ChangeTimeSkip(float time, bool plus)
+	{
+		if (plus) EssenceTimeSkip += time;
+		else EssenceTimeSkip -= time;
+	}
 
 }

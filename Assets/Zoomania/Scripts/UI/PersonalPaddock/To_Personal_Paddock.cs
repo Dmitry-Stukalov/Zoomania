@@ -18,6 +18,7 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 	public void Start()
 	{
 		Objects = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>();
+		SecondScene = Objects.SecondSceneObjects();
 
 		maincamera = Camera.main;
 	}
@@ -28,8 +29,6 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
 		EssenceMenuResource.GetComponent<Background_Resource>().SetAnimation();
-
-		SecondScene = Objects.SecondSceneObjects();
 
 		foreach (var objects in SecondScene)
 		{

@@ -10,9 +10,9 @@ public class Animal_Feeding : MonoBehaviour
 	private TextMeshPro WaterText { get; set; }
 	private TextMeshPro FoodText { get; set; }
 	private Animals Animal { get; set; }
-	private int RequiredWater { get; set; }
-	private int RequiredFood { get; set; }
-	private int ReturnedResource { get; set; }
+	private float RequiredWater { get; set; }
+	private float RequiredFood { get; set; }
+	private float ReturnedResource { get; set; }
 	private bool IsEat { get; set; } = false;
 	private bool IsDrinking { get; set; } = false;
 
@@ -35,7 +35,7 @@ public class Animal_Feeding : MonoBehaviour
 		ChangeVisibility();
 	}
 
-	public int Drinking(int drinkvalue)
+	public float Drinking(float drinkvalue)
 	{
 		if (Animal.CurrentLevel.CurrentLevelNumber == 4) return drinkvalue;
 
@@ -60,7 +60,7 @@ public class Animal_Feeding : MonoBehaviour
 		return drinkvalue;
 	}
 
-	public int Eating(int foodvalue)
+	public float Eating(float foodvalue)
 	{
 		if (Animal.CurrentLevel.CurrentLevelNumber == 4) return foodvalue;
 
@@ -110,7 +110,7 @@ public class Animal_Feeding : MonoBehaviour
 		}
 	}
 
-	public int GetRequiredResources()
+	public float GetRequiredResources()
 	{
 		return RequiredFood + RequiredWater;
 	}
