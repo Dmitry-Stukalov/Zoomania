@@ -16,13 +16,13 @@ public class To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 	public void Start()
 	{
 		Objects = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>();
-		SecondScene = Objects.SecondSceneObjects();
 
 		maincamera = Camera.main;
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		SecondScene = Objects.SecondSceneObjects();
 		maincamera.transform.position = new Vector3(maincamera.transform.position.x + 23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
 		
 		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();

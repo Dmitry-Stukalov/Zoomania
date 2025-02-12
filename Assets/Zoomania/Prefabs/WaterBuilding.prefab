@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 2303098999568420176}
   m_Layer: 0
   m_Name: ClickSound
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 4077139418862484574}
   m_Layer: 0
   m_Name: ClickEffect_Water
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

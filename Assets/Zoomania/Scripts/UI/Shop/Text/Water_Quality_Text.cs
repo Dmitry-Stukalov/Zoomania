@@ -16,13 +16,13 @@ public class Water_Quality_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("WaterBuilding");
 		WaterBuilding = Building.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		//UpdateData();
 		WaterBuilding.OnUpgrade += UpdateData;
 	}
 
 	public void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == 20)
+		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
 		{
 			Text.text = $"Уровень max: {WaterBuilding.CurrentLevel.CurrentLevelNumber}\n";
 			Text.text += $"Количество получаемых ресурсов: {WaterBuilding.CurrentLevel.IncomePerSecondValue}\n";

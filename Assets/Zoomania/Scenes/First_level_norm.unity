@@ -4374,6 +4374,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4001788358566599627, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_TagString
+      value: FirstScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215569940301881201, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4307332144858863617, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4384,7 +4392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520539806186483738, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_TagString
-      value: SecondScene
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4748371967510772046, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4552,7 +4560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8988764174503612774, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_TagString
-      value: SecondScene
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15364,6 +15372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8268981792655474224, guid: fd5e7c6116620cc47af68bdff4016383, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18581,8 +18593,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1981771432}
   - component: {fileID: 1981771433}
-  - component: {fileID: 1981771434}
   - component: {fileID: 1981771435}
+  - component: {fileID: 1981771434}
   m_Layer: 0
   m_Name: ToCommonPaddock
   m_TagString: Untagged

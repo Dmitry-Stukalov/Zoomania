@@ -17,7 +17,7 @@ public class Essence_Quality_Text : MonoBehaviour
 
 		Text = GetComponent<TextMeshProUGUI>();
 
-		UpdateData();
+		//UpdateData();
 
 		EssenceQuality.OnUpgrade += UpdateData;
 	}

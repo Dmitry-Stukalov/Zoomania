@@ -21,7 +21,7 @@ public class Water_Speed_Button : MonoBehaviour, IPointerClickHandler
 
 		WaterBuilding = Buiding.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		//UpdateData();
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

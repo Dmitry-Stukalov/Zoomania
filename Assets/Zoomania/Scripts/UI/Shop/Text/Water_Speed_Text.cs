@@ -16,7 +16,7 @@ public class Water_Speed_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("WaterBuilding");
 		WaterBuilding = Building.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		//UpdateData();
 		WaterBuilding.OnUpgrade += UpdateData;
 	}
 

@@ -16,7 +16,7 @@ public class Food_Quality_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("FoodBuilding");
 		FoodBuilding = Building.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		//UpdateData();
 		FoodBuilding.OnUpgrade += UpdateData;
 	}
 

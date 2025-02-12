@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 867360130188962107}
   m_Layer: 0
   m_Name: ClickEffect_Food
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5043,7 +5043,7 @@ GameObject:
   - component: {fileID: 4038835357330775121}
   m_Layer: 0
   m_Name: ClickSource
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
