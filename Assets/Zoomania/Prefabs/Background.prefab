@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 912712251001841591}
   - component: {fileID: 7393389749723252005}
+  - component: {fileID: 8268981792655474224}
   - component: {fileID: 439530030383287906}
   - component: {fileID: 7205765998198908044}
   - component: {fileID: 7930905429007839729}
-  - component: {fileID: 8268981792655474224}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -89,6 +89,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8268981792655474224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a59e06e2a12f447868e21f7a265cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &439530030383287906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d131709feb9318948a115e155ea18d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <improvement_levels_config>k__BackingField: {fileID: 0}
+  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: 983de5c11dad9ec4caa92b4da926a5b7, type: 2}
 --- !u!114 &7930905429007839729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,18 +137,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d6fbf43c318c6048b9a2edbbc875567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8268981792655474224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a59e06e2a12f447868e21f7a265cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3647653666417256099
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 1758907279430193097}
   m_Layer: 0
   m_Name: AudioBackground
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

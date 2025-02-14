@@ -21,28 +21,28 @@ public class Food_Speed_Button : MonoBehaviour, IPointerClickHandler
 
 		FoodBuilding = Buiding.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		Text.text = TextConversion(25);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < FoodBuilding.CurrentLevel.MoneyForSecondUpgrade)
+		if (moneyperclick.IncomeMoney.Resource < FoodBuilding.CurrentImproveLevel.MoneyForUpgrade)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(FoodBuilding.CurrentLevel.MoneyForSecondUpgrade);
+		moneyperclick.SetMoneyValue(FoodBuilding.CurrentImproveLevel.MoneyForUpgrade);
 
-		FoodBuilding.UpgradeTimer(FoodBuilding.TimerForGetResourses - 1);
+		FoodBuilding.UpgradeTimer();
 
 		UpdateData();
 	}
 
 	public void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == 20) gameObject.SetActive(false);
-		Text.text = TextConversion(FoodBuilding.CurrentLevel.MoneyForSecondUpgrade);
+		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetImprovementLevelsCount()) gameObject.SetActive(false);
+		Text.text = TextConversion(FoodBuilding.CurrentImproveLevel.MoneyForUpgrade);
 	}
 
 	public string TextConversion(float value)

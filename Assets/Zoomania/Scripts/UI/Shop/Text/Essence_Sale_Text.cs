@@ -17,7 +17,7 @@ public class Essence_Sale_Text : MonoBehaviour
 
 		Text = GetComponent<TextMeshProUGUI>();
 
-		UpdateData();
+		Text.text = $"Количество эссенций: 0";
 		Storage.OnChange += UpdateData;
 	}
 

@@ -22,7 +22,7 @@ public class Essence_Sale_Button : MonoBehaviour, IPointerClickHandler
 
 		Text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
-		UpdateData();
+		Text.text = TextConversion(0);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

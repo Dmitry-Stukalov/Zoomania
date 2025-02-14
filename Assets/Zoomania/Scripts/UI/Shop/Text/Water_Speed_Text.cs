@@ -16,23 +16,26 @@ public class Water_Speed_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("WaterBuilding");
 		WaterBuilding = Building.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		Text.text = $"Уровень 1 -> 2\n";
+
+		Text.text += $"Время получаемой воды: 10 сек -> 9 сек";
+
 		WaterBuilding.OnUpgrade += UpdateData;
 	}
 
 	public void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == 20)
+		if (WaterBuilding.CurrentImproveLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
 		{
-			Text.text = $"Уровень max: {WaterBuilding.CurrentLevel.CurrentLevelNumber}\n";
+			Text.text = $"Уровень max: {WaterBuilding.CurrentImproveLevel.CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.TimerForGetResourses} сек";
+			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentImproveLevel.EffectValue} сек";
 		}
 		else
 		{
-			Text.text = $"Уровень {WaterBuilding.CurrentLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
+			Text.text = $"Уровень {WaterBuilding.CurrentImproveLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelTimerData().CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.TimerForGetResourses} сек -> {WaterBuilding.TimerForGetResourses-1} сек";
+			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentImproveLevel.EffectValue} сек -> {WaterBuilding.NextLevelTimerData().EffectValue} сек";
 		}
 	}
 }

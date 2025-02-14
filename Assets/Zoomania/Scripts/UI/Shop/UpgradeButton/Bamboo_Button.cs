@@ -21,7 +21,7 @@ public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
 
 		Bamboo = Buiding.GetComponent<Buy_Bamboo>();
 
-		UpdateData();
+		Text.text = TextConversion(5);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -41,7 +41,7 @@ public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		if (Bamboo.CurrentLevel.CurrentLevelNumber == 7) gameObject.SetActive(false);
+		if (Bamboo.CurrentLevel.CurrentLevelNumber == Bamboo.GetLevelsCount() - 1) gameObject.SetActive(false);
 		Text.text = TextConversion(Bamboo.CurrentLevel.MoneyForUpgrade);
 	}
 

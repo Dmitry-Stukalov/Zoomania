@@ -30,7 +30,7 @@ public class Timer
 		Pause = pause;
 	}
 
-	public void SetMaxTimeAndReset(int maxtime)
+	public void SetMaxTimeAndReset(float maxtime)
 	{
 		TimerIsEnd = false;
 		CurrentTime = 0;

@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - WaterBuilding
-  - FoodBuilding
   - Barn
   - Panda
   - Money
@@ -26,6 +25,8 @@ TagManager:
   - Night
   - AnimalWater
   - AnimalFood
+  - EssenceClick
+  - FoodBuilding
   layers:
   - Default
   - TransparentFX

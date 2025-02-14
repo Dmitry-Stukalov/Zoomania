@@ -15,16 +15,16 @@ public class Money : MonoBehaviour
 
 	public void Start()
 	{
-		IncomeMoney = new IncomeResource(0, 0, 5);
+		IncomeMoney = new IncomeResource(0, 0);
 	}
 
-	public void SetMoneyValue(int value)
+	public void SetMoneyValue(float value)
 	{
 		IncomeMoney.Resource -= value;
 		OnChange?.Invoke();
 	}
 
-	public void IncreaseMoneyValue(int value)
+	public void IncreaseMoneyValue(float value)
 	{
 		IncomeMoney.Resource += value;
 		OnChange?.Invoke();

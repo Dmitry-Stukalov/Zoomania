@@ -6,7 +6,6 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
 {
     [field: SerializeField] private GameObject TargetMenu { get; set; }
 	[field: SerializeField] private GameObject BlockingButton { get; set; }
-	[field: SerializeField] GameObject CoinMenuResource { get; set; }
 	[field: SerializeField] GameObject FoodMenuResource { get; set; }
 	[field: SerializeField] GameObject WaterMenuResource { get; set; }
 	private bool IsHide { get; set; } = false;

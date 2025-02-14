@@ -10,7 +10,8 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 	private List<GameObject> Animals { get; set; }
 	private List<AnimalAI_New> AnimalAI { get; set; }
 	private Day_And_Night Night { get; set; }
-	public float EssenceTimeSkip { get; set; }
+	private float EssenceTimeSkip { get; set; }
+	private float DifferenctTimeSkip { get; set; }
 
 	public void Start()
 	{
@@ -43,6 +44,12 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 				animal.ChangeTime(EssenceTimeSkip);
 			}
 		}
+	}
+	
+	public void ChangeTimeSkip(float time, bool plus)
+	{
+		if (plus) EssenceTimeSkip += time;
+		else EssenceTimeSkip -= time;
 	}
 
 }

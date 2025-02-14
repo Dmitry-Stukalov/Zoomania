@@ -21,28 +21,28 @@ public class Water_Speed_Button : MonoBehaviour, IPointerClickHandler
 
 		WaterBuilding = Buiding.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		Text.text = TextConversion(25);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < WaterBuilding.CurrentLevel.MoneyForSecondUpgrade)
+		if (moneyperclick.IncomeMoney.Resource < WaterBuilding.CurrentImproveLevel.EffectValue)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(WaterBuilding.CurrentLevel.MoneyForSecondUpgrade);
+		moneyperclick.SetMoneyValue(WaterBuilding.CurrentImproveLevel.EffectValue);
 
-		WaterBuilding.UpgradeTimer(WaterBuilding.TimerForGetResourses - 1);
+		WaterBuilding.UpgradeTimer();
 
 		UpdateData();
 	}
 
 	public void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == 20) gameObject.SetActive(false);
-		Text.text = TextConversion(WaterBuilding.CurrentLevel.MoneyForSecondUpgrade);
+		if (WaterBuilding.CurrentImproveLevel.CurrentLevelNumber == WaterBuilding.GetImprovementLevelsCount()) gameObject.SetActive(false);
+		Text.text = TextConversion(WaterBuilding.CurrentImproveLevel.MoneyForUpgrade);
 	}
 
 	public string TextConversion(float value)
