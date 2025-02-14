@@ -5375,6 +5375,7 @@ GameObject:
   - component: {fileID: 445950519}
   - component: {fileID: 445950522}
   - component: {fileID: 445950521}
+  - component: {fileID: 445950523}
   - component: {fileID: 445950520}
   m_Layer: 0
   m_Name: EssenceClick
@@ -5507,6 +5508,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &445950523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445950518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55dcfbab1df1f5a4e9a23a0d36a8dd63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: 387911283f15d944d99f32c61cae3873, type: 2}
 --- !u!1001 &448556749
 PrefabInstance:
   m_ObjectHideFlags: 0

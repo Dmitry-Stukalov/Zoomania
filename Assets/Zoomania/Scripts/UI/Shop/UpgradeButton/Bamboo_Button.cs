@@ -21,7 +21,7 @@ public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
 
 		Bamboo = Buiding.GetComponent<Buy_Bamboo>();
 
-		UpdateData();
+		Text.text = TextConversion(5);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

@@ -19,7 +19,7 @@ public class Essence_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 		EssenceQuality = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Quality>();
 
-		UpdateData();
+		Text.text = TextConversion(25);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

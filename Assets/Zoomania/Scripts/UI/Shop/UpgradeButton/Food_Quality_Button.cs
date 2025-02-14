@@ -21,7 +21,7 @@ public class Food_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 		FoodBuilding = Buiding.GetComponent<ResourceBuilding>();
 
-		//UpdateData();
+		Text.text = TextConversion(10);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

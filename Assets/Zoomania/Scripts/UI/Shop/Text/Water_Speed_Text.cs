@@ -16,7 +16,10 @@ public class Water_Speed_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("WaterBuilding");
 		WaterBuilding = Building.GetComponent<ResourceBuilding>();
 
-		//UpdateData();
+		Text.text = $"Уровень 1 -> 2\n";
+
+		Text.text += $"Время получаемой воды: 10 сек -> 9 сек";
+
 		WaterBuilding.OnUpgrade += UpdateData;
 	}
 

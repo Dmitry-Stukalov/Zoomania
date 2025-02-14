@@ -16,7 +16,10 @@ public class Food_Speed_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("WaterBuilding");
 		FoodBuilding = Building.GetComponent<ResourceBuilding>();
 
-		UpdateData();
+		Text.text = $"Уровень 1 -> 2\n";
+
+		Text.text += $"Время получаемой еды: 10 сек -> 9 сек";
+
 		FoodBuilding.OnUpgrade += UpdateData;
 	}
 

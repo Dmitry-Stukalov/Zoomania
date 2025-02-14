@@ -16,13 +16,16 @@ public class Food_Quality_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("FoodBuilding");
 		FoodBuilding = Building.GetComponent<ResourceBuilding>();
 
-		//UpdateData();
+		Text.text = $"Уровень 1 -> 2\n";
+		Text.text += $"Количество получаемых ресурсов 1 -> 2\n";
+		Text.text += $"Количество ресурсов для кормления 1 -> 2\n";
+
 		FoodBuilding.OnUpgrade += UpdateData;
 	}
 
 	public void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == 20)
+		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetLevelsCount())
 		{
 			Text.text = $"Уровень max: {FoodBuilding.CurrentLevel.CurrentLevelNumber}\n";
 			Text.text += $"Количество получаемых ресурсов: {FoodBuilding.CurrentLevel.IncomePerSecondValue}\n";
