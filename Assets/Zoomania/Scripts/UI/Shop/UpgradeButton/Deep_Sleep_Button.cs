@@ -21,7 +21,7 @@ public class Deep_Sleep_Button : MonoBehaviour, IPointerClickHandler
 
 		Sleep = Buiding.GetComponent<Deep_Sleep>();
 
-		Text.text = TextConversion(5);
+		Text.text = TextConversion(10);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

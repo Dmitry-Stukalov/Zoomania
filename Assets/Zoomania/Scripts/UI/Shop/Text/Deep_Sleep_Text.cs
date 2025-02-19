@@ -24,7 +24,7 @@ public class Deep_Sleep_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		if (Sleep.CurrentLevel.CurrentLevelNumber == 7)
+		if (Sleep.CurrentLevel.CurrentLevelNumber == Sleep.GetLevelsCount() - 1)
 		{
 			Text.text = $"”ровень max: {Sleep.CurrentLevel.CurrentLevelNumber}\n";
 			Text.text += $"Ёффективность кликов: +{Sleep.CurrentLevel.EffectValue}\n";

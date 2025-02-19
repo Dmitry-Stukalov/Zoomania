@@ -22,7 +22,7 @@ public class Essence_Quality : MonoBehaviour
 	public void Upgrade()
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		EssenceClick.ChangeTimeSkip(0.1f, false);
+		EssenceClick.ChangeTimeSkip(0.5f, false);
 
 		OnUpgrade?.Invoke();
 	}

@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7fcbcc6a0c48484f8fa21bef6fc536b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ffb6360ec783a34e8e02afafe014977, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2479,7 +2479,7 @@ GameObject:
   - component: {fileID: 2515072488153649322}
   m_Layer: 5
   m_Name: WaterClick
-  m_TagString: SecondScene
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3850,7 +3850,7 @@ GameObject:
   - component: {fileID: 3057375322596529088}
   m_Layer: 5
   m_Name: FoodClick
-  m_TagString: SecondScene
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4251,6 +4251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6821719739548087735}
     m_Modifications:
+    - target: {fileID: 3245221844131682831, guid: 05774884233a5524195ef7d9da92ea0b, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 2380171836120664358}
     - target: {fileID: 3971764121374720431, guid: 05774884233a5524195ef7d9da92ea0b, type: 3}
       propertyPath: m_Name
       value: PREF_Deep_Sleep_Panel
