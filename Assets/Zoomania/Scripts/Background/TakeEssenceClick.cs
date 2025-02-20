@@ -27,12 +27,7 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateList()
 	{
-		Animals = Barn.Animals;
-
-		foreach (var animal in Animals)
-		{
-			AnimalAI.Add(animal.GetComponent<AnimalAI_New>());
-		}
+		AnimalAI.Add(Barn.Animals[Barn.Animals.Count - 1].GetComponent<AnimalAI_New>());
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -50,6 +45,8 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 	{
 		if (plus) EssenceTimeSkip += time;
 		else EssenceTimeSkip -= time;
+
+		Debug.Log(EssenceTimeSkip);
 	}
 
 }

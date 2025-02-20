@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animals:
   - {fileID: 3840527767493723284, guid: e275329a3f1979d4092d96a10da1d2eb, type: 3}
+  - {fileID: 4354971729221301545, guid: 8cfdf3cb5085124408e359cdcbee0b97, type: 3}

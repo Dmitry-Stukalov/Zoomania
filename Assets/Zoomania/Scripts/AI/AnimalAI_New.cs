@@ -82,7 +82,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 
 				Action = UnityEngine.Random.Range(0, 15);
 
-				if (Action >= 0 && Action <= 12)
+				if (Action >= 0 && Action <= 2)
 				{
 					RandomTime = UnityEngine.Random.Range(3, AnimalResting.RestingTime.MaxTime - 3);
 					RandomAnimation = UnityEngine.Random.Range(1, 5);
@@ -93,7 +93,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 					AnimalResting.Resting();
 				}
 
-				if (Action >= 13 && Action <= 15)
+				if (Action >= 3 && Action <= 15)
 				{
 					RandomAnimation = UnityEngine.Random.Range(1, 2);
 					if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
@@ -105,6 +105,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 			else
 			{
 				AbortActions();
+				animator.SetBool("IsSleeping", true);
 
 				Debug.Log("Панда спит");
 			}
@@ -124,6 +125,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 
 		animator.SetBool("IsMoving", false);
 		animator.SetBool("IsFlip", false);
+		animator.SetBool("IsSleeping", false);
 	}
 
 	public void RandomAnimationOver()
@@ -170,6 +172,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	public void Sleep()
 	{
 		IsSleep = true;
+		animator.SetBool("IsSleeping", true);
 
 		RandomActions();
 	}
@@ -177,6 +180,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	public void WakeUp()
 	{
 		IsSleep = false;
+		animator.SetBool("IsSleeping", false);
 
 		RandomActions();
 	}
