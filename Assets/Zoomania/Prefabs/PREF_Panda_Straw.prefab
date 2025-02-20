@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 7753059165758280074}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: AnimalWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,7 +334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7, y: -4.7}
+  m_AnchoredPosition: {x: 0.9, y: -3.7}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &3192816748477188897
@@ -408,14 +408,13 @@ GameObject:
   - component: {fileID: 4444799588412230583}
   - component: {fileID: 6200503297777191152}
   - component: {fileID: 649295395930714268}
-  - component: {fileID: 5108895461425992510}
-  - component: {fileID: 5566608935647242707}
-  - component: {fileID: 4318620096283553321}
   - component: {fileID: 1737195601886285219}
+  - component: {fileID: 5566608935647242707}
   - component: {fileID: 2473786249419518997}
   - component: {fileID: 4125095244043157545}
   - component: {fileID: 1029497857210440832}
   - component: {fileID: 1419050379408663234}
+  - component: {fileID: -2603624427475164804}
   m_Layer: 0
   m_Name: PREF_Panda_Straw
   m_TagString: Panda
@@ -483,12 +482,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9f0bbfaf442f16f41b9185df2d136dc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dacf313498ce1574d870f28b81e34afe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.29, y: 7.63}
+  m_Size: {x: 4.71, y: 5.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -538,46 +537,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5108895461425992510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4354971729221301545}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ec262943e69224cb2145aa194a6056, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDoAction: 0
---- !u!114 &5566608935647242707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4354971729221301545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a161314c2b71c4f4fb4066cfa058a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4318620096283553321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4354971729221301545}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392af8ae57bea86469d0a3b5ee764d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: 4cc5720fdbc77a646bf030531cb5a247, type: 2}
-  SoundLevelUp: {fileID: 1256280039541729931}
-  SoundSpawn: {fileID: 3020826293548422841}
 --- !u!114 &1737195601886285219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,9 +549,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df01ca360134de4db59ada59d66107a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: 4cc5720fdbc77a646bf030531cb5a247, type: 2}
-  SoundLevelUp: {fileID: 1256280039541729931}
-  SoundSpawn: {fileID: 3020826293548422841}
+  <SoundLevelUp>k__BackingField: {fileID: 1256280039541729931}
+  <SoundSpawn>k__BackingField: {fileID: 3020826293548422841}
+  <levels_config>k__BackingField: {fileID: 11400000, guid: 4cc5720fdbc77a646bf030531cb5a247, type: 2}
+--- !u!114 &5566608935647242707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4354971729221301545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a161314c2b71c4f4fb4066cfa058a819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Essence>k__BackingField: {fileID: 8740642672455206157, guid: e931339eb29213d44a24f15e4c17fac9, type: 3}
 --- !u!114 &2473786249419518997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,8 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc774140c6af6dc41b2780d7ccbd5fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Water>k__BackingField: {fileID: 4242355600918529901}
-  <Food>k__BackingField: {fileID: 6581438032348611124}
 --- !u!114 &4125095244043157545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,8 +652,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.29, y: 7.63}
-    newSize: {x: 5.29, y: 7.63}
+    oldSize: {x: 4.71, y: 5.22}
+    newSize: {x: 4.71, y: 5.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -691,6 +661,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.29, y: 7.63}
   m_EdgeRadius: 0
+--- !u!95 &-2603624427475164804
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4354971729221301545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab89608126e64ea499a77120889e34d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4799000247787231655
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +823,7 @@ GameObject:
   - component: {fileID: 5871530912916504322}
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: AnimalFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -854,7 +845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8999999, y: -4.7}
+  m_AnchoredPosition: {x: -1.7, y: -3.7}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8085517270432864270
@@ -898,7 +889,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4ca867f357ed0b48942626eb2a9feac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d4d9bd2a2c231049a32fb707ad2148a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

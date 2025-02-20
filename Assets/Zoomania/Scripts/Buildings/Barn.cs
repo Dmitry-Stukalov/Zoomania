@@ -17,7 +17,6 @@ public class Barn : MonoBehaviour
 	private int RandomNumber { get; set; }
 
 	public event Action Spawn;
-	public event Action OnLevelUp;
 
 	public void Start()
 	{
