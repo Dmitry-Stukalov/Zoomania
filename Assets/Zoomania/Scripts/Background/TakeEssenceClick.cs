@@ -22,7 +22,7 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 
 		AnimalAI = new List<AnimalAI_New>();
 
-		EssenceTimeSkip = 1f;
+		EssenceTimeSkip = 2f;
 	}
 
 	public void UpdateList()

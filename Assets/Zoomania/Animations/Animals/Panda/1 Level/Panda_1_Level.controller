@@ -62,7 +62,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Panda_New_Flip
+  m_Name: A_Panda_1_Flip
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -162,7 +162,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 840, y: -270, z: 0}
-  m_EntryPosition: {x: 300, y: 180, z: 0}
+  m_EntryPosition: {x: 300, y: 20, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8413134201456378334}
@@ -348,7 +348,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Panda_1_New_Walk
+  m_Name: A_Panda_1_Walk
   m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
