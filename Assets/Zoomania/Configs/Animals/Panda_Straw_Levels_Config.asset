@@ -16,30 +16,30 @@ MonoBehaviour:
   - <CurrentLevelNumber>k__BackingField: 1
     <View>k__BackingField: {fileID: 21300000, guid: dacf313498ce1574d870f28b81e34afe, type: 3}
     <Animator>k__BackingField: {fileID: 9100000, guid: ab89608126e64ea499a77120889e34d4, type: 2}
-    <RequiredWater>k__BackingField: 1
-    <RequiredFood>k__BackingField: 1
+    <RequiredWater>k__BackingField: 40
+    <RequiredFood>k__BackingField: 60
     <EssenceSpawnTimer>k__BackingField: 30
     <MoneyPerClick>k__BackingField: 1
     <MoneyPerSecond>k__BackingField: 1
   - <CurrentLevelNumber>k__BackingField: 2
     <View>k__BackingField: {fileID: 21300000, guid: 3a2e5d3e69a7580409b642835aa11937, type: 3}
-    <Animator>k__BackingField: {fileID: 9100000, guid: a3c15fd32b295b447986ca729359daf9, type: 2}
-    <RequiredWater>k__BackingField: 1
-    <RequiredFood>k__BackingField: 1
+    <Animator>k__BackingField: {fileID: 22100000, guid: 674ed93c718af1544ac24273522bd941, type: 2}
+    <RequiredWater>k__BackingField: 170
+    <RequiredFood>k__BackingField: 170
     <EssenceSpawnTimer>k__BackingField: 25
     <MoneyPerClick>k__BackingField: 3
     <MoneyPerSecond>k__BackingField: 3
   - <CurrentLevelNumber>k__BackingField: 3
     <View>k__BackingField: {fileID: 21300000, guid: 0726e37d85af5f04a90f482e435e28c2, type: 3}
-    <Animator>k__BackingField: {fileID: 9100000, guid: 03b4d133614920047897db2f81733f66, type: 2}
-    <RequiredWater>k__BackingField: 1
-    <RequiredFood>k__BackingField: 1
+    <Animator>k__BackingField: {fileID: 22100000, guid: 2b6513be64f716a49bf8b08e77ef5a85, type: 2}
+    <RequiredWater>k__BackingField: 700
+    <RequiredFood>k__BackingField: 600
     <EssenceSpawnTimer>k__BackingField: 20
     <MoneyPerClick>k__BackingField: 5
     <MoneyPerSecond>k__BackingField: 5
   - <CurrentLevelNumber>k__BackingField: 4
     <View>k__BackingField: {fileID: 21300000, guid: 3aa8c587d90454940b458bec860408da, type: 3}
-    <Animator>k__BackingField: {fileID: 9100000, guid: 7ec61b0fde6c012409a4ce71c88d0899, type: 2}
+    <Animator>k__BackingField: {fileID: 22100000, guid: 4ab2fb99210e4c44b9e4b1445f9efe12, type: 2}
     <RequiredWater>k__BackingField: 0
     <RequiredFood>k__BackingField: 0
     <EssenceSpawnTimer>k__BackingField: 15
