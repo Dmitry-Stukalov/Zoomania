@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Panda_Straw_4
+  m_Controller: {fileID: 9100000, guid: ab89608126e64ea499a77120889e34d4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 26e4b13d465ee9248a18b0a7cc278a68, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 57a38eae72d0c47498be66ee9f32bc60, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 18d79c61c0a9a4c4c9883591a2a2c2c6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 75900e781517bf24c90ca6b7f5331040, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 10b4950f43c1e3c41a74bdeabdad45bb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ab82ddd7310765a48b85d4adced348a5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c205f892e95d0f44c8b585351055b44f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 698eed6b84f993e47ba99e16e57f1fac, type: 2}

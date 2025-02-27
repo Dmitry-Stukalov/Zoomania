@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Panda_4_Eat
+  m_Name: A_Panda_2_Walk
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: ec315f3a2bc02bc4d93feffea0ab65d7, type: 3}
+      value: {fileID: 21300000, guid: 3a2e5d3e69a7580409b642835aa11937, type: 3}
     - time: 1
-      value: {fileID: 21300000, guid: ec315f3a2bc02bc4d93feffea0ab65d7, type: 3}
+      value: {fileID: 21300000, guid: 3a2e5d3e69a7580409b642835aa11937, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: ec315f3a2bc02bc4d93feffea0ab65d7, type: 3}
-    - {fileID: 21300000, guid: ec315f3a2bc02bc4d93feffea0ab65d7, type: 3}
+    - {fileID: 21300000, guid: 3a2e5d3e69a7580409b642835aa11937, type: 3}
+    - {fileID: 21300000, guid: 3a2e5d3e69a7580409b642835aa11937, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
