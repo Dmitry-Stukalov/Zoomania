@@ -16,24 +16,24 @@ MonoBehaviour:
   - <CurrentLevelNumber>k__BackingField: 1
     <View>k__BackingField: {fileID: 21300000, guid: 770f7c9932affca4d83bfa2469f8735c, type: 3}
     <Animator>k__BackingField: {fileID: 9100000, guid: 81d904532f965b14c80da74fa7a4978e, type: 2}
-    <RequiredWater>k__BackingField: 50
-    <RequiredFood>k__BackingField: 70
+    <RequiredWater>k__BackingField: 1
+    <RequiredFood>k__BackingField: 1
     <EssenceSpawnTimer>k__BackingField: 30
     <MoneyPerClick>k__BackingField: 1
     <MoneyPerSecond>k__BackingField: 1
   - <CurrentLevelNumber>k__BackingField: 2
     <View>k__BackingField: {fileID: 21300000, guid: 1c5864f9f05f097489d8b31403efcb8a, type: 3}
     <Animator>k__BackingField: {fileID: 22100000, guid: bab74b258b011c14299ba3c4765d2b03, type: 2}
-    <RequiredWater>k__BackingField: 200
-    <RequiredFood>k__BackingField: 200
+    <RequiredWater>k__BackingField: 1
+    <RequiredFood>k__BackingField: 1
     <EssenceSpawnTimer>k__BackingField: 25
     <MoneyPerClick>k__BackingField: 3
     <MoneyPerSecond>k__BackingField: 3
   - <CurrentLevelNumber>k__BackingField: 3
     <View>k__BackingField: {fileID: 21300000, guid: f07a7c51d6717834192e87d1f39c2232, type: 3}
     <Animator>k__BackingField: {fileID: 22100000, guid: 5684cf962775dbf47a81e44c62d9afd3, type: 2}
-    <RequiredWater>k__BackingField: 800
-    <RequiredFood>k__BackingField: 700
+    <RequiredWater>k__BackingField: 1
+    <RequiredFood>k__BackingField: 1
     <EssenceSpawnTimer>k__BackingField: 20
     <MoneyPerClick>k__BackingField: 5
     <MoneyPerSecond>k__BackingField: 5

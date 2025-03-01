@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Zoomania/Scenes/First_level_norm.unity
     guid: c79a9842a1468e3488caaf9b62ef35fe
+  - enabled: 0
+    path: Assets/Zoomania/Scenes/Example.unity
+    guid: e6f6d09e8e20022488433712f6eac961
   m_configObjects: {}
