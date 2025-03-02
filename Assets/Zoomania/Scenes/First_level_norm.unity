@@ -1883,6 +1883,7 @@ GameObject:
   - component: {fileID: 158676341}
   - component: {fileID: 158676340}
   - component: {fileID: 158676345}
+  - component: {fileID: 158676346}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1981,6 +1982,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &158676346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158676338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6012a2980f9bf4f9b56e8b7fc9a293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 978997664}
 --- !u!1001 &171564351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3644,6 +3658,10 @@ PrefabInstance:
       propertyPath: <Panda_Storage_Config>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 5fba32f7f8d0eda45b593fa9e8f2bb29, type: 2}
+    - target: {fileID: 9134880350613003407, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9134880350613003407, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: <CoinMenuResource>k__BackingField
       value: 
@@ -9867,6 +9885,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b8818d7c005124abaeac7be5faf904, type: 3}
+--- !u!1 &978997664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978997666}
+  - component: {fileID: 978997665}
+  m_Layer: 0
+  m_Name: CamraZoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &978997665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978997664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0944ea40da39ed48bc0c4ccc0794fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 158676341}
+  minZoom: 2
+  zoomSpeed: 0.003
+  moveSpeed: 0.001
+--- !u!4 &978997666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978997664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &998688948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4086790262683416468, guid: 012c0cbf8a5f4a54f99ebdba0bc384e5, type: 3}
@@ -18653,7 +18719,7 @@ GameObject:
   - component: {fileID: 1981771434}
   m_Layer: 0
   m_Name: ToCommonPaddock
-  m_TagString: Untagged
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21373,3 +21439,4 @@ SceneRoots:
   - {fileID: 158676342}
   - {fileID: 1361254374}
   - {fileID: 1723522088}
+  - {fileID: 978997666}
