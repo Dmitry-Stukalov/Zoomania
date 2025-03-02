@@ -27,6 +27,7 @@ TagManager:
   - AnimalFood
   - EssenceClick
   - FoodBuilding
+  - Back
   layers:
   - Default
   - TransparentFX
