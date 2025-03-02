@@ -11,7 +11,7 @@ public class Barn : MonoBehaviour
 {
 	[field: SerializeField] private Panda_Storage_Config Panda_Storage_Config { get; set; }
 	public List<GameObject> Animals { get; private set; }
-	private GameObject SpawnZone { get; set; }
+	[field: SerializeField] private GameObject SpawnZone { get; set; }
 	public int MoneyToSpawn { get; set; }
 	public int AnimalCount { get; private set; } = 0;
 	private int RandomNumber { get; set; }
@@ -23,7 +23,7 @@ public class Barn : MonoBehaviour
 		Animals = new List<GameObject>();
 
 		MoneyToSpawn = 0;
-		SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
+		//SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
 	}
 
 	public void SpawnAnimal()																	//Спавнит панду
@@ -33,7 +33,7 @@ public class Barn : MonoBehaviour
 		Animals.Add(Instantiate(Panda_Storage_Config.Animals[RandomNumber], RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
 
-		MoneyToSpawn += 20;
+		MoneyToSpawn += 0;
 
 		Spawn?.Invoke();
 	}

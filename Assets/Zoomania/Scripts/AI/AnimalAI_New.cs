@@ -22,6 +22,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	private float RandomTime { get; set; }
 	private int Action { get; set; }
 	public bool IsDoAction { get; set; }
+	public bool IsDrag {  get; set; }
 	public bool InPersonalPaddock { get; set; }
 	public bool IsSleep { get; set; }
 
@@ -29,6 +30,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	public void Start()
 	{
 		IsDoAction = false;
+		IsDrag = false;
 		InPersonalPaddock = false;
 		IsSleep = false;
 
@@ -82,18 +84,19 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 
 				Action = UnityEngine.Random.Range(0, 15);
 
-				if (Action >= 0 && Action <= 2)
+				if (Action >= 0 && Action <= 11)
 				{
 					RandomTime = UnityEngine.Random.Range(3, AnimalResting.RestingTime.MaxTime - 3);
 					RandomAnimation = UnityEngine.Random.Range(1, 5);
-					if (RandomAnimation == 1) animator.SetBool("IsFlip", true);
+					if (RandomAnimation == 2) animator.SetBool("IsFlip", true);
+					if (RandomAnimation == 1) animator.SetBool("1", true);
 
 
 					IsDoAction = true;
 					AnimalResting.Resting();
 				}
 
-				if (Action >= 3 && Action <= 15)
+				if (Action >= 12 && Action <= 15)
 				{
 					RandomAnimation = UnityEngine.Random.Range(1, 2);
 					if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
@@ -126,11 +129,24 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 		animator.SetBool("IsMoving", false);
 		animator.SetBool("IsFlip", false);
 		animator.SetBool("IsSleeping", false);
+		animator.SetBool("1", false);
 	}
 
 	public void RandomAnimationOver()
 	{
 		animator.SetBool("IsFlip", false);
+		animator.SetBool("1", false);
+	}
+
+	public void BeginDragging()
+	{
+		IsDrag = true;
+		AbortActions();
+	}
+	public void EndDragging()
+	{
+		IsDrag = false;
+		RandomActions();
 	}
 
 	public void PersonalPaddock()
@@ -144,6 +160,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 		else
 		{
 			InPersonalPaddock = true;
+			IsDrag = false;
 
 			RandomActions();
 		}

@@ -23,7 +23,8 @@ public class DragAnimal : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 			Vector3 mouseWorldPosition = GetMouseWorldPosition();
 			offset = transform.position - mouseWorldPosition;
 
-			GetComponent<AnimalAI_New>().PersonalPaddock();
+			//GetComponent<AnimalAI_New>().PersonalPaddock();
+			GetComponent<AnimalAI_New>().BeginDragging();
 		}
 	}
 
@@ -40,7 +41,8 @@ public class DragAnimal : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 	{
 		if (!InPersonalPaddock)
 		{
-			GetComponent<AnimalAI_New>().PersonalPaddock();
+			//GetComponent<AnimalAI_New>().PersonalPaddock();
+			GetComponent<AnimalAI_New>().EndDragging();
 		}
 	}
 
