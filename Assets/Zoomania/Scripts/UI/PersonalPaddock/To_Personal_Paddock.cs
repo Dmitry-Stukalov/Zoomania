@@ -15,34 +15,25 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 	private All_Objects Objects { get; set; }
 	private List<GameObject> SecondScene {  get; set; }
 
-    private CameraController cameraController;
-
-    public void Start()
+	public void Start()
 	{
 		Objects = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>();
 
 		maincamera = Camera.main;
+	}
 
-        cameraController = maincamera.GetComponent<CameraController>();
-    }
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		SecondScene = Objects.SecondSceneObjects();
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (maincamera != null)
-        {
-            maincamera.orthographicSize = 5; 
-            maincamera.transform.position = new Vector3(-23, 0, -20); 
-        }
+		maincamera.transform.position = new Vector3(maincamera.transform.position.x-23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
 
-        SecondScene = Objects.SecondSceneObjects();
+		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
+		EssenceMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
-        CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
-        EssenceMenuResource.GetComponent<Background_Resource>().SetAnimation();
-
-        foreach (var obj in SecondScene)
-        {
-            obj.SetActive(true);
-        }
-    }
-
+		foreach (var objects in SecondScene)
+		{
+			objects.SetActive(true);
+		}	
+	}
 }
