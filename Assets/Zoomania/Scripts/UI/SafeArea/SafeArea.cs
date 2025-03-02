@@ -19,17 +19,14 @@ public class SafeArea : MonoBehaviour
         {
             _lastSafeArea = safeArea;
 
-            // Рассчитываем отступы
             Vector2 anchorMin = safeArea.position;
             Vector2 anchorMax = safeArea.position + safeArea.size;
 
-            // Нормализуем отступы
             anchorMin.x /= Screen.width;
             anchorMin.y /= Screen.height;
             anchorMax.x /= Screen.width;
             anchorMax.y /= Screen.height;
 
-            // Применяем отступы к RectTransform
             _rectTransform.anchorMin = anchorMin;
             _rectTransform.anchorMax = anchorMax;
         }
@@ -37,6 +34,6 @@ public class SafeArea : MonoBehaviour
 
     void Update()
     {
-        ApplySafeArea(); // На случай изменения ориентации экрана
+        ApplySafeArea(); 
     }
 }
