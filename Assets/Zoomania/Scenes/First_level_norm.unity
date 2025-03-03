@@ -847,10 +847,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 158676338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6012a2980f9bf4f9b56e8b7fc9a293, type: 3}
+  m_Script: {fileID: 11500000, guid: a0944ea40da39ed48bc0c4ccc0794fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 622487549}
+  cam: {fileID: 158676341}
+  minZoom: 3
+  zoomSpeed: 0.005
+  moveSpeed: 0.001
 --- !u!1 &212271837 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1414013590549482975, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
@@ -2634,7 +2637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &622487550
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class ToggleObject : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			/*Vector2 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector2 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
 
 			if (hit.collider != null)
@@ -17,11 +17,11 @@ public class ToggleObject : MonoBehaviour
 				{
 					targetObject.SetActive(false);
 				}
-				else if (hit.collider.CompareTag("Back"))
+				else// if (hit.collider.CompareTag("Back"))
 				{
 					targetObject.SetActive(true);
 				}
-			}*/
+			}
 		}
 	}
 }

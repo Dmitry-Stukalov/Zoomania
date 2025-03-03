@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+	private To_Personal_Paddock PersonalPaddock { get; set; }
+
+
 	public Camera cam;
-	public float minZoom = 2f;
+	public float minZoom = 3f;
 	private float maxZoom;
-	public float zoomSpeed = 0.03f;
-	public float moveSpeed = 0.009f;
+	public float zoomSpeed = 0.005f;
+	public float moveSpeed = 0.001f;
 
 	private Vector3 startPosition;
 	private float startSize;
@@ -18,6 +21,8 @@ public class CameraController : MonoBehaviour
 
 	private void Start()
 	{
+		PersonalPaddock = GameObject.FindGameObjectWithTag("Barn").GetComponent<To_Personal_Paddock>();
+
 		startPosition = cam.transform.position;
 		startSize = cam.orthographicSize;
 		maxZoom = startSize;
@@ -27,13 +32,16 @@ public class CameraController : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.touchCount == 2)
-		{
-			HandleZoom();
-		}
-		else if (Input.touchCount == 1)
-		{
-			HandleMovement();
+        if (!PersonalPaddock.InPersonalPaddock)
+        {
+			if (Input.touchCount == 2)
+			{
+				HandleZoom();
+			}
+			else if (Input.touchCount == 1)
+			{
+				HandleMovement();
+			}
 		}
 	}
 
