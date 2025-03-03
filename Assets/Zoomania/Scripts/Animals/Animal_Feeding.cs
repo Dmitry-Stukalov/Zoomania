@@ -104,8 +104,8 @@ public class Animal_Feeding : MonoBehaviour
 		if (Animal.CurrentLevel.CurrentLevelNumber == 4)
 		{
 			Debug.Log("Панда больше не вырастет");
-			//Destroy(Water.gameObject);
-			//Destroy(Food.gameObject);
+			Water.SetActive(false);
+			Food.SetActive(false);
 			return;
 		}
 	}
@@ -117,15 +117,19 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void ChangeVisibility()
 	{
-		if (Water.activeSelf)
+		if (Animal.CurrentLevel.CurrentLevelNumber < 4)
 		{
-			Water.SetActive(false);
-			Food.SetActive(false);
+			if (Water.activeSelf)
+			{
+				Water.SetActive(false);
+				Food.SetActive(false);
+			}
+			else
+			{
+				Water.SetActive(true);
+				Food.SetActive(true);
+			}
 		}
-		else
-		{
-			Water.SetActive(true);
-			Food.SetActive(true);
-		}
+
 	}
 }
