@@ -21,7 +21,7 @@ public class Food_Speed_Button : MonoBehaviour, IPointerClickHandler
 
 		FoodBuilding = Buiding.GetComponent<ResourceBuilding>();
 
-		Text.text = TextConversion(25);
+		UpdateData();
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
