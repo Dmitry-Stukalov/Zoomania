@@ -16,9 +16,7 @@ public class Food_Quality_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("FoodBuilding");
 		FoodBuilding = Building.GetComponent<ResourceBuilding>();
 
-		Text.text = $"Уровень 1 -> 2\n";
-		Text.text += $"Количество получаемых ресурсов 1 -> 2\n";
-		Text.text += $"Количество ресурсов для кормления 1 -> 2\n";
+		UpdateData();
 
 		FoodBuilding.OnUpgrade += UpdateData;
 	}

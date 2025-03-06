@@ -16,8 +16,7 @@ public class Bamboo_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("Background");
 		Bamboo = Building.GetComponent<Buy_Bamboo>();
 
-		Text.text = $"”ровень 0 -> 1\n";
-		Text.text += $"Ёффективность кликов +0 -> +0.1\n";
+		UpdateData();
 
 		Bamboo.OnUpgrade += UpdateData;
 	}

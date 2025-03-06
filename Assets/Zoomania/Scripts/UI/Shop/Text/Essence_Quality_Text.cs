@@ -17,8 +17,7 @@ public class Essence_Quality_Text : MonoBehaviour
 
 		Text = GetComponent<TextMeshProUGUI>();
 
-		Text.text = $"—тоимость эссенций: 1 -> 2\n";
-		Text.text += $"Ёффективность кликов: -0 -> -0.5";
+		UpdateData();
 
 		EssenceQuality.OnUpgrade += UpdateData;
 	}

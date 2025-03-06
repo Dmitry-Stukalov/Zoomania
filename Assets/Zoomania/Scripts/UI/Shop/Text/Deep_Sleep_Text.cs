@@ -16,8 +16,7 @@ public class Deep_Sleep_Text : MonoBehaviour
 		Building = GameObject.FindGameObjectWithTag("EssenceClick");
 		Sleep = Building.GetComponent<Deep_Sleep>();
 
-		Text.text = $"”ровень 0 -> 1\n";
-		Text.text += $"Ёффективность кликов +0 -> +0.1\n";
+		UpdateData();
 
 		Sleep.OnUpgrade += UpdateData;
 	}

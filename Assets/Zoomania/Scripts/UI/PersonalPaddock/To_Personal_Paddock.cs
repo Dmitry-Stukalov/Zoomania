@@ -14,12 +14,16 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 	private Camera maincamera { get; set; }
 	private All_Objects Objects { get; set; }
 	private List<GameObject> SecondScene {  get; set; }
+	public bool InPersonalPaddock { get; set; }
+
 
 	public void Start()
 	{
 		Objects = GameObject.FindGameObjectWithTag("Background").GetComponent<All_Objects>();
 
 		maincamera = Camera.main;
+
+		InPersonalPaddock = false;
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -34,6 +38,8 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 		foreach (var objects in SecondScene)
 		{
 			objects.SetActive(true);
-		}	
+		}
+
+		InPersonalPaddock = !InPersonalPaddock;
 	}
 }

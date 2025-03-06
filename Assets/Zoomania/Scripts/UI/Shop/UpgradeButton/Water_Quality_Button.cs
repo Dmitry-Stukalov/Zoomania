@@ -21,7 +21,7 @@ public class Water_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 		WaterBuilding = Buiding.GetComponent<ResourceBuilding>();
 
-		Text.text = TextConversion(10);
+		UpdateData();
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
