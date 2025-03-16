@@ -4,62 +4,36 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Buy_Panda_Button : MonoBehaviour, IPointerClickHandler
+public class Buy_Panda_Button : ShopUpgradeButtonBase
 {
-	private Money moneyperclick { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 	private Barn barn { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
+		base.Start();
 
 		barn = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
-
-		Text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
 		Text.text = TextConversion(0);
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public override void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < barn.MoneyToSpawn)
+		if (Money.IncomeMoney.Resource < barn.MoneyToSpawn)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(barn.MoneyToSpawn);
+		Money.SetMoneyValue(barn.MoneyToSpawn);
 
 		barn.SpawnAnimal();
 
 		UpdateData();
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		Text.text = TextConversion(barn.MoneyToSpawn);
-	}
-
-	public string TextConversion(float value)
-	{
-		string text;
-		if (value < 1000) return value.ToString();
-		if (value >= 1000 && value < 1000000)
-		{
-			value /= 1000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "k";
-			return text;
-		}
-		if (value >= 10000000)
-		{
-			value /= 1000000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "M";
-			return text;
-		}
-
-		return null;
 	}
 }
