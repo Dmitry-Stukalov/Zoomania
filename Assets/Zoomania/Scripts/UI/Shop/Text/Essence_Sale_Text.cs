@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Essence_Sale_Text : MonoBehaviour
+public class Essence_Sale_Text : ShopTextBase
 {
-	private GameObject Building { get; set; }
 	private Essence_Storage Storage { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 
-
-	public void Start()
+	protected override void Start()
 	{
-		Building = GameObject.FindGameObjectWithTag("Money");
-		Storage = Building.GetComponent<Essence_Storage>();
+		base.Start();
 
-		Text = GetComponent<TextMeshProUGUI>();
+		Storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
+		Storage.OnChange += UpdateData;
 
 		Text.text = $"Количество эссенций: 0";
-		Storage.OnChange += UpdateData;
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		Text.text = $"Количество эссенций: {Storage.GetEssenceCount()}";
 	}
