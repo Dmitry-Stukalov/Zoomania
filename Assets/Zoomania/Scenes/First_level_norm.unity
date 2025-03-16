@@ -2361,7 +2361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dcfbab1df1f5a4e9a23a0d36a8dd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: 387911283f15d944d99f32c61cae3873, type: 2}
+  levels_config: {fileID: 11400000, guid: 387911283f15d944d99f32c61cae3873, type: 2}
 --- !u!82 &499279720 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2925242950359425463, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
@@ -4406,6 +4406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7205765998198908044, guid: fd5e7c6116620cc47af68bdff4016383, type: 3}
+      propertyPath: levels_config
+      value: 
+      objectReference: {fileID: 11400000, guid: 983de5c11dad9ec4caa92b4da926a5b7, type: 2}
     - target: {fileID: 7393389749723252005, guid: fd5e7c6116620cc47af68bdff4016383, type: 3}
       propertyPath: m_SortingOrder
       value: -50
@@ -6703,6 +6707,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9106575569058222259, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
+      propertyPath: levels_config
+      value: 
+      objectReference: {fileID: 11400000, guid: 577c9bd702c47cf40b14a6a3b5956ab2, type: 2}
     - target: {fileID: 9177604423858672345, guid: 5426758f134de8448ab41bae8a5ceb5c, type: 3}
       propertyPath: Barn
       value: 

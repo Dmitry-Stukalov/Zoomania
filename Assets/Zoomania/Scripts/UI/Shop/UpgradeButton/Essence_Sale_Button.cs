@@ -27,7 +27,7 @@ public class Essence_Sale_Button : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		moneyperclick.IncomeMoney.Resource += storage.GetEssenceCount() * EssenceQuality.CurrentLevel.EffectValue;
+		moneyperclick.IncomeMoney.Resource += storage.GetEssenceCount() * EssenceQuality.CurrentLevelData().EffectValue;
 		moneyperclick.InvokeChanges();
 		storage.SoldOut();
 
@@ -36,7 +36,7 @@ public class Essence_Sale_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		Text.text = TextConversion(storage.GetEssenceCount() * EssenceQuality.CurrentLevel.EffectValue);
+		Text.text = TextConversion(storage.GetEssenceCount() * EssenceQuality.CurrentLevelData().EffectValue);
 	}
 
 	public string TextConversion(float value)

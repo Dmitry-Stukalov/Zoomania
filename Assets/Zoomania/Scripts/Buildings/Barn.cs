@@ -23,7 +23,6 @@ public class Barn : MonoBehaviour
 		Animals = new List<GameObject>();
 
 		MoneyToSpawn = 0;
-		//SpawnZone = GameObject.FindGameObjectWithTag("SpawnZone");
 	}
 
 	public void SpawnAnimal()																	//Спавнит панду

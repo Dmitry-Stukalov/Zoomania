@@ -24,13 +24,13 @@ public class Essence_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < EssenceQuality.CurrentLevel.MoneyForUpgrade)
+		if (moneyperclick.IncomeMoney.Resource < EssenceQuality.CurrentLevelData().MoneyForUpgrade)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(EssenceQuality.CurrentLevel.MoneyForUpgrade);
+		moneyperclick.SetMoneyValue(EssenceQuality.CurrentLevelData().MoneyForUpgrade);
 
 		EssenceQuality.Upgrade();
 
@@ -39,8 +39,8 @@ public class Essence_Quality_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		if (EssenceQuality.CurrentLevel.CurrentLevelNumber == EssenceQuality.GetLevelsCount()) gameObject.SetActive(false);
-		Text.text = TextConversion(EssenceQuality.CurrentLevel.MoneyForUpgrade);
+		if (EssenceQuality.CurrentLevelData().CurrentLevelNumber == EssenceQuality.GetLevelsCount()) gameObject.SetActive(false);
+		Text.text = TextConversion(EssenceQuality.CurrentLevelData().MoneyForUpgrade);
 	}
 
 	public string TextConversion(float value)

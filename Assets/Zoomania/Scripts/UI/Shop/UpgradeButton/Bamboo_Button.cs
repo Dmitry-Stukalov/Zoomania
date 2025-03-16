@@ -26,13 +26,13 @@ public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < Bamboo.CurrentLevel.MoneyForUpgrade)
+		if (moneyperclick.IncomeMoney.Resource < Bamboo.CurrentLevelData().MoneyForUpgrade)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(Bamboo.CurrentLevel.MoneyForUpgrade);
+		moneyperclick.SetMoneyValue(Bamboo.CurrentLevelData().MoneyForUpgrade);
 
 		Bamboo.Upgrade();
 
@@ -41,8 +41,8 @@ public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		if (Bamboo.CurrentLevel.CurrentLevelNumber == Bamboo.GetLevelsCount() - 1) gameObject.SetActive(false);
-		Text.text = TextConversion(Bamboo.CurrentLevel.MoneyForUpgrade);
+		if (Bamboo.CurrentLevelData().CurrentLevelNumber == Bamboo.GetLevelsCount() - 1) gameObject.SetActive(false);
+		Text.text = TextConversion(Bamboo.CurrentLevelData().MoneyForUpgrade);
 	}
 
 	public string TextConversion(float value)

@@ -23,15 +23,15 @@ public class Deep_Sleep_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		if (Sleep.CurrentLevel.CurrentLevelNumber == Sleep.GetLevelsCount() - 1)
+		if (Sleep.CurrentLevelData().CurrentLevelNumber == Sleep.GetLevelsCount() - 1)
 		{
-			Text.text = $"”ровень max: {Sleep.CurrentLevel.CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов: +{Sleep.CurrentLevel.EffectValue}\n";
+			Text.text = $"”ровень max: {Sleep.CurrentLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Ёффективность кликов: +{Sleep.CurrentLevelData().EffectValue}\n";
 		}
 		else
 		{
-			Text.text = $"”ровень {Sleep.CurrentLevel.CurrentLevelNumber} -> {Sleep.NextLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов +{Sleep.CurrentLevel.EffectValue} -> +{Sleep.NextLevelData().EffectValue}\n";
+			Text.text = $"”ровень {Sleep.CurrentLevelData().CurrentLevelNumber} -> {Sleep.NextLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Ёффективность кликов +{Sleep.CurrentLevelData().EffectValue} -> +{Sleep.NextLevelData().EffectValue}\n";
 		}
 	}
 }

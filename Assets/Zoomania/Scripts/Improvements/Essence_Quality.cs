@@ -3,37 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Essence_Quality : MonoBehaviour
+public class Essence_Quality : InitialImprovementBase
 {
-	[field: SerializeField] private Improvement_Levels_Config_New levels_config { get; set; }
-	public Improvement_Level_New CurrentLevel { get; set; }
 	private TakeEssenceClick EssenceClick { get; set; }
 
-	public event Action OnUpgrade;
 
 
-	public void Start()
+	protected override void Start()
 	{
-		CurrentLevel = levels_config.levels[0];
+		base.Start();
 
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
 	}
 
-	public void Upgrade()
+	public override void Upgrade()
 	{
-		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		base.Upgrade();
+
 		EssenceClick.ChangeTimeSkip(0.3f, false);
 
-		OnUpgrade?.Invoke();
-	}
-
-	public Improvement_Level_New NextLevelData()
-	{
-		return levels_config.levels[CurrentLevel.CurrentLevelNumber];
-	}
-
-	public int GetLevelsCount()
-	{
-		return levels_config.levels.Count;
+		base.InvokeUpgrade();
 	}
 }
