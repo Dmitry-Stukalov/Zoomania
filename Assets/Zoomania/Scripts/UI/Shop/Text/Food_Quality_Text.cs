@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Food_Quality_Text : MonoBehaviour
+public class Food_Quality_Text : ShopTextBase
 {
-	private GameObject Building { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 	private ResourceBuilding FoodBuilding { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		Text = gameObject.GetComponent<TextMeshProUGUI>();
+		base.Start();
 
-		Building = GameObject.FindGameObjectWithTag("FoodBuilding");
-		FoodBuilding = Building.GetComponent<ResourceBuilding>();
-
-		UpdateData();
+		FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
 
 		FoodBuilding.OnUpgrade += UpdateData;
+
+		UpdateData();
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetLevelsCount())
 		{

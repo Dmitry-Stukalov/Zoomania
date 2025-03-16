@@ -45,8 +45,6 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 	{
 		if (plus) EssenceTimeSkip += time;
 		else EssenceTimeSkip -= time;
-
-		Debug.Log(EssenceTimeSkip);
 	}
 
 }

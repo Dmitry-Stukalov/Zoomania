@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Buy_Food_Text : MonoBehaviour
+public class Buy_Food_Text : ShopTextBase
 {
-	private TextMeshProUGUI Text { get; set; }
-
-
-	public void Start()
+	protected override void Start()
 	{
-		Text = GetComponent<TextMeshProUGUI>();
+		base.Start();
+
 		Text.text = " упить 10 ед. еды";
 	}
 }

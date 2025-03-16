@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Water_Speed_Text : MonoBehaviour
+public class Water_Speed_Text : ShopTextBase
 {
-	private GameObject Building { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 	private ResourceBuilding WaterBuilding { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		Text = gameObject.GetComponent<TextMeshProUGUI>();
+		base.Start();
 
-		Building = GameObject.FindGameObjectWithTag("WaterBuilding");
-		WaterBuilding = Building.GetComponent<ResourceBuilding>();
-
-		UpdateData();
+		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
 
 		WaterBuilding.OnUpgrade += UpdateData;
+
+		UpdateData();
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		if (WaterBuilding.CurrentImproveLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
 		{

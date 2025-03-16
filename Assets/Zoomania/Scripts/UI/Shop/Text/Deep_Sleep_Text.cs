@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Deep_Sleep_Text : MonoBehaviour
+public class Deep_Sleep_Text : ShopTextBase
 {
-	private GameObject Building { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 	private Deep_Sleep Sleep { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		Text = gameObject.GetComponent<TextMeshProUGUI>();
+		base.Start();
 
-		Building = GameObject.FindGameObjectWithTag("EssenceClick");
-		Sleep = Building.GetComponent<Deep_Sleep>();
+		Sleep = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<Deep_Sleep>();
+
+		Sleep.OnUpgrade += UpdateData;
 
 		UpdateData();
 
-		Sleep.OnUpgrade += UpdateData;
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		if (Sleep.CurrentLevelData().CurrentLevelNumber == Sleep.GetLevelsCount() - 1)
 		{

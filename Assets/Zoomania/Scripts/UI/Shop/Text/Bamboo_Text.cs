@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Bamboo_Text : MonoBehaviour
+public class Bamboo_Text : ShopTextBase
 {
-	private GameObject Building { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 	private Buy_Bamboo Bamboo { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		Text = gameObject.GetComponent<TextMeshProUGUI>();
+		base.Start();
 
-		Building = GameObject.FindGameObjectWithTag("Background");
-		Bamboo = Building.GetComponent<Buy_Bamboo>();
-
-		UpdateData();
+		Bamboo = GameObject.FindGameObjectWithTag("Background").GetComponent<Buy_Bamboo>();
 
 		Bamboo.OnUpgrade += UpdateData;
+
+		UpdateData();
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
-		if (Bamboo.CurrentLevelData().CurrentLevelNumber == 7)
+		if (Bamboo.CurrentLevelData().CurrentLevelNumber == Bamboo.GetLevelsCount() - 1)
 		{
 			Text.text = $"”ровень max: {Bamboo.CurrentLevelData().CurrentLevelNumber}\n";
 			Text.text += $"Ёффективность кликов: +{Bamboo.CurrentLevelData().EffectValue}\n";

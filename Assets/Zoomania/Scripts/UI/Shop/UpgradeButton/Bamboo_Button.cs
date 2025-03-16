@@ -4,66 +4,37 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Bamboo_Button : MonoBehaviour, IPointerClickHandler
+public class Bamboo_Button : ShopUpgradeButtonBase
 {
-	private GameObject Buiding { get; set; }
-	private Money moneyperclick { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 	private Buy_Bamboo Bamboo { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		moneyperclick = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
+		base.Start();
 
-		Text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-
-		Buiding = GameObject.FindGameObjectWithTag("Background");
-
-		Bamboo = Buiding.GetComponent<Buy_Bamboo>();
+		Bamboo = GameObject.FindGameObjectWithTag("Background").GetComponent<Buy_Bamboo>();
 
 		UpdateData();
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public override void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < Bamboo.CurrentLevelData().MoneyForUpgrade)
+		if (Money.IncomeMoney.Resource < Bamboo.CurrentLevelData().MoneyForUpgrade)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(Bamboo.CurrentLevelData().MoneyForUpgrade);
+		Money.SetMoneyValue(Bamboo.CurrentLevelData().MoneyForUpgrade);
 
 		Bamboo.Upgrade();
 
 		UpdateData();
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		if (Bamboo.CurrentLevelData().CurrentLevelNumber == Bamboo.GetLevelsCount() - 1) gameObject.SetActive(false);
 		Text.text = TextConversion(Bamboo.CurrentLevelData().MoneyForUpgrade);
-	}
-
-	public string TextConversion(float value)
-	{
-		string text;
-		if (value < 1000) return value.ToString();
-		if (value >= 1000 && value < 1000000)
-		{
-			value /= 1000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "k";
-			return text;
-		}
-		if (value >= 10000000)
-		{
-			value /= 1000000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "M";
-			return text;
-		}
-
-		return null;
 	}
 }

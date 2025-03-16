@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Essence_Quality_Text : MonoBehaviour
+public class Essence_Quality_Text : ShopTextBase
 {
-	private GameObject Building { get; set; }
 	private Essence_Quality EssenceQuality { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 
 
-	public void Start()
+	protected override void Start()
 	{
-		Building = GameObject.FindGameObjectWithTag("Money");
-		EssenceQuality = Building.GetComponent<Essence_Quality>();
+		base.Start();
 
-		Text = GetComponent<TextMeshProUGUI>();
-
-		UpdateData();
+		EssenceQuality = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Quality>();
 
 		EssenceQuality.OnUpgrade += UpdateData;
+
+		UpdateData();
 	}
 
-	public void UpdateData()
+	protected override void UpdateData()
 	{
 		Text.text = $"—тоимость эссенций: {EssenceQuality.CurrentLevelData().EffectValue}\n";
 		Text.text += $"Ёффективность кликов: -0.5";
