@@ -23,15 +23,15 @@ public class Bamboo_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		if (Bamboo.CurrentLevel.CurrentLevelNumber == 7)
+		if (Bamboo.CurrentLevelData().CurrentLevelNumber == 7)
 		{
-			Text.text = $"”ровень max: {Bamboo.CurrentLevel.CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов: +{Bamboo.CurrentLevel.EffectValue}\n";
+			Text.text = $"”ровень max: {Bamboo.CurrentLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Ёффективность кликов: +{Bamboo.CurrentLevelData().EffectValue}\n";
 		}
 		else
 		{
-			Text.text = $"”ровень {Bamboo.CurrentLevel.CurrentLevelNumber} -> {Bamboo.NextLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов +{Bamboo.CurrentLevel.EffectValue} -> +{Bamboo.NextLevelData().EffectValue}\n";
+			Text.text = $"”ровень {Bamboo.CurrentLevelData().CurrentLevelNumber} -> {Bamboo.NextLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Ёффективность кликов +{Bamboo.CurrentLevelData().EffectValue} -> +{Bamboo.NextLevelData().EffectValue}\n";
 		}
 	}
 }

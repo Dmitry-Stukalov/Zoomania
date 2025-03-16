@@ -26,13 +26,13 @@ public class Deep_Sleep_Button : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (moneyperclick.IncomeMoney.Resource < Sleep.CurrentLevel.MoneyForUpgrade)
+		if (moneyperclick.IncomeMoney.Resource < Sleep.CurrentLevelData().MoneyForUpgrade)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		moneyperclick.SetMoneyValue(Sleep.CurrentLevel.MoneyForUpgrade);
+		moneyperclick.SetMoneyValue(Sleep.CurrentLevelData().MoneyForUpgrade);
 
 		Sleep.Upgrade();
 
@@ -41,8 +41,8 @@ public class Deep_Sleep_Button : MonoBehaviour, IPointerClickHandler
 
 	public void UpdateData()
 	{
-		if (Sleep.CurrentLevel.CurrentLevelNumber == Sleep.GetLevelsCount() - 1) gameObject.SetActive(false);
-		Text.text = TextConversion(Sleep.CurrentLevel.MoneyForUpgrade);
+		if (Sleep.CurrentLevelData().CurrentLevelNumber == Sleep.GetLevelsCount() - 1) gameObject.SetActive(false);
+		Text.text = TextConversion(Sleep.CurrentLevelData().MoneyForUpgrade);
 	}
 
 	public string TextConversion(float value)

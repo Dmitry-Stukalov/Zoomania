@@ -3,38 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deep_Sleep : MonoBehaviour
+public class Deep_Sleep : PurchaseImprovementBase
 {
-	[field: SerializeField] private Improvement_Levels_Config_New improvement_levels_config { get; set; }
 	private TakeEssenceClick EssenceClick { get; set; }
-	public Improvement_Level_New CurrentLevel { get; private set; }
-
-	public event Action OnUpgrade;
 
 
-	public void Start()
+	protected override void Start()
 	{
+		base.Start();
+
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
-
-		CurrentLevel = improvement_levels_config.levels[0];
 	}
 
-	public void Upgrade()
+	public override void Upgrade()
 	{
-		CurrentLevel = improvement_levels_config.levels[CurrentLevel.CurrentLevelNumber + 1];
+		base.Upgrade();
 
-		EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - improvement_levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
+		EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
 
-		OnUpgrade?.Invoke();
-	}
-
-	public int GetLevelsCount()
-	{
-		return improvement_levels_config.levels.Count;
-	}
-
-	public Improvement_Level_New NextLevelData()
-	{
-		return improvement_levels_config.levels[CurrentLevel.CurrentLevelNumber + 1];
+		base.InvokeUpgrade();
 	}
 }

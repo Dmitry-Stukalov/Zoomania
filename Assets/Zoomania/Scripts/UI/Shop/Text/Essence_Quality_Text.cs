@@ -24,7 +24,7 @@ public class Essence_Quality_Text : MonoBehaviour
 
 	public void UpdateData()
 	{
-		Text.text = $"Стоимость эссенций: {EssenceQuality.CurrentLevel.EffectValue}\n";
+		Text.text = $"Стоимость эссенций: {EssenceQuality.CurrentLevelData().EffectValue}\n";
 		Text.text += $"Эффективность кликов: -0.5";
 	}
 }
