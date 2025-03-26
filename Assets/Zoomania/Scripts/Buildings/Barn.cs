@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
@@ -44,6 +46,22 @@ public class Barn : MonoBehaviour
 		float randomY = UnityEngine.Random.Range(SpawnZone.transform.position.y - SpawnZone.transform.lossyScale.y / 2, SpawnZone.transform.position.y + SpawnZone.transform.lossyScale.y / 2);
 
 		return new Vector2(randomX, randomY);
+	}
+
+	public async Task LoadData(IReadOnlyList<SaveDataClass.AnimalData> animals)
+	{
+		for (int i = 0; i < animals.Count; i++)
+		{
+			Animals.Add(Instantiate(Panda_Storage_Config.Animals[animals[i].Type], RandomSpawnPoint(), Quaternion.identity));
+			Animals[i].GetComponent<Animals>().LoadData(animals[i].CurrentLevel, animals[i].X, animals[i].Y, animals[i].Z);
+			Animals[i].GetComponent<Animal_Feeding>().LoadData(animals[i].Water, animals[i].Food);
+			AnimalCount++;
+
+			if (Animals.Count == 1) MoneyToSpawn += 30;
+			else MoneyToSpawn *= 2;
+
+			Spawn?.Invoke();
+		}
 	}
 
 }

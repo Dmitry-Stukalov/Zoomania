@@ -8,7 +8,6 @@ public class Animals : MonoBehaviour												//Удалить закомментированное, ес
 {
 	[field: SerializeField] private AudioSource SoundLevelUp { get; set; }
 	[field: SerializeField] private AudioSource SoundSpawn { get; set; }
-
 	[field: SerializeField] private Panda_Levels_Config levels_config { get; set; }
 	public AnimalLevel CurrentLevel { get; private set; }
 	private GameObject Barn { get; set; }
@@ -52,5 +51,19 @@ public class Animals : MonoBehaviour												//Удалить закомментированное, ес
 		else InPersonalPaddock = true;
 
 		ChangePaddock?.Invoke();
+	}
+
+	public AnimalLevel CurrentLevelData()
+	{
+		return CurrentLevel;
+	}
+
+	public void LoadData(int levelnumber, float x, float y, float z)
+	{
+		CurrentLevel = levels_config.levels[levelnumber - 1];
+		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;
+		LevelUp?.Invoke();
+		transform.position = new Vector3(x, y, z);
 	}
 }

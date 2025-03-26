@@ -4,43 +4,21 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 
-public class UIEssenceResource : MonoBehaviour
+public class UIEssenceResource : UIResourceBase
 {
 	private Essence_Storage Building { get; set; }
-	private TextMeshProUGUI Text { get; set; }
 
 
-	public void Start()
+	protected override void Start()
 	{
-		Text = this.gameObject.GetComponent<TextMeshProUGUI>();
+		base.Start();
+
 		Building = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
 		Building.OnChange += UpdateUI;
 	}
 
-	public void UpdateUI()
+	public override void UpdateUI()
 	{
 		Text.text = TextConversion(Building.EssenceCount);
-	}
-
-	public string TextConversion(float value)
-	{
-		string text;
-		if (value < 1000) return value.ToString();
-		if (value >= 1000 && value < 1000000)
-		{
-			value /= 1000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "k";
-			return text;
-		}
-		if (value >= 10000000)
-		{
-			value /= 1000000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "M";
-			return text;
-		}
-
-		return null;
 	}
 }

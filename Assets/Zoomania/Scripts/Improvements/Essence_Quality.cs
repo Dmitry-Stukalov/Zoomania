@@ -24,4 +24,5 @@ public class Essence_Quality : InitialImprovementBase
 
 		base.InvokeUpgrade();
 	}
+
 }

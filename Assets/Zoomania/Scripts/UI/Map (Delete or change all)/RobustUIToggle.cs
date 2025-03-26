@@ -1,24 +1,32 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class RobustUIToggle : MonoBehaviour
+public class RobustUIToggle : MonoBehaviour, IPointerClickHandler
 {
     [Tooltip("UI элементы, которые будут скрываться/показываться")]
-    public GameObject[] targetUIElements;
+    [field:SerializeField] private GameObject[] targetUIElements;
+    private Button Button { get; set; }
 
     private void Start()
     {
-        Button button = GetComponent<Button>();
-        if (button != null)
+        Button = GetComponent<Button>();
+        /*if (button != null)
         {
             button.onClick.AddListener(ToggleUIVisibility);
         }
         else
         {
             Debug.LogError("Скрипт должен быть прикреплен к кнопке");
-        }
+        }*/
+    }
 
-        
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (Button == null) return;
+
+
+        ToggleUIVisibility();
     }
 
     private void ToggleUIVisibility()

@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ResourceBuilding : MonoBehaviour
 {
@@ -13,9 +15,6 @@ public class ResourceBuilding : MonoBehaviour
 	public BuildingLevel CurrentLevel { get; set; }
 	public Improvement_Level_New CurrentImproveLevel { get; set; }
 	public IncomeResource IncomeResources { get; set; }
-	public int TimeLevelNumber { get; set; }
-	private int TimeDifference { get; set; }
-	private int ValueDifference { get; set; }
 
 
 	public event Action OnChange;
@@ -30,9 +29,6 @@ public class ResourceBuilding : MonoBehaviour
 		IncomeResources = new IncomeResource(CurrentLevel.IncomePerSecondValue, CurrentImproveLevel.EffectValue);
 		IncomeResources.ResourceTimer.OnTimerEnd += Effects;
 
-		TimeLevelNumber = 1;
-		TimeDifference = 0;
-		ValueDifference = 0;
 	}
 
 	public void Change()                                                                            //—рабатывает при изменении количества ресурсов или при улучшении
@@ -63,9 +59,16 @@ public class ResourceBuilding : MonoBehaviour
 		OnChange?.Invoke();
 	}
 
-	public float GetData()
+	public float GetResources()
 	{
 		return IncomeResources.Resource;
+	}
+
+	public async Task LoadData(float value, int levelnumber)
+	{
+		IncomeResources.Resource = value;
+		CurrentLevel = levels_config.levels[levelnumber - 1];
+		OnChange?.Invoke();
 	}
 
 	public void UpgradeValue()																			//ѕоднимает уровень здани€ если достаточно монет
@@ -95,6 +98,11 @@ public class ResourceBuilding : MonoBehaviour
 	{
 		if (CurrentLevel.CurrentLevelNumber <= levels_config.levels.Count - 1) return levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		else return null;
+	}
+
+	public BuildingLevel CurrentLevelData()
+	{
+		return CurrentLevel;
 	}
 
 	public Improvement_Level_New NextLevelTimerData()

@@ -15,6 +15,7 @@ public class Animal_Feeding : MonoBehaviour
 	private float ReturnedResource { get; set; }
 	private bool IsEat { get; set; } = false;
 	private bool IsDrinking { get; set; } = false;
+	private bool IsLoadData { get; set; } = false;
 
 	public void Start()
 	{
@@ -23,8 +24,11 @@ public class Animal_Feeding : MonoBehaviour
 
 		Animal = gameObject.GetComponent<Animals>();
 
-		RequiredWater = Animal.CurrentLevel.RequiredWater;
-		RequiredFood = Animal.CurrentLevel.RequiredFood;
+		if (!IsLoadData)
+		{
+			RequiredWater = Animal.CurrentLevel.RequiredWater;
+			RequiredFood = Animal.CurrentLevel.RequiredFood;
+		}
 
 		WaterText = Water.GetComponentInChildren<TextMeshPro>();
 		FoodText = Food.GetComponentInChildren<TextMeshPro>();
@@ -33,6 +37,8 @@ public class Animal_Feeding : MonoBehaviour
 		FoodText.text = RequiredFood.ToString();
 
 		ChangeVisibility();
+
+		Debug.Log("H");
 	}
 
 	public float Drinking(float drinkvalue)
@@ -115,6 +121,16 @@ public class Animal_Feeding : MonoBehaviour
 		return RequiredFood + RequiredWater;
 	}
 
+	public float GetRequiredWater()
+	{
+		return RequiredWater;
+	}
+
+	public float GetRequiredFood()
+	{
+		return RequiredFood;
+	}
+
 	public void ChangeVisibility()
 	{
 		if (Animal.CurrentLevel.CurrentLevelNumber < 4)
@@ -131,5 +147,13 @@ public class Animal_Feeding : MonoBehaviour
 			}
 		}
 
+	}
+
+	public void LoadData(float water, float food)
+	{
+		IsLoadData = true;
+
+		RequiredWater = water;
+		RequiredFood = food;
 	}
 }

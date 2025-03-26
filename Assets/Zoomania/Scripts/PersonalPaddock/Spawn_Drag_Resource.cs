@@ -25,7 +25,7 @@ public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
 
 		FeedTime.OnTimerEnd += PandaDontEat;
 
-		availableResources = this.GetComponent<Available_Resources>();
+		availableResources = GetComponent<Available_Resources>();
 
 		Pool = new ObjectPool<GameObject>
 		(

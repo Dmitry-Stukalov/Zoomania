@@ -38,7 +38,7 @@ public class ShopUpgradeButtonBase : MonoBehaviour, IPointerClickHandler
 			text = value.ToString() + "k";
 			return text;
 		}
-		if (value >= 10000000)
+		if (value >= 1000000)
 		{
 			value /= 1000000;
 			value = Mathf.Floor(value * 10) / 10;

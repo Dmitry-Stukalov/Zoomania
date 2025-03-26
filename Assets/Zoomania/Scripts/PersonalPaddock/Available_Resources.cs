@@ -29,20 +29,6 @@ public class Available_Resources : MonoBehaviour
 		OnChange?.Invoke();
 	}
 
-	/*public void Initialize()
-	{
-		if (!start)
-		{
-			CurrentResources = ResourceBuilding.GetComponent<ResourceBuilding>();
-			Resource_New = Resource.GetComponent<Resource_New>();
-			Resource_New.ChangeCapacity(CurrentResources.DragResourceValue());
-
-			CurrentResources.OnUpgrade += UpdateData;
-
-			start = true;
-		}
-		OnChange?.Invoke();
-	}*/
 
 	public void UpdateDragResource()
 	{

@@ -6,35 +6,35 @@ using UnityEngine.EventSystems;
 
 public class Food_Quality_Button : ShopUpgradeButtonBase
 {
-	private ResourceBuilding FoodBuilding { get; set; }
+	private FoodBuildingValue FoodBuilding { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
 
-		FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+		FoodBuilding = GameObject.FindGameObjectWithTag("NewFood").GetComponent<FoodBuildingValue>();
 
 		UpdateData();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
 	{
-		if (Money.IncomeMoney.Resource < FoodBuilding.CurrentLevel.MoneyForUpgrade)
+		if (Money.IncomeMoney.Resource < FoodBuilding.CurrentLevelData().MoneyForUpgrade)
 		{
 			Debug.Log("Недостаточно монет");
 			return;
 		}
 
-		Money.SetMoneyValue(FoodBuilding.CurrentLevel.MoneyForUpgrade);
+		Money.SetMoneyValue(FoodBuilding.CurrentLevelData().MoneyForUpgrade);
 
-		FoodBuilding.UpgradeValue();
+		FoodBuilding.Upgrade();
 
 		UpdateData();
 	}
 
 	protected override void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetLevelsCount()) gameObject.SetActive(false);
-		Text.text = TextConversion(FoodBuilding.CurrentLevel.MoneyForUpgrade);
+		if (FoodBuilding.CurrentLevelData().CurrentLevelNumber == FoodBuilding.GetLevelsCount()) gameObject.SetActive(false);
+		Text.text = TextConversion(FoodBuilding.CurrentLevelData().MoneyForUpgrade);
 	}
 }

@@ -14,7 +14,8 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 
 		barn = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
 
-		Text.text = TextConversion(0);
+		barn.Spawn += UpdateData;
+		UpdateData();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)

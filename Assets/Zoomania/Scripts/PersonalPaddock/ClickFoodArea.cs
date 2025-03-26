@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class ClickFoodArea : MonoBehaviour, IPointerClickHandler
+{
+	[field: SerializeField] private GameObject Icon;
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		Icon.GetComponent<SpawnDragFoodResource>().OnPointerClick(eventData);
+	}
+}

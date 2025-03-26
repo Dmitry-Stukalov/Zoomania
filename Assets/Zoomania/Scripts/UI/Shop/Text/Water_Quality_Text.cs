@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Water_Quality_Text : ShopTextBase
 {
-	private ResourceBuilding WaterBuilding { get; set; }
+	private WaterBuildingValue WaterBuilding { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
 
-		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
+		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuildingValue>();
 
 		WaterBuilding.OnUpgrade += UpdateData;
 
@@ -22,15 +22,15 @@ public class Water_Quality_Text : ShopTextBase
 	{
 		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
 		{
-			Text.text = $"Уровень max: {WaterBuilding.CurrentLevel.CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов: {WaterBuilding.CurrentLevel.IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления: {WaterBuilding.CurrentLevel.DragResourceCapacity}\n";
+			Text.text = $"Уровень max: {WaterBuilding.CurrentLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Количество получаемых ресурсов: {WaterBuilding.CurrentLevelData().IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления: {WaterBuilding.CurrentLevelData().DragResourceCapacity}\n";
 		}
 		else
 		{
-			Text.text = $"Уровень {WaterBuilding.CurrentLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelValueData().CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов {WaterBuilding.CurrentLevel.IncomePerSecondValue} -> {WaterBuilding.NextLevelValueData().IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления {WaterBuilding.CurrentLevel.DragResourceCapacity} -> {WaterBuilding.NextLevelValueData().DragResourceCapacity}\n";
+			Text.text = $"Уровень {WaterBuilding.CurrentLevelData().CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Количество получаемых ресурсов {WaterBuilding.CurrentLevelData().IncomePerSecondValue} -> {WaterBuilding.NextLevelData().IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления {WaterBuilding.CurrentLevelData().DragResourceCapacity} -> {WaterBuilding.NextLevelData().DragResourceCapacity}\n";
 		}
 	}
 }

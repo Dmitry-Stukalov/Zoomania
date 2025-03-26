@@ -2,6 +2,7 @@ using Animal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,6 +28,17 @@ public class Money : MonoBehaviour
 	public void IncreaseMoneyValue(float value)
 	{
 		IncomeMoney.Resource += value;
+		OnChange?.Invoke();
+	}
+
+	public float GetMoney()
+	{
+		return IncomeMoney.Resource;
+	}
+
+	public async Task LoadData(float value)
+	{
+		IncomeMoney.Resource = value;
 		OnChange?.Invoke();
 	}
 
