@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 {
-	[field: SerializeField] GameObject CoinMenuResource { get; set; }
-	[field: SerializeField] GameObject EssenceMenuResource { get; set; }
+	//[field: SerializeField] GameObject CoinMenuResource { get; set; }
+	//[field: SerializeField] GameObject EssenceMenuResource { get; set; }
 	private Camera maincamera { get; set; }
 	private All_Objects Objects { get; set; }
 	private List<GameObject> SecondScene {  get; set; }
@@ -32,8 +32,8 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 
 		maincamera.transform.position = new Vector3(maincamera.transform.position.x-23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
 
-		CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
-		EssenceMenuResource.GetComponent<Background_Resource>().SetAnimation();
+		//CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
+		//EssenceMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
 		foreach (var objects in SecondScene)
 		{

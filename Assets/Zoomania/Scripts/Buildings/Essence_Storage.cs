@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Essence_Storage : MonoBehaviour
 {
-	public int EssenceCount { get; set; }
+	public float EssenceCount { get; set; }
 
 	public event Action OnChange;
 
@@ -26,10 +27,17 @@ public class Essence_Storage : MonoBehaviour
 		}
 	}
 
-	public int GetEssenceCount()
+	public float GetEssenceCount()
 	{
 		return EssenceCount;
 	}
+
+	public async Task LoadData(float value)
+	{
+		EssenceCount = value;
+		OnChange?.Invoke();
+	}
+
 
 	public void SoldOut()
 	{

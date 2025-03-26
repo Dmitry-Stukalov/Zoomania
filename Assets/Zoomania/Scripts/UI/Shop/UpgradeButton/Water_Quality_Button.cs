@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 
 public class Water_Quality_Button : ShopUpgradeButtonBase
 {
-	private ResourceBuilding WaterBuilding { get; set; }
+	private WaterBuildingValue WaterBuilding { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
 
-		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
+		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuildingValue>();
 
 		UpdateData();
 	}
@@ -27,7 +27,7 @@ public class Water_Quality_Button : ShopUpgradeButtonBase
 
 		Money.SetMoneyValue(WaterBuilding.CurrentLevel.MoneyForUpgrade);
 
-		WaterBuilding.UpgradeValue();
+		WaterBuilding.Upgrade();
 
 		UpdateData();
 	}

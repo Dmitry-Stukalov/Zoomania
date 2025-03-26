@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Food_Quality_Text : ShopTextBase
 {
-	private ResourceBuilding FoodBuilding { get; set; }
+	private FoodBuildingValue FoodBuilding { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
 
-		FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+		FoodBuilding = GameObject.FindGameObjectWithTag("NewFood").GetComponent<FoodBuildingValue>();
 
 		FoodBuilding.OnUpgrade += UpdateData;
 
@@ -20,17 +20,17 @@ public class Food_Quality_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevel.CurrentLevelNumber == FoodBuilding.GetLevelsCount())
+		if (FoodBuilding.CurrentLevelData().CurrentLevelNumber == FoodBuilding.GetLevelsCount())
 		{
-			Text.text = $"Уровень max: {FoodBuilding.CurrentLevel.CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов: {FoodBuilding.CurrentLevel.IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления: {FoodBuilding.CurrentLevel.DragResourceCapacity}\n";
+			Text.text = $"Уровень max: {FoodBuilding.CurrentLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Количество получаемых ресурсов: {FoodBuilding.CurrentLevelData().IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления: {FoodBuilding.CurrentLevelData().DragResourceCapacity}\n";
 		}
 		else
 		{
-			Text.text = $"Уровень {FoodBuilding.CurrentLevel.CurrentLevelNumber} -> {FoodBuilding.NextLevelValueData().CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов {FoodBuilding.CurrentLevel.IncomePerSecondValue} -> {FoodBuilding.NextLevelValueData().IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления {FoodBuilding.CurrentLevel.DragResourceCapacity} -> {FoodBuilding.NextLevelValueData().DragResourceCapacity}\n";
+			Text.text = $"Уровень {FoodBuilding.CurrentLevelData().CurrentLevelNumber} -> {FoodBuilding.NextLevelData().CurrentLevelNumber}\n";
+			Text.text += $"Количество получаемых ресурсов {FoodBuilding.CurrentLevelData().IncomePerSecondValue} -> {FoodBuilding.NextLevelData().IncomePerSecondValue}\n";
+			Text.text += $"Количество ресурсов для кормления {FoodBuilding.CurrentLevelData().DragResourceCapacity} -> {FoodBuilding.NextLevelData().DragResourceCapacity}\n";
 		}
 	}
 }

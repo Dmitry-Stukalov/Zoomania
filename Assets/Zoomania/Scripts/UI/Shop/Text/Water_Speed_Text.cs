@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Water_Speed_Text : ShopTextBase
 {
-	private ResourceBuilding WaterBuilding { get; set; }
+	private WaterBuildingTimer WaterBuilding { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
 
-		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
+		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuildingTimer>();
 
 		WaterBuilding.OnUpgrade += UpdateData;
 
@@ -20,17 +20,17 @@ public class Water_Speed_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (WaterBuilding.CurrentImproveLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
+		if (WaterBuilding.CurrentLevelData().CurrentLevelNumber == WaterBuilding.GetLevelsCount())
 		{
-			Text.text = $"Уровень max: {WaterBuilding.CurrentImproveLevel.CurrentLevelNumber}\n";
+			Text.text = $"Уровень max: {WaterBuilding.CurrentLevelData().CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentImproveLevel.EffectValue} сек";
+			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentLevelData().EffectValue} сек";
 		}
 		else
 		{
-			Text.text = $"Уровень {WaterBuilding.CurrentImproveLevel.CurrentLevelNumber} -> {WaterBuilding.NextLevelTimerData().CurrentLevelNumber}\n";
+			Text.text = $"Уровень {WaterBuilding.CurrentLevelData().CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentImproveLevel.EffectValue} сек -> {WaterBuilding.NextLevelTimerData().EffectValue} сек";
+			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentLevelData().EffectValue} сек -> {WaterBuilding.NextLevelData().EffectValue} сек";
 		}
 	}
 }

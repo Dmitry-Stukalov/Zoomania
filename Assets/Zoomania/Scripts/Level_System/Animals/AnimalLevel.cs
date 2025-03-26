@@ -12,6 +12,7 @@ namespace Animal
 	[Serializable]
 	public class AnimalLevel
 	{
+		[field: SerializeField] public int Type { get; set; }
 		[field: SerializeField] public int CurrentLevelNumber { get; set; }
 		[field: SerializeField] public Sprite View { get; set; }
 		[field: SerializeField] public RuntimeAnimatorController Animator { get; set; }

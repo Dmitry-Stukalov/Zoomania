@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 1957385101863441919}
   - component: {fileID: 8202044019747682797}
   - component: {fileID: 7291713998312490054}
+  - component: {fileID: -7580151842760775420}
+  - component: {fileID: -632275627729008241}
   - component: {fileID: 6937542834384286939}
   m_Layer: 0
   m_Name: FoodBuilding
-  m_TagString: FoodBuilding
+  m_TagString: NewFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.214, y: -3.493}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 6.43, y: 4.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8202044019747682797
@@ -99,7 +101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200371128407484109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
   m_Name: 
@@ -108,6 +110,34 @@ MonoBehaviour:
   <improvement_levels_config>k__BackingField: {fileID: 0}
   <Click>k__BackingField: {fileID: 2964879331433105907}
   <Audio>k__BackingField: {fileID: 4038835357330775121}
+--- !u!114 &-7580151842760775420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200371128407484109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6dfadc9d4f3b042a021017b24a01ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <levels_config>k__BackingField: {fileID: 11400000, guid: b2cd336de1897a44dbd1439d42c4d191, type: 2}
+--- !u!114 &-632275627729008241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200371128407484109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ebd7805d38b2b4192de1c3e135d0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <levels_config>k__BackingField: {fileID: 11400000, guid: 608f4ff9274cce64ca9414dd62e6a193, type: 2}
+  <Click>k__BackingField: {fileID: 0}
+  <Audio>k__BackingField: {fileID: 0}
 --- !u!58 &6937542834384286939
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class InitialImprovementBase : ImprovementBase
@@ -29,4 +30,10 @@ public class InitialImprovementBase : ImprovementBase
 	{
 		return levels_config.levels[CurrentLevel.CurrentLevelNumber];
 	}
+
+	public virtual async Task LoadData(int currentlevelnumber)
+	{
+		CurrentLevel = levels_config.levels[currentlevelnumber - 1];
+	}
+
 }

@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3497669814161192615}
-  - component: {fileID: 1199214963321737777}
+  - component: {fileID: 734571293672946609}
   - component: {fileID: 9177604423858672345}
   - component: {fileID: -8765260503583706229}
   - component: {fileID: 9106575569058222259}
@@ -160,14 +160,14 @@ Transform:
   m_GameObject: {fileID: 7223025116040917291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.63, z: 0}
-  m_LocalScale: {x: 3.2667, y: 4.655873, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5092068343520306614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1199214963321737777
+--- !u!212 &734571293672946609
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,9 +207,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 0f7660eb60c8e4b418f0894d83c7d176, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5296eb10a5479134ba7e767e69ca1040, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1f7541248312a42afc4eb0ce7864df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <levels_config>k__BackingField: {fileID: 11400000, guid: 577c9bd702c47cf40b14a6a3b5956ab2, type: 2}
+  levels_config: {fileID: 0}
 --- !u!114 &5735070082583396230
 MonoBehaviour:
   m_ObjectHideFlags: 0

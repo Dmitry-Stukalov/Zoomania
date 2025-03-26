@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 439530030383287906}
   - component: {fileID: 7205765998198908044}
   - component: {fileID: 7930905429007839729}
+  - component: {fileID: 2096748320085677662}
+  - component: {fileID: 6950606261284861976}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -126,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d131709feb9318948a115e155ea18d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <improvement_levels_config>k__BackingField: {fileID: 11400000, guid: 983de5c11dad9ec4caa92b4da926a5b7, type: 2}
+  levels_config: {fileID: 0}
 --- !u!114 &7930905429007839729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +141,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6fbf43c318c6048b9a2edbbc875567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2096748320085677662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f66f78a56fa6c4dab4198faa52a200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Background: {fileID: 0}
+  WaterBuilding: {fileID: 0}
+  FoodBuilding: {fileID: 0}
+  MoneyBuilding: {fileID: 0}
+  EssenceBuilding: {fileID: 0}
+  EssenceBuilding1: {fileID: 0}
+  DeepSleepBuilding: {fileID: 0}
+  Bamboo: {fileID: 0}
+--- !u!114 &6950606261284861976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ef1c62a90b8ff49b45aa05c1aad101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllResoures: {fileID: 2096748320085677662}
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0

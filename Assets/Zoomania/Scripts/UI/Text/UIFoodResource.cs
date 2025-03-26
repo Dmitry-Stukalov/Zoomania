@@ -3,42 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIFoodResource : MonoBehaviour
+public class UIFoodResource : UIResourceBase
 {
-	[field: SerializeField] private ResourceBuilding Building { get; set; }
-	private TextMeshProUGUI Text { get; set; }
+	private FoodBuildingTimer Building { get; set; }
 
-	public void Start()
+	protected override void Start()
 	{
-		Text = gameObject.GetComponent<TextMeshProUGUI>();
-		//Building = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+		base.Start();
+
+		Building = GameObject.FindGameObjectWithTag("NewFood").GetComponent<FoodBuildingTimer>();
 		Building.OnChange += UpdateUI;
 	}
 
-	public void UpdateUI()
+	public override void UpdateUI()
 	{
 		Text.text = TextConversion(Building.IncomeResources.Resource);
-	}
-
-	public string TextConversion(float value)
-	{
-		string text;
-		if (value < 1000) return value.ToString();
-		if (value >= 1000 && value < 1000000)
-		{
-			value /= 1000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "k";
-			return text;
-		}
-		if (value >= 10000000)
-		{
-			value /= 1000000;
-			value = Mathf.Floor(value * 10) / 10;
-			text = value.ToString() + "M";
-			return text;
-		}
-
-		return null;
 	}
 }
