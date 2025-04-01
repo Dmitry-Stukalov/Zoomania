@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Buy_Food_Button : ShopUpgradeButtonBase
 {
-	private ResourceBuilding FoodBuilding { get; set; }
+	private FoodBuildingTimer FoodBuilding { get; set; }
 	private int AddCapacity { get; set; } = 10;
 
 
@@ -14,7 +14,7 @@ public class Buy_Food_Button : ShopUpgradeButtonBase
 	{
 		base.Start();
 
-		FoodBuilding = GameObject.FindGameObjectWithTag("FoodBuilding").GetComponent<ResourceBuilding>();
+		FoodBuilding = GameObject.FindGameObjectWithTag("NewFood").GetComponent<FoodBuildingTimer>();
 
 		Text.text = TextConversion(5);
 	}
@@ -30,6 +30,6 @@ public class Buy_Food_Button : ShopUpgradeButtonBase
 
 		Money.SetMoneyValue(5);
 
-		FoodBuilding.AddData(10);
+		FoodBuilding.AddResources(10);
 	}
 }

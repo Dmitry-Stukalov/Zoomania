@@ -47,15 +47,7 @@ public class WaterResource : MonoBehaviour
 		if (!OnAnimal) return Capacity;
 		else
 		{
-			if (tag == "Water")
-			{
-				ReturnedCapacity = Animal.GetComponent<Animal_Feeding>().Drinking(Capacity);
-			}
-
-			if (tag == "Food")
-			{
-				ReturnedCapacity = Animal.GetComponent<Animal_Feeding>().Eating(Capacity);
-			}
+			ReturnedCapacity = Animal.GetComponent<Animal_Feeding>().Drinking(Capacity);
 		}
 
 		return ReturnedCapacity;

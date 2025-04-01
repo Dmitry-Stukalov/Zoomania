@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Animal_Feeding : MonoBehaviour
 {
-	private GameObject Water { get; set; }
-	private GameObject Food { get; set; }
+	[field: SerializeField] private GameObject Water { get; set; }
+	[field: SerializeField] private GameObject Food { get; set; }
 	private TextMeshPro WaterText { get; set; }
 	private TextMeshPro FoodText { get; set; }
 	private Animals Animal { get; set; }
@@ -17,11 +17,8 @@ public class Animal_Feeding : MonoBehaviour
 	private bool IsDrinking { get; set; } = false;
 	private bool IsLoadData { get; set; } = false;
 
-	public void Start()
+	private void Start()
 	{
-		Water = GameObject.FindGameObjectWithTag("AnimalWater");
-		Food = GameObject.FindGameObjectWithTag("AnimalFood");
-
 		Animal = gameObject.GetComponent<Animals>();
 
 		if (!IsLoadData)
@@ -37,8 +34,6 @@ public class Animal_Feeding : MonoBehaviour
 		FoodText.text = RequiredFood.ToString();
 
 		ChangeVisibility();
-
-		Debug.Log("H");
 	}
 
 	public float Drinking(float drinkvalue)

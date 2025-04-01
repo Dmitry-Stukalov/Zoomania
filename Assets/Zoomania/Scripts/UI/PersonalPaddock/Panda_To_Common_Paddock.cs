@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,6 +14,7 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 	private AnimalAI_New PandaAI { get; set; }
 	private DragAnimal PandaPP { get; set; }
 	private Animal_Feeding PandaAF { get; set; }
+	private PointerEventData eventdata;
 
 
 
@@ -38,5 +40,4 @@ public class Panda_To_Common_Paddock : MonoBehaviour, IPointerClickHandler
 			PandaAF.ChangeVisibility();
 		}
 	}
-
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Buy_Water_Button : ShopUpgradeButtonBase
 {
-	private ResourceBuilding WaterBuilding { get; set; }
+	private WaterBuildingTimer WaterBuilding { get; set; }
 	private int AddCapacity { get; set; } = 10;
 
 
@@ -14,7 +14,7 @@ public class Buy_Water_Button : ShopUpgradeButtonBase
 	{
 		base.Start();
 
-		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<ResourceBuilding>();
+		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuildingTimer>();
 
 		Text.text = TextConversion(5);
 	}
@@ -30,6 +30,6 @@ public class Buy_Water_Button : ShopUpgradeButtonBase
 
 		Money.SetMoneyValue(5);
 
-		WaterBuilding.AddData(10);
+		WaterBuilding.AddResources(10);
 	}
 }

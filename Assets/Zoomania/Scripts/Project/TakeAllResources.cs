@@ -15,9 +15,11 @@ public class TakeAllResources : MonoBehaviour
 	[field: SerializeField] public Deep_Sleep DeepSleepBuilding;
 	[field: SerializeField] public Buy_Bamboo Bamboo;
 	[field: SerializeField] public Barn Barn;
+	[field: SerializeField] public Day_And_Night Time;
 
 	private List<float> resources = new List<float>();
 	private List<int> buildingLevels = new List<int>();
+	private SaveDataClass.TimeData time;
 	private List<GameObject> barnlist = new List<GameObject>();
 	private List<SaveDataClass.AnimalData> animals = new List<SaveDataClass.AnimalData>();
 
@@ -45,6 +47,14 @@ public class TakeAllResources : MonoBehaviour
 
 		IReadOnlyList<int> newList = buildingLevels;
 		return newList;
+	}
+
+	public SaveDataClass.TimeData TakeTime()
+	{
+		time = new SaveDataClass.TimeData(Time.IsDay, Time.GetCurrentTime());
+
+		SaveDataClass.TimeData newtime = time;
+		return newtime;
 	}
 
 	public IReadOnlyList<SaveDataClass.AnimalData> TakeAnimals()

@@ -9,48 +9,50 @@ using UnityEngine;
 public class SaveAndLoad
 {
 	//public static readonly string DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
-	public static readonly string DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
+	//public static readonly string DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
 
-	public static void Save(IReadOnlyList<float> allResources, IReadOnlyList<int> allBuildingLevels, IReadOnlyList<SaveDataClass.AnimalData> allAnimals)
+
+	public static void Save(string directoryPath, IReadOnlyList<float> allResources, IReadOnlyList<int> allBuildingLevels, IReadOnlyList<SaveDataClass.AnimalData> allAnimals, SaveDataClass.TimeData allTime)
 	{
 		var DataSave = new SaveDataClass();
 		DataSave.SetResoures(allResources);
 		DataSave.SetBuildingLevels(allBuildingLevels);
+		DataSave.SetTime(allTime);
 		DataSave.SetAnimals(allAnimals);
 
 		var json = JsonUtility.ToJson(DataSave);
 
-		var directoryPath = DirectoryPath;
+		var DirectoryPath = directoryPath;
 		const string fileName = "DataSave";
 
-		if (!Directory.Exists(directoryPath))
-			Directory.CreateDirectory(directoryPath);
+		if (!Directory.Exists(DirectoryPath))
+			Directory.CreateDirectory(DirectoryPath);
 
-		File.WriteAllText($"{directoryPath}/{fileName}.json", json);
+		File.WriteAllText($"{DirectoryPath}/{fileName}.json", json);
 	}
 
 
-	public static async Task Load(/*CancellationToken cancelToken, */string fileName, WaterBuildingValue waterBuildingV, WaterBuildingTimer waterBuildingT, FoodBuildingValue foodBuildingV, FoodBuildingTimer foodBuildingT, Money moneyBuilding, 
-		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, Buy_Bamboo bamboo, Barn barn)
+	public static async Task Load(/*CancellationToken cancelToken, */string directoryPath, string fileName, WaterBuildingValue waterBuildingV, WaterBuildingTimer waterBuildingT, FoodBuildingValue foodBuildingV, FoodBuildingTimer foodBuildingT, Money moneyBuilding, 
+		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, Buy_Bamboo bamboo, Barn barn, Day_And_Night time)
 	{
-		var directoryPath = DirectoryPath;
-		if (!Directory.Exists(directoryPath))
+		var DirectoryPath = directoryPath;
+		if (!Directory.Exists(DirectoryPath))
 		{
-			Directory.CreateDirectory(directoryPath);
-			Debug.LogError($"Cant find directory, so file doesnt exist: {directoryPath}");
+			Directory.CreateDirectory(DirectoryPath);
+			Debug.LogError($"Cant find directory, so file doesnt exist: {DirectoryPath}");
 			return;
 		}
 
 		if (!fileName.Contains(".json"))
 			fileName += ".json";
 
-		if (!File.Exists($"{directoryPath}/{fileName}"))
+		if (!File.Exists($"{DirectoryPath}/{fileName}"))
 		{
-			Debug.LogError($"File doesnt exist: {directoryPath}/{fileName}");
+			Debug.LogError($"File doesnt exist: {DirectoryPath}/{fileName}");
 			return;
 		}
 
-		var json = await File.ReadAllTextAsync($"{directoryPath}/{fileName}"/*, cancelToken*/);
+		var json = await File.ReadAllTextAsync($"{DirectoryPath}/{fileName}"/*, cancelToken*/);
 		/*if (cancelToken.IsCancellationRequested)
 			cancelToken.ThrowIfCancellationRequested();*/
 
@@ -66,6 +68,7 @@ public class SaveAndLoad
 		await deepSleepBuilding.LoadData(dataSave.Buildinglevels[5]);
 		await bamboo.LoadData(dataSave.Buildinglevels[6]);
 		await barn.LoadData(dataSave.Animals);
+		await time.LoadData(dataSave.Time);
 	}
 
 }
