@@ -9,7 +9,7 @@ public class AvailableWaterResource : MonoBehaviour
 	[field: SerializeField] private GameObject Resource { get; set; }
 	public WaterBuildingValue WaterValue { get; set; }
 	public WaterBuildingTimer WaterTimer { get; set; }
-	public Resource_New Resource_New { get; private set; }
+	public WaterResource Water { get; private set; }
 	private bool start { get; set; }
 	private bool someresources { get; set; }
 
@@ -29,8 +29,8 @@ public class AvailableWaterResource : MonoBehaviour
 
 	private void Initialize()
 	{
-		Resource_New = Resource.GetComponent<Resource_New>();
-		Resource_New.ChangeCapacity(WaterValue.CurrentLevelData().DragResourceCapacity);
+		Water = Resource.GetComponent<WaterResource>();
+		Water.ChangeCapacity(WaterValue.CurrentLevelData().DragResourceCapacity);
 
 		WaterValue.OnUpgrade += UpdateData;
 		OnStart?.Invoke();
@@ -45,7 +45,7 @@ public class AvailableWaterResource : MonoBehaviour
 			someresources = false;
 		}
 
-		if (Resource_New.GetCapacity() > WaterTimer.IncomeResources.Resource) TakeSomeResource();
+		if (Water.GetCapacity() > WaterTimer.IncomeResources.Resource) TakeSomeResource();
 		else TakeResource();
 
 		OnChange?.Invoke();
@@ -54,13 +54,13 @@ public class AvailableWaterResource : MonoBehaviour
 
 	private void UpdateData()
 	{
-		Resource_New.ChangeCapacity(WaterValue.DragResourceValue());
+		Water.ChangeCapacity(WaterValue.DragResourceValue());
 		OnChange?.Invoke();
 	}
 
 	public void TakeResource()
 	{
-		WaterTimer.IncomeResources.Resource -= Resource_New.GetCapacity();
+		WaterTimer.IncomeResources.Resource -= Water.GetCapacity();
 
 		OnChange?.Invoke();
 		WaterTimer.Change();
@@ -68,8 +68,8 @@ public class AvailableWaterResource : MonoBehaviour
 
 	public void TakeSomeResource()
 	{
-		Resource_New.ChangeCapacity(WaterTimer.IncomeResources.Resource);
-		WaterTimer.IncomeResources.Resource -= Resource_New.GetCapacity();
+		Water.ChangeCapacity(WaterTimer.IncomeResources.Resource);
+		WaterTimer.IncomeResources.Resource -= Water.GetCapacity();
 		someresources = true;
 	}
 

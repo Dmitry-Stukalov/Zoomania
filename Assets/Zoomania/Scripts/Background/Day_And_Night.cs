@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,6 +55,29 @@ public class Day_And_Night : MonoBehaviour
 		Color Color = NightBackground.color;
 		Color.a = value;
 		NightBackground.color = Color;
+	}
+
+	public float GetCurrentTime()
+	{
+		if (IsDay) return DayTime.CurrentTime;
+		else return NightTime.CurrentTime;
+	}
+
+	public async Task LoadData(SaveDataClass.TimeData time)
+	{
+		if (time.IsDay) IsDay = true;
+		else IsDay = false;
+
+		if (IsDay)
+		{
+			DayTime.UpdateTimer(time.CurrentTime);
+			ChangeColorAlpha(0);
+		}
+		else
+		{
+			NightTime.UpdateTimer(time.CurrentTime);
+			ChangeColorAlpha(5f * Ratio);
+		}
 	}
 
 	public void Update()

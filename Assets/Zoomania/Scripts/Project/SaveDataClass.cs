@@ -8,10 +8,12 @@ public class SaveDataClass
 {
 	[SerializeField] private List<float> resources;
 	[SerializeField] private List<int> buildinglevels;
+	[SerializeField] private TimeData time;
 	[SerializeField] private List<AnimalData> animals;
 
 	public IReadOnlyList<float> Resources => resources;
 	public IReadOnlyList<int> Buildinglevels => buildinglevels;
+	public TimeData Time => time;
 	public IReadOnlyList<AnimalData> Animals => animals;
 
 	public void SetResoures(IReadOnlyList<float> allResources)
@@ -32,6 +34,11 @@ public class SaveDataClass
 		{
 			buildinglevels.Add(buildinglevel);
 		}
+	}
+
+	public void SetTime(TimeData allTime)
+	{
+		time = allTime;
 	}
 
 	public void SetAnimals(IReadOnlyList<AnimalData> allAnimals)
@@ -64,6 +71,19 @@ public class SaveDataClass
 			X = x; 
 			Y = y; 
 			Z = z;
+		}
+	}
+
+	[Serializable]
+	public struct TimeData
+	{
+		public bool IsDay;
+		public float CurrentTime;
+
+		public TimeData(bool isDay, float currentTime)
+		{
+			IsDay = isDay;
+			CurrentTime = currentTime;
 		}
 	}
 }

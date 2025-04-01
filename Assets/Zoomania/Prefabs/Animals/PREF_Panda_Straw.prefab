@@ -577,6 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc774140c6af6dc41b2780d7ccbd5fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Water>k__BackingField: {fileID: 4242355600918529901}
+  <Food>k__BackingField: {fileID: 6581438032348611124}
 --- !u!114 &4125095244043157545
 MonoBehaviour:
   m_ObjectHideFlags: 0

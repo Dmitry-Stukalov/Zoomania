@@ -25,7 +25,8 @@ public class SpawnDragFoodResource : MonoBehaviour, IPointerClickHandler
 		FeedTime.OnTimerEnd += PandaDontEat;
 
 		availableResources = GetComponent<AvailableFoodResource>();
-		availableResources.OnStart += Initialize;
+
+		Initialize();
 	}
 
 	private void Initialize()
@@ -54,7 +55,7 @@ public class SpawnDragFoodResource : MonoBehaviour, IPointerClickHandler
 			Panda.Eating(true);
 		}
 
-		if (availableResources.WaterTimer.IncomeResources.Resource > 0)
+		if (availableResources.FoodTimer.IncomeResources.Resource > 0)
 		{
 
 			mainCamera = Camera.main;
@@ -65,7 +66,7 @@ public class SpawnDragFoodResource : MonoBehaviour, IPointerClickHandler
 
 			availableResources.UpdateDragResource();
 
-			resource.GetComponent<FoodResource>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
+			resource.GetComponent<FoodResource>().ChangeCapacity(availableResources.Food.GetCapacity());
 
 			Speed = Random.Range(10f, 15f);
 

@@ -66,7 +66,7 @@ public class SpawnDragWaterResource : MonoBehaviour, IPointerClickHandler
 
 			availableResources.UpdateDragResource();
 
-			resource.GetComponent<WaterResource>().ChangeCapacity(availableResources.Resource_New.GetCapacity());
+			resource.GetComponent<WaterResource>().ChangeCapacity(availableResources.Water.GetCapacity());
 
 			Speed = Random.Range(10f, 15f);
 
