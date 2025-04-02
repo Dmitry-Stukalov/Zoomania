@@ -23,8 +23,16 @@ public class FoodBuildingTimer : MonoBehaviour
 		CurrentLevel = levels_config.levels[0];
 
 		FoodBuildingV = GetComponent<FoodBuildingValue>();
-		FoodBuildingV.OnStart += Initialize;
-		Initialize();
+
+		if (Input.touchSupported)
+		{
+			Initialize();
+		}
+		else if (Input.mousePresent)
+		{
+			FoodBuildingV.OnStart += Initialize;
+			Debug.Log("Запущено на ПК");
+		}
 	}
 
 	private void Initialize()
