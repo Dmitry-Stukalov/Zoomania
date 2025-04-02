@@ -24,7 +24,16 @@ public class AvailableFoodResource : MonoBehaviour
 
 		FoodValue = ResourceBuilding.GetComponent<FoodBuildingValue>();
 		FoodTimer = ResourceBuilding.GetComponent<FoodBuildingTimer>();
-		Initialize();
+
+		if (Input.touchSupported)
+		{
+			Initialize();
+		}
+		else if (Input.mousePresent)
+		{
+			FoodValue.OnStart += Initialize;
+			Debug.Log("Запущено на ПК");
+		}
 	}
 
 	private void Initialize()

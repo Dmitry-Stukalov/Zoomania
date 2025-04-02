@@ -11,19 +11,22 @@ public class DoSaveAndLoad : MonoBehaviour
 	private string DirectoryPath;
 	private PointerEventData pointerdata;
 
-	public void Awake()
+	private void Awake()
 	{
-		DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
-		//DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
+		//DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
+		DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
 
 		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time);
 	}
 
-	/*public void OnApplicationQuit()
+	public void OnApplicationQuit()
 	{
 		if (!CleanFile.DontSave)
+		{
+			PandaReturn.OnPointerClick(pointerdata);
 			SaveAndLoad.Save(DirectoryPath, AllResoures.TakeResoures(), AllResoures.TakeBuildingLevels(), AllResoures.TakeAnimals(), AllResoures.TakeTime());
-	}*/
+		}
+	}
 
 	public void OnApplicationPause(bool pause)
 	{

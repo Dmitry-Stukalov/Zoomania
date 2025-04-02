@@ -14,12 +14,11 @@ public class Essence_Sale_Button : ShopUpgradeButtonBase
 	{
 		base.Start();
 
-		storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
-		storage.OnChange += UpdateData;
-
 		EssenceQuality = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Quality>();
 
-		Text.text = TextConversion(0);
+		storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
+		storage.OnChange += UpdateData;
+		UpdateData();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
