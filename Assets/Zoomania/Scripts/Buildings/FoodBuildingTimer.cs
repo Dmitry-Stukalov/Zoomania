@@ -31,7 +31,6 @@ public class FoodBuildingTimer : MonoBehaviour
 		else if (Input.mousePresent)
 		{
 			FoodBuildingV.OnStart += Initialize;
-			Debug.Log("Запущено на ПК");
 		}
 	}
 

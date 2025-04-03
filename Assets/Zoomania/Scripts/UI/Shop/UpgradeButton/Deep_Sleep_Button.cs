@@ -6,13 +6,11 @@ using UnityEngine.EventSystems;
 
 public class Deep_Sleep_Button : ShopUpgradeButtonBase
 {
-	private Deep_Sleep Sleep { get; set; }
+	[field: SerializeField] private Deep_Sleep Sleep { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
-
-		Sleep = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<Deep_Sleep>();
 
 		UpdateData();
 	}
