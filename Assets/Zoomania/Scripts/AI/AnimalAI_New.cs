@@ -109,8 +109,6 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 			{
 				AbortActions();
 				animator.SetBool("IsSleeping", true);
-
-				Debug.Log("Панда спит");
 			}
 		}
 		else

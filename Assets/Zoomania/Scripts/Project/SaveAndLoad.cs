@@ -8,10 +8,6 @@ using UnityEngine;
 
 public class SaveAndLoad
 {
-	//public static readonly string DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
-	//public static readonly string DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
-
-
 	public static void Save(string directoryPath, IReadOnlyList<float> allResources, IReadOnlyList<int> allBuildingLevels, IReadOnlyList<SaveDataClass.AnimalData> allAnimals, SaveDataClass.TimeData allTime)
 	{
 		var DataSave = new SaveDataClass();
