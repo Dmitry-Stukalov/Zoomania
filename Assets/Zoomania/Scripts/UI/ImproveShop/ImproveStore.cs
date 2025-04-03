@@ -6,6 +6,8 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
 {
     [field: SerializeField] private GameObject TargetMenu { get; set; }
 	[field: SerializeField] private GameObject BlockingButton { get; set; }
+    [field: SerializeField] private GameObject Buttons;
+    [field: SerializeField] private To_Personal_Paddock PersonalPaddock;
 	private bool IsHide { get; set; } = false;
 
     void Start()
@@ -27,6 +29,12 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
     public void ToggleMenu()
     {
         TargetMenu.SetActive(!TargetMenu.activeSelf);
+
+        if (TargetMenu.activeSelf || PersonalPaddock.InPersonalPaddock)
+        {
+            Buttons.SetActive(false);
+        }
+        else Buttons.SetActive(true);
 
 		UpdateButtonInteractability();
     }

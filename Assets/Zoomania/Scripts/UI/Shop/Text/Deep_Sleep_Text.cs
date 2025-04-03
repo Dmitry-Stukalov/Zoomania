@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Deep_Sleep_Text : ShopTextBase
 {
-	private Deep_Sleep Sleep { get; set; }
+	[field: SerializeField] private Deep_Sleep Sleep { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
-
-		Sleep = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<Deep_Sleep>();
 
 		Sleep.OnUpgrade += UpdateData;
 
