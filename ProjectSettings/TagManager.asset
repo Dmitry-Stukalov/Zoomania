@@ -28,6 +28,8 @@ TagManager:
   - EssenceClick
   - FoodBuilding
   - Back
+  - MidPanelShop
+  - Map
   layers:
   - Default
   - TransparentFX
