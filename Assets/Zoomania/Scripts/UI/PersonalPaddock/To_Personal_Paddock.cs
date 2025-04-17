@@ -10,7 +10,9 @@ using UnityEngine.UI;
 public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 {
 	[field: SerializeField] private GameObject Buttons;
-	private Camera maincamera { get; set; }
+    [field: SerializeField] GameObject CoinMenuResource { get; set; }
+    [field: SerializeField] GameObject EssenceMenuResource { get; set; }
+    private Camera maincamera { get; set; }
 	private All_Objects Objects { get; set; }
 	private List<GameObject> SecondScene {  get; set; }
 	public bool InPersonalPaddock { get; set; }
@@ -25,19 +27,22 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 		InPersonalPaddock = false;
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
-	{
-		SecondScene = Objects.SecondSceneObjects();
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (maincamera != null)
+        {
+            maincamera.orthographicSize = 5;
+            maincamera.transform.position = new Vector3(-23, 0, -20);
+        }
 
-		maincamera.transform.position = new Vector3(maincamera.transform.position.x-23, maincamera.transform.position.y, maincamera.gameObject.transform.position.z);
+        SecondScene = Objects.SecondSceneObjects();
 
-		foreach (var objects in SecondScene)
-		{
-			objects.SetActive(true);
-		}
+        CoinMenuResource.GetComponent<Background_Resource>().SetAnimation();
+        EssenceMenuResource.GetComponent<Background_Resource>().SetAnimation();
 
-		if (Buttons.activeSelf) Buttons.SetActive(false);
-
-		InPersonalPaddock = !InPersonalPaddock;
-	}
+        foreach (var obj in SecondScene)
+        {
+            obj.SetActive(true);
+        }
+    }
 }

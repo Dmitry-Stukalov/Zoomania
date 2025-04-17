@@ -29,6 +29,9 @@ TagManager:
   - FoodBuilding
   - Overlap
   - NewFood
+  - MidPanelShop
+  - Map
+  - Back
   layers:
   - Default
   - TransparentFX

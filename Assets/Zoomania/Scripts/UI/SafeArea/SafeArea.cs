@@ -1,42 +1,60 @@
 using UnityEngine;
 
-public class SafeArea : MonoBehaviour
+public class SafeAreaHandler : MonoBehaviour
 {
-    private RectTransform _rectTransform;
+    [Header("UI, который нужно сдвинуть внутрь Safe Area")]
+    public RectTransform uiRoot;
+
+    [Header("Черная полоса сверху (вне Safe Area)")]
+    public RectTransform topBar;
+
     private Rect _lastSafeArea;
 
     void Start()
     {
-        _rectTransform = GetComponent<RectTransform>();
         ApplySafeArea();
+    }
+
+    void Update()
+    {
+        if (_lastSafeArea != Screen.safeArea)
+        {
+            ApplySafeArea();
+        }
     }
 
     void ApplySafeArea()
     {
         Rect safeArea = Screen.safeArea;
+        _lastSafeArea = safeArea;
 
-        if (safeArea != _lastSafeArea)
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        if (uiRoot)
         {
-            _lastSafeArea = safeArea;
-
-            // Рассчитываем отступы
             Vector2 anchorMin = safeArea.position;
             Vector2 anchorMax = safeArea.position + safeArea.size;
 
-            // Нормализуем отступы
-            anchorMin.x /= Screen.width;
-            anchorMin.y /= Screen.height;
-            anchorMax.x /= Screen.width;
-            anchorMax.y /= Screen.height;
+            anchorMin.x /= screenWidth;
+            anchorMin.y /= screenHeight;
+            anchorMax.x /= screenWidth;
+            anchorMax.y /= screenHeight;
 
-            // Применяем отступы к RectTransform
-            _rectTransform.anchorMin = anchorMin;
-            _rectTransform.anchorMax = anchorMax;
+            uiRoot.anchorMin = anchorMin;
+            uiRoot.anchorMax = anchorMax;
+            uiRoot.offsetMin = Vector2.zero;
+            uiRoot.offsetMax = Vector2.zero;
         }
-    }
 
-    void Update()
-    {
-        ApplySafeArea(); // На случай изменения ориентации экрана
+        if (topBar)
+        {
+            float yMax = (safeArea.y + safeArea.height) / screenHeight;
+
+            topBar.anchorMin = new Vector2(0, yMax);
+            topBar.anchorMax = new Vector2(1, 1);
+            topBar.offsetMin = Vector2.zero;
+            topBar.offsetMax = Vector2.zero;
+        }
     }
 }
