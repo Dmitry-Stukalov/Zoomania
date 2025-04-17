@@ -20,7 +20,7 @@ public class Essence_Quality : InitialImprovementBase
 	{
 		base.Upgrade();
 
-		EssenceClick.ChangeTimeSkip(0.3f, false);
+		EssenceClick.ChangeTimeSkip(0.7f, false);
 
 		base.InvokeUpgrade();
 	}

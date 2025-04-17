@@ -34,8 +34,8 @@ public class Barn : MonoBehaviour
 		Animals.Add(Instantiate(Panda_Storage_Config.Animals[RandomNumber], RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
 
-		if (Animals.Count == 1) MoneyToSpawn += 0;
-		else MoneyToSpawn *= 2;
+		if (Animals.Count == 1) MoneyToSpawn += 50;
+		else MoneyToSpawn *= 4;
 
 		Spawn?.Invoke();
 	}
@@ -70,9 +70,10 @@ public class Barn : MonoBehaviour
 			Animals[i].GetComponent<Animal_Feeding>().LoadData(animals[i].Water, animals[i].Food);
 			AnimalCount++;
 
-			if (Animals.Count == 1) MoneyToSpawn += 0;
-			else MoneyToSpawn *= 2;
+			if (Animals.Count == 1) MoneyToSpawn += 50;
+			else MoneyToSpawn *= 4;
 
+			Debug.Log(i);
 			Spawn?.Invoke();
 		}
 	}
