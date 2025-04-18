@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2986650536383862158}
   - component: {fileID: 3708393992077005904}
-  - component: {fileID: 2596771170205956916}
   - component: {fileID: -1803713806214064498}
   - component: {fileID: 430761812617406455}
-  - component: {fileID: 3972951288398399212}
   - component: {fileID: 9119555854424519662}
   m_Layer: 0
   m_Name: Water
@@ -93,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2596771170205956916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5824375206696538684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53fcc1653d695046805bf809ce758e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Resource>k__BackingField: {fileID: 509004086154684891, guid: cba891707f8b9614888ce76d2ec74204, type: 3}
-  <AnimalPlace>k__BackingField: {fileID: 0}
 --- !u!114 &-1803713806214064498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,20 +115,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835cd2d4ec0fae449a7d6915bfcfcfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ResourceBuilding>k__BackingField: {fileID: 0}
-  <Resource>k__BackingField: {fileID: 0}
---- !u!114 &3972951288398399212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5824375206696538684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471791de1501ca24eacbfef8325b855c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <ResourceBuilding>k__BackingField: {fileID: 0}

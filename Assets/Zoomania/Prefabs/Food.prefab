@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3293117313189491179}
   - component: {fileID: 1560264921237163785}
-  - component: {fileID: 5791591693143275644}
   - component: {fileID: -796800269764113018}
   - component: {fileID: -2774910493748176595}
-  - component: {fileID: 325242807393969507}
   - component: {fileID: 2091614888375295046}
   m_Layer: 0
   m_Name: Food
@@ -93,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5791591693143275644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7393638479082453690}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53fcc1653d695046805bf809ce758e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Resource>k__BackingField: {fileID: 509004086154684891, guid: fe243392cefdf6d4fa52429546fd4c30, type: 3}
-  <AnimalPlace>k__BackingField: {fileID: 0}
 --- !u!114 &-796800269764113018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,20 +115,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91f75be328b67b74cabaa1d3871d4edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ResourceBuilding>k__BackingField: {fileID: 0}
-  <Resource>k__BackingField: {fileID: 0}
---- !u!114 &325242807393969507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7393638479082453690}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471791de1501ca24eacbfef8325b855c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <ResourceBuilding>k__BackingField: {fileID: 0}

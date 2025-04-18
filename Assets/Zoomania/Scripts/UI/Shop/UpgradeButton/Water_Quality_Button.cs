@@ -15,6 +15,8 @@ public class Water_Quality_Button : ShopUpgradeButtonBase
 		WaterBuilding = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuildingValue>();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
@@ -36,5 +38,21 @@ public class Water_Quality_Button : ShopUpgradeButtonBase
 	{
 		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount()) gameObject.SetActive(false);
 		Text.text = TextConversion(WaterBuilding.CurrentLevel.MoneyForUpgrade);
+	}
+
+	protected override void CheckMask()
+	{
+		base.CheckMask();
+
+		if (Money.IncomeMoney.Resource < WaterBuilding.CurrentLevelData().MoneyForUpgrade && !Mask.activeSelf)
+		{
+			Mask.SetActive(true);
+			IsEnough = false;
+		}
+		if (Money.IncomeMoney.Resource >= WaterBuilding.CurrentLevelData().MoneyForUpgrade && Mask.activeSelf)
+		{
+			Mask.SetActive(false);
+			IsEnough = true;
+		}
 	}
 }

@@ -73,7 +73,6 @@ public class Barn : MonoBehaviour
 			if (Animals.Count == 1) MoneyToSpawn += 50;
 			else MoneyToSpawn *= 4;
 
-			Debug.Log(i);
 			Spawn?.Invoke();
 		}
 	}

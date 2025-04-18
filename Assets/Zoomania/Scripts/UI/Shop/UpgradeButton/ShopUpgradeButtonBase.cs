@@ -7,14 +7,17 @@ using UnityEngine.EventSystems;
 
 public class ShopUpgradeButtonBase : MonoBehaviour, IPointerClickHandler
 {
+	[field: SerializeField] protected GameObject Mask;
 	protected Money Money { get; set; }
 	protected TextMeshProUGUI Text {  get; set; }
+	public bool IsEnough { get; set; } = false;
 
 	protected virtual void Start()
 	{
 		Text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
 		Money = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
+		Money.OnChange += CheckMask;
 	}
 
 	protected virtual void UpdateData()
@@ -25,6 +28,11 @@ public class ShopUpgradeButtonBase : MonoBehaviour, IPointerClickHandler
 	public virtual void OnPointerClick(PointerEventData eventData)
 	{
 		
+	}
+
+	protected virtual void CheckMask()
+	{
+
 	}
 
 	protected string TextConversion(float value)
