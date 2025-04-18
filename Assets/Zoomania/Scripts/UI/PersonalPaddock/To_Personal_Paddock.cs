@@ -26,6 +26,10 @@ public class To_Personal_Paddock : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        InPersonalPaddock = true;
+
+        if (Buttons.activeSelf) Buttons.SetActive(false);
+
         if (maincamera != null)
         {
             maincamera.orthographicSize = 5;
