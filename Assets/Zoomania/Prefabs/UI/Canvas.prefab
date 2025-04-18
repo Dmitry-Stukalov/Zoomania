@@ -875,8 +875,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4888937666217215897}
   m_HandleRect: {fileID: 8977495579832815251}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.99989945
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3617,7 +3617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.33690655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4171177724607448753
@@ -4363,6 +4363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1eb4d975f07fe4abe83cf371d682d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 4513769951133557692}
+  daySprite: {fileID: 21300000, guid: 140a4b6052b95bb4e8f3e9206492f412, type: 3}
+  nightSprite: {fileID: 21300000, guid: 48da8bdd95bacc84291280c4f9cb8dfd, type: 3}
 --- !u!114 &2105397166686148700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4389,14 +4392,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a6573ff9c366ed47b3b990758e6fc73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48da8bdd95bacc84291280c4f9cb8dfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

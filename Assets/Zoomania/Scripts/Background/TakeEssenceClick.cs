@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 {
+	[field: SerializeField] public UnityEngine.UI.Image image;
+	[field: SerializeField] public Sprite daySprite;
+	[field: SerializeField] public Sprite nightSprite;
 	private Barn Barn { get; set; }
 	private List<GameObject> Animals { get; set; }
 	private List<AnimalAI_New> AnimalAI { get; set; }
@@ -19,6 +23,11 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 		Barn.Spawn += UpdateList;
 
 		Night = GameObject.FindGameObjectWithTag("Background").GetComponent<Day_And_Night>();
+		Night.OnDay += DaySprite;
+		Night.OnNight += NightSprite;
+
+		if (Night.IsDay) DaySprite();
+		else NightSprite();
 
 		AnimalAI = new List<AnimalAI_New>();
 
@@ -47,4 +56,13 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 		else EssenceTimeSkip -= time;
 	}
 
+	private void DaySprite()
+	{
+		image.sprite = daySprite;
+	}
+
+	private void NightSprite()
+	{
+		image.sprite = nightSprite;
+	}
 }
