@@ -17,42 +17,42 @@ MonoBehaviour:
     <CurrentLevelNumber>k__BackingField: 1
     <IncomePerSecondValue>k__BackingField: 1
     <DragResourceCapacity>k__BackingField: 1
-    <MoneyForUpgrade>k__BackingField: 20
+    <MoneyForUpgrade>k__BackingField: 0
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 2
     <IncomePerSecondValue>k__BackingField: 2
     <DragResourceCapacity>k__BackingField: 2
-    <MoneyForUpgrade>k__BackingField: 50
+    <MoneyForUpgrade>k__BackingField: 10
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 3
     <IncomePerSecondValue>k__BackingField: 3
     <DragResourceCapacity>k__BackingField: 3
-    <MoneyForUpgrade>k__BackingField: 125
+    <MoneyForUpgrade>k__BackingField: 20
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 4
     <IncomePerSecondValue>k__BackingField: 4
     <DragResourceCapacity>k__BackingField: 4
-    <MoneyForUpgrade>k__BackingField: 313
+    <MoneyForUpgrade>k__BackingField: 50
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 5
     <IncomePerSecondValue>k__BackingField: 5
     <DragResourceCapacity>k__BackingField: 5
-    <MoneyForUpgrade>k__BackingField: 782
+    <MoneyForUpgrade>k__BackingField: 100
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 6
     <IncomePerSecondValue>k__BackingField: 6
     <DragResourceCapacity>k__BackingField: 6
-    <MoneyForUpgrade>k__BackingField: 1954
+    <MoneyForUpgrade>k__BackingField: 200
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 7
     <IncomePerSecondValue>k__BackingField: 7
     <DragResourceCapacity>k__BackingField: 7
-    <MoneyForUpgrade>k__BackingField: 4884
+    <MoneyForUpgrade>k__BackingField: 500
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 8
     <IncomePerSecondValue>k__BackingField: 8
     <DragResourceCapacity>k__BackingField: 8
-    <MoneyForUpgrade>k__BackingField: 12208
+    <MoneyForUpgrade>k__BackingField: 800
   - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
     <CurrentLevelNumber>k__BackingField: 9
     <IncomePerSecondValue>k__BackingField: 9

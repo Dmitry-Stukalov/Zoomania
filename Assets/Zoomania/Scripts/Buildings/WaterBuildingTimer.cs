@@ -24,6 +24,7 @@ public class WaterBuildingTimer : MonoBehaviour
 
 		WaterBuildingV = GetComponent<WaterBuildingValue>();
 		WaterBuildingV.OnStart += Initialize;
+		WaterBuildingV.OnUpgrade += UpdateData;
 	}
 
 	private void Initialize()
@@ -67,6 +68,11 @@ public class WaterBuildingTimer : MonoBehaviour
 
 		OnUpgrade?.Invoke();
 
+	}
+
+	public void UpdateData()
+	{
+		IncomeResources.ChangeIncomeValue(WaterBuildingV.CurrentLevelData().IncomePerSecondValue);
 	}
 
 	public Improvement_Level_New CurrentLevelData()
