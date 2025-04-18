@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 3003902498193570495}
   - component: {fileID: 8609303636127204884}
   - component: {fileID: 3154134266362675746}
-  - component: {fileID: 8281729398315597615}
+  - component: {fileID: 6336961020664912973}
   - component: {fileID: 5481207408641319272}
   - component: {fileID: 2674579412554232676}
   - component: {fileID: 2800883758655341763}
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8281729398315597615
+--- !u!114 &6336961020664912973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3840527767493723284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df01ca360134de4db59ada59d66107a, type: 3}
+  m_Script: {fileID: 11500000, guid: 392af8ae57bea86469d0a3b5ee764d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <SoundLevelUp>k__BackingField: {fileID: 1784163362048883731}
@@ -479,8 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc774140c6af6dc41b2780d7ccbd5fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Water>k__BackingField: {fileID: 5154343101160498213}
-  <Food>k__BackingField: {fileID: 6743343479795871902}
+  Water: {fileID: 5154343101160498213}
+  Food: {fileID: 6743343479795871902}
 --- !u!114 &2800883758655341763
 MonoBehaviour:
   m_ObjectHideFlags: 0

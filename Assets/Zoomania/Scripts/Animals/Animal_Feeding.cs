@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Animal_Feeding : MonoBehaviour
 {
-	[field: SerializeField] private GameObject Water { get; set; }
-	[field: SerializeField] private GameObject Food { get; set; }
+	[SerializeField] private GameObject Water;
+	[SerializeField] private GameObject Food;
 	private TextMeshPro WaterText { get; set; }
 	private TextMeshPro FoodText { get; set; }
 	private Animals Animal { get; set; }
@@ -21,16 +21,16 @@ public class Animal_Feeding : MonoBehaviour
 	{
 		Animal = gameObject.GetComponent<Animals>();
 
-		if (!IsLoadData)
-		{
-			RequiredWater = Animal.CurrentLevel.RequiredWater;
-			RequiredFood = Animal.CurrentLevel.RequiredFood;
-		}
+		//if (!IsLoadData)
+		//{
+		//	RequiredWater = Animal.CurrentLevel.RequiredWater;
+		//	RequiredFood = Animal.CurrentLevel.RequiredFood;
+		//}
 
-		WaterText = Water.GetComponentInChildren<TextMeshPro>();
-		FoodText = Food.GetComponentInChildren<TextMeshPro>();
+        WaterText = Water.GetComponentInChildren<TextMeshPro>();
+        FoodText = Food.GetComponentInChildren<TextMeshPro>();
 
-		WaterText.text = RequiredWater.ToString();
+        WaterText.text = RequiredWater.ToString();
 		FoodText.text = RequiredFood.ToString();
 
 		ChangeVisibility();
