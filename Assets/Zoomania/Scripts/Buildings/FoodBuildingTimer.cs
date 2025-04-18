@@ -32,6 +32,8 @@ public class FoodBuildingTimer : MonoBehaviour
 		{
 			FoodBuildingV.OnStart += Initialize;
 		}
+
+		FoodBuildingV.OnUpgrade += UpdateData;
 	}
 
 	private void Initialize()
@@ -74,6 +76,11 @@ public class FoodBuildingTimer : MonoBehaviour
 
 		OnUpgrade?.Invoke();
 
+	}
+
+	public void UpdateData()
+	{
+		IncomeResources.ChangeIncomeValue(FoodBuildingV.CurrentLevelData().IncomePerSecondValue);
 	}
 
 	public Improvement_Level_New CurrentLevelData()

@@ -20,14 +20,14 @@ MonoBehaviour:
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 2
     <EffectValue>k__BackingField: 2
-    <MoneyForUpgrade>k__BackingField: 90
+    <MoneyForUpgrade>k__BackingField: 100
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 3
-    <EffectValue>k__BackingField: 4
-    <MoneyForUpgrade>k__BackingField: 270
+    <EffectValue>k__BackingField: 3
+    <MoneyForUpgrade>k__BackingField: 1000
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 4
-    <EffectValue>k__BackingField: 6
+    <EffectValue>k__BackingField: 4
     <MoneyForUpgrade>k__BackingField: 810
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 5

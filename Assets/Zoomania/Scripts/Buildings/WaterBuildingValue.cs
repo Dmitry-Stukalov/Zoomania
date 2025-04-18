@@ -29,7 +29,7 @@ public class WaterBuildingValue : MonoBehaviour
 	public void Upgrade()
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-
+		
 		OnUpgrade?.Invoke();
 	}
 
