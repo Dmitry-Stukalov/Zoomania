@@ -1844,14 +1844,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6031699403915844499, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1136
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031699403915844499, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 568
-      objectReference: {fileID: 0}
     - target: {fileID: 6054023944764211600, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.00036621094
@@ -2256,6 +2248,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8002417303504194023, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
+      propertyPath: PersonalPaddock
+      value: 
+      objectReference: {fileID: 1896435186}
     - target: {fileID: 8151662424007150002, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -7399,6 +7395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: {fileID: 141035037}
+  PersonalPaddock: {fileID: 1896435186}
 --- !u!4 &1995875630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2996130443026327704, guid: d2b8818d7c005124abaeac7be5faf904, type: 3}
