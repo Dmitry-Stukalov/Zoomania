@@ -4635,10 +4635,9 @@ MonoBehaviour:
   _swipeAnimationDuration: 0.3
   _displayImage: {fileID: 3595546128223338517}
   _descriptionText: {fileID: 7374769800683616774}
-  _objects:
-  - {fileID: 11400000, guid: 88fdd2fe66e66774ebb667a220c6565f, type: 2}
-  - {fileID: 11400000, guid: 27ac480a45e584143826c6bc882184e8, type: 2}
-  _pageIndicators: []
+  _pandas:
+  - {fileID: 11400000, guid: 466e62300c80e6b4c8e5d34cfc97e370, type: 2}
+  - {fileID: 11400000, guid: 4cc5720fdbc77a646bf030531cb5a247, type: 2}
   _swipeSound: {fileID: 8300000, guid: 5725240609e55644a8a53320169ff00c, type: 3}
 --- !u!114 &7366479161864572364
 MonoBehaviour:
