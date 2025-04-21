@@ -1,24 +1,26 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ImproveStore : MonoBehaviour, IPointerClickHandler
 {
-    [field: SerializeField] private GameObject TargetMenu { get; set; }
-	[field: SerializeField] private GameObject BlockingButton { get; set; }
-    [field: SerializeField] private GameObject Buttons;
-    [field: SerializeField] private To_Personal_Paddock PersonalPaddock;
-	private bool IsHide { get; set; } = false;
+    [SerializeField] private GameObject targetMenu;
+    [SerializeField] private List<GameObject> blockingButtons = new List<GameObject>();
+    [SerializeField] private GameObject buttons;
+    [SerializeField] private To_Personal_Paddock personalPaddock;
+
+    private bool isHidden = false;
 
     void Start()
     {
-        if (BlockingButton == null || TargetMenu == null)
+        if (blockingButtons.Count == 0 || targetMenu == null)
         {
-            Debug.LogWarning("Не назначена кнопка");
+            Debug.LogWarning("Не назначены необходимые объекты");
             return;
         }
 
-        TargetMenu.SetActive(false);
+        targetMenu.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -28,41 +30,53 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
 
     public void ToggleMenu()
     {
-        TargetMenu.SetActive(!TargetMenu.activeSelf);
+        targetMenu.SetActive(!targetMenu.activeSelf);
 
-        if (TargetMenu.activeSelf || PersonalPaddock.InPersonalPaddock)
+        if (targetMenu.activeSelf || personalPaddock.InPersonalPaddock)
         {
-            Buttons.SetActive(false);
+            buttons.SetActive(false);
         }
-        else Buttons.SetActive(true);
+        else
+        {
+            buttons.SetActive(true);
+        }
 
-		UpdateButtonInteractability();
+        UpdateButtonsInteractability();
     }
 
-    void UpdateButtonInteractability()
+    void UpdateButtonsInteractability()
     {
-        if (IsHide)
+        if (isHidden)
         {
-            ForceUnblockButton();
+            ForceUnblockButtons();
         }
-        else ForceBlockButton();
+        else
+        {
+            ForceBlockButtons();
+        }
     }
 
-    public void ForceBlockButton()
+    public void ForceBlockButtons()
     {
-		if (BlockingButton != null)
+        foreach (var button in blockingButtons)
         {
-            BlockingButton.SetActive(false);
-            IsHide = true;
+            if (button != null)
+            {
+                button.SetActive(false);
+            }
         }
-	}
+        isHidden = true;
+    }
 
-    public void ForceUnblockButton()
+    public void ForceUnblockButtons()
     {
-		if (BlockingButton != null)
+        foreach (var button in blockingButtons)
         {
-            BlockingButton.SetActive(true);
-			IsHide = false;
-		}
-	}
+            if (button != null)
+            {
+                button.SetActive(true);
+            }
+        }
+        isHidden = false;
+    }
 }
