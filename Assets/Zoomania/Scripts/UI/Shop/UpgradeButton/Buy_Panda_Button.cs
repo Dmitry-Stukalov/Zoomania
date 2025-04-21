@@ -16,6 +16,7 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 
 		barn.Spawn += UpdateData;
 		UpdateData();
+		CheckMask();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
@@ -31,10 +32,28 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 		barn.SpawnAnimal();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()
 	{
 		Text.text = TextConversion(barn.MoneyToSpawn);
+	}
+
+	protected override void CheckMask()
+	{
+		base.CheckMask();
+
+		if (Money.IncomeMoney.Resource < barn.MoneyToSpawn && !Mask.activeSelf)
+		{
+			Mask.SetActive(true);
+			IsEnough = false;
+		}
+		if (Money.IncomeMoney.Resource >= barn.MoneyToSpawn && Mask.activeSelf)
+		{
+			Mask.SetActive(false);
+			IsEnough = true;
+		}
 	}
 }

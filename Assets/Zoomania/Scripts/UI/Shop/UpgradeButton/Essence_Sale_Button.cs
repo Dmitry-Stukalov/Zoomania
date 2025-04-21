@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -34,5 +35,4 @@ public class Essence_Sale_Button : ShopUpgradeButtonBase
 	{
 		Text.text = TextConversion(storage.GetEssenceCount() * EssenceQuality.CurrentLevelData().EffectValue);
 	}
-
 }

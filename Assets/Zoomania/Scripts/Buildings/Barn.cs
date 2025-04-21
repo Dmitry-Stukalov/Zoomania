@@ -12,19 +12,17 @@ using UnityEngine.UIElements;
 public class Barn : MonoBehaviour
 {
 	[field: SerializeField] private Panda_Storage_Config Panda_Storage_Config { get; set; }
-	public List<GameObject> Animals { get; private set; }
+	public List<GameObject> Animals { get; private set; } = new List<GameObject>();
 	[field: SerializeField] private GameObject SpawnZone { get; set; }
-	public int MoneyToSpawn { get; set; }
+	public int MoneyToSpawn { get; set; } = 0;
 	public int AnimalCount { get; private set; } = 0;
 	private int RandomNumber { get; set; }
 
 	public event Action Spawn;
 
-	public void Start()
+	private void Start()
 	{
-		Animals = new List<GameObject>();
 
-		MoneyToSpawn = 0;
 	}
 
 	public void SpawnAnimal()																	//Спавнит панду
@@ -72,8 +70,7 @@ public class Barn : MonoBehaviour
 
 			if (Animals.Count == 1) MoneyToSpawn += 50;
 			else MoneyToSpawn *= 4;
-
-			Debug.Log(i);
+ 
 			Spawn?.Invoke();
 		}
 	}

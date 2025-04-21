@@ -15,6 +15,8 @@ public class Food_Speed_Button : ShopUpgradeButtonBase
 		FoodBuilding = GameObject.FindGameObjectWithTag("NewFood").GetComponent<FoodBuildingTimer>();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
@@ -36,5 +38,21 @@ public class Food_Speed_Button : ShopUpgradeButtonBase
 	{
 		if (FoodBuilding.CurrentLevelData().CurrentLevelNumber == FoodBuilding.GetLevelsCount()) gameObject.SetActive(false);
 		Text.text = TextConversion(FoodBuilding.CurrentLevelData().MoneyForUpgrade);
+	}
+
+	protected override void CheckMask()
+	{
+		base.CheckMask();
+
+		if (Money.IncomeMoney.Resource < FoodBuilding.CurrentLevelData().MoneyForUpgrade && !Mask.activeSelf)
+		{
+			Mask.SetActive(true);
+			IsEnough = false;
+		}
+		if (Money.IncomeMoney.Resource >= FoodBuilding.CurrentLevelData().MoneyForUpgrade && Mask.activeSelf)
+		{
+			Mask.SetActive(false);
+			IsEnough = true;
+		}
 	}
 }
