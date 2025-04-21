@@ -32,6 +32,8 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 		barn.SpawnAnimal();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()

@@ -4363,6 +4363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1eb4d975f07fe4abe83cf371d682d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnPressButton: {fileID: 21300000, guid: 48da8bdd95bacc84291280c4f9cb8dfd, type: 3}
+  PressButton: {fileID: 21300000, guid: 3d2de6ce9b84f9a459310e56663b3685, type: 3}
   image: {fileID: 4513769951133557692}
   daySprite: {fileID: 21300000, guid: 140a4b6052b95bb4e8f3e9206492f412, type: 3}
   nightSprite: {fileID: 21300000, guid: 48da8bdd95bacc84291280c4f9cb8dfd, type: 3}
@@ -5911,6 +5913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c8b973e5c86714daf6c5154916e244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnPressButton: {fileID: 21300000, guid: 6a6573ff9c366ed47b3b990758e6fc73, type: 3}
+  PressButton: {fileID: 21300000, guid: eb83f44cdf37a4647b7e560e71c08da7, type: 3}
 --- !u!114 &8982983504776923111
 MonoBehaviour:
   m_ObjectHideFlags: 0

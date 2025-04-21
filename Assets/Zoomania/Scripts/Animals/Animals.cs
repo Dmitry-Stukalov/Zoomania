@@ -2,6 +2,7 @@ using Animal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Animals : MonoBehaviour												//Удалить закомментированное, если оно не нужно
@@ -12,6 +13,7 @@ public class Animals : MonoBehaviour												//Удалить закомментированное, ес
 	public AnimalLevel CurrentLevel { get; private set; }
 	private GameObject Barn { get; set; }
 	public bool InPersonalPaddock { get; private set; }
+	private bool IsLoadData { get; set; } = false;
 
 	public event Action LevelUp;
 	public event Action ChangePaddock;
@@ -21,15 +23,18 @@ public class Animals : MonoBehaviour												//Удалить закомментированное, ес
 	{
 		InPersonalPaddock = true;
 
-		CurrentLevel = levels_config.levels[0];
+		if (!IsLoadData)
+		{
+			CurrentLevel = levels_config.levels[0];
 
-		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+			gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
+
+			SoundSpawn.Play();
+		}
 
 		Barn = GameObject.FindGameObjectWithTag("Barn");
 
 		ChangeParent(Barn, true);
-
-		SoundSpawn.Play();
 	}
 
 	public void Upgrade()                                                                   //Повышение уровня панды
@@ -60,6 +65,8 @@ public class Animals : MonoBehaviour												//Удалить закомментированное, ес
 
 	public void LoadData(int levelnumber, float x, float y, float z)
 	{
+		IsLoadData = true;
+
 		CurrentLevel = levels_config.levels[levelnumber - 1];
 		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;

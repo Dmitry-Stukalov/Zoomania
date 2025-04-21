@@ -5,8 +5,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
+public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+	[field: SerializeField] public Sprite UnPressButton;
+	[field: SerializeField] public Sprite PressButton;
 	[field: SerializeField] public UnityEngine.UI.Image image;
 	[field: SerializeField] public Sprite daySprite;
 	[field: SerializeField] public Sprite nightSprite;
@@ -39,16 +41,24 @@ public class TakeEssenceClick : MonoBehaviour, IPointerClickHandler
 		AnimalAI.Add(Barn.Animals[Barn.Animals.Count - 1].GetComponent<AnimalAI_New>());
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public void OnPointerDown(PointerEventData eventData)
 	{
 		if (!Night.IsDay)
 		{
+			image.sprite = PressButton;
+
 			foreach (var animal in AnimalAI)
 			{
 				animal.ChangeTime(EssenceTimeSkip);
 			}
 		}
 	}
+
+	public void OnPointerUp(PointerEventData eventData) 
+	{
+		if (!Night.IsDay) image.sprite = UnPressButton;
+	}
+
 	
 	public void ChangeTimeSkip(float time, bool plus)
 	{

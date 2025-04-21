@@ -32,7 +32,6 @@ public class AvailableFoodResource : MonoBehaviour
 		else if (Input.mousePresent)
 		{
 			FoodValue.OnStart += Initialize;
-			Initialize();
 		}
 	}
 
