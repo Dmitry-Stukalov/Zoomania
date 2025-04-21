@@ -32,6 +32,8 @@ public class Water_Quality_Button : ShopUpgradeButtonBase
 		WaterBuilding.Upgrade();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()

@@ -12,6 +12,7 @@ public class Day_And_Night : MonoBehaviour
 	private Image NightBackground { get; set; }
 	private float Ratio { get; set; }
 	public bool IsDay {  get; set; }
+	public bool IsLoadData { get; set; } = false;
 
 
 	public event Action OnDay;
@@ -23,7 +24,6 @@ public class Day_And_Night : MonoBehaviour
 		Ratio = 0.078f;
 		 
 		NightBackground = GameObject.FindGameObjectWithTag("Night").GetComponent<Image>();
-		ChangeColorAlpha(0);
 
 		DayTime = new Timer(65);
 		DayTime.OnTimerEnd += Night;
@@ -31,7 +31,11 @@ public class Day_And_Night : MonoBehaviour
 		NightTime = new Timer(65);
 		NightTime.OnTimerEnd += Day;
 
-		IsDay = true;
+		if (!IsLoadData)
+		{
+			IsDay = true;
+			ChangeColorAlpha(0);
+		}
 	}
 
 	public void Day()
@@ -65,6 +69,8 @@ public class Day_And_Night : MonoBehaviour
 
 	public async Task LoadData(SaveDataClass.TimeData time)
 	{
+		IsLoadData = true;
+
 		if (time.IsDay) IsDay = true;
 		else IsDay = false;
 

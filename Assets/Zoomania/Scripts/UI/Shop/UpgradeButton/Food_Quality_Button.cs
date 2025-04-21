@@ -32,6 +32,8 @@ public class Food_Quality_Button : ShopUpgradeButtonBase
 		FoodBuilding.Upgrade();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()
