@@ -25,7 +25,8 @@ public class DoSaveAndLoad : MonoBehaviour
 			DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
 		}
 
-		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time);
+		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, 
+			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time);
 	}
 
 	public void OnApplicationQuit()

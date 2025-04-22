@@ -30,6 +30,8 @@ public class Deep_Sleep_Button : ShopUpgradeButtonBase
 		Sleep.Upgrade();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()

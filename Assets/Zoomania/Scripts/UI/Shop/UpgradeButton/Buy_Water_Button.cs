@@ -34,6 +34,8 @@ public class Buy_Water_Button : ShopUpgradeButtonBase
 		Money.SetMoneyValue(NeedMoney);
 
 		WaterBuilding.AddResources(AddCapacity);
+
+		CheckMask();
 	}
 
 	protected override void CheckMask()
