@@ -60,6 +60,7 @@ public class TakeAllResources : MonoBehaviour
 	public IReadOnlyList<SaveDataClass.AnimalData> TakeAnimals()
 	{
 		barnlist = Barn.Animals;
+		animals.Clear();
 
 		foreach (var animal in barnlist)
 		{

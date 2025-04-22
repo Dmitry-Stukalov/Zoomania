@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class ImproveStore : MonoBehaviour, IPointerClickHandler
+public class BlockButtons : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private GameObject targetMenu;
     [SerializeField] private List<GameObject> blockingButtons = new List<GameObject>();
@@ -19,6 +19,8 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
             Debug.LogWarning("Не назначены необходимые объекты");
             return;
         }
+
+        for (int i = 0; i < blockingButtons.Count; i++) blockingButtons[i].SetActive(false);
 
         targetMenu.SetActive(false);
     }
@@ -62,7 +64,7 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
         {
             if (button != null)
             {
-                button.SetActive(false);
+                button.SetActive(true);
             }
         }
         isHidden = true;
@@ -74,7 +76,7 @@ public class ImproveStore : MonoBehaviour, IPointerClickHandler
         {
             if (button != null)
             {
-                button.SetActive(true);
+                button.SetActive(false);
             }
         }
         isHidden = false;
