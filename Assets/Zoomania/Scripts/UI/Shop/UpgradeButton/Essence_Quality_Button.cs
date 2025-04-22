@@ -34,6 +34,8 @@ public class Essence_Quality_Button : ShopUpgradeButtonBase
 		EssenceQuality.Upgrade();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()
