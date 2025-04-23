@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Background : MonoBehaviour, IPointerClickHandler
+public class Sound_Script: MonoBehaviour, IPointerClickHandler
 {
     public AudioSource Audio;
 

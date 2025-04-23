@@ -11,12 +11,13 @@ public class Day_And_Night : MonoBehaviour
 	public Timer NightTime { get; set; }
 	private Image NightBackground { get; set; }
 	private float Ratio { get; set; }
-	public bool IsDay {  get; set; }
+	public bool IsDay { get; set; }
 	public bool IsLoadData { get; set; } = false;
 
 
 	public event Action OnDay;
 	public event Action OnNight;
+	public event Action OnLoadData;
 
 
 	public void Start()	
@@ -84,6 +85,8 @@ public class Day_And_Night : MonoBehaviour
 			NightTime.UpdateTimer(time.CurrentTime);
 			ChangeColorAlpha(5f * Ratio);
 		}
+
+		OnLoadData?.Invoke();
 	}
 
 	public void Update()
