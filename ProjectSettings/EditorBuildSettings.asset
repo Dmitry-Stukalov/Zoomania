@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Zoomania/Scenes/Example.unity
     guid: e6f6d09e8e20022488433712f6eac961
+  - enabled: 1
+    path: Assets/Zoomania/Scenes/Tutorial.unity
+    guid: 9c3b964d5741f904ab1224f83cab06ba
+  - enabled: 1
+    path: Assets/Zoomania/Scenes/menu.unity
+    guid: 9e832a5eb451db7448cdad1fe3b5511b
   m_configObjects: {}

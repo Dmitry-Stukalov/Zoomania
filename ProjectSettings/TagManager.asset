@@ -32,6 +32,7 @@ TagManager:
   - MidPanelShop
   - Map
   - Back
+  - Clone
   layers:
   - Default
   - TransparentFX
