@@ -2614,7 +2614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1953477385084805251, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1500.0001
       objectReference: {fileID: 0}
     - target: {fileID: 2007095135732730574, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2818,7 +2818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2754119294513442274, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -119.76001
+      value: -119.759766
       objectReference: {fileID: 0}
     - target: {fileID: 2762981978158026934, guid: 1ba52e6ac617c024f8177f85bb508753, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6930,6 +6930,7 @@ GameObject:
   - component: {fileID: 570411221}
   - component: {fileID: 570411220}
   - component: {fileID: 570411219}
+  - component: {fileID: 570411223}
   m_Layer: 5
   m_Name: Welcome Panel (28)
   m_TagString: Untagged
@@ -7000,7 +7001,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 570411221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570411223}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!225 &570411220
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7051,6 +7064,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570411217}
   m_CullTransparentMesh: 1
+--- !u!114 &570411223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570411217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4dd084e70a85254295310ed23aff645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &571742884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4835303977559819092, guid: 67e8ed2d5f1cf3d448b70a7a2109ca3e, type: 3}
@@ -10797,7 +10822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u043F\u043E\u0441\u043B\u0435\u0434\u043E \u0441\u043A\u0430\u0436\u0443,
+  m_text: "\u041D\u0430\u043F\u043E\u0441\u043B\u0435\u0434\u043E\u043A \u0441\u043A\u0430\u0436\u0443,
     \u0447\u0442\u043E \u0435\u0449\u0451 \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C
     \u043D\u0430\u0439\u0442\u0438 \u0440\u044F\u0434\u043E\u043C \u0441 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u043E\u043C
     \u0430\u043B\u044C\u043C\u0430\u043D\u0430\u0445 \u0438 \u043A\u0430\u0440\u0442\u0443
@@ -14188,7 +14213,7 @@ GameObject:
   - component: {fileID: 1649570312}
   - component: {fileID: 1649570311}
   - component: {fileID: 1649570310}
-  - component: {fileID: 1649570309}
+  - component: {fileID: 1649570316}
   m_Layer: 5
   m_Name: Welcome Panel (23)
   m_TagString: Untagged
@@ -14196,21 +14221,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1649570309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649570308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5deef28e1be42b24cb0af87670c99df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetUIElements:
-  - {fileID: 1916162201}
-  - {fileID: 125225460}
 --- !u!114 &1649570310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14258,6 +14268,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1649570311}
         m_TargetAssemblyTypeName: SmoothObjectSwitcher, Assembly-CSharp
         m_MethodName: SwitchObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1649570316}
+        m_TargetAssemblyTypeName: UIObjectsToggleController, Assembly-CSharp
+        m_MethodName: ApplyToggleAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14355,6 +14377,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1649570316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649570308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6e64de89443ba45b8958b5cc99d14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiObjectsList:
+  - uiObject: {fileID: 1916162201}
+    setActive: 0
+  - uiObject: {fileID: 125225460}
+    setActive: 1
 --- !u!1 &1656859431
 GameObject:
   m_ObjectHideFlags: 0
