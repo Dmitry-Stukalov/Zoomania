@@ -33,6 +33,8 @@ public class Bamboo_Button : ShopUpgradeButtonBase
 		Bamboo.Upgrade();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()

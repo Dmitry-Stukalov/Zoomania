@@ -34,6 +34,8 @@ public class Buy_Food_Button : ShopUpgradeButtonBase
 		Money.SetMoneyValue(NeedMoney);
 
 		FoodBuilding.AddResources(AddCapacity);
+
+		CheckMask();
 	}
 
 	protected override void CheckMask()
