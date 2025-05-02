@@ -20,17 +20,9 @@ public class Food_Quality_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevelData().CurrentLevelNumber == FoodBuilding.GetLevelsCount())
-		{
-			Text.text = $"Уровень max: {FoodBuilding.CurrentLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов: {FoodBuilding.CurrentLevelData().IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления: {FoodBuilding.CurrentLevelData().DragResourceCapacity}\n";
-		}
-		else
-		{
-			Text.text = $"Уровень {FoodBuilding.CurrentLevelData().CurrentLevelNumber} -> {FoodBuilding.NextLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов {FoodBuilding.CurrentLevelData().IncomePerSecondValue} -> {FoodBuilding.NextLevelData().IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления {FoodBuilding.CurrentLevelData().DragResourceCapacity} -> {FoodBuilding.NextLevelData().DragResourceCapacity}\n";
-		}
+		LevelNumber.text = FoodBuilding.CurrentLevelData().CurrentLevelNumber.ToString();
+
+		Text.text = $"Получаемая еда: {FoodBuilding.CurrentLevelData().IncomePerSecondValue}\n";
+		Text.text += $"Еда при кормлении: {FoodBuilding.CurrentLevelData().DragResourceCapacity}\n";
 	}
 }

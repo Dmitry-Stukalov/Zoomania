@@ -21,6 +21,7 @@ namespace Animal
         [field: SerializeField] public int MoneyPerClick { get; set; }
         [field: SerializeField] public int MoneyPerSecond { get; set; }
 
-        [field: SerializeField, TextArea(3, 10)] public string Description { get; set; }
+		[field: SerializeField, TextArea(1, 5)] public string Name { get; set; }
+		[field: SerializeField, TextArea(1, 5)] public string Description { get; set; }
     }
 }

@@ -22,7 +22,11 @@ MonoBehaviour:
     <EssenceSpawnTimer>k__BackingField: 30
     <MoneyPerClick>k__BackingField: 1
     <MoneyPerSecond>k__BackingField: 1
-    <Description>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 lvl 1"
+    <Name>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      (\u043C\u043B\u0430\u0434\u0435\u043D\u0435\u0446)"
+    <Description>k__BackingField: "\u0421\u0430\u043C\u0430\u044F \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      \u043F\u0430\u043D\u0434\u0430. \u041B\u044E\u0431\u0438\u0442 \u0435\u0441\u0442\u044C
+      \u0438 \u0441\u043F\u0430\u0442\u044C."
   - <Type>k__BackingField: 0
     <CurrentLevelNumber>k__BackingField: 2
     <View>k__BackingField: {fileID: 21300000, guid: 1c5864f9f05f097489d8b31403efcb8a, type: 3}
@@ -32,7 +36,11 @@ MonoBehaviour:
     <EssenceSpawnTimer>k__BackingField: 25
     <MoneyPerClick>k__BackingField: 3
     <MoneyPerSecond>k__BackingField: 3
-    <Description>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 lvl 2"
+    <Name>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      (\u0440\u0435\u0431\u0435\u043D\u043E\u043A)"
+    <Description>k__BackingField: "\u0421\u0430\u043C\u0430\u044F \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      \u043F\u0430\u043D\u0434\u0430. \u041B\u044E\u0431\u0438\u0442 \u0435\u0441\u0442\u044C
+      \u0438 \u0441\u043F\u0430\u0442\u044C"
   - <Type>k__BackingField: 0
     <CurrentLevelNumber>k__BackingField: 3
     <View>k__BackingField: {fileID: 21300000, guid: f07a7c51d6717834192e87d1f39c2232, type: 3}
@@ -42,7 +50,11 @@ MonoBehaviour:
     <EssenceSpawnTimer>k__BackingField: 20
     <MoneyPerClick>k__BackingField: 5
     <MoneyPerSecond>k__BackingField: 5
-    <Description>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 lvl 3"
+    <Name>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      (\u043F\u043E\u0434\u0440\u043E\u0441\u0442\u043E\u043A)"
+    <Description>k__BackingField: "\u0421\u0430\u043C\u0430\u044F \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      \u043F\u0430\u043D\u0434\u0430. \u041B\u044E\u0431\u0438\u0442 \u0435\u0441\u0442\u044C
+      \u0438 \u0441\u043F\u0430\u0442\u044C"
   - <Type>k__BackingField: 0
     <CurrentLevelNumber>k__BackingField: 4
     <View>k__BackingField: {fileID: 21300000, guid: c43b01861f5c7714eb3ad30d696267a2, type: 3}
@@ -52,4 +64,8 @@ MonoBehaviour:
     <EssenceSpawnTimer>k__BackingField: 15
     <MoneyPerClick>k__BackingField: 10
     <MoneyPerSecond>k__BackingField: 10
-    <Description>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 lvl 4"
+    <Name>k__BackingField: "\u041F\u0430\u043D\u0434\u0430 \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      (\u0432\u0437\u0440\u043E\u0441\u043B\u044B\u0439)"
+    <Description>k__BackingField: "\u0421\u0430\u043C\u0430\u044F \u043E\u0431\u044B\u043A\u043D\u043E\u0432\u0435\u043D\u043D\u0430\u044F
+      \u043F\u0430\u043D\u0434\u0430. \u041B\u044E\u0431\u0438\u0442 \u0435\u0441\u0442\u044C
+      \u0438 \u0441\u043F\u0430\u0442\u044C"

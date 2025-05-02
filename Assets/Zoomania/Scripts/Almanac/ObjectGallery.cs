@@ -11,7 +11,12 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     [SerializeField] private float _swipeThreshold = 100f;
     [SerializeField] private float _swipeAnimationDuration = 0.3f;
     [SerializeField] private Image _displayImage;
-    [SerializeField] private TextMeshProUGUI _descriptionText;
+	[SerializeField] private TextMeshProUGUI _name;
+	[SerializeField] private TextMeshProUGUI _level;
+	[SerializeField] private TextMeshProUGUI _water;
+	[SerializeField] private TextMeshProUGUI _food;
+	[SerializeField] private TextMeshProUGUI _essenceTime;
+	[SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private List<Panda_Levels_Config> _pandas;
     [SerializeField] private AudioClip _swipeSound;
 
@@ -165,6 +170,11 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     {
         AnimalLevel level = _pandas[_currentAnimalIndex].levels[_currentLevelIndex];
         _displayImage.sprite = level.View;
+        _name.text = level.Name;
+        _level.text = $"Уровень: {level.CurrentLevelNumber}";
+        _water.text = level.RequiredWater.ToString();
+        _food.text = level.RequiredFood.ToString();
+        _essenceTime.text = $"{level.EssenceSpawnTimer} сек";
         _descriptionText.text = level.Description;
     }
 

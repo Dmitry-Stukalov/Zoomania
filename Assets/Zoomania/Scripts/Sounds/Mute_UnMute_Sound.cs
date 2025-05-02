@@ -9,10 +9,12 @@ public class Mute_UnMute_Sound : MonoBehaviour, IPointerClickHandler
 	[field: SerializeField] private Sprite Mute {  get; set; }
 	[field: SerializeField] private Sprite UnMute { get; set; }
 	private bool IsMute { get; set; } = false;
+	private Image image { get; set; }
 
 	void Start()
 	{
-		gameObject.GetComponent<Image>().sprite = UnMute;
+		image = GetComponent<Image>();
+		image.sprite = UnMute;
 	}
 
 	public void OnPointerClick(PointerEventData data)
@@ -22,7 +24,7 @@ public class Mute_UnMute_Sound : MonoBehaviour, IPointerClickHandler
 			foreach (var audio in GameObject.FindGameObjectsWithTag("Audio"))
 				audio.GetComponent<AudioSource>().mute = true;
 
-			gameObject.GetComponent<Image>().sprite = Mute;
+			image.sprite = Mute;
 
 			IsMute = true;
 		}
@@ -31,7 +33,7 @@ public class Mute_UnMute_Sound : MonoBehaviour, IPointerClickHandler
 			foreach (var audio in GameObject.FindGameObjectsWithTag("Audio")) 
 				audio.GetComponent<AudioSource>().mute = false;
 
-			gameObject.GetComponent<Image>().sprite = UnMute;
+			image.sprite = UnMute;
 
 			IsMute = false;
 		}

@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ScoreSection : MonoBehaviour, IPointerClickHandler
+public class StoreSection : MonoBehaviour, IPointerClickHandler
 {
-	[field: SerializeField] public GameObject OpenShopSection;
-	[field: SerializeField] public GameObject CloseShopSection;
-	[field: SerializeField] public Scrollbar ScrollBar;
-	[field: SerializeField] public bool IsCellSection;
+	[field: SerializeField] private GameObject OpenShopSection;
+	[field: SerializeField] private GameObject CloseShopSection;
+	[field: SerializeField] private Scrollbar ScrollBar;
+	[field: SerializeField] private bool IsCellSection;
 	private PointerEventData _pointerEventData;
+
 
 	public void Start()
 	{
