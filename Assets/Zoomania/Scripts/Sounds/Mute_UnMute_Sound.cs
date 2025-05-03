@@ -8,6 +8,8 @@ public class Mute_UnMute_Sound : MonoBehaviour, IPointerClickHandler
 {
 	[field: SerializeField] private Sprite Mute {  get; set; }
 	[field: SerializeField] private Sprite UnMute { get; set; }
+	private List<AudioSource> SoundList = new List<AudioSource>();
+	private Barn barn { get; set; }
 	private bool IsMute { get; set; } = false;
 	private Image image { get; set; }
 
@@ -15,14 +17,34 @@ public class Mute_UnMute_Sound : MonoBehaviour, IPointerClickHandler
 	{
 		image = GetComponent<Image>();
 		image.sprite = UnMute;
+
+		foreach (var music in GameObject.FindGameObjectsWithTag("Audio"))
+		{
+			SoundList.Add(music.GetComponent<AudioSource>());
+		}
+
+		barn = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
+		barn.Spawn += AddSound;
+	}
+
+	private void AddSound()
+	{
+		SoundList.Clear();
+
+		foreach (var music in GameObject.FindGameObjectsWithTag("Audio"))
+		{
+			SoundList.Add(music.GetComponent<AudioSource>());
+		}
+		
+		if (IsMute) for (int i = 0; i < SoundList.Count; i++) SoundList[i].mute = true;
+		else for (int i = 0; i < SoundList.Count; i++) SoundList[i].mute = false;
 	}
 
 	public void OnPointerClick(PointerEventData data)
 	{
 		if (!IsMute)
 		{
-			foreach (var audio in GameObject.FindGameObjectsWithTag("Audio"))
-				audio.GetComponent<AudioSource>().mute = true;
+			for (int i = 0; i < SoundList.Count; i++) SoundList[i].mute = true;
 
 			image.sprite = Mute;
 
@@ -30,8 +52,7 @@ public class Mute_UnMute_Sound : MonoBehaviour, IPointerClickHandler
 		}
 		else
 		{
-			foreach (var audio in GameObject.FindGameObjectsWithTag("Audio")) 
-				audio.GetComponent<AudioSource>().mute = false;
+			for (int i = 0; i < SoundList.Count; i++) SoundList[i].mute = false;
 
 			image.sprite = UnMute;
 

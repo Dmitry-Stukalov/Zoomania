@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Animal_Feeding : MonoBehaviour
 {
+	[field: SerializeField] private Animals Animal { get; set; }
 	[SerializeField] private GameObject Water;
 	[SerializeField] private GameObject Food;
 	private TextMeshPro WaterText { get; set; }
 	private TextMeshPro FoodText { get; set; }
-	private Animals Animal { get; set; }
 	private float RequiredWater { get; set; }
 	private float RequiredFood { get; set; }
 	private float ReturnedResource { get; set; }
@@ -21,11 +21,11 @@ public class Animal_Feeding : MonoBehaviour
 	{
 		Animal = gameObject.GetComponent<Animals>();
 
-		//if (!IsLoadData)
-		//{
-		//	RequiredWater = Animal.CurrentLevel.RequiredWater;
-		//	RequiredFood = Animal.CurrentLevel.RequiredFood;
-		//}
+		if (!IsLoadData)
+		{
+			RequiredWater = Animal.CurrentLevel.RequiredWater;
+			RequiredFood = Animal.CurrentLevel.RequiredFood;
+		}
 
         WaterText = Water.GetComponentInChildren<TextMeshPro>();
         FoodText = Food.GetComponentInChildren<TextMeshPro>();
@@ -88,6 +88,7 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void CheckSatiety()
 	{
+
 		if (IsEat && IsDrinking)
 		{
 			IsDrinking = false;
@@ -102,9 +103,8 @@ public class Animal_Feeding : MonoBehaviour
 			Food.transform.position = new Vector2(Food.transform.position.x, Food.transform.position.y - 0.15f);
 		}
 
-		if (Animal.CurrentLevel.CurrentLevelNumber == 4)
+		if (Animal.CurrentLevelData().CurrentLevelNumber == 4)
 		{
-			Debug.Log("Панда больше не вырастет");
 			Water.SetActive(false);
 			Food.SetActive(false);
 			return;
@@ -128,7 +128,7 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void ChangeVisibility()
 	{
-		if (Animal.CurrentLevel.CurrentLevelNumber < 4)
+		if (Animal.CurrentLevelData().CurrentLevelNumber < 4)
 		{
 			if (Water.activeSelf)
 			{
@@ -150,5 +150,7 @@ public class Animal_Feeding : MonoBehaviour
 
 		RequiredWater = water;
 		RequiredFood = food;
+
+		if (RequiredWater == 0 && RequiredFood == 0) CheckSatiety();
 	}
 }
