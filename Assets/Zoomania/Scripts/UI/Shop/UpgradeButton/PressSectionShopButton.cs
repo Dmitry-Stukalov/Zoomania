@@ -12,29 +12,35 @@ public class PressSectionShopButton : MonoBehaviour, IPointerClickHandler
 	[field: SerializeField] private PressSectionShopButton AnotherButton;
 	[field: SerializeField] private bool IsSellSection;
 	[field: SerializeField] private Image image;
+	private Vector3 StartTextPosition { get; set; }
 
 	private void Start()
 	{
+		StartTextPosition = Text.transform.localPosition;
+
 		if (IsSellSection)
 		{
-			image.sprite = Press;
+			DownButton();
 		}
-		else image.sprite = UnPress;
+		else UpButton();
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		image.sprite = Press;
+		DownButton();
 		AnotherButton.UpButton();
 	}
 
 	public void DownButton()
 	{
 		image.sprite = Press;
+		Text.transform.localPosition = new Vector3(StartTextPosition.x, StartTextPosition.y - 5f, StartTextPosition.z);
 	}
 
 	public void UpButton()
 	{
 		image.sprite = UnPress;
+		//Text.transform.position = new Vector3(StartTextPosition.x, StartTextPosition.y + 5f, StartTextPosition.z);
+		Text.transform.localPosition = StartTextPosition;
 	}
 }

@@ -1,1 +1,1 @@
-{"resources":[0.0,0.0,0.0,0.0],"buildinglevels":[1,1,1,1,1,0,0],"time":{"IsDay":true,"CurrentTime":6.89474630355835},"animals":[{"Type":0,"CurrentLevel":1,"Water":1.0,"Food":1.0,"X":1.361779808998108,"Y":-0.8038188815116882,"Z":0.0}]}
+{"resources":[2.0,2.0,0.0,4.0],"buildinglevels":[1,1,1,1,1,0,0],"time":{"IsDay":false,"CurrentTime":17.462757110595704},"animals":[{"Type":1,"CurrentLevel":1,"Water":40.0,"Food":60.0,"X":0.2646840810775757,"Y":-0.08235996961593628,"Z":0.0}]}
