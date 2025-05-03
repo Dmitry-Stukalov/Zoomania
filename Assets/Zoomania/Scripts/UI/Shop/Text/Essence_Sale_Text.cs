@@ -6,6 +6,7 @@ using UnityEngine;
 public class Essence_Sale_Text : ShopTextBase
 {
 	private Essence_Storage Storage { get; set; }
+	private Essence_Quality Quality { get; set; }
 
 	protected override void Start()
 	{
@@ -14,11 +15,14 @@ public class Essence_Sale_Text : ShopTextBase
 		Storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
 		Storage.OnChange += UpdateData;
 
-		Text.text = $"Количество эссенций: 0";
+		Quality = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Quality>();
+		Quality.OnUpgrade += UpdateData;
+
+		UpdateData();
 	}
 
 	protected override void UpdateData()
 	{
-		Text.text = $"Количество эссенций: {Storage.GetEssenceCount()}";
+		Text.text = $"+ {Storage.GetEssenceCount() * Quality.CurrentLevelData().EffectValue}";
 	}
 }

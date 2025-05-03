@@ -20,15 +20,8 @@ public class Bamboo_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (Bamboo.CurrentLevelData().CurrentLevelNumber == Bamboo.GetLevelsCount() - 1)
-		{
-			Text.text = $"”ровень max: {Bamboo.CurrentLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов: +{Bamboo.CurrentLevelData().EffectValue}\n";
-		}
-		else
-		{
-			Text.text = $"”ровень {Bamboo.CurrentLevelData().CurrentLevelNumber} -> {Bamboo.NextLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов +{Bamboo.CurrentLevelData().EffectValue} -> +{Bamboo.NextLevelData().EffectValue}\n";
-		}
+		LevelNumber.text = Bamboo.CurrentLevelData().CurrentLevelNumber.ToString();
+
+		Text.text = $" лики: +{Bamboo.CurrentLevelData().EffectValue}\n";
 	}
 }

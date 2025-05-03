@@ -13,17 +13,19 @@ public class PressButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	[field: SerializeField] private GameObject Text;
 	[field: SerializeField] private GameObject Icon;
 	[field: SerializeField] private GameObject ButtonMask;
+	private Image image { get; set; }
 
 	public void Start()
 	{
-		gameObject.GetComponent<Image>().sprite = UnPress;
+		image = gameObject.GetComponent<Image>();
+		image.sprite = UnPress;
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		if (ButtonMask.activeSelf) return;
 
-        gameObject.GetComponent<Image>().sprite = Press;
+        image.sprite = Press;
 		Text.transform.position = new Vector3(Text.transform.position.x, Text.transform.position.y - 5f, Text.transform.position.z);
 		Icon.transform.position = new Vector3(Icon.transform.position.x, Icon.transform.position.y - 5f, Icon.transform.position.z);
 	}
@@ -32,7 +34,7 @@ public class PressButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{
 		if (ButtonMask.activeSelf) return;
 
-		gameObject.GetComponent<Image>().sprite = UnPress;
+		image.sprite = UnPress;
 		Text.transform.position = new Vector3(Text.transform.position.x, Text.transform.position.y + 5f, Text.transform.position.z);
 		Icon.transform.position = new Vector3(Icon.transform.position.x, Icon.transform.position.y + 5f, Icon.transform.position.z);
 	}

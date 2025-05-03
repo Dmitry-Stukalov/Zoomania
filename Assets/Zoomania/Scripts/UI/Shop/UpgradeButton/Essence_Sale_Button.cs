@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class Essence_Sale_Button : ShopUpgradeButtonBase
 {
 	private Essence_Quality EssenceQuality { get; set; }
-	private Essence_Storage storage { get; set; }
+	private Essence_Storage Storage { get; set; }
 
 
 	protected override void Start()
@@ -17,22 +17,30 @@ public class Essence_Sale_Button : ShopUpgradeButtonBase
 
 		EssenceQuality = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Quality>();
 
-		storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
-		storage.OnChange += UpdateData;
+		Storage = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
+		Storage.OnChange += UpdateData;
 		UpdateData();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
 	{
-		Money.IncomeMoney.Resource += storage.GetEssenceCount() * EssenceQuality.CurrentLevelData().EffectValue;
+		Money.IncomeMoney.Resource += Storage.GetEssenceCount() * EssenceQuality.CurrentLevelData().EffectValue;
 		Money.InvokeChanges();
-		storage.SoldOut();
+		Storage.SoldOut();
 
 		UpdateData();
 	}
 
 	protected override void UpdateData()
 	{
-		Text.text = TextConversion(storage.GetEssenceCount() * EssenceQuality.CurrentLevelData().EffectValue);
+		CheckMask();
+	}
+
+	protected override void CheckMask()
+	{
+		base.CheckMask();
+
+		if (Storage.GetEssenceCount() == 0) Mask.SetActive(true);
+		else Mask.SetActive(false);
 	}
 }

@@ -13,9 +13,6 @@ public class DoSaveAndLoad : MonoBehaviour
 
 	private void Awake()
 	{
-		/*DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
-		DirectoryPath = Application.dataPath + "/Source/MissionsSaves";*/
-
 		if (Input.touchSupported)
 		{
 			DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
@@ -40,7 +37,7 @@ public class DoSaveAndLoad : MonoBehaviour
 
 	public void OnApplicationPause(bool pause)
 	{
-		if (!CleanFile.DontSave)
+		if (Input.touchSupported && !CleanFile.DontSave)
 		{
 			if (pause == true)
 			{

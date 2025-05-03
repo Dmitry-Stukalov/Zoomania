@@ -33,6 +33,9 @@ public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 		AnimalAI = new List<AnimalAI_New>();
 
 		EssenceTimeSkip = 2f;
+
+		if (Night.IsLoadData) CheckSprite();
+		else DaySprite();
 	}
 
 	public void UpdateList()

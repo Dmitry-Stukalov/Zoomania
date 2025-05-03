@@ -20,17 +20,9 @@ public class Water_Quality_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevel.CurrentLevelNumber == WaterBuilding.GetLevelsCount())
-		{
-			Text.text = $"Уровень max: {WaterBuilding.CurrentLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов: {WaterBuilding.CurrentLevelData().IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления: {WaterBuilding.CurrentLevelData().DragResourceCapacity}\n";
-		}
-		else
-		{
-			Text.text = $"Уровень {WaterBuilding.CurrentLevelData().CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Количество получаемых ресурсов {WaterBuilding.CurrentLevelData().IncomePerSecondValue} -> {WaterBuilding.NextLevelData().IncomePerSecondValue}\n";
-			Text.text += $"Количество ресурсов для кормления {WaterBuilding.CurrentLevelData().DragResourceCapacity} -> {WaterBuilding.NextLevelData().DragResourceCapacity}\n";
-		}
+		LevelNumber.text = WaterBuilding.CurrentLevelData().CurrentLevelNumber.ToString();
+
+		Text.text = $"Получаемая вода: {WaterBuilding.CurrentLevelData().IncomePerSecondValue}\n";
+		Text.text += $"Вода при кормлении: {WaterBuilding.CurrentLevelData().DragResourceCapacity}\n";
 	}
 }

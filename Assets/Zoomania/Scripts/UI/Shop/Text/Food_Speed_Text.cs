@@ -20,17 +20,8 @@ public class Food_Speed_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (FoodBuilding.CurrentLevelData().CurrentLevelNumber == FoodBuilding.GetLevelsCount())
-		{
-			Text.text = $"Уровень max: {FoodBuilding.CurrentLevelData().CurrentLevelNumber}\n";
+		LevelNumber.text = FoodBuilding.CurrentLevelData().CurrentLevelNumber.ToString();
 
-			Text.text += $"Время получаемой еды: {FoodBuilding.CurrentLevelData().EffectValue} сек";
-		}
-		else
-		{
-			Text.text = $"Уровень {FoodBuilding.CurrentLevelData().CurrentLevelNumber} -> {FoodBuilding.NextLevelData().CurrentLevelNumber}\n";
-
-			Text.text += $"Время получаемой еды: {FoodBuilding.CurrentLevelData().EffectValue} сек -> {FoodBuilding.NextLevelData().EffectValue} сек";
-		}
+		Text.text = $"Еда каждые: {FoodBuilding.CurrentLevelData().EffectValue} сек";
 	}
 }
