@@ -12,6 +12,7 @@ public class WaterBuildingTimer : MonoBehaviour
 	public Improvement_Level_New CurrentLevel { get; set; }
 	public IncomeResource IncomeResources { get; set; }
 	private WaterBuildingValue WaterBuildingV {  get; set; }
+	private bool IsLoadData { get; set; } = false;
 
 
 	public event Action OnChange;
@@ -20,11 +21,23 @@ public class WaterBuildingTimer : MonoBehaviour
 
 	private void Start()
 	{
-		CurrentLevel = levels_config.levels[0];
+		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
 
 		WaterBuildingV = GetComponent<WaterBuildingValue>();
-		WaterBuildingV.OnStart += Initialize;
+
+		if (Input.touchSupported)
+		{
+			Initialize();
+		}
+		else if (Input.mousePresent)
+		{
+			WaterBuildingV.OnStart += Initialize;
+		}
+
 		WaterBuildingV.OnUpgrade += UpdateData;
+
+		/*if (!IsLoadData) OnStart?.Invoke();*/
+
 	}
 
 	private void Initialize()
@@ -62,6 +75,8 @@ public class WaterBuildingTimer : MonoBehaviour
 
 	public void Upgrade()
 	{
+		IsLoadData = true;
+
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
 
 		IncomeResources.ChangeTime(CurrentLevel.EffectValue);
@@ -95,7 +110,9 @@ public class WaterBuildingTimer : MonoBehaviour
 	{
 		IncomeResources.Resource = value;
 		CurrentLevel = levels_config.levels[levelnumber - 1];
+		UpdateData();
 		OnChange?.Invoke();
+		//OnStart?.Invoke();
 	}
 
 	void Update()                                                                                   //Срабатывает каждый кадр, отвечает за работу таймера

@@ -21,6 +21,8 @@ public class Essence_Quality_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
+		LevelNumber.text = EssenceQuality.CurrentLevelData().CurrentLevelNumber.ToString();
+
 		Text.text = $"—тоимость эссенций: {EssenceQuality.CurrentLevelData().EffectValue}\n";
 		Text.text += $"Ёффективность кликов: -0.5";
 	}

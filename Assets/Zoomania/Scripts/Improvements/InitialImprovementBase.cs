@@ -33,6 +33,8 @@ public class InitialImprovementBase : ImprovementBase
 
 	public virtual async Task LoadData(int currentlevelnumber)
 	{
+		IsLoadData = true;
+
 		CurrentLevel = levels_config.levels[currentlevelnumber - 1];
 	}
 

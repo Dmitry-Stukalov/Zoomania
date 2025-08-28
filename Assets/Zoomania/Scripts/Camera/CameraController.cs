@@ -27,6 +27,24 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        /*if (Input.touchCount == 2)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (Input.GetTouch(i).phase == TouchPhase.Began)
+                {
+					Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+					RaycastHit hit;
+
+					if (Physics.Raycast(ray, out hit))
+					{
+                        int layer = hit.collider.gameObject.layer;
+                        if (layer == 5) return;
+					}
+				}
+            }
+        }*/
+
         if (Input.touchCount == 2)
         {
             HandleZoom();

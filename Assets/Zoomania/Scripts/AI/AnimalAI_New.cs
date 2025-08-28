@@ -102,7 +102,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 					if (RandomAnimation == 1) animator.SetBool("IsMoving", true);
 
 					IsDoAction = true;
-					AnimalWalking.Walking(this.gameObject);
+					AnimalWalking.Walking(gameObject);
 				}
 			}
 			else

@@ -19,15 +19,8 @@ public class Deep_Sleep_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (Sleep.CurrentLevelData().CurrentLevelNumber == Sleep.GetLevelsCount() - 1)
-		{
-			Text.text = $"”ровень max: {Sleep.CurrentLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов: +{Sleep.CurrentLevelData().EffectValue}\n";
-		}
-		else
-		{
-			Text.text = $"”ровень {Sleep.CurrentLevelData().CurrentLevelNumber} -> {Sleep.NextLevelData().CurrentLevelNumber}\n";
-			Text.text += $"Ёффективность кликов +{Sleep.CurrentLevelData().EffectValue} -> +{Sleep.NextLevelData().EffectValue}\n";
-		}
+		LevelNumber.text = Sleep.CurrentLevelData().CurrentLevelNumber.ToString();
+
+		Text.text = $" лики: +{Sleep.CurrentLevelData().EffectValue}\n";
 	}
 }

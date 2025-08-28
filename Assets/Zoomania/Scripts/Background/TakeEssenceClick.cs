@@ -12,6 +12,7 @@ public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	[field: SerializeField] public UnityEngine.UI.Image image;
 	[field: SerializeField] public Sprite daySprite;
 	[field: SerializeField] public Sprite nightSprite;
+	[field: SerializeField] public AudioSource ClickSound;
 	private Barn Barn { get; set; }
 	private List<GameObject> Animals { get; set; }
 	private List<AnimalAI_New> AnimalAI { get; set; }
@@ -27,13 +28,14 @@ public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 		Night = GameObject.FindGameObjectWithTag("Background").GetComponent<Day_And_Night>();
 		Night.OnDay += DaySprite;
 		Night.OnNight += NightSprite;
-
-		if (Night.IsDay) DaySprite();
-		else NightSprite();
+		Night.OnLoadData += CheckSprite;
 
 		AnimalAI = new List<AnimalAI_New>();
 
 		EssenceTimeSkip = 2f;
+
+		if (Night.IsLoadData) CheckSprite();
+		else DaySprite();
 	}
 
 	public void UpdateList()
@@ -45,6 +47,8 @@ public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	{
 		if (!Night.IsDay)
 		{
+			ClickSound.Play();
+
 			image.sprite = PressButton;
 
 			foreach (var animal in AnimalAI)
@@ -74,5 +78,11 @@ public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	private void NightSprite()
 	{
 		image.sprite = nightSprite;
+	}
+
+	private void CheckSprite()
+	{
+		if (Night.IsDay) DaySprite();
+		else NightSprite();
 	}
 }

@@ -31,14 +31,13 @@ public class AvailableFoodResource : MonoBehaviour
 		}
 		else if (Input.mousePresent)
 		{
-			FoodValue.OnStart += Initialize;
+			FoodTimer.OnStart += Initialize;
 		}
 	}
 
 	private void Initialize()
 	{
 		Food = Resource.GetComponent<FoodResource>();
-		Food.ChangeCapacity(FoodValue.CurrentLevelData().DragResourceCapacity);
 
 		FoodValue.OnUpgrade += UpdateData;
 		OnStart?.Invoke();

@@ -32,6 +32,8 @@ public class Water_Speed_Button : ShopUpgradeButtonBase
 		WaterBuilding.Upgrade();
 
 		UpdateData();
+
+		CheckMask();
 	}
 
 	protected override void UpdateData()

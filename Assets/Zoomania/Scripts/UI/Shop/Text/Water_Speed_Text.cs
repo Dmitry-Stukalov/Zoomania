@@ -20,17 +20,8 @@ public class Water_Speed_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		if (WaterBuilding.CurrentLevelData().CurrentLevelNumber == WaterBuilding.GetLevelsCount())
-		{
-			Text.text = $"Уровень max: {WaterBuilding.CurrentLevelData().CurrentLevelNumber}\n";
+		LevelNumber.text = WaterBuilding.CurrentLevelData().CurrentLevelNumber.ToString();
 
-			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentLevelData().EffectValue} сек";
-		}
-		else
-		{
-			Text.text = $"Уровень {WaterBuilding.CurrentLevelData().CurrentLevelNumber} -> {WaterBuilding.NextLevelData().CurrentLevelNumber}\n";
-
-			Text.text += $"Время получаемой воды: {WaterBuilding.CurrentLevelData().EffectValue} сек -> {WaterBuilding.NextLevelData().EffectValue} сек";
-		}
+		Text.text = $"Вода каждые: {WaterBuilding.CurrentLevelData().EffectValue} сек";
 	}
 }

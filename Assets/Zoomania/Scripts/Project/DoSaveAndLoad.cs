@@ -13,9 +13,6 @@ public class DoSaveAndLoad : MonoBehaviour
 
 	private void Awake()
 	{
-		/*DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
-		DirectoryPath = Application.dataPath + "/Source/MissionsSaves";*/
-
 		if (Input.touchSupported)
 		{
 			DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
@@ -25,8 +22,8 @@ public class DoSaveAndLoad : MonoBehaviour
 			DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
 		}
 
-
-		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time);
+		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, 
+			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time);
 	}
 
 	public void OnApplicationQuit()
@@ -40,11 +37,13 @@ public class DoSaveAndLoad : MonoBehaviour
 
 	public void OnApplicationPause(bool pause)
 	{
-		if (!CleanFile.DontSave)
+		if (Input.touchSupported && !CleanFile.DontSave)
+		{
 			if (pause == true)
 			{
 				PandaReturn.OnPointerClick(pointerdata);
 				SaveAndLoad.Save(DirectoryPath, AllResoures.TakeResoures(), AllResoures.TakeBuildingLevels(), AllResoures.TakeAnimals(), AllResoures.TakeTime());
 			}
+		}
 	}
 }
