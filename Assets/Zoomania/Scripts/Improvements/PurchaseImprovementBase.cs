@@ -17,6 +17,8 @@ public class PurchaseImprovementBase : InitialImprovementBase
 
 	public override async Task LoadData(int currentlevelnumber)
 	{
+		IsLoadData = true;
+
 		CurrentLevel = levels_config.levels[currentlevelnumber];
 	}
 }

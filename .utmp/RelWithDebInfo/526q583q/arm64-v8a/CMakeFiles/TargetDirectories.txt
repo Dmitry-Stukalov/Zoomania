@@ -1,0 +1,5 @@
+D:/Zoomania/.utmp/RelWithDebInfo/526q583q/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Zoomania/.utmp/RelWithDebInfo/526q583q/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/Zoomania/.utmp/RelWithDebInfo/526q583q/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Zoomania/.utmp/RelWithDebInfo/526q583q/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Zoomania/.utmp/RelWithDebInfo/526q583q/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

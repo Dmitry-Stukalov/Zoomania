@@ -8,7 +8,7 @@ public class WaterBuildingValue : MonoBehaviour
 {
 	[field: SerializeField] private Building_Levels_Config levels_config { get; set; }
 	public BuildingLevel CurrentLevel { get; set; }
-
+	private bool IsLoadData { get; set; } = false;
 
 	public event Action OnChange;
 	public event Action OnUpgrade;
@@ -16,7 +16,11 @@ public class WaterBuildingValue : MonoBehaviour
 
 	private void Start()
 	{
-		CurrentLevel = levels_config.levels[0];
+		if (!IsLoadData)
+		{
+			CurrentLevel = levels_config.levels[0];
+			OnStart?.Invoke();
+		}
 
 		OnStart?.Invoke();
 	}
@@ -61,7 +65,10 @@ public class WaterBuildingValue : MonoBehaviour
 
 	public async Task LoadData(int levelnumber)
 	{
+		IsLoadData = true;
+
 		CurrentLevel = levels_config.levels[levelnumber - 1];
 		OnChange?.Invoke();
+		OnStart?.Invoke();
 	}
 }
