@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Animals : MonoBehaviour												//Удалить закомментированное, если оно не нужно
+public class Animals : MonoBehaviour
 {
 	[field: SerializeField] private AudioSource SoundLevelUp { get; set; }
 	[field: SerializeField] private AudioSource SoundSpawn { get; set; }

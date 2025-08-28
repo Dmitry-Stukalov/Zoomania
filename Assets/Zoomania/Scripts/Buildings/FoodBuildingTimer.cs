@@ -12,7 +12,7 @@ public class FoodBuildingTimer : MonoBehaviour
 	public Improvement_Level_New CurrentLevel { get; set; }
 	public IncomeResource IncomeResources { get; set; }
 	private FoodBuildingValue FoodBuildingV { get; set; }
-
+	private bool IsLoadData { get; set; } = false;
 
 	public event Action OnChange;
 	public event Action OnUpgrade;
@@ -20,7 +20,7 @@ public class FoodBuildingTimer : MonoBehaviour
 
 	private void Start()
 	{
-		CurrentLevel = levels_config.levels[0];
+		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
 
 		FoodBuildingV = GetComponent<FoodBuildingValue>();
 
@@ -34,6 +34,8 @@ public class FoodBuildingTimer : MonoBehaviour
 		}
 
 		FoodBuildingV.OnUpgrade += UpdateData;
+
+		/*if (!IsLoadData) OnStart?.Invoke();*/
 	}
 
 	private void Initialize()
@@ -101,9 +103,13 @@ public class FoodBuildingTimer : MonoBehaviour
 
 	public async Task LoadData(float value, int levelnumber)
 	{
+		IsLoadData = true;
+
 		IncomeResources.Resource = value;
 		CurrentLevel = levels_config.levels[levelnumber - 1];
+		UpdateData();
 		OnChange?.Invoke();
+		//OnStart?.Invoke();
 	}
 
 	void Update()                                                                                   //Срабатывает каждый кадр, отвечает за работу таймера

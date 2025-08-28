@@ -24,7 +24,16 @@ public class AvailableWaterResource : MonoBehaviour
 
 		WaterValue = ResourceBuilding.GetComponent<WaterBuildingValue>();
 		WaterTimer = ResourceBuilding.GetComponent<WaterBuildingTimer>();
-		WaterTimer.OnStart += Initialize;
+		//WaterTimer.OnStart += Initialize;
+
+		if (Input.touchSupported)
+		{
+			Initialize();
+		}
+		else if (Input.mousePresent)
+		{
+			WaterTimer.OnStart += Initialize;
+		}
 	}
 
 	private void Initialize()
