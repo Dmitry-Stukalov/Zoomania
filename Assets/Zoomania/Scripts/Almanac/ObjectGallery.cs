@@ -11,6 +11,7 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     [SerializeField] private float _swipeThreshold = 100f;
     [SerializeField] private float _swipeAnimationDuration = 0.3f;
     [SerializeField] private Image _displayImage;
+    [SerializeField] private Sprite _closeDisplayImage;
 	[SerializeField] private TextMeshProUGUI _name;
 	[SerializeField] private TextMeshProUGUI _level;
 	[SerializeField] private TextMeshProUGUI _water;
@@ -169,13 +170,26 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     private void UpdateDisplay()
     {
         AnimalLevel level = _pandas[_currentAnimalIndex].levels[_currentLevelIndex];
-        _displayImage.sprite = level.View;
-        _name.text = level.Name;
-        _level.text = $"Уровень: {level.CurrentLevelNumber}";
-        _water.text = level.RequiredWater.ToString();
-        _food.text = level.RequiredFood.ToString();
-        _essenceTime.text = $"{level.EssenceSpawnTimer} сек";
-        _descriptionText.text = level.Description;
+        if (level.IsOpen == true)
+        {
+            _displayImage.sprite = level.View;
+            _name.text = level.Name;
+            _level.text = $"Уровень: {level.CurrentLevelNumber}";
+            _water.text = level.RequiredWater.ToString();
+            _food.text = level.RequiredFood.ToString();
+            _essenceTime.text = $"{level.EssenceSpawnTimer} сек";
+            _descriptionText.text = level.Description;
+        }
+        else
+        {
+            _displayImage.sprite = _closeDisplayImage;
+			_name.text = "???";
+			_level.text = $"Уровень: ???";
+			_water.text = "???";
+			_food.text = "???";
+			_essenceTime.text = $"??? сек";
+			_descriptionText.text = "???";
+		}
     }
 
     private void PlaySwipeSound()
