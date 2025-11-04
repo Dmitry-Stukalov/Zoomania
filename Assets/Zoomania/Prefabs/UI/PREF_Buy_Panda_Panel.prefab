@@ -416,7 +416,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 7909402513760146603}
   - component: {fileID: 4399763993200337564}
   - component: {fileID: 4066553778415776082}
+  - component: {fileID: 1403920704065464832}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -922,7 +923,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0905fcbda09974a877ea36f3f3aab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continueButton: {fileID: 0}
+  ContinueObject: {fileID: 0}
+--- !u!114 &1403920704065464832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455244838969066119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ddff98fe634434d92542d886354ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootBoxBackground: {fileID: 0}
 --- !u!1 &6692676883183968058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1217,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

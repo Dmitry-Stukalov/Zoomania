@@ -19,7 +19,7 @@ public class Animals : MonoBehaviour
 	public event Action ChangePaddock;
 
 
-	public void Start()
+	public void Awake()
 	{
 		InPersonalPaddock = true;
 

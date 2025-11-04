@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaterBuildingValue : MonoBehaviour
 {
 	[field: SerializeField] private Building_Levels_Config levels_config { get; set; }
 	public BuildingLevel CurrentLevel { get; set; }
 	private bool IsLoadData { get; set; } = false;
+	private SpriteRenderer sprite { get; set; }
 
 	public event Action OnChange;
 	public event Action OnUpgrade;
@@ -16,9 +18,12 @@ public class WaterBuildingValue : MonoBehaviour
 
 	private void Start()
 	{
+		sprite = GetComponent<SpriteRenderer>();
+
 		if (!IsLoadData)
 		{
 			CurrentLevel = levels_config.levels[0];
+			sprite.sprite = CurrentLevel.View;
 			OnStart?.Invoke();
 		}
 
@@ -33,7 +38,8 @@ public class WaterBuildingValue : MonoBehaviour
 	public void Upgrade()
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		
+		sprite.sprite = CurrentLevel.View;
+
 		OnUpgrade?.Invoke();
 	}
 
@@ -68,6 +74,8 @@ public class WaterBuildingValue : MonoBehaviour
 		IsLoadData = true;
 
 		CurrentLevel = levels_config.levels[levelnumber - 1];
+		sprite.sprite = CurrentLevel.View;
+
 		OnChange?.Invoke();
 		OnStart?.Invoke();
 	}

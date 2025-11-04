@@ -8,7 +8,9 @@ using UnityEngine.Pool;
 
 public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 {
-	[field: SerializeField] GameObject Essence { get; set; }
+	[field: SerializeField] GameObject Essence;
+	[field: SerializeField] GameObject EssenceOnAnimal;
+	[field: SerializeField] GameObject EssenceMask;
 	private GameObject essence { get; set; }
 	private Day_And_Night Night { get; set; }
 	private ObjectPool<GameObject> Pool { get; set; }
@@ -19,6 +21,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	private Animator animator { get; set; }
 	private Timer SpawnEssence { get; set; }
 	private int RandomAnimation { get; set; }
+	private float SpawnEssenceCoef { get; set; }
 	private float RandomTime { get; set; }
 	private int Action { get; set; }
 	public bool IsDoAction { get; set; }
@@ -71,6 +74,9 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 		);
 
 		RandomActions();
+
+		if (Night.IsDay) WakeUp();
+		else Sleep();
 	}
 
 
@@ -174,7 +180,9 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	{
 		essence = Pool.Get();
 		essence.transform.SetParent(this.transform, true);
-		essence.transform.position = transform.position;
+		essence.transform.position = EssenceOnAnimal.transform.position;
+		essence.transform.localScale = EssenceOnAnimal.transform.localScale;
+		EssenceMask.transform.localScale = Vector3.zero;
 
 		SpawnEssence.ResetTimer(false);
 	}
@@ -188,6 +196,8 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	{
 		IsSleep = true;
 		animator.SetBool("IsSleeping", true);
+		SpawnEssenceCoef = 1 / SpawnEssence.MaxTime;
+		EssenceOnAnimal.SetActive(true);
 
 		RandomActions();
 	}
@@ -196,6 +206,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	{
 		IsSleep = false;
 		animator.SetBool("IsSleeping", false);
+		EssenceOnAnimal.SetActive(false);
 
 		RandomActions();
 	}
@@ -213,6 +224,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	public void UpdateEssenceTimer()
 	{
 		SpawnEssence.SetMaxTimeAndReset(Animal.CurrentLevel.EssenceSpawnTimer);
+		SpawnEssenceCoef = 1 / SpawnEssence.MaxTime;
 	}
 
 	public void Update()                                                                                       //Запускает таймер у активного действия
@@ -227,7 +239,14 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 			}
 			if (AnimalResting.IsResting) AnimalResting.RestingTime.Tick(Time.deltaTime);
 
-			if (IsSleep) SpawnEssence.Tick(Time.deltaTime);
-		}
+			if (IsSleep)
+			{
+				//if (EssenceOnAnimal.activeSelf == false) EssenceOnAnimal.SetActive(true);
+				EssenceMask.transform.localScale = new Vector3(SpawnEssenceCoef * SpawnEssence.CurrentTime, SpawnEssenceCoef * SpawnEssence.CurrentTime, SpawnEssenceCoef * SpawnEssence.CurrentTime);
+				SpawnEssence.Tick(Time.deltaTime);
+			}
+			//else if (EssenceOnAnimal.activeSelf == true) EssenceOnAnimal.SetActive(false);
+
+        }
 	}
 }

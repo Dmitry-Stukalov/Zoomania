@@ -19,7 +19,7 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 	[SerializeField] private TextMeshProUGUI _essenceTime;
 	[SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private List<Panda_Levels_Config> _pandas;
-    [SerializeField] private AudioClip _swipeSound;
+    [SerializeField] private AudioSource _swipeSound;
 
     private int _currentAnimalIndex = 0;
     private int _currentLevelIndex = 0;
@@ -195,7 +195,7 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     private void PlaySwipeSound()
     {
         if (_swipeSound != null)
-            AudioSource.PlayClipAtPoint(_swipeSound, Camera.main.transform.position);
+            _swipeSound.Play();//AudioSource.PlayClipAtPoint(_swipeSound, Camera.main.transform.position);
     }
 
     private float EaseInOut(float t)
