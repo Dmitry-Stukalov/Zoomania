@@ -17,20 +17,43 @@ public class SpawnDragWaterResource : MonoBehaviour, IPointerClickHandler
 	private float Speed { get; set; }
 
 
-	public void Start()
+	//public void Start()
+	//{
+	//	FeedTime = new Timer(1f);
+	//	FeedTime.SetPause();
+
+	//	FeedTime.OnTimerEnd += PandaDontEat;
+
+	//	availableResources = GetComponent<AvailableWaterResource>();
+	//	availableResources.OnStart += Initialize;
+
+	//}
+
+	//private void Initialize()
+	//{
+	//	Pool = new ObjectPool<GameObject>
+	//	(
+	//		createFunc: () => Instantiate(Resource, this.transform.position, Quaternion.identity),                          // Создание нового объекта
+	//		actionOnGet: obj => obj.SetActive(true),                            // Действие при получении объекта
+	//		actionOnRelease: obj => obj.SetActive(false),                       // Действие при возврате объекта
+	//		actionOnDestroy: obj => Destroy(obj),                               // Действие при уничтожении объекта
+	//		defaultCapacity: 8,                                             // Начальная емкость пула
+	//		maxSize: 15                                                         // Максимальный размер пула
+	//	);
+
+	//	CreateFirstResources();
+	//}
+
+	public void Initializing()
 	{
+
 		FeedTime = new Timer(1f);
 		FeedTime.SetPause();
 
 		FeedTime.OnTimerEnd += PandaDontEat;
 
 		availableResources = GetComponent<AvailableWaterResource>();
-		availableResources.OnStart += Initialize;
 
-	}
-
-	private void Initialize()
-	{
 		Pool = new ObjectPool<GameObject>
 		(
 			createFunc: () => Instantiate(Resource, this.transform.position, Quaternion.identity),                          // Создание нового объекта

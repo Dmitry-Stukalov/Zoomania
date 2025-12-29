@@ -26,10 +26,15 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     private Vector2 _dragStartPosition;
     private bool _isAnimating;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    UpdateDisplay();
+    //}
+
+    public void Initializing()
     {
-        UpdateDisplay();
-    }
+		UpdateDisplay();
+	}
 
     public void OnBeginDrag(PointerEventData eventData)
     {

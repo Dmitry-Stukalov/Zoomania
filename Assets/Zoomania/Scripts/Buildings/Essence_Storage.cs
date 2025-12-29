@@ -6,14 +6,9 @@ using UnityEngine;
 
 public class Essence_Storage : MonoBehaviour
 {
-	public float EssenceCount { get; set; }
+	public float EssenceCount { get; set; } = 0;
 
 	public event Action OnChange;
-
-	public void Start()
-	{
-		EssenceCount = 0;
-	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{

@@ -6,8 +6,8 @@ public class FoodResource : MonoBehaviour
 {
 	[field: SerializeField] private Sprite View { get; set; }
 	private GameObject Animal { get; set; }
-	private float Capacity { get; set; }
-	private float ReturnedCapacity { get; set; }
+	private float Capacity { get; set; } = 0;
+	private float ReturnedCapacity { get; set; } = 0;
 	private Vector2 Point { get; set; }
 	private float Speed { get; set; }
 	private Vector2 IntermediatePoint { get; set; }
@@ -19,12 +19,6 @@ public class FoodResource : MonoBehaviour
 	public bool IsMove { get; set; } = false;
 	public bool IsMoving { get; set; } = false;
 	private bool OnAnimal { get; set; } = false;
-
-	public void Start()
-	{
-		Capacity = 0;
-		ReturnedCapacity = 0;
-	}
 
 
 	public void OnCollisionEnter2D(Collision2D collision)

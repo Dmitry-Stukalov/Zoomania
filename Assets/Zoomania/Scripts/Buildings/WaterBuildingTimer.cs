@@ -19,32 +19,43 @@ public class WaterBuildingTimer : MonoBehaviour
 	public event Action OnUpgrade;
 	public event Action OnStart;
 
-	private void Start()
+	//private void Start()
+	//{
+	//	if (!IsLoadData) CurrentLevel = levels_config.levels[0];
+
+	//	WaterBuildingV = GetComponent<WaterBuildingValue>();
+
+	//	if (Input.touchSupported)
+	//	{
+	//		Initialize();
+	//	}
+	//	else if (Input.mousePresent)
+	//	{
+	//		WaterBuildingV.OnStart += Initialize;
+	//	}
+
+	//	WaterBuildingV.OnUpgrade += UpdateData;
+
+	//	/*if (!IsLoadData) OnStart?.Invoke();*/
+
+	//}
+
+	//private void Initialize()
+	//{
+	//	IncomeResources = new IncomeResource(WaterBuildingV.GetCurrentResourceValue(), CurrentLevel.EffectValue);
+	//	IncomeResources.ResourceTimer.OnTimerEnd += Effects;
+	//	OnStart?.Invoke();
+	//}
+
+	public void Initializing()
 	{
 		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
 
 		WaterBuildingV = GetComponent<WaterBuildingValue>();
-
-		if (Input.touchSupported)
-		{
-			Initialize();
-		}
-		else if (Input.mousePresent)
-		{
-			WaterBuildingV.OnStart += Initialize;
-		}
-
 		WaterBuildingV.OnUpgrade += UpdateData;
 
-		/*if (!IsLoadData) OnStart?.Invoke();*/
-
-	}
-
-	private void Initialize()
-	{
 		IncomeResources = new IncomeResource(WaterBuildingV.GetCurrentResourceValue(), CurrentLevel.EffectValue);
 		IncomeResources.ResourceTimer.OnTimerEnd += Effects;
-		OnStart?.Invoke();
 	}
 
 	public void Change()

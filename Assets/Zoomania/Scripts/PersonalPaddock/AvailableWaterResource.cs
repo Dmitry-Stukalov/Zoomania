@@ -17,32 +17,46 @@ public class AvailableWaterResource : MonoBehaviour
 	public event Action OnChange;
 	public event Action OnStart;
 
-	public void Start()
+	//public void Start()
+	//{
+	//	start = false;
+	//	someresources = false;
+
+	//	WaterValue = ResourceBuilding.GetComponent<WaterBuildingValue>();
+	//	WaterTimer = ResourceBuilding.GetComponent<WaterBuildingTimer>();
+	//	//WaterTimer.OnStart += Initialize;
+
+	//	if (Input.touchSupported)
+	//	{
+	//		Initialize();
+	//	}
+	//	else if (Input.mousePresent)
+	//	{
+	//		WaterTimer.OnStart += Initialize;
+	//	}
+	//}
+
+	//private void Initialize()
+	//{
+	//	Water = Resource.GetComponent<WaterResource>();
+	//	Water.ChangeCapacity(WaterValue.CurrentLevelData().DragResourceCapacity);
+
+	//	WaterValue.OnUpgrade += UpdateData;
+	//	OnStart?.Invoke();
+	//	OnChange?.Invoke();
+	//}
+
+	public void Initializing()
 	{
-		start = false;
 		someresources = false;
 
 		WaterValue = ResourceBuilding.GetComponent<WaterBuildingValue>();
 		WaterTimer = ResourceBuilding.GetComponent<WaterBuildingTimer>();
-		//WaterTimer.OnStart += Initialize;
 
-		if (Input.touchSupported)
-		{
-			Initialize();
-		}
-		else if (Input.mousePresent)
-		{
-			WaterTimer.OnStart += Initialize;
-		}
-	}
-
-	private void Initialize()
-	{
 		Water = Resource.GetComponent<WaterResource>();
 		Water.ChangeCapacity(WaterValue.CurrentLevelData().DragResourceCapacity);
 
 		WaterValue.OnUpgrade += UpdateData;
-		OnStart?.Invoke();
 		OnChange?.Invoke();
 	}
 

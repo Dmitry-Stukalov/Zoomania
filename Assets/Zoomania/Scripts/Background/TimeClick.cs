@@ -17,7 +17,20 @@ public class TimeClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private bool IsPressed { get; set; } = false;
 
 
-	public void Start()
+	//public void Start()
+	//{
+	//	image = GetComponent<Image>();
+
+	//	Night = GameObject.FindGameObjectWithTag("Background").GetComponent<Day_And_Night>();
+
+	//	PressTimer = new Timer(0.2f);
+	//	PressTimer.OnTimerEnd += AutoClick;
+
+	//	DayTimeSkip = 1f;
+	//	NightTimeSkip = 1f;
+	//}
+
+	public void Initializing()
 	{
 		image = GetComponent<Image>();
 

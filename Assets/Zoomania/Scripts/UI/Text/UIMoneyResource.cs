@@ -7,7 +7,15 @@ public class UIMoneyResource : UIResourceBase
 {
 	private Money Building{ get; set; }
 
-	protected override void Start()
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	Building = GameObject.FindGameObjectWithTag("Money").GetComponent<Money>();
+	//	Building.OnChange += UpdateUI;
+	//}
+
+	public void Initializing()
 	{
 		base.Start();
 

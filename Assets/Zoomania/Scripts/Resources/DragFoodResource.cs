@@ -6,13 +6,8 @@ public class DragFoodResource : MonoBehaviour
 {
 	private Vector3 Point { get; set; }
 	private float Speed { get; set; }
-	private bool IsMove { get; set; }
+	private bool IsMove { get; set; } = false;
 
-
-	public void Start()
-	{
-		IsMove = false;
-	}
 
 	public void Update()
 	{

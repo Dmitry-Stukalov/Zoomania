@@ -16,7 +16,21 @@ public class WaterBuildingValue : MonoBehaviour
 	public event Action OnUpgrade;
 	public event Action OnStart;
 
-	private void Start()
+	//private void Start()
+	//{
+	//	sprite = GetComponent<SpriteRenderer>();
+
+	//	if (!IsLoadData)
+	//	{
+	//		CurrentLevel = levels_config.levels[0];
+	//		sprite.sprite = CurrentLevel.View;
+	//		OnStart?.Invoke();
+	//	}
+
+	//	OnStart?.Invoke();
+	//}
+
+	public void Initializing()
 	{
 		sprite = GetComponent<SpriteRenderer>();
 
@@ -27,7 +41,6 @@ public class WaterBuildingValue : MonoBehaviour
 			OnStart?.Invoke();
 		}
 
-		OnStart?.Invoke();
 	}
 
 	public void Change()
