@@ -9,7 +9,15 @@ public class UIEssenceResource : UIResourceBase
 	private Essence_Storage Building { get; set; }
 
 
-	protected override void Start()
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	Building = GameObject.FindGameObjectWithTag("Money").GetComponent<Essence_Storage>();
+	//	Building.OnChange += UpdateUI;
+	//}
+
+	public void Initializing()
 	{
 		base.Start();
 

@@ -9,7 +9,17 @@ public class BuildingDictionary : MonoBehaviour
 	[field: SerializeField] public List<MonoBehaviour> Buildings;
 	public Dictionary<string, MonoBehaviour> BuildingsDictionary;
 
-	private void Start()
+	//private void Start()
+	//{
+	//	BuildingsDictionary = new Dictionary<string, MonoBehaviour>();
+
+	//	for (int i = 0; i < BuildingsNames.Count; i++)
+	//	{s
+	//		BuildingsDictionary.Add(BuildingsNames[i], Buildings[i]);
+	//	}
+	//}
+
+	public void Initializing()
 	{
 		BuildingsDictionary = new Dictionary<string, MonoBehaviour>();
 

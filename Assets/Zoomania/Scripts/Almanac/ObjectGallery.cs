@@ -11,6 +11,7 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     [SerializeField] private float _swipeThreshold = 100f;
     [SerializeField] private float _swipeAnimationDuration = 0.3f;
     [SerializeField] private Image _displayImage;
+    [SerializeField] private Sprite _closeDisplayImage;
 	[SerializeField] private TextMeshProUGUI _name;
 	[SerializeField] private TextMeshProUGUI _level;
 	[SerializeField] private TextMeshProUGUI _water;
@@ -18,17 +19,22 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 	[SerializeField] private TextMeshProUGUI _essenceTime;
 	[SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private List<Panda_Levels_Config> _pandas;
-    [SerializeField] private AudioClip _swipeSound;
+    [SerializeField] private AudioSource _swipeSound;
 
     private int _currentAnimalIndex = 0;
     private int _currentLevelIndex = 0;
     private Vector2 _dragStartPosition;
     private bool _isAnimating;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    UpdateDisplay();
+    //}
+
+    public void Initializing()
     {
-        UpdateDisplay();
-    }
+		UpdateDisplay();
+	}
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -169,19 +175,32 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     private void UpdateDisplay()
     {
         AnimalLevel level = _pandas[_currentAnimalIndex].levels[_currentLevelIndex];
-        _displayImage.sprite = level.View;
-        _name.text = level.Name;
-        _level.text = $"Уровень: {level.CurrentLevelNumber}";
-        _water.text = level.RequiredWater.ToString();
-        _food.text = level.RequiredFood.ToString();
-        _essenceTime.text = $"{level.EssenceSpawnTimer} сек";
-        _descriptionText.text = level.Description;
+        if (level.IsOpen == true)
+        {
+            _displayImage.sprite = level.View;
+            _name.text = level.Name;
+            _level.text = $"Уровень: {level.CurrentLevelNumber}";
+            _water.text = level.RequiredWater.ToString();
+            _food.text = level.RequiredFood.ToString();
+            _essenceTime.text = $"{level.EssenceSpawnTimer} сек";
+            _descriptionText.text = level.Description;
+        }
+        else
+        {
+            _displayImage.sprite = _closeDisplayImage;
+			_name.text = "???";
+			_level.text = $"Уровень: ???";
+			_water.text = "???";
+			_food.text = "???";
+			_essenceTime.text = $"??? сек";
+			_descriptionText.text = "???";
+		}
     }
 
     private void PlaySwipeSound()
     {
         if (_swipeSound != null)
-            AudioSource.PlayClipAtPoint(_swipeSound, Camera.main.transform.position);
+            _swipeSound.Play();//AudioSource.PlayClipAtPoint(_swipeSound, Camera.main.transform.position);
     }
 
     private float EaseInOut(float t)

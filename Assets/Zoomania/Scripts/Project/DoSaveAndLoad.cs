@@ -8,6 +8,7 @@ public class DoSaveAndLoad : MonoBehaviour
 	[field: SerializeField] public TakeAllResources AllResoures;
 	[field: SerializeField] public CleanSaveFile CleanFile;
 	[field: SerializeField] public Panda_To_Common_Paddock PandaReturn;
+	[field: SerializeField] private TutorialsObject Tutorial;
 	private string DirectoryPath;
 	private PointerEventData pointerdata;
 
@@ -23,7 +24,7 @@ public class DoSaveAndLoad : MonoBehaviour
 		}
 
 		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, 
-			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time);
+			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time, Tutorial);
 	}
 
 	public void OnApplicationQuit()

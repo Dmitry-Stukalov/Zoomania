@@ -19,13 +19,15 @@ public class Animals : MonoBehaviour
 	public event Action ChangePaddock;
 
 
-	public void Start()
+	public void Awake()
 	{
 		InPersonalPaddock = true;
 
 		if (!IsLoadData)
 		{
 			CurrentLevel = levels_config.levels[0];
+
+			levels_config.levels[0].IsOpen = true;
 
 			gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 
@@ -40,6 +42,7 @@ public class Animals : MonoBehaviour
 	public void Upgrade()                                                                   //Повышение уровня панды
 	{
 		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].IsOpen = true;
 		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;
 

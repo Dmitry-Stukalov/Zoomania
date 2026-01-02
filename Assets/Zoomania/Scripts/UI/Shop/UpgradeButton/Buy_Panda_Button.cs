@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Buy_Panda_Button : ShopUpgradeButtonBase
 {
+	private LootBoxAppearance LootBox { get; set; }
 	private Barn barn { get; set; }
 
 	protected override void Start()
@@ -17,6 +18,8 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 		barn.Spawn += UpdateData;
 		UpdateData();
 		CheckMask();
+
+		LootBox = GetComponent<LootBoxAppearance>();
 	}
 
 	public override void OnPointerClick(PointerEventData eventData)
@@ -34,6 +37,8 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 		UpdateData();
 
 		CheckMask();
+
+		LootBox.OpenLootBox();
 	}
 
 	protected override void UpdateData()

@@ -8,7 +8,6 @@ public class Essence_Quality : InitialImprovementBase
 	private TakeEssenceClick EssenceClick { get; set; }
 
 
-
 	protected override void Start()
 	{
 		base.Start();

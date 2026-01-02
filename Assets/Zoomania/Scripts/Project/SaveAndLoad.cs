@@ -29,7 +29,7 @@ public class SaveAndLoad
 
 
 	public static async Task Load(/*CancellationToken cancelToken, */string directoryPath, string fileName, WaterBuildingValue waterBuildingV, WaterBuildingTimer waterBuildingT, FoodBuildingValue foodBuildingV, FoodBuildingTimer foodBuildingT, Money moneyBuilding, 
-		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, Buy_Bamboo bamboo, Barn barn, Day_And_Night time)
+		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, Buy_Bamboo bamboo, Barn barn, Day_And_Night time, TutorialsObject Tutorial)
 	{
 		var DirectoryPath = directoryPath;
 		if (!Directory.Exists(DirectoryPath))
@@ -65,6 +65,7 @@ public class SaveAndLoad
 		await bamboo.LoadData(dataSave.Buildinglevels[6]);
 		await barn.LoadData(dataSave.Animals);
 		await time.LoadData(dataSave.Time);
+		await Tutorial.DestroyThis();
 	}
 
 }

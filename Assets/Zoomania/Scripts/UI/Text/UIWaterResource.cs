@@ -7,7 +7,15 @@ public class UIWaterResource : UIResourceBase
 {
 	private WaterBuildingTimer Building { get; set; }
 
-	protected override void Start()
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	Building = GameObject.FindGameObjectWithTag("WaterBuilding").GetComponent<WaterBuildingTimer>();
+	//	Building.OnChange += UpdateUI;
+	//}
+
+	public void Initializing()
 	{
 		base.Start();
 

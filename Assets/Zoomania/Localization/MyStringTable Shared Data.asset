@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MyStringTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: MyStringTable
+  m_TableCollectionNameGuidString: 42cadba4b7145784f85c7fe3cb01d99f
+  m_Entries:
+  - m_Id: 136536698880
+    m_Key: Cell_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5513730895872
+    m_Key: Buy_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14466753802240
+    m_Key: DeleteSaves_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91546099167232
+    m_Key: Cell_Essence_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92369726255104
+    m_Key: Essence_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92462915301376
+    m_Key: Panda_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92735251460096
+    m_Key: Water_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92771423137792
+    m_Key: Food_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92788502343680
+    m_Key: Essence_Up1_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92828302094336
+    m_Key: Water_Up1_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92861533564928
+    m_Key: Water_UP2_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92890700754944
+    m_Key: Food_Up1_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92909877112832
+    m_Key: Food_Up2_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92944211685376
+    m_Key: Bamboo_Up1_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92962884726784
+    m_Key: Sleep_UP1_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93020728373248
+    m_Key: Panda_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93078949507072
+    m_Key: Water_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93116090068992
+    m_Key: Food_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93156716097536
+    m_Key: Essence_Up1_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93189360365568
+    m_Key: Water_Up1_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93210713567232
+    m_Key: Water_Up2_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93242221178880
+    m_Key: Food_Up1_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93266174849024
+    m_Key: Food_Up2_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93300593307648
+    m_Key: Bamboo_UP1_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93328762253312
+    m_Key: Sleep_Up1_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94557844320256
+    m_Key: Settings_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98153235263488
+    m_Key: Almanac_Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98250333401088
+    m_Key: Almanac_Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98268272439296
+    m_Key: Almanac_Essence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98293962551296
+    m_Key: Almanac_Panda1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98316645347328
+    m_Key: Almanac_Panda1_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98394470658048
+    m_Key: Almanac_Panda1_Straw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98458454765568
+    m_Key: Almanac_Panda1_Straw_Description
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1716748432972972256
+  references:
+    version: 2
+    RefIds:
+    - rid: 1716748432972972256
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1766995603960

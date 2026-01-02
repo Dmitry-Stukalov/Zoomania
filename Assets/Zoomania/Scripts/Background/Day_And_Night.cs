@@ -20,10 +20,29 @@ public class Day_And_Night : MonoBehaviour
 	public event Action OnLoadData;
 
 
-	public void Start()	
+	//public void Start()	
+	//{
+	//	Ratio = 0.078f;
+		 
+	//	NightBackground = GameObject.FindGameObjectWithTag("Night").GetComponent<Image>();
+
+	//	DayTime = new Timer(65);
+	//	DayTime.OnTimerEnd += Night;
+
+	//	NightTime = new Timer(65);
+	//	NightTime.OnTimerEnd += Day;
+
+	//	if (!IsLoadData)
+	//	{
+	//		IsDay = true;
+	//		ChangeColorAlpha(0);
+	//	}
+	//}
+
+	public void Initializing()
 	{
 		Ratio = 0.078f;
-		 
+
 		NightBackground = GameObject.FindGameObjectWithTag("Night").GetComponent<Image>();
 
 		DayTime = new Timer(65);

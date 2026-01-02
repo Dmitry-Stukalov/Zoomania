@@ -8,12 +8,29 @@ public class All_Objects : MonoBehaviour
 	private List<GameObject> SecondScene { get; set; }
 
 
-	public void Start()
+	//public void Start()
+	//{
+	//	FirstScene = new List<GameObject>();
+	//	SecondScene = new List<GameObject>();
+
+	//	foreach(var objects in GameObject.FindGameObjectsWithTag("FirstScene"))
+	//	{
+	//		FirstScene.Add(objects);
+	//	}
+
+	//	foreach (var objects in GameObject.FindGameObjectsWithTag("SecondScene"))
+	//	{
+	//		SecondScene.Add(objects);
+	//		objects.SetActive(false);
+	//	}
+	//}
+
+	public void Initializing()
 	{
 		FirstScene = new List<GameObject>();
 		SecondScene = new List<GameObject>();
 
-		foreach(var objects in GameObject.FindGameObjectsWithTag("FirstScene"))
+		foreach (var objects in GameObject.FindGameObjectsWithTag("FirstScene"))
 		{
 			FirstScene.Add(objects);
 		}

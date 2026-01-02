@@ -18,31 +18,42 @@ public class FoodBuildingTimer : MonoBehaviour
 	public event Action OnUpgrade;
 	public event Action OnStart;
 
-	private void Start()
+	//private void Start()
+	//{
+	//	if (!IsLoadData) CurrentLevel = levels_config.levels[0];
+
+	//	FoodBuildingV = GetComponent<FoodBuildingValue>();
+
+	//	if (Input.touchSupported)
+	//	{
+	//		Initialize();
+	//	}
+	//	else if (Input.mousePresent)
+	//	{
+	//		FoodBuildingV.OnStart += Initialize;
+	//	}
+
+	//	FoodBuildingV.OnUpgrade += UpdateData;
+
+	//	/*if (!IsLoadData) OnStart?.Invoke();*/
+	//}
+
+	//private void Initialize()
+	//{
+	//	IncomeResources = new IncomeResource(FoodBuildingV.GetCurrentResourceValue(), CurrentLevel.EffectValue);
+	//	IncomeResources.ResourceTimer.OnTimerEnd += Effects;
+	//	OnStart?.Invoke();
+	//}
+
+	public void Initializing()
 	{
 		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
 
 		FoodBuildingV = GetComponent<FoodBuildingValue>();
-
-		if (Input.touchSupported)
-		{
-			Initialize();
-		}
-		else if (Input.mousePresent)
-		{
-			FoodBuildingV.OnStart += Initialize;
-		}
-
 		FoodBuildingV.OnUpgrade += UpdateData;
 
-		/*if (!IsLoadData) OnStart?.Invoke();*/
-	}
-
-	private void Initialize()
-	{
 		IncomeResources = new IncomeResource(FoodBuildingV.GetCurrentResourceValue(), CurrentLevel.EffectValue);
 		IncomeResources.ResourceTimer.OnTimerEnd += Effects;
-		OnStart?.Invoke();
 	}
 
 	public void Change()

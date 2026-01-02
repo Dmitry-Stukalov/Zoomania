@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Zoomania/Scenes/Example.unity
     guid: e6f6d09e8e20022488433712f6eac961
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 437ce8f742a0905408aa0d3456a02a7b, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: d9a2336b04ccab743a88d590d998d82e, type: 2}
+  m_UseUCBPForAssetBundles: 0
