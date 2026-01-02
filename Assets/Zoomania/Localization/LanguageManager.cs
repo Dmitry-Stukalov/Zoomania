@@ -15,9 +15,10 @@ public class LanguageManager : MonoBehaviour
 
 	async void Start()
 	{
+		await LocalizationSettings.InitializationOperation.Task;
+
 		dropdown = GetComponent<TMP_Dropdown>();
 
-		// ∆дем инициализации Localization
 		await LocalizationSettings.InitializationOperation.Task;
 
 		locales = LocalizationSettings.AvailableLocales.Locales.ToList();

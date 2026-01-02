@@ -3,12 +3,14 @@ using UnityEngine.EventSystems;
 
 public class LootBoxBackground : MonoBehaviour, IPointerClickHandler
 {
-	[field: SerializeField] private GameObject CloseAnimalBackground;
-	[field: SerializeField] private GameObject _LootBoxBackground;
+	[SerializeField] private GameObject _LootBoxBackground;
+	[SerializeField] private GameObject LootBoxGameObject;
+	[SerializeField] private LootBox _LootBox;
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		CloseAnimalBackground.SetActive(true);
 		_LootBoxBackground.SetActive(false);
+		_LootBox.LootBoxAppearance();
+		LootBoxGameObject.SetActive(true);
 	}
 }
