@@ -6,8 +6,14 @@ using UnityEngine.Rendering;
 
 public class Buy_Bamboo : PurchaseImprovementBase																//Поменять эффект после покупки
 {
-	private TakeEssenceClick EssenceClick {  get; set; }
-	private List<GameObject> Bamboo { get; set; }
+	[field: SerializeField] private List<GameObject> Bamboo1;
+	[field: SerializeField] private List<GameObject> Bamboo2;
+	[field: SerializeField] private List<GameObject> Bamboo3;
+	[field: SerializeField] private List<GameObject> Bamboo4;
+	[field: SerializeField] private List<GameObject> Bamboo5;
+	[field: SerializeField] private List<GameObject> Bamboo6;
+	private TakeEssenceClick EssenceClick;
+	private List<GameObject> Bamboo;
 
 
 	protected override void Start()

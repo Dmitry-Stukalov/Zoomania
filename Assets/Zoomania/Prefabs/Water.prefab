@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.226, y: -2.617}
-  m_SizeDelta: {x: 250, y: 200}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 6.4947, y: 5.1958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &3708393992077005904
 SpriteRenderer:
@@ -56,6 +56,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -103,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e920b8baadb069f4d8317153526de81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Resource>k__BackingField: {fileID: 0}
+  <Resource>k__BackingField: {fileID: 509004086154684891, guid: cba891707f8b9614888ce76d2ec74204, type: 3}
   <AnimalPlace>k__BackingField: {fileID: 0}
 --- !u!114 &430761812617406455
 MonoBehaviour:
@@ -118,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ResourceBuilding>k__BackingField: {fileID: 0}
-  <Resource>k__BackingField: {fileID: 0}
+  <Resource>k__BackingField: {fileID: 509004086154684891, guid: cba891707f8b9614888ce76d2ec74204, type: 3}
 --- !u!61 &9119555854424519662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,6 +130,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824375206696538684}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -150,7 +154,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,6 +166,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 6.43, y: 4.14}
   m_EdgeRadius: 0
