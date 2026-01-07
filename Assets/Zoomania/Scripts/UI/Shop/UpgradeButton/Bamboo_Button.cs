@@ -6,9 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Bamboo_Button : ShopUpgradeButtonBase
 {
-	//[field: SerializeField] private GameObject Mask;
 	private Buy_Bamboo Bamboo { get; set; }
-	//public bool IsEnough {  get; set; } = false;
 
 	protected override void Start()
 	{

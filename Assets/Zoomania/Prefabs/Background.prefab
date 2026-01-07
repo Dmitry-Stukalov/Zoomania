@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7930905429007839729}
   - component: {fileID: 2096748320085677662}
   - component: {fileID: 6950606261284861976}
+  - component: {fileID: -3469412041387829168}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -56,6 +57,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -129,6 +133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels_config: {fileID: 0}
+  Bamboo1: []
+  Bamboo2: []
+  Bamboo3: []
+  Bamboo4: []
+  Bamboo5: []
+  Bamboo6: []
 --- !u!114 &7930905429007839729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,14 +163,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f66f78a56fa6c4dab4198faa52a200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 0}
-  WaterBuilding: {fileID: 0}
-  FoodBuilding: {fileID: 0}
+  WaterBuildingV: {fileID: 0}
+  WaterBuildingT: {fileID: 0}
+  FoodBuildingV: {fileID: 0}
+  FoodBuildingT: {fileID: 0}
   MoneyBuilding: {fileID: 0}
   EssenceBuilding: {fileID: 0}
   EssenceBuilding1: {fileID: 0}
   DeepSleepBuilding: {fileID: 0}
   Bamboo: {fileID: 0}
+  Barn: {fileID: 0}
+  Time: {fileID: 0}
 --- !u!114 &6950606261284861976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +187,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllResoures: {fileID: 2096748320085677662}
+  CleanFile: {fileID: 0}
+  PandaReturn: {fileID: 0}
+  Tutorial: {fileID: 0}
+--- !u!114 &-3469412041387829168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1cbfb59e4b7d2459d44cd1a2d74fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_config: {fileID: 11400000, guid: 9a4ef3c72382e7549bb4220a7df63921, type: 2}
+  EssenceClick: {fileID: 0}
+  Grass: []
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +248,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56d2946281a46c84096aa9caa45ecbbe, type: 3}
+  m_Resource: {fileID: 8300000, guid: 56d2946281a46c84096aa9caa45ecbbe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
