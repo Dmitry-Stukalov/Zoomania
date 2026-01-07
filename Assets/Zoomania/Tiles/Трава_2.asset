@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: "\u0422\u0440\u0430\u0432\u0430_2"
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: b86169946cd1e1846a7a039437e623ed, type: 3}
+  m_Sprite: {fileID: 6826648185222698981, guid: c1e6bd9cffbdeac4188061ff4253fe3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
-    e00: 0.005
+    e00: 0.07
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 0.005
+    e11: 0.07
     e12: 0
     e13: 0
     e20: 0
     e21: 0
-    e22: 0.005
+    e22: 0.07
     e23: 0
     e30: 0
     e31: 0
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: -1
-  m_ColliderType: 1
+  m_ColliderType: 0
