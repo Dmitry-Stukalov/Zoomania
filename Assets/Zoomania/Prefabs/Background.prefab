@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 2096748320085677662}
   - component: {fileID: 6950606261284861976}
   - component: {fileID: -3469412041387829168}
+  - component: {fileID: 5590037469193292188}
+  - component: {fileID: 2002011608526550271}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -205,6 +207,39 @@ MonoBehaviour:
   levels_config: {fileID: 11400000, guid: 9a4ef3c72382e7549bb4220a7df63921, type: 2}
   EssenceClick: {fileID: 0}
   Grass: []
+--- !u!114 &5590037469193292188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55100d279a33ea44fa59ad02f404c8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_config: {fileID: 11400000, guid: 943d977e9a236b840b2af5e0bee7005c, type: 2}
+  EssenceClick: {fileID: 0}
+  Bushes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &2002011608526550271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6f9d6a3515f1042b3bb33d244a3446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_config: {fileID: 0}
+  EssenceClick: {fileID: 0}
+  Flashlights: []
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0
