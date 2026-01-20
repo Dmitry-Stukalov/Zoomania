@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -3469412041387829168}
   - component: {fileID: 5590037469193292188}
   - component: {fileID: 2002011608526550271}
+  - component: {fileID: 489786244354082092}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -240,6 +241,21 @@ MonoBehaviour:
   levels_config: {fileID: 0}
   EssenceClick: {fileID: 0}
   Flashlights: []
+--- !u!114 &489786244354082092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7c50820eb5cd04394cf2821112a95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_config: {fileID: 11400000, guid: aae1660b3f4ca694ca23b631fe4bc741, type: 2}
+  EssenceClick: {fileID: 0}
+  Slide: []
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0

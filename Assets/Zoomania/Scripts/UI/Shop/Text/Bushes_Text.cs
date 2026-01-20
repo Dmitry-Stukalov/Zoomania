@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class Bushes_Text : ShopTextBase
 {
-	private Buy_Grass Grass { get; set; }
+	private Buy_Bushes Bushes { get; set; }
 
 	protected override void Start()
 	{
 		base.Start();
 
-		Grass = GameObject.FindGameObjectWithTag("Background").GetComponent<Buy_Grass>();
+		Bushes = GameObject.FindGameObjectWithTag("Background").GetComponent<Buy_Bushes>();
 
-		Grass.OnUpgrade += UpdateData;
+		Bushes.OnUpgrade += UpdateData;
 
 		UpdateData();
 	}
 
 	protected override void UpdateData()
 	{
-		LevelNumber.text = Grass.CurrentLevelData().CurrentLevelNumber.ToString();
+		LevelNumber.text = Bushes.CurrentLevelData().CurrentLevelNumber.ToString();
 
-		Text.text = $"Клики: +{Grass.CurrentLevelData().EffectValue}\n";
+		Text.text = $"Клики: +{Bushes.CurrentLevelData().EffectValue}\n";
 	}
 }
