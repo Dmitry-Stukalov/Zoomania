@@ -130,8 +130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.009, y: 2.694}
-  m_SizeDelta: {x: 7.54, y: 9.68}
+  m_AnchoredPosition: {x: -0.7202, y: 1.7578}
+  m_SizeDelta: {x: 3.8939, y: 4.999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2810644789684918928
 SpriteRenderer:
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Panda_Storage_Config>k__BackingField: {fileID: 11400000, guid: 5fba32f7f8d0eda45b593fa9e8f2bb29, type: 2}
-  <SpawnZone>k__BackingField: {fileID: 0}
+  <SpawnZone>k__BackingField: {fileID: 4428256776648105099}
 --- !u!114 &1729165999991126439
 MonoBehaviour:
   m_ObjectHideFlags: 0

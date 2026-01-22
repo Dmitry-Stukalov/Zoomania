@@ -52,8 +52,9 @@ public class AvailableFoodResource : MonoBehaviour
 		FoodTimer = ResourceBuilding.GetComponent<FoodBuildingTimer>();
 
 		Food = Resource.GetComponent<FoodResource>();
-		FoodValue.OnUpgrade += UpdateData;
+		Food.ChangeCapacity(FoodValue.CurrentLevelData().DragResourceCapacity);
 
+		FoodValue.OnUpgrade += UpdateData;
 		OnChange?.Invoke();
 	}
 

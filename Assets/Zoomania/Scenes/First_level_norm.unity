@@ -5669,7 +5669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4428256776648105099, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6893515349327954896, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: m_Pivot.x
@@ -5769,7 +5769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8160674487324062839, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8981818364618240944, guid: d875a86b946f03444a3a9df6ca8d92e8, type: 3}
       propertyPath: <SpawnZone>k__BackingField
