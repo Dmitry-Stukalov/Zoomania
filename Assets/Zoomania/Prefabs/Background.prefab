@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 5590037469193292188}
   - component: {fileID: 2002011608526550271}
   - component: {fileID: 489786244354082092}
+  - component: {fileID: 3506072584749352690}
+  - component: {fileID: -709245815326401356}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -255,7 +257,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels_config: {fileID: 11400000, guid: aae1660b3f4ca694ca23b631fe4bc741, type: 2}
   EssenceClick: {fileID: 0}
-  Slide: []
+  Slide: {fileID: 0}
+  Sprites: []
+--- !u!114 &3506072584749352690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48da0e63ff2b3204bbac322bc12945ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_config: {fileID: 11400000, guid: 43f90d2623d7863498d781a9ed71cfc8, type: 2}
+  EssenceClick: {fileID: 0}
+  Couch: {fileID: 0}
+  Sprites: []
+--- !u!114 &-709245815326401356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371427128928237431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3a125eb71609a4b88abf66562e105e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels_config: {fileID: 11400000, guid: d2bbd79096eef264396324eeadf2a20a, type: 2}
+  EssenceClick: {fileID: 0}
+  Pond: {fileID: 0}
+  Sprites: []
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0

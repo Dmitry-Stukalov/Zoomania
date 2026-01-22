@@ -4,27 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Buy_Slide : PurchaseImprovementBase                                                               //Поменять эффект после покупки
+public class Buy_Couch : PurchaseImprovementBase                                                               //Поменять эффект после покупки
 {
 	[SerializeField] private TakeEssenceClick EssenceClick;
-	[SerializeField] private GameObject Slide;
+	[SerializeField] private GameObject Couch;
 	[SerializeField] private List<Sprite> Sprites;
 
 	protected override void Start()
 	{
 		base.Start();
 
-		Slide.SetActive(false);
+		Couch.SetActive(false);
 	}
 
 	public override void Upgrade()
 	{
 		base.Upgrade();
 
-		if (CurrentLevel.CurrentLevelNumber == 1) Slide.SetActive(true);
+		if (CurrentLevel.CurrentLevelNumber == 1) Couch.SetActive(true);
 		else
 		{
-			Slide.GetComponent<SpriteRenderer>().sprite = Sprites[CurrentLevel.CurrentLevelNumber - 1];
+			Couch.GetComponent<SpriteRenderer>().sprite = Sprites[CurrentLevel.CurrentLevelNumber - 1];
 		}
 
 		EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
