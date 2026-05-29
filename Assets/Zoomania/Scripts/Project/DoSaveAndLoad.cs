@@ -24,7 +24,7 @@ public class DoSaveAndLoad : MonoBehaviour
 		}
 
 		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, 
-			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time, Tutorial);
+			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, /*AllResoures.Bamboo,*/ AllResoures.Barn, AllResoures.Time, Tutorial, AllResoures.Bushes, AllResoures.Couch, AllResoures.Flashlights, AllResoures.Pond, AllResoures.Slide, AllResoures.Grass);
 	}
 
 	public void OnApplicationQuit()

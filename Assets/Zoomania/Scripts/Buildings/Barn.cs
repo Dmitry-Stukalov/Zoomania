@@ -28,10 +28,11 @@ public class Barn : MonoBehaviour
 		Animals.Add(Instantiate(Panda_Storage_Config.Animals[RandomNumber], RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
 
-		if (Animals.Count == 1) MoneyToSpawn += 0;
+		if (Animals.Count == 1) MoneyToSpawn += 50;
 		else MoneyToSpawn *= 4;
 
 		Spawn?.Invoke();
+		GameEvents.OnAnimalSpawn?.Invoke();
 	}
 
 	public void TakePanda(int place)

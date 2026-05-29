@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class Animal_Feeding : MonoBehaviour
 {
-	[field: SerializeField] private Animals Animal { get; set; }
+	[SerializeField] private Animals Animal;
 	[SerializeField] private GameObject Water;
 	[SerializeField] private GameObject Food;
-	private TextMeshPro WaterText { get; set; }
-	private TextMeshPro FoodText { get; set; }
-	private float RequiredWater { get; set; }
-	private float RequiredFood { get; set; }
-	private float ReturnedResource { get; set; }
-	private bool IsEat { get; set; } = false;
-	private bool IsDrinking { get; set; } = false;
-	private bool IsLoadData { get; set; } = false;
+	private TextMeshPro WaterText;
+	private TextMeshPro FoodText;
+	private float RequiredWater;
+	private float RequiredFood;
+	private int _requiredFoodSubstractCoef;
+	private int _requiredWaterSubstractCoef;
+	private float ReturnedResource;
+	private bool IsEat = false;
+	private bool IsDrinking = false;
+	private bool IsLoadData = false;
 
 	private void Start()
 	{
@@ -33,6 +35,19 @@ public class Animal_Feeding : MonoBehaviour
         WaterText.text = RequiredWater.ToString();
 		FoodText.text = RequiredFood.ToString();
 
+		GameEvents.OnRequiredFoodSubstract += (int value) =>
+		{
+			_requiredFoodSubstractCoef = value;
+			CheckSatiety();
+		};
+
+		GameEvents.OnRequiredWaterSubstract += (int value) =>
+		{
+			_requiredWaterSubstractCoef = value;
+			CheckSatiety();
+		};
+
+		CheckSatiety();
 		ChangeVisibility();
 	}
 
@@ -88,14 +103,25 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void CheckSatiety()
 	{
+		if (RequiredFood == Animal.CurrentLevel.RequiredFood)
+		{
+			RequiredFood = Animal.CurrentLevel.RequiredFood - (Animal.CurrentLevel.RequiredFood * _requiredFoodSubstractCoef / 100);
+			FoodText.text = RequiredFood.ToString();
+		}
+
+		if (RequiredWater == Animal.CurrentLevel.RequiredWater)
+		{
+			RequiredWater = Animal.CurrentLevel.RequiredWater - (Animal.CurrentLevel.RequiredWater * _requiredWaterSubstractCoef / 100);
+			WaterText.text = RequiredWater.ToString();
+		}
 
 		if (IsEat && IsDrinking)
 		{
 			IsDrinking = false;
 			IsEat = false;
 			Animal.Upgrade();
-			RequiredWater = Animal.CurrentLevel.RequiredWater;
-			RequiredFood = Animal.CurrentLevel.RequiredFood;
+			RequiredWater = Animal.CurrentLevel.RequiredWater - (Animal.CurrentLevel.RequiredWater * _requiredWaterSubstractCoef / 100);
+			RequiredFood = Animal.CurrentLevel.RequiredFood - (Animal.CurrentLevel.RequiredFood * _requiredFoodSubstractCoef / 100);
 			WaterText.text = RequiredWater.ToString();
 			FoodText.text = RequiredFood.ToString();
 
@@ -152,5 +178,21 @@ public class Animal_Feeding : MonoBehaviour
 		RequiredFood = food;
 
 		if (RequiredWater == 0 && RequiredFood == 0) CheckSatiety();
+	}
+
+	private void OnDisable()
+	{
+		GameEvents.OnRequiredFoodSubstract -= (int value) =>
+		{
+			_requiredFoodSubstractCoef = value;
+			Debug.Log(_requiredFoodSubstractCoef);
+			CheckSatiety();
+		};
+
+		GameEvents.OnRequiredWaterSubstract -= (int value) =>
+		{
+			_requiredWaterSubstractCoef = value;
+			CheckSatiety();
+		};
 	}
 }

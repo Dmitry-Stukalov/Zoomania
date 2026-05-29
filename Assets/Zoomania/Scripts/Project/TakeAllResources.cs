@@ -5,17 +5,23 @@ using UnityEngine;
 
 public class TakeAllResources : MonoBehaviour
 {
-	[field: SerializeField] public WaterBuildingValue WaterBuildingV;
-	[field: SerializeField] public WaterBuildingTimer WaterBuildingT;
-	[field: SerializeField] public FoodBuildingValue FoodBuildingV;
-	[field: SerializeField] public FoodBuildingTimer FoodBuildingT;
-	[field: SerializeField] public Money MoneyBuilding;
-	[field: SerializeField] public Essence_Storage EssenceBuilding;
-	[field: SerializeField] public Essence_Quality EssenceBuilding1;
-	[field: SerializeField] public Deep_Sleep DeepSleepBuilding;
-	[field: SerializeField] public Buy_Bamboo Bamboo;
-	[field: SerializeField] public Barn Barn;
-	[field: SerializeField] public Day_And_Night Time;
+	[field: SerializeField] public WaterBuildingValue WaterBuildingV { get; set; }
+	[field: SerializeField] public WaterBuildingTimer WaterBuildingT { get; set; }
+	[field: SerializeField] public FoodBuildingValue FoodBuildingV { get; set; }
+	[field: SerializeField] public FoodBuildingTimer FoodBuildingT { get; set; }
+	[field: SerializeField] public Money MoneyBuilding { get; set; }
+	[field: SerializeField] public Essence_Storage EssenceBuilding { get; set; }
+	[field: SerializeField] public Essence_Quality EssenceBuilding1 { get; set; }
+	[field: SerializeField] public Deep_Sleep DeepSleepBuilding { get; set; }
+	//[field: SerializeField] public Buy_Bamboo Bamboo { get; set; }
+	[field: SerializeField] public Barn Barn { get; set; }
+	[field: SerializeField] public Day_And_Night Time { get; set; }
+	[field: SerializeField] public Buy_Bushes Bushes { get; set; }
+	[field: SerializeField] public Buy_Couch Couch { get; set; }
+	[field: SerializeField] public Buy_Flashlights Flashlights { get; set; }
+	[field: SerializeField] public Buy_Pond Pond { get; set; }
+	[field: SerializeField] public Buy_Slide Slide { get; set; }
+	[field: SerializeField] public Buy_Grass Grass { get; set; }
 
 	private List<float> resources = new List<float>();
 	private List<int> buildingLevels = new List<int>();
@@ -43,7 +49,13 @@ public class TakeAllResources : MonoBehaviour
 		buildingLevels.Add(FoodBuildingT.CurrentLevelData().CurrentLevelNumber);
 		buildingLevels.Add(EssenceBuilding1.CurrentLevelData().CurrentLevelNumber);
 		buildingLevels.Add(DeepSleepBuilding.CurrentLevelData().CurrentLevelNumber);
-		buildingLevels.Add(Bamboo.CurrentLevelData().CurrentLevelNumber);
+		//buildingLevels.Add(Bamboo.CurrentLevelData().CurrentLevelNumber);
+		buildingLevels.Add(Bushes.CurrentLevelData().CurrentLevelNumber);
+		buildingLevels.Add(Couch.CurrentLevelData().CurrentLevelNumber);
+		buildingLevels.Add(Flashlights.CurrentLevelData().CurrentLevelNumber);
+		buildingLevels.Add(Pond.CurrentLevelData().CurrentLevelNumber);
+		buildingLevels.Add(Slide.CurrentLevelData().CurrentLevelNumber);
+		buildingLevels.Add(Grass.CurrentLevelData().CurrentLevelNumber);
 
 		IReadOnlyList<int> newList = buildingLevels;
 		return newList;

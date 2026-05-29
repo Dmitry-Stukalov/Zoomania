@@ -15,10 +15,10 @@ public class Buy_Bamboo : PurchaseImprovementBase																//Поменять эффе
 	private TakeEssenceClick EssenceClick;
 	private List<GameObject> Bamboo;
 
-
-	protected override void Start()
+	public override void Initializing()
 	{
-		base.Start();
+		/*base.Initializing();
+
 
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
 
@@ -28,17 +28,32 @@ public class Buy_Bamboo : PurchaseImprovementBase																//Поменять эффе
 		{
 			Bamboo.Add(bamboo);
 			bamboo.SetActive(false);
-		}
+		}*/
 	}
+
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
+
+	//	Bamboo = new List<GameObject>();
+
+	//	foreach (var bamboo in GameObject.FindGameObjectsWithTag("Bamboo"))
+	//	{
+	//		Bamboo.Add(bamboo);
+	//		bamboo.SetActive(false);
+	//	}
+	//}
 
 	public override void Upgrade()
 	{
-		base.Upgrade();
+		/*base.Upgrade();
 
 		Bamboo[CurrentLevel.CurrentLevelNumber - 1].SetActive(true);
 
 		EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
 
-		base.InvokeUpgrade();
+		base.InvokeUpgrade();*/
 	}
 }

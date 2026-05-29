@@ -1,24 +1,37 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-	[field: SerializeField] private ObjectGallery Gallery;
-	[field: SerializeField] private All_Objects AllObjects;
-	[field: SerializeField] private Day_And_Night DayAndNight;
-	[field: SerializeField] private TakeEssenceClick EssenceClick;
-	[field: SerializeField] private TimeClick ClickTime;
-	[field: SerializeField] private FoodBuildingTimer _FoodBuildingTimer;
-	[field: SerializeField] private FoodBuildingValue _FoodBuildingValue;
-	[field: SerializeField] private WaterBuildingTimer _WaterBuildingTimer;
-	[field: SerializeField] private WaterBuildingValue _WaterBuildingValue;
-	[field: SerializeField] private UIWaterResource WaterResource;
-	[field: SerializeField] private UIFoodResource FoodResource;
-	[field: SerializeField] private UIMoneyResource MoneyResource;
-	[field: SerializeField] private UIEssenceResource EssenceResource;
-	[field: SerializeField] private AvailableWaterResource _AvailableWaterResource;
-	[field: SerializeField] private AvailableFoodResource _AvailableFoodResource;
-	[field: SerializeField] private SpawnDragWaterResource _SpawnWaterResource;
-	[field: SerializeField] private SpawnDragFoodResource _SpawnFoodResource;
+	[SerializeField] private ObjectGallery Gallery;
+	[SerializeField] private All_Objects AllObjects;
+	[SerializeField] private Day_And_Night DayAndNight;
+	[SerializeField] private TakeEssenceClick EssenceClick;
+	[SerializeField] private TimeClick ClickTime;
+	[SerializeField] private FoodBuildingTimer _FoodBuildingTimer;
+	[SerializeField] private FoodBuildingValue _FoodBuildingValue;
+	[SerializeField] private WaterBuildingTimer _WaterBuildingTimer;
+	[SerializeField] private WaterBuildingValue _WaterBuildingValue;
+	[SerializeField] private UIWaterResource WaterResource;
+	[SerializeField] private UIFoodResource FoodResource;
+	[SerializeField] private UIMoneyResource MoneyResource;
+	[SerializeField] private UIEssenceResource EssenceResource;
+	[SerializeField] private AvailableWaterResource _AvailableWaterResource;
+	[SerializeField] private AvailableFoodResource _AvailableFoodResource;
+	[SerializeField] private SpawnDragWaterResource _SpawnWaterResource;
+	[SerializeField] private SpawnDragFoodResource _SpawnFoodResource;
+	[SerializeField] private GameObject _loadObject;
+
+	[Header("Improvements")]
+	[SerializeField] private Buy_Bushes _bushes;
+	[SerializeField] private Buy_Couch _couch;
+	[SerializeField] private Buy_Grass _grass;
+	[SerializeField] private Buy_Pond _pond;
+	[SerializeField] private Buy_Slide _slide;
+	[SerializeField] private Buy_Bamboo _bamboo;
+	[SerializeField] private Buy_Flashlights _flashlights;
+	[SerializeField] private Deep_Sleep _deepSleep;
+	[SerializeField] private Essence_Quality _essenceQuality;
 
 
 	private void Start()
@@ -40,5 +53,23 @@ public class Bootstrap : MonoBehaviour
 		_AvailableFoodResource.Initializing();
 		_SpawnWaterResource.Initializing();
 		_SpawnFoodResource.Initializing();
+
+		StartCoroutine(StartPause());
+	}
+
+	private IEnumerator StartPause()
+	{
+		yield return new WaitForSeconds(0.5f);
+
+		_bushes.Initializing();
+		_couch.Initializing();
+		_grass.Initializing();
+		_pond.Initializing();
+		_slide.Initializing();
+		_bamboo.Initializing();
+		_flashlights.Initializing();
+		_deepSleep.Initializing();
+		_essenceQuality.Initializing();
+		_loadObject.SetActive(false);
 	}
 }

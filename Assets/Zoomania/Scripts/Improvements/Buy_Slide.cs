@@ -10,12 +10,19 @@ public class Buy_Slide : PurchaseImprovementBase                                
 	[SerializeField] private GameObject Slide;
 	[SerializeField] private List<Sprite> Sprites;
 
-	protected override void Start()
+	public override void Initializing()
 	{
-		base.Start();
+		base.Initializing();
 
-		Slide.SetActive(false);
+		if (CurrentLevel.CurrentLevelNumber == 0) Slide.SetActive(false);
 	}
+
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	Slide.SetActive(false);
+	//}
 
 	public override void Upgrade()
 	{

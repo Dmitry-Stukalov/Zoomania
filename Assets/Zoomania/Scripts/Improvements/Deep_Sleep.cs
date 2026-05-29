@@ -8,12 +8,19 @@ public class Deep_Sleep : PurchaseImprovementBase
 	private TakeEssenceClick EssenceClick { get; set; }
 
 
-	protected override void Start()
+	public override void Initializing()
 	{
-		base.Start();
+		base.Initializing();
 
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
 	}
+
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
+	//}
 
 	public override void Upgrade()
 	{

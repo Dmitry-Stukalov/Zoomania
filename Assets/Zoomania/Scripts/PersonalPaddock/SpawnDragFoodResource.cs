@@ -68,14 +68,13 @@ public class SpawnDragFoodResource : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		if (AnimalPlace.transform.childCount == 0) return;
 
-		if (AnimalPlace.transform.childCount > 0)
-		{
-			Panda = AnimalPlace.GetComponentInChildren<AnimalAI_New>();
+		Panda = AnimalPlace.GetComponentInChildren<AnimalAI_New>();
 
-			FeedTime.ResetTimer(false);
-			Panda.Eating(true);
-		}
+		FeedTime.ResetTimer(false);
+		Panda.Eating(true);
+
 
 		if (availableResources.FoodTimer.IncomeResources.Resource > 0)
 		{

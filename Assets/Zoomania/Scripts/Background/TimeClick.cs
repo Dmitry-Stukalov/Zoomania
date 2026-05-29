@@ -14,7 +14,8 @@ public class TimeClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private Timer PressTimer { get; set; }
 	public float DayTimeSkip { get; set; }
 	public float NightTimeSkip { get; set; }
-	private bool IsPressed { get; set; } = false;
+	private bool IsPressed = false;
+	private bool IsAutoClickOpen = false;
 
 
 	//public void Start()
@@ -41,10 +42,14 @@ public class TimeClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 		DayTimeSkip = 1f;
 		NightTimeSkip = 1f;
+
+		GameEvents.OnAutoClickOpen += () => IsAutoClickOpen = true;
 	}
 
 	private void AutoClick()
 	{
+		if (!IsAutoClickOpen) return;
+
 		if (Night.IsDay)
 		{
 			Night.DayTime.UpdateTimer(DayTimeSkip);
@@ -86,5 +91,10 @@ public class TimeClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private void Update()
 	{
 		if (IsPressed) PressTimer.Tick(Time.deltaTime);
+	}
+
+	private void OnDisable()
+	{
+		GameEvents.OnAutoClickOpen -= () => IsAutoClickOpen = true;
 	}
 }

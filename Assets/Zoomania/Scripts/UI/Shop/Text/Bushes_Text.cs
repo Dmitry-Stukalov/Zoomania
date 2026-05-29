@@ -22,6 +22,6 @@ public class Bushes_Text : ShopTextBase
 	{
 		LevelNumber.text = Bushes.CurrentLevelData().CurrentLevelNumber.ToString();
 
-		Text.text = $"Клики: +{Bushes.CurrentLevelData().EffectValue}\n";
+		Text.text = $"Еда для панд: -{Bushes.CurrentLevelData().EffectValue}%\n";
 	}
 }

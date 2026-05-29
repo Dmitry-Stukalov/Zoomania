@@ -8,9 +8,16 @@ public class Essence_Quality : InitialImprovementBase
 	private TakeEssenceClick EssenceClick { get; set; }
 
 
-	protected override void Start()
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
+	//}
+
+	public override void Initializing()
 	{
-		base.Start();
+		base.Initializing();
 
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
 	}

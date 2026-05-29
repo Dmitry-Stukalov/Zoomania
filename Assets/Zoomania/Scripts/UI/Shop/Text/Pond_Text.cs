@@ -22,6 +22,6 @@ public class Pond_Text : ShopTextBase
 	{
 		LevelNumber.text = Pond.CurrentLevelData().CurrentLevelNumber.ToString();
 
-		Text.text = $"Клики: +{Pond.CurrentLevelData().EffectValue}\n";
+		Text.text = $"Вода для панд: -{Pond.CurrentLevelData().EffectValue}%\n";
 	}
 }

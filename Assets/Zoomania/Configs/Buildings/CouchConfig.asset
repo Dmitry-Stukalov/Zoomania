@@ -16,12 +16,8 @@ MonoBehaviour:
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 0
     <EffectValue>k__BackingField: 0
-    <MoneyForUpgrade>k__BackingField: 0
+    <MoneyForUpgrade>k__BackingField: 1000
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 1
-    <EffectValue>k__BackingField: 1
-    <MoneyForUpgrade>k__BackingField: 1
-  - <View>k__BackingField: {fileID: 0}
-    <CurrentLevelNumber>k__BackingField: 2
-    <EffectValue>k__BackingField: 2
-    <MoneyForUpgrade>k__BackingField: 1
+    <EffectValue>k__BackingField: 0
+    <MoneyForUpgrade>k__BackingField: 0

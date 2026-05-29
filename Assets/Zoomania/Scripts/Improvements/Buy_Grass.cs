@@ -9,12 +9,19 @@ public class Buy_Grass : PurchaseImprovementBase																//Поменять эффек
 	[SerializeField] private TakeEssenceClick EssenceClick;
 	[SerializeField] private List<GameObject> Grass;
 
-	protected override void Start()
+	public override void Initializing()
 	{
-		base.Start();
+		base.Initializing();
 
-		for (int i = 0; i < Grass.Count; i++) Grass[i].SetActive(false);
+		for (int i = CurrentLevel.CurrentLevelNumber; i < Grass.Count; i++) Grass[i].SetActive(false);
 	}
+
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	for (int i = 0; i < Grass.Count; i++) Grass[i].SetActive(false);
+	//}
 
 	public override void Upgrade()
 	{

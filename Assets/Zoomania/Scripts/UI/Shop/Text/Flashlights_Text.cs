@@ -22,6 +22,6 @@ public class Flashlights_Text : ShopTextBase
 	{
 		LevelNumber.text = Flashlights.CurrentLevelData().CurrentLevelNumber.ToString();
 
-		Text.text = $"Клики: +{Flashlights.CurrentLevelData().EffectValue}\n";
+		Text.text = $"Коэффициент пассивного дохода: *{Flashlights.CurrentLevelData().EffectValue}\n";
 	}
 }

@@ -10,23 +10,47 @@ public class Buy_Pond : PurchaseImprovementBase                                 
 	[SerializeField] private GameObject Pond;
 	[SerializeField] private List<Sprite> Sprites;
 
-	protected override void Start()
+	public override void Initializing()
 	{
-		base.Start();
+		base.Initializing();
+
+		Pond.GetComponent<SpriteRenderer>().sprite = Sprites[CurrentLevel.CurrentLevelNumber];
+
+		GameEvents.OnRequiredWaterSubstract?.Invoke((int)CurrentLevel.EffectValue);
+		GameEvents.OnAnimalSpawn += () => StartCoroutine(SpawnAnimalPause());
 	}
+
+	private IEnumerator SpawnAnimalPause()
+	{
+		yield return new WaitForSeconds(0.5f);
+
+		GameEvents.OnRequiredWaterSubstract?.Invoke((int)CurrentLevel.EffectValue);
+	}
+
+	//protected override void Start()
+	//{
+	//	base.Start();
+	//}
 
 	public override void Upgrade()
 	{
 		base.Upgrade();
 
-		if (CurrentLevel.CurrentLevelNumber == 1) Pond.SetActive(true);
+		if (CurrentLevel.CurrentLevelNumber == 0) Pond.SetActive(true);
 		else
 		{
-			Pond.GetComponent<SpriteRenderer>().sprite = Sprites[CurrentLevel.CurrentLevelNumber - 1];
+			Pond.GetComponent<SpriteRenderer>().sprite = Sprites[CurrentLevel.CurrentLevelNumber];
 		}
 
-		EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
+		GameEvents.OnRequiredWaterSubstract?.Invoke((int)CurrentLevel.EffectValue);
+
+		//EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
 
 		base.InvokeUpgrade();
+	}
+
+	private void OnDisable()
+	{
+		GameEvents.OnAnimalSpawn -= () => GameEvents.OnRequiredWaterSubstract?.Invoke((int)CurrentLevel.EffectValue);
 	}
 }

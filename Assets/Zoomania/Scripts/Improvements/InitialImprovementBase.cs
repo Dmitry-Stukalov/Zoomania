@@ -35,6 +35,8 @@ public class InitialImprovementBase : ImprovementBase
 	{
 		IsLoadData = true;
 
+		//for (int i = 0; i < currentlevelnumber; i++) Upgrade();
+
 		CurrentLevel = levels_config.levels[currentlevelnumber - 1];
 	}
 

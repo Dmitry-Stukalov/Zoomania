@@ -10,7 +10,12 @@ public class ImprovementBase : MonoBehaviour
 	protected bool IsLoadData { get; set; } = false;
 
 
-	protected virtual void Start()
+	//protected virtual void Start()
+	//{
+	//	if (!IsLoadData) CurrentLevel = levels_config.levels[0];
+	//}
+
+	public virtual void Initializing()
 	{
 		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
 	}

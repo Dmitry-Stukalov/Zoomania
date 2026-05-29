@@ -11,19 +11,20 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	[field: SerializeField] GameObject Essence;
 	[field: SerializeField] GameObject EssenceOnAnimal;
 	[field: SerializeField] GameObject EssenceMask;
-	private GameObject essence { get; set; }
-	private Day_And_Night Night { get; set; }
-	private ObjectPool<GameObject> Pool { get; set; }
-	private List<GameObject> MoveAreas {  get; set; }
-	private ActionWalking AnimalWalking { get; set; }
-	private ActionResting AnimalResting {get; set; }
-	private Animals Animal { get; set; }
-	private Animator animator { get; set; }
-	private Timer SpawnEssence { get; set; }
-	private int RandomAnimation { get; set; }
-	private float SpawnEssenceCoef { get; set; }
-	private float RandomTime { get; set; }
-	private int Action { get; set; }
+	private GameObject essence;
+	private Day_And_Night Night;
+	private ObjectPool<GameObject> Pool;
+	private List<GameObject> MoveAreas;
+	private ActionWalking AnimalWalking;
+	private ActionResting AnimalResting;
+	private Animals Animal;
+	private Animator animator;
+	private Timer SpawnEssence;
+	private int RandomAnimation;
+	private float SpawnEssenceCoef;
+	private float _spawnEssenceMultiply;
+	private float RandomTime;
+	private int Action;
 	public bool IsDoAction { get; set; }
 	public bool IsDrag {  get; set; }
 	public bool InPersonalPaddock { get; set; }
@@ -77,6 +78,8 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 
 		if (Night.IsDay) WakeUp();
 		else Sleep();
+
+		GameEvents.OnPandaEssenceMultiplyChange += (float value) => _spawnEssenceMultiply = value;
 	}
 
 
@@ -158,6 +161,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 		if (InPersonalPaddock)
 		{
 			InPersonalPaddock = false;
+			if (IsSleep) EssenceOnAnimal.SetActive(true);
 
 			RandomActions();
 		}
@@ -165,6 +169,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 		{
 			InPersonalPaddock = true;
 			IsDrag = false;
+			if (IsSleep) EssenceOnAnimal.SetActive(false);
 
 			RandomActions();
 		}
@@ -243,10 +248,14 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 			{
 				//if (EssenceOnAnimal.activeSelf == false) EssenceOnAnimal.SetActive(true);
 				EssenceMask.transform.localScale = new Vector3(SpawnEssenceCoef * SpawnEssence.CurrentTime, SpawnEssenceCoef * SpawnEssence.CurrentTime, SpawnEssenceCoef * SpawnEssence.CurrentTime);
-				SpawnEssence.Tick(Time.deltaTime);
+				SpawnEssence.Tick(Time.deltaTime * _spawnEssenceMultiply);
 			}
 			//else if (EssenceOnAnimal.activeSelf == true) EssenceOnAnimal.SetActive(false);
-
         }
+	}
+
+	private void OnDisable()
+	{
+		GameEvents.OnPandaEssenceMultiplyChange -= (float value) => _spawnEssenceMultiply = value;
 	}
 }

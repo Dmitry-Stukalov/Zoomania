@@ -10,18 +10,33 @@ public class Buy_Couch : PurchaseImprovementBase                                
 	[SerializeField] private GameObject Couch;
 	[SerializeField] private List<Sprite> Sprites;
 
-	protected override void Start()
+	public override void Initializing()
 	{
-		base.Start();
+		base.Initializing();
 
-		Couch.SetActive(false);
+		if (CurrentLevel.CurrentLevelNumber == 0)
+		{ 
+			Couch.SetActive(false);
+			GameEvents.OnAutoClickOpen?.Invoke();
+		}
 	}
+
+	//protected override void Start()
+	//{
+	//	base.Start();
+
+	//	Couch.SetActive(false);
+	//}
 
 	public override void Upgrade()
 	{
 		base.Upgrade();
 
-		if (CurrentLevel.CurrentLevelNumber == 1) Couch.SetActive(true);
+		if (CurrentLevel.CurrentLevelNumber == 1)
+		{
+			Couch.SetActive(true);
+			GameEvents.OnAutoClickOpen?.Invoke();
+		}
 		else
 		{
 			Couch.GetComponent<SpriteRenderer>().sprite = Sprites[CurrentLevel.CurrentLevelNumber - 1];

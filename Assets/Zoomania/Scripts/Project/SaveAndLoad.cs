@@ -29,7 +29,7 @@ public class SaveAndLoad
 
 
 	public static async Task Load(/*CancellationToken cancelToken, */string directoryPath, string fileName, WaterBuildingValue waterBuildingV, WaterBuildingTimer waterBuildingT, FoodBuildingValue foodBuildingV, FoodBuildingTimer foodBuildingT, Money moneyBuilding, 
-		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, Buy_Bamboo bamboo, Barn barn, Day_And_Night time, TutorialsObject Tutorial)
+		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, /*Buy_Bamboo bamboo,*/ Barn barn, Day_And_Night time, TutorialsObject Tutorial, Buy_Bushes bushes, Buy_Couch couch, Buy_Flashlights flashlights, Buy_Pond pond, Buy_Slide slide, Buy_Grass grass)
 	{
 		var DirectoryPath = directoryPath;
 		if (!Directory.Exists(DirectoryPath))
@@ -62,10 +62,16 @@ public class SaveAndLoad
 		await essenceBuilding.LoadData(dataSave.Resources[3]);
 		await essenceBuilding1.LoadData(dataSave.Buildinglevels[4]);
 		await deepSleepBuilding.LoadData(dataSave.Buildinglevels[5]);
-		await bamboo.LoadData(dataSave.Buildinglevels[6]);
+		//await bamboo.LoadData(dataSave.Buildinglevels[6]);
 		await barn.LoadData(dataSave.Animals);
 		await time.LoadData(dataSave.Time);
 		await Tutorial.DestroyThis();
+		await bushes.LoadData(dataSave.Buildinglevels[6]);
+		await couch.LoadData(dataSave.Buildinglevels[7]);
+		await flashlights.LoadData(dataSave.Buildinglevels[8]);
+		await pond.LoadData(dataSave.Buildinglevels[9]);
+		await slide.LoadData(dataSave.Buildinglevels[10]);
+		await grass.LoadData(dataSave.Buildinglevels[11]);
 	}
 
 }

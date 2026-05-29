@@ -16,36 +16,36 @@ MonoBehaviour:
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 0
     <EffectValue>k__BackingField: 0
-    <MoneyForUpgrade>k__BackingField: 4
+    <MoneyForUpgrade>k__BackingField: 20
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 1
-    <EffectValue>k__BackingField: 0.2
-    <MoneyForUpgrade>k__BackingField: 10
+    <EffectValue>k__BackingField: 0.4
+    <MoneyForUpgrade>k__BackingField: 80
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 2
-    <EffectValue>k__BackingField: 0.4
-    <MoneyForUpgrade>k__BackingField: 30
+    <EffectValue>k__BackingField: 0.8
+    <MoneyForUpgrade>k__BackingField: 200
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 3
-    <EffectValue>k__BackingField: 0.6
-    <MoneyForUpgrade>k__BackingField: 70
+    <EffectValue>k__BackingField: 1.2
+    <MoneyForUpgrade>k__BackingField: 500
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 4
-    <EffectValue>k__BackingField: 0.8
-    <MoneyForUpgrade>k__BackingField: 150
+    <EffectValue>k__BackingField: 1.6
+    <MoneyForUpgrade>k__BackingField: 1200
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 5
-    <EffectValue>k__BackingField: 1
-    <MoneyForUpgrade>k__BackingField: 350
+    <EffectValue>k__BackingField: 2
+    <MoneyForUpgrade>k__BackingField: 3000
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 6
-    <EffectValue>k__BackingField: 1.2
-    <MoneyForUpgrade>k__BackingField: 700
+    <EffectValue>k__BackingField: 2.4
+    <MoneyForUpgrade>k__BackingField: 10000
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 7
-    <EffectValue>k__BackingField: 1.4
-    <MoneyForUpgrade>k__BackingField: 1000
+    <EffectValue>k__BackingField: 2.8
+    <MoneyForUpgrade>k__BackingField: 50000
   - <View>k__BackingField: {fileID: 0}
     <CurrentLevelNumber>k__BackingField: 8
-    <EffectValue>k__BackingField: 1.6
+    <EffectValue>k__BackingField: 3.2
     <MoneyForUpgrade>k__BackingField: 0
