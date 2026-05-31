@@ -20,19 +20,19 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 	[SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private List<Panda_Levels_Config> _pandas;
     [SerializeField] private AudioSource _swipeSound;
+    [SerializeField] private Barn _barn;
 
     private int _currentAnimalIndex = 0;
     private int _currentLevelIndex = 0;
     private Vector2 _dragStartPosition;
     private bool _isAnimating;
 
-    //private void Start()
-    //{
-    //    UpdateDisplay();
-    //}
-
     public void Initializing()
     {
+        //GameEvents.OnAlmanacUpdate += UpdateData;
+
+        _barn.Spawn += UpdateDisplay;
+
 		UpdateDisplay();
 	}
 
@@ -64,9 +64,12 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         {
             if (Mathf.Abs(dragDelta.y) > _swipeThreshold)
             {
-                if (dragDelta.y > 0) PreviousLevel();
-                else NextLevel();
-            }
+				//if (dragDelta.y > 0) PreviousLevel();
+				//else NextLevel();
+
+				if (dragDelta.y > 0) NextLevel();
+				else PreviousLevel();
+			}
             else
             {
                 StartCoroutine(CancelSwipeAnimation(Vector3.up));
@@ -172,10 +175,21 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         imageTransform.localPosition = Vector3.zero;
     }
 
+    private void StartUpdate()
+    {
+
+    }
+
+    private void UpdateData(int type, int level)
+    {
+
+    }
+
     private void UpdateDisplay()
     {
         AnimalLevel level = _pandas[_currentAnimalIndex].levels[_currentLevelIndex];
-        if (level.IsOpen == true)
+
+        if (/*level.IsOpen == false*/_barn.TakePandaData(level.Type, level.CurrentLevelNumber))
         {
             _displayImage.sprite = level.View;
             _name.text = level.Name;
@@ -227,4 +241,9 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
             return 7.5625f * t * t + 0.984375f;
         }
     }
+
+	private void OnDisable()
+	{
+		_barn.Spawn -= UpdateDisplay;
+	}
 }

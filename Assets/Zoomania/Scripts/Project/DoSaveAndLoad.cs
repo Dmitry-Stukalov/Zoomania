@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class DoSaveAndLoad : MonoBehaviour
 {
@@ -14,14 +15,21 @@ public class DoSaveAndLoad : MonoBehaviour
 
 	private void Awake()
 	{
-		if (Input.touchSupported)
-		{
-			DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
-		}
-		else if (Input.mousePresent)
-		{
-			DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
-		}
+
+#if UNITY_EDITOR
+		DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
+#elif UNITY_ANDROID
+		DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
+#endif
+
+		//if (Input.touchSupported)
+		//{
+		//	DirectoryPath = Application.persistentDataPath + "/Source/MissionsSaves";
+		//}
+		//else if (Input.mousePresent)
+		//{
+		//	DirectoryPath = Application.dataPath + "/Source/MissionsSaves";
+		//}
 
 		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, 
 			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, /*AllResoures.Bamboo,*/ AllResoures.Barn, AllResoures.Time, Tutorial, AllResoures.Bushes, AllResoures.Couch, AllResoures.Flashlights, AllResoures.Pond, AllResoures.Slide, AllResoures.Grass);

@@ -22,7 +22,7 @@ public class AnimalAI_New : MonoBehaviour														//нужно оптимизировать
 	private Timer SpawnEssence;
 	private int RandomAnimation;
 	private float SpawnEssenceCoef;
-	private float _spawnEssenceMultiply;
+	private float _spawnEssenceMultiply = 1;
 	private float RandomTime;
 	private int Action;
 	public bool IsDoAction { get; set; }

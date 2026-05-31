@@ -13,6 +13,8 @@ public class Deep_Sleep : PurchaseImprovementBase
 		base.Initializing();
 
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
+
+		for (int i = 0; i < CurrentLevel.CurrentLevelNumber; i++) EssenceClick.ChangeTimeSkip(CurrentLevel.EffectValue - levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].EffectValue, true);
 	}
 
 	//protected override void Start()

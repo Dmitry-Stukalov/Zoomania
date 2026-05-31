@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class DragAnimal : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+	//private InputAction _touch;
 	private Vector3 offset { get; set; }
 	private Camera mainCamera { get; set; }
 	public bool InPersonalPaddock { get; set; }
 
 	public void Start()
 	{
+		//_touch = InputSystem.actions.FindAction("Click");
+
 		InPersonalPaddock = false;
 
 		mainCamera = Camera.main;

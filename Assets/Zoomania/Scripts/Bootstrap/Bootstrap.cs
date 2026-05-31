@@ -37,7 +37,6 @@ public class Bootstrap : MonoBehaviour
 	private void Start()
 	{
 		AllObjects.Initializing();
-		Gallery.Initializing();
 		DayAndNight.Initializing();
 		EssenceClick.Initializing();
 		ClickTime.Initializing();
@@ -70,6 +69,7 @@ public class Bootstrap : MonoBehaviour
 		_flashlights.Initializing();
 		_deepSleep.Initializing();
 		_essenceQuality.Initializing();
+		Gallery.Initializing();
 		_loadObject.SetActive(false);
 	}
 }

@@ -7,7 +7,6 @@ public class Essence_Quality : InitialImprovementBase
 {
 	private TakeEssenceClick EssenceClick { get; set; }
 
-
 	//protected override void Start()
 	//{
 	//	base.Start();
@@ -20,6 +19,8 @@ public class Essence_Quality : InitialImprovementBase
 		base.Initializing();
 
 		EssenceClick = GameObject.FindGameObjectWithTag("EssenceClick").GetComponent<TakeEssenceClick>();
+
+		for (int i = 0; i < CurrentLevel.CurrentLevelNumber; i++) EssenceClick.ChangeTimeSkip(0.7f, false);
 	}
 
 	public override void Upgrade()

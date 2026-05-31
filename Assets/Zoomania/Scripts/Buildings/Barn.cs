@@ -28,6 +28,8 @@ public class Barn : MonoBehaviour
 		Animals.Add(Instantiate(Panda_Storage_Config.Animals[RandomNumber], RandomSpawnPoint(), Quaternion.identity));
 		AnimalCount++;
 
+		GameEvents.OnAlmanacUpdate?.Invoke(RandomNumber, 0);
+
 		if (Animals.Count == 1) MoneyToSpawn += 50;
 		else MoneyToSpawn *= 4;
 
@@ -47,6 +49,15 @@ public class Barn : MonoBehaviour
 		Animals[place] = animal;
 	}
 
+	public bool TakePandaData(int type, int level)
+	{
+		for (int i = 0; i < Animals.Count; i++)
+		{
+			if (Animals[i].GetComponent<Animals>().CurrentLevelData().Type == type && Animals[i].GetComponent<Animals>().CurrentLevelData().CurrentLevelNumber == level) return true;
+		}
+
+		return false;
+	}
 
 	public Vector2 RandomSpawnPoint()
 	{
@@ -64,6 +75,8 @@ public class Barn : MonoBehaviour
 			Animals[i].GetComponent<Animals>().LoadData(animals[i].CurrentLevel, animals[i].X, animals[i].Y, animals[i].Z);
 			Animals[i].GetComponent<Animal_Feeding>().LoadData(animals[i].Water, animals[i].Food);
 			AnimalCount++;
+
+			GameEvents.OnAlmanacUpdate?.Invoke(i, animals[i].CurrentLevel - 1);
 
 			if (Animals.Count == 1) MoneyToSpawn += 0;
 			else MoneyToSpawn *= 4;

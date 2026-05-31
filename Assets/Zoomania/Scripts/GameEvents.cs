@@ -3,6 +3,7 @@ using System;
 public static class GameEvents
 {
 	public static Action OnAnimalSpawn;
+	public static Action<int, int> OnAlmanacUpdate;
 
 	public static Action OnAutoClickOpen;
 
