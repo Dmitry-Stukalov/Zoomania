@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ccf6d1e37704d47b975ff4824ec2d3, type: 3}
+  m_Name: WaterBuildingLevelsConfig
+  m_EditorClassIdentifier: 
+  levels:
+  - <View>k__BackingField: {fileID: -6905160569599478292, guid: 51d2e748a35df7c4f8312ae201cc298e, type: 3}
+    <CurrentLevelNumber>k__BackingField: 1
+    <IncomePerSecondValue>k__BackingField: 1
+    <DragResourceCapacity>k__BackingField: 1
+    <MoneyForUpgrade>k__BackingField: 5
+  - <View>k__BackingField: {fileID: -6905160569599478292, guid: 51d2e748a35df7c4f8312ae201cc298e, type: 3}
+    <CurrentLevelNumber>k__BackingField: 2
+    <IncomePerSecondValue>k__BackingField: 2
+    <DragResourceCapacity>k__BackingField: 2
+    <MoneyForUpgrade>k__BackingField: 20
+  - <View>k__BackingField: {fileID: 8370920638610461286, guid: 0681a1ae9f359c74290402b145122a64, type: 3}
+    <CurrentLevelNumber>k__BackingField: 3
+    <IncomePerSecondValue>k__BackingField: 3
+    <DragResourceCapacity>k__BackingField: 3
+    <MoneyForUpgrade>k__BackingField: 100
+  - <View>k__BackingField: {fileID: 8370920638610461286, guid: 0681a1ae9f359c74290402b145122a64, type: 3}
+    <CurrentLevelNumber>k__BackingField: 4
+    <IncomePerSecondValue>k__BackingField: 4
+    <DragResourceCapacity>k__BackingField: 4
+    <MoneyForUpgrade>k__BackingField: 500
+  - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
+    <CurrentLevelNumber>k__BackingField: 5
+    <IncomePerSecondValue>k__BackingField: 5
+    <DragResourceCapacity>k__BackingField: 5
+    <MoneyForUpgrade>k__BackingField: 1500
+  - <View>k__BackingField: {fileID: 21300000, guid: 355491c7d1cd205439df5ef69e468513, type: 3}
+    <CurrentLevelNumber>k__BackingField: 6
+    <IncomePerSecondValue>k__BackingField: 6
+    <DragResourceCapacity>k__BackingField: 6
+    <MoneyForUpgrade>k__BackingField: 5000
+  - <View>k__BackingField: {fileID: -2365592134674001275, guid: 4cfb22daa47451f42898fe1020570670, type: 3}
+    <CurrentLevelNumber>k__BackingField: 7
+    <IncomePerSecondValue>k__BackingField: 7
+    <DragResourceCapacity>k__BackingField: 7
+    <MoneyForUpgrade>k__BackingField: 15000
+  - <View>k__BackingField: {fileID: -2365592134674001275, guid: 4cfb22daa47451f42898fe1020570670, type: 3}
+    <CurrentLevelNumber>k__BackingField: 8
+    <IncomePerSecondValue>k__BackingField: 8
+    <DragResourceCapacity>k__BackingField: 8
+    <MoneyForUpgrade>k__BackingField: 50000
+  - <View>k__BackingField: {fileID: -7331191753510516265, guid: 1957936f6cc576f41add7597f541e54f, type: 3}
+    <CurrentLevelNumber>k__BackingField: 9
+    <IncomePerSecondValue>k__BackingField: 9
+    <DragResourceCapacity>k__BackingField: 9
+    <MoneyForUpgrade>k__BackingField: 500000
+  - <View>k__BackingField: {fileID: -7331191753510516265, guid: 1957936f6cc576f41add7597f541e54f, type: 3}
+    <CurrentLevelNumber>k__BackingField: 10
+    <IncomePerSecondValue>k__BackingField: 10
+    <DragResourceCapacity>k__BackingField: 10
+    <MoneyForUpgrade>k__BackingField: 0

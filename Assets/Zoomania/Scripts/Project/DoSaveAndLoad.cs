@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class DoSaveAndLoad : MonoBehaviour
 {
-	[field: SerializeField] public TakeAllResources AllResoures;
+	/*[field: SerializeField] public TakeAllResources AllResoures;
 	[field: SerializeField] public CleanSaveFile CleanFile;
 	[field: SerializeField] public Panda_To_Common_Paddock PandaReturn;
 	[field: SerializeField] private TutorialsObject Tutorial;
@@ -32,7 +32,7 @@ public class DoSaveAndLoad : MonoBehaviour
 		//}
 
 		SaveAndLoad.Load(DirectoryPath, "DataSave", AllResoures.WaterBuildingV, AllResoures.WaterBuildingT, AllResoures.FoodBuildingV, AllResoures.FoodBuildingT, AllResoures.MoneyBuilding, 
-			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, /*AllResoures.Bamboo,*/ AllResoures.Barn, AllResoures.Time, Tutorial, AllResoures.Bushes, AllResoures.Couch, AllResoures.Flashlights, AllResoures.Pond, AllResoures.Slide, AllResoures.Grass);
+			AllResoures.EssenceBuilding, AllResoures.EssenceBuilding1, AllResoures.DeepSleepBuilding, /*AllResoures.Bamboo, AllResoures.Barn, AllResoures.Time, Tutorial, AllResoures.Bushes, AllResoures.Couch, AllResoures.Flashlights, AllResoures.Pond, AllResoures.Slide, AllResoures.Grass);
 	}
 
 	public void OnApplicationQuit()
@@ -54,5 +54,5 @@ public class DoSaveAndLoad : MonoBehaviour
 				SaveAndLoad.Save(DirectoryPath, AllResoures.TakeResoures(), AllResoures.TakeBuildingLevels(), AllResoures.TakeAnimals(), AllResoures.TakeTime());
 			}
 		}
-	}
+	}*/
 }

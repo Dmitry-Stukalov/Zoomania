@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Panda_Sale_Button : ShopUpgradeButtonBase
 {
-	[SerializeField] private GameObject Panel;
+	/*[SerializeField] private GameObject Panel;
 	private SalePandaPanelCreator PanelCreator;
 	private Animals Animal;
 
@@ -22,7 +22,7 @@ public class Panda_Sale_Button : ShopUpgradeButtonBase
 
 	public override void OnPointerClick(PointerEventData eventData)
 	{
-		Money.IncomeMoney.Resource += Animal.CurrentLevelData().MoneyForSale;
+		Money.IncomeMoney.Resource += Animal.CurrentLevel.MoneyForSale;
 		Money.InvokeChanges();
 
 		PanelCreator.DeletePanel(Panel);
@@ -31,5 +31,5 @@ public class Panda_Sale_Button : ShopUpgradeButtonBase
 	public void ChangeAnimal(Animals animal) => Animal = animal;
 	public Animals GetAnimal() => Animal;
 
-	public void ChangeCreator(SalePandaPanelCreator creator) => PanelCreator = creator;
+	public void ChangeCreator(SalePandaPanelCreator creator) => PanelCreator = creator;*/
 }

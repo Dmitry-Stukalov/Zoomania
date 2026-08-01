@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Resource_New : MonoBehaviour
-{
+{/*
 	[field: SerializeField] private Sprite View { get; set; }
 	private GameObject Animal { get; set; }
 	private float Capacity { get; set; }
@@ -129,5 +129,5 @@ public class Resource_New : MonoBehaviour
 				}
 			}
 		}
-	}
+	}*/
 }

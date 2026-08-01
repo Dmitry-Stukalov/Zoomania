@@ -6,39 +6,40 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Money : MonoBehaviour
+public class Money : MonoBehaviour, IResourceStorage
 {
-	public IncomeResource IncomeMoney { get; set; }
-
+	public ResourceType ResourceType { get; private set; }
+	public IncomeResource IncomeResources { get; private set; }
 
 	public event Action OnChange;
 
 
+
 	public void Start()
 	{
-		IncomeMoney = new IncomeResource(0, 0);
+		IncomeResources = new IncomeResource(0, 0);
 	}
 
 	public void SetMoneyValue(float value)
 	{
-		IncomeMoney.Resource -= value;
+		IncomeResources.CurrentResourceCount -= value;
 		OnChange?.Invoke();
 	}
 
 	public void IncreaseMoneyValue(float value)
 	{
-		IncomeMoney.Resource += value;
+		IncomeResources.CurrentResourceCount += value;
 		OnChange?.Invoke();
 	}
 
 	public float GetMoney()
 	{
-		return IncomeMoney.Resource;
+		return IncomeResources.CurrentResourceCount;
 	}
 
 	public async Task LoadData(float value)
 	{
-		IncomeMoney.Resource = value;
+		IncomeResources.CurrentResourceCount = value;
 		OnChange?.Invoke();
 	}
 

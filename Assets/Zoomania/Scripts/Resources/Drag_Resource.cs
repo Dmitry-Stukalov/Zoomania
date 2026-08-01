@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Drag_Resource : MonoBehaviour
-{
+{/*
 	private Vector3 Point { get; set; }
 	private float Speed { get; set; }
 	private bool IsMove { get; set; }
@@ -29,5 +29,5 @@ public class Drag_Resource : MonoBehaviour
 				Destroy(gameObject);
 			}
 		}
-	}
+	}*/
 }

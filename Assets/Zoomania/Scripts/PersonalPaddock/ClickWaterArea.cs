@@ -9,6 +9,6 @@ public class ClickWaterArea : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		Icon.GetComponent<SpawnDragWaterResource>().OnPointerClick(eventData);
+		//Icon.GetComponent<SpawnDragWaterResource>().OnPointerClick(eventData);
 	}
 }

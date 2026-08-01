@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+//Устаревшее
 public class WaterBuildingTimer : MonoBehaviour
 {
-	[field: SerializeField] private Improvement_Levels_Config_New levels_config { get; set; }
+	[field: SerializeField] private ImprovementLevelsConfig _levelsConfig { get; set; }
 	[field: SerializeField] public ParticleSystem Click { get; set; }
 	[field: SerializeField] public AudioSource Audio { get; set; }
-	public Improvement_Level_New CurrentLevel { get; set; }
+	public ImprovementLevel CurrentLevel { get; set; }
 	public IncomeResource IncomeResources { get; set; }
 	private WaterBuildingValue WaterBuildingV {  get; set; }
 	private bool IsLoadData { get; set; } = false;
@@ -19,37 +20,9 @@ public class WaterBuildingTimer : MonoBehaviour
 	public event Action OnUpgrade;
 	public event Action OnStart;
 
-	//private void Start()
-	//{
-	//	if (!IsLoadData) CurrentLevel = levels_config.levels[0];
-
-	//	WaterBuildingV = GetComponent<WaterBuildingValue>();
-
-	//	if (Input.touchSupported)
-	//	{
-	//		Initialize();
-	//	}
-	//	else if (Input.mousePresent)
-	//	{
-	//		WaterBuildingV.OnStart += Initialize;
-	//	}
-
-	//	WaterBuildingV.OnUpgrade += UpdateData;
-
-	//	/*if (!IsLoadData) OnStart?.Invoke();*/
-
-	//}
-
-	//private void Initialize()
-	//{
-	//	IncomeResources = new IncomeResource(WaterBuildingV.GetCurrentResourceValue(), CurrentLevel.EffectValue);
-	//	IncomeResources.ResourceTimer.OnTimerEnd += Effects;
-	//	OnStart?.Invoke();
-	//}
-
 	public void Initializing()
 	{
-		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
+		if (!IsLoadData) CurrentLevel = _levelsConfig.levels[0];
 
 		WaterBuildingV = GetComponent<WaterBuildingValue>();
 		WaterBuildingV.OnUpgrade += UpdateData;
@@ -74,21 +47,21 @@ public class WaterBuildingTimer : MonoBehaviour
 
 	public void AddResources(int value)
 	{
-		IncomeResources.Resource += value;
+		IncomeResources.CurrentResourceCount += value;
 
 		OnChange?.Invoke();
 	}
 
 	public float GetResources()
 	{
-		return IncomeResources.Resource;
+		return IncomeResources.CurrentResourceCount;
 	}
 
 	public void Upgrade()
 	{
 		IsLoadData = true;
 
-		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		CurrentLevel = _levelsConfig.levels[CurrentLevel.CurrentLevelNumber];
 
 		IncomeResources.ChangeTime(CurrentLevel.EffectValue);
 
@@ -101,26 +74,26 @@ public class WaterBuildingTimer : MonoBehaviour
 		IncomeResources.ChangeIncomeValue(WaterBuildingV.CurrentLevelData().IncomePerSecondValue);
 	}
 
-	public Improvement_Level_New CurrentLevelData()
+	public ImprovementLevel CurrentLevelData()
 	{
 		return CurrentLevel;
 	}
 
-	public Improvement_Level_New NextLevelData()
+	public ImprovementLevel NextLevelData()
 	{
-		if (CurrentLevel.CurrentLevelNumber <= levels_config.levels.Count - 1) return levels_config.levels[CurrentLevel.CurrentLevelNumber];
+		if (CurrentLevel.CurrentLevelNumber <= _levelsConfig.levels.Count - 1) return _levelsConfig.levels[CurrentLevel.CurrentLevelNumber];
 		else return null;
 	}
 
 	public int GetLevelsCount()
 	{
-		return levels_config.levels.Count;
+		return _levelsConfig.levels.Count;
 	}
 
 	public async Task LoadData(float value, int levelnumber)
 	{
-		IncomeResources.Resource = value;
-		CurrentLevel = levels_config.levels[levelnumber - 1];
+		IncomeResources.CurrentResourceCount = value;
+		CurrentLevel = _levelsConfig.levels[levelnumber - 1];
 		UpdateData();
 		OnChange?.Invoke();
 		//OnStart?.Invoke();

@@ -10,7 +10,7 @@ public class SaveAndLoad
 {
 	public static void Save(string directoryPath, IReadOnlyList<float> allResources, IReadOnlyList<int> allBuildingLevels, IReadOnlyList<SaveDataClass.AnimalData> allAnimals, SaveDataClass.TimeData allTime)
 	{
-		var DataSave = new SaveDataClass();
+		/*var DataSave = new SaveDataClass();
 		DataSave.SetResoures(allResources);
 		DataSave.SetBuildingLevels(allBuildingLevels);
 		DataSave.SetTime(allTime);
@@ -24,12 +24,12 @@ public class SaveAndLoad
 		if (!Directory.Exists(DirectoryPath))
 			Directory.CreateDirectory(DirectoryPath);
 
-		File.WriteAllText($"{DirectoryPath}/{fileName}.json", json);
+		File.WriteAllText($"{DirectoryPath}/{fileName}.json", json);*/
 	}
 
 
-	public static async Task Load(/*CancellationToken cancelToken, */string directoryPath, string fileName, WaterBuildingValue waterBuildingV, WaterBuildingTimer waterBuildingT, FoodBuildingValue foodBuildingV, FoodBuildingTimer foodBuildingT, Money moneyBuilding, 
-		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, /*Buy_Bamboo bamboo,*/ Barn barn, Day_And_Night time, TutorialsObject Tutorial, Buy_Bushes bushes, Buy_Couch couch, Buy_Flashlights flashlights, Buy_Pond pond, Buy_Slide slide, Buy_Grass grass)
+	/*public static async Task Load(/*CancellationToken cancelToken, string directoryPath, string fileName, WaterBuildingValue waterBuildingV, WaterBuildingTimer waterBuildingT, FoodBuildingValue foodBuildingV, FoodBuildingTimer foodBuildingT, Money moneyBuilding, 
+		Essence_Storage essenceBuilding, Essence_Quality essenceBuilding1, Deep_Sleep deepSleepBuilding, /*Buy_Bamboo bamboo, Barn barn, Day_And_Night time, TutorialsObject Tutorial, Buy_Bushes bushes, Buy_Couch couch, Buy_Flashlights flashlights, Buy_Pond pond, Buy_Slide slide, Buy_Grass grass)
 	{
 		var DirectoryPath = directoryPath;
 		if (!Directory.Exists(DirectoryPath))
@@ -48,9 +48,9 @@ public class SaveAndLoad
 			return;
 		}
 
-		var json = await File.ReadAllTextAsync($"{DirectoryPath}/{fileName}"/*, cancelToken*/);
+		var json = await File.ReadAllTextAsync($"{DirectoryPath}/{fileName}"/*, cancelToken);
 		/*if (cancelToken.IsCancellationRequested)
-			cancelToken.ThrowIfCancellationRequested();*/
+			cancelToken.ThrowIfCancellationRequested();
 
 		var dataSave = JsonUtility.FromJson<SaveDataClass>(json);
 
@@ -72,6 +72,6 @@ public class SaveAndLoad
 		await pond.LoadData(dataSave.Buildinglevels[9]);
 		await slide.LoadData(dataSave.Buildinglevels[10]);
 		await grass.LoadData(dataSave.Buildinglevels[11]);
-	}
+	}*/
 
 }

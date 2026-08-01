@@ -14,6 +14,6 @@ public class CopyAnimalSprite : MonoBehaviour
 
 	private void CopySprite()
 	{
-		_image.sprite = _barn.Animals[_barn.Animals.Count - 1].GetComponent<Animals>().CurrentLevelData().View;
+		_image.sprite = _barn.Animals[_barn.Animals.Count - 1].GetComponent<Animals>().CurrentLevel.View;
 	}
 }

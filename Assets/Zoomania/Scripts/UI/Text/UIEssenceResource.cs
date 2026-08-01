@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UIEssenceResource : UIResourceBase
 {
-	private Essence_Storage Building { get; set; }
+	/*private Essence_Storage Building { get; set; }
 
 
 	//protected override void Start()
@@ -28,5 +28,5 @@ public class UIEssenceResource : UIResourceBase
 	public override void UpdateUI()
 	{
 		Text.text = TextConversion(Building.EssenceCount);
-	}
+	}*/
 }

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1957385101863441919}
   - component: {fileID: 8202044019747682797}
-  - component: {fileID: 7291713998312490054}
   - component: {fileID: -7580151842760775420}
   - component: {fileID: -632275627729008241}
   - component: {fileID: 6937542834384286939}
+  - component: {fileID: 5071420502937414209}
   m_Layer: 0
   m_Name: FoodBuilding
   m_TagString: NewFood
@@ -97,22 +97,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7291713998312490054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200371128407484109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <levels_config>k__BackingField: {fileID: 0}
-  <improvement_levels_config>k__BackingField: {fileID: 0}
-  <Click>k__BackingField: {fileID: 2964879331433105907}
-  <Audio>k__BackingField: {fileID: 4038835357330775121}
 --- !u!114 &-7580151842760775420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +104,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200371128407484109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b6dfadc9d4f3b042a021017b24a01ca, type: 3}
   m_Name: 
@@ -133,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200371128407484109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5ebd7805d38b2b4192de1c3e135d0e0, type: 3}
   m_Name: 
@@ -177,6 +161,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 7
+--- !u!114 &5071420502937414209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200371128407484109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e6f92cee88284a99c12cceffa4cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelsConfig: {fileID: 11400000, guid: b2cd336de1897a44dbd1439d42c4d191, type: 2}
+  _timeLevelsConfig: {fileID: 11400000, guid: 608f4ff9274cce64ca9414dd62e6a193, type: 2}
+  Click: {fileID: 2964879331433105907}
+  Audio: {fileID: 4038835357330775121}
 --- !u!1 &3857453642011213362
 GameObject:
   m_ObjectHideFlags: 0

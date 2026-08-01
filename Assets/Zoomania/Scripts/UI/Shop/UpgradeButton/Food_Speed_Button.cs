@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Food_Speed_Button : ShopUpgradeButtonBase
 {
-	private FoodBuildingTimer FoodBuilding { get; set; }
+	/*private FoodBuildingTimer FoodBuilding { get; set; }
 
 	protected override void Start()
 	{
@@ -56,5 +56,5 @@ public class Food_Speed_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

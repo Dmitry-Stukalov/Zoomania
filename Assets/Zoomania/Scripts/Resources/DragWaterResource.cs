@@ -18,7 +18,7 @@ public class DragWaterResource : MonoBehaviour
 			if (gameObject.transform.position.x == Point.x && gameObject.transform.position.y == Point.y)
 			{
 
-				GetComponentInParent<AvailableWaterResource>().PutResource(GetComponent<WaterResource>().GetCapacity());
+				//GetComponentInParent<AvailableWaterResource>().PutResource(GetComponent<WaterResource>().GetCapacity());
 				Destroy(gameObject);
 			}
 		}

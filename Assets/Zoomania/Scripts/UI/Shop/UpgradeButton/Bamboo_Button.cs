@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Bamboo_Button : ShopUpgradeButtonBase
 {
-	private Buy_Bamboo Bamboo { get; set; }
+	/*private Buy_Bamboo Bamboo { get; set; }
 
 	protected override void Start()
 	{
@@ -55,5 +55,5 @@ public class Bamboo_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

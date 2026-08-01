@@ -739,7 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SoundLevelUp>k__BackingField: {fileID: 1256280039541729931}
   <SoundSpawn>k__BackingField: {fileID: 3020826293548422841}
-  <levels_config>k__BackingField: {fileID: 11400000, guid: 4cc5720fdbc77a646bf030531cb5a247, type: 2}
+  <LevelsConfig>k__BackingField: {fileID: 11400000, guid: 4cc5720fdbc77a646bf030531cb5a247, type: 2}
 --- !u!114 &5566608935647242707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc774140c6af6dc41b2780d7ccbd5fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animal>k__BackingField: {fileID: 3485838081302170203}
+  Animal: {fileID: 3485838081302170203}
   Water: {fileID: 4242355600918529901}
   Food: {fileID: 6581438032348611124}
 --- !u!114 &4125095244043157545

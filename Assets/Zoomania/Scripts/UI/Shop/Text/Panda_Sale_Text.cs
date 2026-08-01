@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Panda_Sale_Text : ShopTextBase
 {
-	[SerializeField] private Panda_Sale_Button SaleButton;
+	/*[SerializeField] private Panda_Sale_Button SaleButton;
 	private Essence_Storage Storage { get; set; }
 	private Essence_Quality Quality { get; set; }
 
@@ -20,6 +20,6 @@ public class Panda_Sale_Text : ShopTextBase
 
 	protected override void UpdateData()
 	{
-		Text.text = $"+ {SaleButton.GetAnimal().CurrentLevelData().MoneyForSale}";
-	}
+		Text.text = $"+ {SaleButton.GetAnimal().CurrentLevel.MoneyForSale}";
+	}*/
 }

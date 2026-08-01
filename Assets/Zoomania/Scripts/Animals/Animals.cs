@@ -4,16 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class Animals : MonoBehaviour
+public class Animals : MonoBehaviour, IAnimal
 {
 	[field: SerializeField] private AudioSource SoundLevelUp { get; set; }
 	[field: SerializeField] private AudioSource SoundSpawn { get; set; }
-	[field: SerializeField] private Panda_Levels_Config levels_config { get; set; }
+	[field: SerializeField] public PandaLevelsConfig LevelsConfig { get; private set; }
 	public AnimalLevel CurrentLevel { get; private set; }
-	private GameObject Barn { get; set; }
+	public GameObject Barn { get; set; }
+	public SpriteRenderer CurrentSprite { get; set; }
+	public Animator CurrentAnimator { get; set; }
 	public bool InPersonalPaddock { get; private set; }
-	private bool IsLoadData { get; set; } = false;
+	private bool IsLoadData = false;
 
 	public event Action LevelUp;
 	public event Action ChangePaddock;
@@ -25,9 +28,7 @@ public class Animals : MonoBehaviour
 
 		if (!IsLoadData)
 		{
-			CurrentLevel = levels_config.levels[0];
-
-			//levels_config.levels[0].IsOpen = true;
+			CurrentLevel = LevelsConfig.levels[0];
 
 			gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
 
@@ -35,25 +36,26 @@ public class Animals : MonoBehaviour
 		}
 
 		Barn = GameObject.FindGameObjectWithTag("Barn");
+		CurrentSprite = gameObject.GetComponent<SpriteRenderer>();
+		CurrentAnimator = gameObject.GetComponent<Animator>();
 
 		ChangeParent(Barn, true);
 	}
 
 	public void Upgrade()                                                                   //Повышение уровня панды
 	{
-		CurrentLevel = levels_config.levels[CurrentLevel.CurrentLevelNumber];
-		//levels_config.levels[CurrentLevel.CurrentLevelNumber - 1].IsOpen = true;
-		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
-		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;
+		CurrentLevel = LevelsConfig.levels[CurrentLevel.CurrentLevelNumber];
+		CurrentSprite.sprite = CurrentLevel.View;
+		CurrentAnimator.runtimeAnimatorController = CurrentLevel.Animator;
 
 		SoundLevelUp.Play();
 
 		LevelUp?.Invoke();
 	}
 
-	public void ChangeParent(GameObject newparent, bool flag)
+	public void ChangeParent(GameObject newParent, bool flag)
 	{
-		transform.SetParent(newparent.transform, flag);
+		transform.SetParent(newParent.transform, flag);
 
 		if (InPersonalPaddock) InPersonalPaddock = false;
 		else InPersonalPaddock = true;
@@ -61,19 +63,20 @@ public class Animals : MonoBehaviour
 		ChangePaddock?.Invoke();
 	}
 
-	public AnimalLevel CurrentLevelData()
-	{
-		return CurrentLevel;
-	}
-
-	public void LoadData(int levelnumber, float x, float y, float z)
+	public void LoadData(int levelNumber, float x, float y, float z)
 	{
 		IsLoadData = true;
 
-		CurrentLevel = levels_config.levels[levelnumber - 1];
+		CurrentLevel = LevelsConfig.levels[levelNumber - 1];
 
-		gameObject.GetComponent<SpriteRenderer>().sprite = CurrentLevel.View;
-		gameObject.GetComponent<Animator>().runtimeAnimatorController = CurrentLevel.Animator;
+		if (CurrentSprite == null || CurrentAnimator == null)
+		{
+			CurrentSprite = gameObject.GetComponent<SpriteRenderer>();
+			CurrentAnimator = gameObject.GetComponent<Animator>();
+		}
+
+		CurrentSprite.sprite = CurrentLevel.View;
+		CurrentAnimator.runtimeAnimatorController = CurrentLevel.Animator;
 		LevelUp?.Invoke();
 		transform.position = new Vector3(x, y, z);
 	}

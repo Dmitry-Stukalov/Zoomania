@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Essence_Storage : MonoBehaviour
+public class Essence_Storage : MonoBehaviour, IResourceStorage
 {
-	public float EssenceCount { get; set; } = 0;
+	//public float EssenceCount { get; set; } = 0;
+	public ResourceType ResourceType { get; private set; }
+	public IncomeResource IncomeResources { get; private set; }
 
 	public event Action OnChange;
+
+	private void Start()
+	{
+		IncomeResources = new IncomeResource(0, 0);
+	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -16,7 +23,7 @@ public class Essence_Storage : MonoBehaviour
 		{
 			collision.gameObject.GetComponent<Essence>().GetParent().DestroyEssence(collision.gameObject);
 
-			EssenceCount++;
+			IncomeResources.CurrentResourceCount++;
 
 			OnChange?.Invoke();
 		}
@@ -24,19 +31,19 @@ public class Essence_Storage : MonoBehaviour
 
 	public float GetEssenceCount()
 	{
-		return EssenceCount;
+		return IncomeResources.CurrentResourceCount;
 	}
 
 	public async Task LoadData(float value)
 	{
-		EssenceCount = value;
+		IncomeResources.CurrentResourceCount = value;
 		OnChange?.Invoke();
 	}
 
 
 	public void SoldOut()
 	{
-		EssenceCount = 0;
+		IncomeResources.CurrentResourceCount = 0;
 		OnChange?.Invoke();
 	}
 }

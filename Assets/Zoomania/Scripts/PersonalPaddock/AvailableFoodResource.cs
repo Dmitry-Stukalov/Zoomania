@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AvailableFoodResource : MonoBehaviour
 {
-	[field: SerializeField] private GameObject ResourceBuilding { get; set; }
+	/*[field: SerializeField] private GameObject ResourceBuilding { get; set; }
 	[field: SerializeField] private GameObject Resource { get; set; }
 	public FoodBuildingValue FoodValue { get; set; }
 	public FoodBuildingTimer FoodTimer { get; set; }
@@ -16,33 +16,6 @@ public class AvailableFoodResource : MonoBehaviour
 
 	public event Action OnChange;
 	public event Action OnStart;
-
-	//public void Start()
-	//{
-	//	start = false;
-	//	someresources = false;
-
-	//	FoodValue = ResourceBuilding.GetComponent<FoodBuildingValue>();
-	//	FoodTimer = ResourceBuilding.GetComponent<FoodBuildingTimer>();
-
-	//	if (Input.touchSupported)
-	//	{
-	//		Initialize();
-	//	}
-	//	else if (Input.mousePresent)
-	//	{
-	//		FoodTimer.OnStart += Initialize;
-	//	}
-	//}
-
-	//private void Initialize()
-	//{
-	//	Food = Resource.GetComponent<FoodResource>();
-
-	//	FoodValue.OnUpgrade += UpdateData;
-	//	OnStart?.Invoke();
-	//	OnChange?.Invoke();
-	//}
 
 	public void Initializing()
 	{
@@ -99,5 +72,5 @@ public class AvailableFoodResource : MonoBehaviour
 		FoodTimer.IncomeResources.Resource += value;
 		OnChange?.Invoke();
 		FoodTimer.Change();
-	}
+	}*/
 }

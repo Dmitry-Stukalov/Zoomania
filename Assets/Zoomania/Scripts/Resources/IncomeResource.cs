@@ -3,47 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncomeResource																//Класс, который отвечает за получение ресурсов через время и через клики
+//Класс, который отвечает за получение ресурсов через время и через клики
+public class IncomeResource
 {
-	public float IncomePerSecondValue { get; set; }                                       //Переменная, которая отвечает за количество пассивно получаемых ресурсов (через каждое N количество секунд)
-	public float Resource { get; set; }												//Переменная, которая хранит в себе текущее количество ресурсов игрока
+	public Timer ResourceTimer;
+	public float IncomePerSecondValue { get; set; }
+	public float CurrentResourceCount { get; set; }
 
-	public event Action OnTick;															//Событие, вызываемое каждый тик
-	public event Action OnIncomePerSecond;												//Событие, вызываемое когда происходит пассивное получение ресурсов
+	public event Action OnIncomePerSecond;
 
-	public Timer ResourceTimer;															//Переменная, которая отвечает за время пассивно получаемых ресурсов
-
-	public IncomeResource(float incomepersecondvalue, float timerlength)
+	public IncomeResource(float incomePerSecondValue, float timerLength)
 	{
-		Resource = 0;
+		CurrentResourceCount = 0;
 
-		IncomePerSecondValue = incomepersecondvalue;
+		IncomePerSecondValue = incomePerSecondValue;
 
-		ResourceTimer = new Timer(timerlength);
+		ResourceTimer = new Timer(timerLength);
 
 		ResourceTimer.OnTimerEnd += IncomePerSecond;
 	}
 
-	public void IncomePerSecond()															//Функция, которая срабатывает при пассивном получении ресурсов (через каждое N количество секунд)
+	public void OnDisable() => ResourceTimer.OnTimerEnd -= IncomePerSecond;
+
+	//Метод, который срабатывает при пассивном получении ресурсов (через каждое N количество секунд)
+	public void IncomePerSecond()
 	{
-		Resource += IncomePerSecondValue;
+		CurrentResourceCount += IncomePerSecondValue;
 		ResourceTimer.ResetTimer(false);
 		OnIncomePerSecond?.Invoke();
 	}
 
-	public void Update(float time)															//Функция, срабатывающая каждый кадр, которая отвечает за работу таймера
-	{
-		ResourceTimer.Tick(time);
-		OnTick?.Invoke();
-	}
+	public void Update(float time) => ResourceTimer.Tick(time);
 
-	public void ChangeIncomeValue(float value)
-	{
-		IncomePerSecondValue = value;
-	}
+	public void ChangeIncomeValue(float value) => IncomePerSecondValue = value;
 
-	public void ChangeTime(float time)
-	{
-		ResourceTimer.SetMaxTimeAndReset(time);
-	}
+	public void ChangeTime(float time) => ResourceTimer.SetMaxTimeAndReset(time);
 }

@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Essence_Sale_Button : ShopUpgradeButtonBase
 {
-	private Essence_Quality EssenceQuality { get; set; }
+	/*private Essence_Quality EssenceQuality { get; set; }
 	private Essence_Storage Storage { get; set; }
 
 
@@ -42,5 +42,5 @@ public class Essence_Sale_Button : ShopUpgradeButtonBase
 
 		if (Storage.GetEssenceCount() == 0) Mask.SetActive(true);
 		else Mask.SetActive(false);
-	}
+	}*/
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3486342612034258224}
   - component: {fileID: 4574270540026756265}
+  - component: {fileID: 7208414463811340133}
   m_Layer: 0
   m_Name: Slide
   m_TagString: Untagged
@@ -87,3 +88,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7208414463811340133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269655396663260585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7c50820eb5cd04394cf2821112a95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelsConfig: {fileID: 11400000, guid: aae1660b3f4ca694ca23b631fe4bc741, type: 2}
+  _essenceClick: {fileID: 0}
+  _spriteRenderer: {fileID: 4574270540026756265}

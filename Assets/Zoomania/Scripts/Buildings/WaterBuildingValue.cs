@@ -5,30 +5,17 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Устаревшее
 public class WaterBuildingValue : MonoBehaviour
 {
-	[field: SerializeField] private Building_Levels_Config levels_config { get; set; }
+	[field: SerializeField] private BuildingLevelsConfig levels_config { get; set; }
 	public BuildingLevel CurrentLevel { get; set; }
 	private bool IsLoadData { get; set; } = false;
-	private SpriteRenderer sprite { get; set; }
+	private SpriteRenderer sprite;
 
 	public event Action OnChange;
 	public event Action OnUpgrade;
 	public event Action OnStart;
-
-	//private void Start()
-	//{
-	//	sprite = GetComponent<SpriteRenderer>();
-
-	//	if (!IsLoadData)
-	//	{
-	//		CurrentLevel = levels_config.levels[0];
-	//		sprite.sprite = CurrentLevel.View;
-	//		OnStart?.Invoke();
-	//	}
-
-	//	OnStart?.Invoke();
-	//}
 
 	public void Initializing()
 	{

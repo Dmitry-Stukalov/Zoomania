@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Water_Speed_Button : ShopUpgradeButtonBase
 {
-	private WaterBuildingTimer WaterBuilding { get; set; }
+	/*private WaterBuildingTimer WaterBuilding { get; set; }
 
 	protected override void Start()
 	{
@@ -56,5 +56,5 @@ public class Water_Speed_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

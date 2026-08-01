@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Grass_Button : ShopUpgradeButtonBase
 {
-	private Buy_Grass Grass;
+	/*private Buy_Grass Grass;
 
 	protected override void Start()
 	{
@@ -55,5 +55,5 @@ public class Grass_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

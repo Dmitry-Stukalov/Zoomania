@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Slide_Text : ShopTextBase
 {
-	private Buy_Slide Slide { get; set; }
+	/*private Buy_Slide Slide { get; set; }
 
 	protected override void Start()
 	{
@@ -23,5 +23,5 @@ public class Slide_Text : ShopTextBase
 		LevelNumber.text = Slide.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Клики: +{Slide.CurrentLevelData().EffectValue}\n";
-	}
+	}*/
 }

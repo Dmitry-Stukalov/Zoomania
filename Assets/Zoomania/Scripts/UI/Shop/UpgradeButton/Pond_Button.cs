@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Pond_Button : ShopUpgradeButtonBase
 {
-	private Buy_Pond Pond;
+	/*private Buy_Pond Pond;
 
 	protected override void Start()
 	{
@@ -55,5 +55,5 @@ public class Pond_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

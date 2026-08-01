@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Bushes_Text : ShopTextBase
 {
-	private Buy_Bushes Bushes { get; set; }
+	private Bushes Bushes { get; set; }
 
-	protected override void Start()
+	/*protected override void Start()
 	{
 		base.Start();
 
@@ -23,5 +23,5 @@ public class Bushes_Text : ShopTextBase
 		LevelNumber.text = Bushes.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Еда для панд: -{Bushes.CurrentLevelData().EffectValue}%\n";
-	}
+	}*/
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Couch_Text : ShopTextBase
 {
-	private Buy_Couch Couch { get; set; }
+	/*private Buy_Couch Couch { get; set; }
 
 	protected override void Start()
 	{
@@ -23,5 +23,5 @@ public class Couch_Text : ShopTextBase
 		LevelNumber.text = Couch.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Клики: +{Couch.CurrentLevelData().EffectValue}\n";
-	}
+	}*/
 }

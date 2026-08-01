@@ -18,7 +18,7 @@ public class ObjectGallery : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 	[SerializeField] private TextMeshProUGUI _food;
 	[SerializeField] private TextMeshProUGUI _essenceTime;
 	[SerializeField] private TextMeshProUGUI _descriptionText;
-    [SerializeField] private List<Panda_Levels_Config> _pandas;
+    [SerializeField] private List<PandaLevelsConfig> _pandas;
     [SerializeField] private AudioSource _swipeSound;
     [SerializeField] private Barn _barn;
 

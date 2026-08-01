@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIFoodResource : UIResourceBase
 {
-	private FoodBuildingTimer Building { get; set; }
+	/*private FoodBuildingTimer Building { get; set; }
 
 	//protected override void Start()
 	//{
@@ -26,5 +26,5 @@ public class UIFoodResource : UIResourceBase
 	public override void UpdateUI()
 	{
 		Text.text = TextConversion(Building.IncomeResources.Resource);
-	}
+	}*/
 }

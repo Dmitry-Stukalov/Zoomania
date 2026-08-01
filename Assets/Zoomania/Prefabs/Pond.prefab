@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3714241630704631606}
   - component: {fileID: 2554024500274846802}
   - component: {fileID: 2340549765367915242}
+  - component: {fileID: 5635022295535124470}
   m_Layer: 0
   m_Name: Pond
   m_TagString: Untagged
@@ -124,3 +125,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.000000029802322, y: 0.00000011920929}
   m_Radius: 0.5
+--- !u!114 &5635022295535124470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437780163800775945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3a125eb71609a4b88abf66562e105e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelsConfig: {fileID: 11400000, guid: d2bbd79096eef264396324eeadf2a20a, type: 2}
+  _spriteRenderer: {fileID: 2554024500274846802}

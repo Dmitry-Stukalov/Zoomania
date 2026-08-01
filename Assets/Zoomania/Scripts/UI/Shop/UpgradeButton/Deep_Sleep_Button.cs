@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Deep_Sleep_Button : ShopUpgradeButtonBase
 {
-	[field: SerializeField] private Deep_Sleep Sleep { get; set; }
+	/*[field: SerializeField] private Deep_Sleep Sleep { get; set; }
 
 	protected override void Start()
 	{
@@ -54,5 +54,5 @@ public class Deep_Sleep_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

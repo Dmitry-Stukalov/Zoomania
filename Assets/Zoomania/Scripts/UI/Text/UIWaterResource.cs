@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIWaterResource : UIResourceBase
 {
-	private WaterBuildingTimer Building { get; set; }
+	/*private WaterBuildingTimer Building { get; set; }
 
 	//protected override void Start()
 	//{
@@ -26,5 +26,5 @@ public class UIWaterResource : UIResourceBase
 	public override void UpdateUI()
 	{
 		Text.text = TextConversion(Building.IncomeResources.Resource);
-	}
+	}*/
 }

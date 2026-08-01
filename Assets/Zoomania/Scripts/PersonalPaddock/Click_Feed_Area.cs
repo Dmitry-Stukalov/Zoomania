@@ -9,6 +9,6 @@ public class Click_Feed_Area : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		Icon.GetComponent<SpawnDragFoodResource>().OnPointerClick(eventData);
+		//Icon.GetComponent<SpawnDragFoodResource>().OnPointerClick(eventData);
 	}
 }

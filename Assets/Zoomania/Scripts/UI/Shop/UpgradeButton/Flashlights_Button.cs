@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Flashlights_Button : ShopUpgradeButtonBase
 {
-	private Buy_Flashlights Flashlights;
+	/*private Buy_Flashlights Flashlights;
 
 	protected override void Start()
 	{
@@ -55,5 +55,5 @@ public class Flashlights_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

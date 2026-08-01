@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Essence_Quality_Text : ShopTextBase
 {
-	private Essence_Quality EssenceQuality { get; set; }
+	/*private Essence_Quality EssenceQuality { get; set; }
 
 
 	protected override void Start()
@@ -25,5 +25,5 @@ public class Essence_Quality_Text : ShopTextBase
 
 		Text.text = $"—тоимость эссенций: {EssenceQuality.CurrentLevelData().EffectValue}\n";
 		Text.text += $"Ёффективность кликов: -0.5";
-	}
+	}*/
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Couch_Button : ShopUpgradeButtonBase
 {
-	private Buy_Couch Couch;
+	/*private Buy_Couch Couch;
 
 	protected override void Start()
 	{
@@ -55,5 +55,5 @@ public class Couch_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

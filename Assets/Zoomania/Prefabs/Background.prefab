@@ -16,12 +16,6 @@ GameObject:
   - component: {fileID: 7930905429007839729}
   - component: {fileID: 2096748320085677662}
   - component: {fileID: 6950606261284861976}
-  - component: {fileID: -3469412041387829168}
-  - component: {fileID: 5590037469193292188}
-  - component: {fileID: 2002011608526550271}
-  - component: {fileID: 489786244354082092}
-  - component: {fileID: 3506072584749352690}
-  - component: {fileID: -709245815326401356}
   m_Layer: 0
   m_Name: Background
   m_TagString: Background
@@ -168,17 +162,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f66f78a56fa6c4dab4198faa52a200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaterBuildingV: {fileID: 0}
-  WaterBuildingT: {fileID: 0}
-  FoodBuildingV: {fileID: 0}
-  FoodBuildingT: {fileID: 0}
-  MoneyBuilding: {fileID: 0}
-  EssenceBuilding: {fileID: 0}
-  EssenceBuilding1: {fileID: 0}
-  DeepSleepBuilding: {fileID: 0}
-  Bamboo: {fileID: 0}
-  Barn: {fileID: 0}
-  Time: {fileID: 0}
+  <WaterBuildingV>k__BackingField: {fileID: 0}
+  <WaterBuildingT>k__BackingField: {fileID: 0}
+  <FoodBuildingV>k__BackingField: {fileID: 0}
+  <FoodBuildingT>k__BackingField: {fileID: 0}
+  <MoneyBuilding>k__BackingField: {fileID: 0}
+  <EssenceBuilding>k__BackingField: {fileID: 0}
+  <EssenceBuilding1>k__BackingField: {fileID: 0}
+  <DeepSleepBuilding>k__BackingField: {fileID: 0}
+  <Barn>k__BackingField: {fileID: 0}
+  <Time>k__BackingField: {fileID: 0}
+  <Bushes>k__BackingField: {fileID: 0}
+  <Couch>k__BackingField: {fileID: 0}
+  <Flashlights>k__BackingField: {fileID: 0}
+  <Pond>k__BackingField: {fileID: 0}
+  <Slide>k__BackingField: {fileID: 0}
+  <Grass>k__BackingField: {fileID: 0}
 --- !u!114 &6950606261284861976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,106 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ef1c62a90b8ff49b45aa05c1aad101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllResoures: {fileID: 2096748320085677662}
-  CleanFile: {fileID: 0}
-  PandaReturn: {fileID: 0}
-  Tutorial: {fileID: 0}
---- !u!114 &-3469412041387829168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1cbfb59e4b7d2459d44cd1a2d74fc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: 9a4ef3c72382e7549bb4220a7df63921, type: 2}
-  EssenceClick: {fileID: 0}
-  Grass: []
---- !u!114 &5590037469193292188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55100d279a33ea44fa59ad02f404c8c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: 943d977e9a236b840b2af5e0bee7005c, type: 2}
-  EssenceClick: {fileID: 0}
-  Bushes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &2002011608526550271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6f9d6a3515f1042b3bb33d244a3446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 0}
-  EssenceClick: {fileID: 0}
-  Flashlights: []
---- !u!114 &489786244354082092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7c50820eb5cd04394cf2821112a95e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: aae1660b3f4ca694ca23b631fe4bc741, type: 2}
-  EssenceClick: {fileID: 0}
-  Slide: {fileID: 0}
-  Sprites: []
---- !u!114 &3506072584749352690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48da0e63ff2b3204bbac322bc12945ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: 43f90d2623d7863498d781a9ed71cfc8, type: 2}
-  EssenceClick: {fileID: 0}
-  Couch: {fileID: 0}
-  Sprites: []
---- !u!114 &-709245815326401356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371427128928237431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c3a125eb71609a4b88abf66562e105e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels_config: {fileID: 11400000, guid: d2bbd79096eef264396324eeadf2a20a, type: 2}
-  EssenceClick: {fileID: 0}
-  Pond: {fileID: 0}
-  Sprites: []
 --- !u!1 &3647653666417256099
 GameObject:
   m_ObjectHideFlags: 0

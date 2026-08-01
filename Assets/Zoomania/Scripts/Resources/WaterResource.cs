@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterResource : MonoBehaviour
 {
-	[field: SerializeField] private Sprite View { get; set; }
+	/*[field: SerializeField] private Sprite View { get; set; }
 	private GameObject Animal { get; set; }
 	private float Capacity { get; set; } = 0;
 	private float ReturnedCapacity { get; set; } = 0;
@@ -113,5 +113,5 @@ public class WaterResource : MonoBehaviour
 				}
 			}
 		}
-	}
+	}*/
 }

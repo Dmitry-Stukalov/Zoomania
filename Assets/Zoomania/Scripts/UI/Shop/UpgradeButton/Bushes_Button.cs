@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Bushes_Button : ShopUpgradeButtonBase
 {
-	private Buy_Bushes Bushes;
+	/*private Buy_Bushes Bushes;
 
 	protected override void Start()
 	{
@@ -55,5 +55,5 @@ public class Bushes_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

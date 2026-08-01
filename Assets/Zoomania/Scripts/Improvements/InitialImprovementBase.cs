@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class InitialImprovementBase : ImprovementBase
+public class InitialImprovementBase
 {
-
+	/*
 	public event Action OnUpgrade;
 
 	public virtual void Upgrade()
@@ -21,12 +21,12 @@ public class InitialImprovementBase : ImprovementBase
 		return levels_config.levels.Count;
 	}
 
-	public Improvement_Level_New CurrentLevelData()
+	public ImprovementLevel CurrentLevelData()
 	{
 		return CurrentLevel;
 	}
 
-	public virtual Improvement_Level_New NextLevelData()
+	public virtual ImprovementLevel NextLevelData()
 	{
 		return levels_config.levels[CurrentLevel.CurrentLevelNumber];
 	}
@@ -35,9 +35,6 @@ public class InitialImprovementBase : ImprovementBase
 	{
 		IsLoadData = true;
 
-		//for (int i = 0; i < currentlevelnumber; i++) Upgrade();
-
 		CurrentLevel = levels_config.levels[currentlevelnumber - 1];
-	}
-
+	}*/
 }

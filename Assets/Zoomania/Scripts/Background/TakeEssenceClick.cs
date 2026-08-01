@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class TakeEssenceClick : MonoBehaviour, IChangeTimeSkip, IPointerDownHandler, IPointerUpHandler
 {
 	[field: SerializeField] public Sprite UnPressButton;
 	[field: SerializeField] public Sprite PressButton;
@@ -19,24 +19,6 @@ public class TakeEssenceClick : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	private Day_And_Night Night { get; set; }
 	private float EssenceTimeSkip { get; set; }
 	private float DifferenctTimeSkip { get; set; }
-
-	//public void Start()
-	//{
-	//	Barn = GameObject.FindGameObjectWithTag("Barn").GetComponent<Barn>();
-	//	Barn.Spawn += UpdateList;
-
-	//	Night = GameObject.FindGameObjectWithTag("Background").GetComponent<Day_And_Night>();
-	//	Night.OnDay += DaySprite;
-	//	Night.OnNight += NightSprite;
-	//	Night.OnLoadData += CheckSprite;
-
-	//	AnimalAI = new List<AnimalAI_New>();
-
-	//	EssenceTimeSkip = 2f;
-
-	//	if (Night.IsLoadData) CheckSprite();
-	//	else DaySprite();
-	//}
 
 	public void Initializing()
 	{

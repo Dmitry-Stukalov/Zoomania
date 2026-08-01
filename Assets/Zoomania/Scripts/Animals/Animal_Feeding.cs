@@ -129,7 +129,7 @@ public class Animal_Feeding : MonoBehaviour
 			Food.transform.position = new Vector2(Food.transform.position.x, Food.transform.position.y - 0.15f);
 		}
 
-		if (Animal.CurrentLevelData().CurrentLevelNumber == 4)
+		if (Animal.CurrentLevel.CurrentLevelNumber == 4)
 		{
 			Water.SetActive(false);
 			Food.SetActive(false);
@@ -154,7 +154,7 @@ public class Animal_Feeding : MonoBehaviour
 
 	public void ChangeVisibility()
 	{
-		if (Animal.CurrentLevelData().CurrentLevelNumber < 4)
+		if (Animal.CurrentLevel.CurrentLevelNumber < 4)
 		{
 			if (Water.activeSelf)
 			{

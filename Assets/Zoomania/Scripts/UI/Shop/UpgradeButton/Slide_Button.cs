@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Slide_Button : ShopUpgradeButtonBase
 {
-	private Buy_Slide Slide;
+	/*private Buy_Slide Slide;
 
 	protected override void Start()
 	{
@@ -54,6 +54,6 @@ public class Slide_Button : ShopUpgradeButtonBase
 		{
 			Mask.SetActive(false);
 			IsEnough = true;
-		}
-	}
+		
+	}*/
 }

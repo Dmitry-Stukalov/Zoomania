@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Buy_Water_Button : ShopUpgradeButtonBase
 {
-	private WaterBuildingTimer WaterBuilding { get; set; }
+	/*private WaterBuildingTimer WaterBuilding { get; set; }
 	private int NeedMoney { get; set; } = 5;
 	private int AddCapacity { get; set; } = 10;
 
@@ -52,5 +52,5 @@ public class Buy_Water_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

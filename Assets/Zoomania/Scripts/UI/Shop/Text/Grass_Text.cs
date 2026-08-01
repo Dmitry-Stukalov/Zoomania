@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Grass_Text : ShopTextBase
 {
-	private Buy_Grass Grass { get; set; }
+	/*private Buy_Grass Grass { get; set; }
 
 	protected override void Start()
 	{
@@ -23,5 +23,5 @@ public class Grass_Text : ShopTextBase
 		LevelNumber.text = Grass.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Клики: +{Grass.CurrentLevelData().EffectValue}\n";
-	}
+	}*/
 }

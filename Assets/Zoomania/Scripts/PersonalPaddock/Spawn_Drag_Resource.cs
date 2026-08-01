@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Pool;
 
-public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
-{
+public class Spawn_Drag_Resource:MonoBehaviour//, IPointerClickHandler
+{/*
 	[field: SerializeField] private GameObject Resource { get; set; }
 	[field: SerializeField] private GameObject AnimalPlace { get; set; }
 	private ObjectPool<GameObject> Pool { get; set; }
@@ -99,5 +99,5 @@ public class Spawn_Drag_Resource:MonoBehaviour, IPointerClickHandler
 	public void Update()
 	{
 		FeedTime.Tick(Time.deltaTime);
-	}
+	}*/
 }

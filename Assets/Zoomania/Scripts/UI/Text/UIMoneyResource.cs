@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIMoneyResource : UIResourceBase
 {
-	private Money Building{ get; set; }
+	/*private Money Building{ get; set; }
 
 	//protected override void Start()
 	//{
@@ -26,5 +26,5 @@ public class UIMoneyResource : UIResourceBase
 	public override void UpdateUI()
 	{
 		Text.text = TextConversion(Building.IncomeMoney.Resource);
-	}
+	}*/
 }

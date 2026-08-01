@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Water_Quality_Button : ShopUpgradeButtonBase
 {
-	private WaterBuildingValue WaterBuilding { get; set; }
+	/*private WaterBuildingValue WaterBuilding { get; set; }
 
 	protected override void Start()
 	{
@@ -56,5 +56,5 @@ public class Water_Quality_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

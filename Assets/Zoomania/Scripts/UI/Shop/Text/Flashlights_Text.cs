@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Flashlights_Text : ShopTextBase
 {
-	private Buy_Flashlights Flashlights { get; set; }
+	/*private Buy_Flashlights Flashlights { get; set; }
 
 	protected override void Start()
 	{
@@ -23,5 +23,5 @@ public class Flashlights_Text : ShopTextBase
 		LevelNumber.text = Flashlights.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Коэффициент пассивного дохода: *{Flashlights.CurrentLevelData().EffectValue}\n";
-	}
+	}*/
 }

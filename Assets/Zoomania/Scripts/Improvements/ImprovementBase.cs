@@ -3,20 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImprovementBase : MonoBehaviour
+public abstract class ImprovementBase : MonoBehaviour
 {
-	[SerializeField] protected Improvement_Levels_Config_New levels_config;
-	protected Improvement_Level_New CurrentLevel { get; set; }
-	protected bool IsLoadData { get; set; } = false;
-
-
-	//protected virtual void Start()
-	//{
-	//	if (!IsLoadData) CurrentLevel = levels_config.levels[0];
-	//}
+	[SerializeField] protected ImprovementLevelsConfig _levelsConfig;
+	protected Improvement _improvement;
 
 	public virtual void Initializing()
 	{
-		if (!IsLoadData) CurrentLevel = levels_config.levels[0];
+		_improvement = new Improvement(_levelsConfig);
+
+		AddImprovementEffect();
+
+		_improvement.Initializing();
 	}
+
+	protected abstract void AddImprovementEffect();
+
+	public void Upgrade() => _improvement.Upgrade();
 }

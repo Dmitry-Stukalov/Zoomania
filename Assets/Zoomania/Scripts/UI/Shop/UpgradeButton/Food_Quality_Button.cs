@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Food_Quality_Button : ShopUpgradeButtonBase
 {
-	private FoodBuildingValue FoodBuilding { get; set; }
+	/*private FoodBuildingValue FoodBuilding { get; set; }
 
 	protected override void Start()
 	{
@@ -56,5 +56,5 @@ public class Food_Quality_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

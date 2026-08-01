@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pond_Text : ShopTextBase
 {
-	private Buy_Pond Pond { get; set; }
+	/*private Buy_Pond Pond { get; set; }
 
 	protected override void Start()
 	{
@@ -23,5 +23,5 @@ public class Pond_Text : ShopTextBase
 		LevelNumber.text = Pond.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Вода для панд: -{Pond.CurrentLevelData().EffectValue}%\n";
-	}
+	}*/
 }

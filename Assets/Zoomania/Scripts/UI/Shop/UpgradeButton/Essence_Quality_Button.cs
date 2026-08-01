@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Essence_Quality_Button : ShopUpgradeButtonBase
 {
-	private Essence_Quality EssenceQuality { get; set; }
+	/*private Essence_Quality EssenceQuality { get; set; }
 
 
 	protected override void Start()
@@ -58,5 +58,5 @@ public class Essence_Quality_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

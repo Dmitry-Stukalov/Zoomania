@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Available_Resources : MonoBehaviour
-{
+{/*
 	[field: SerializeField] private GameObject ResourceBuilding { get; set; }
 	[field: SerializeField] private GameObject Resource { get; set; }
 	public ResourceBuilding CurrentResources { get; set; }
@@ -71,5 +71,5 @@ public class Available_Resources : MonoBehaviour
 		CurrentResources.IncomeResources.Resource += value;
 		OnChange?.Invoke();
 		CurrentResources.Change();
-	}
+	}*/
 }

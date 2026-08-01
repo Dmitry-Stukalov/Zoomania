@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Buy_Panda_Button : ShopUpgradeButtonBase
 {
-	private LootBoxAppearance LootBox { get; set; }
+	/*private LootBoxAppearance LootBox { get; set; }
 	private Barn barn { get; set; }
 
 	protected override void Start()
@@ -60,5 +60,5 @@ public class Buy_Panda_Button : ShopUpgradeButtonBase
 			Mask.SetActive(false);
 			IsEnough = true;
 		}
-	}
+	}*/
 }

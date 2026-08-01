@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+//Устаревшее
 public class FoodBuildingTimer : MonoBehaviour
 {
-	[field: SerializeField] private Improvement_Levels_Config_New levels_config { get; set; }
+	[field: SerializeField] private ImprovementLevelsConfig levels_config { get; set; }
 	[field: SerializeField] public ParticleSystem Click { get; set; }
 	[field: SerializeField] public AudioSource Audio { get; set; }
-	public Improvement_Level_New CurrentLevel { get; set; }
+	public ImprovementLevel CurrentLevel { get; set; }
 	public IncomeResource IncomeResources { get; set; }
 	private FoodBuildingValue FoodBuildingV { get; set; }
 	private bool IsLoadData { get; set; } = false;
@@ -17,33 +18,6 @@ public class FoodBuildingTimer : MonoBehaviour
 	public event Action OnChange;
 	public event Action OnUpgrade;
 	public event Action OnStart;
-
-	//private void Start()
-	//{
-	//	if (!IsLoadData) CurrentLevel = levels_config.levels[0];
-
-	//	FoodBuildingV = GetComponent<FoodBuildingValue>();
-
-	//	if (Input.touchSupported)
-	//	{
-	//		Initialize();
-	//	}
-	//	else if (Input.mousePresent)
-	//	{
-	//		FoodBuildingV.OnStart += Initialize;
-	//	}
-
-	//	FoodBuildingV.OnUpgrade += UpdateData;
-
-	//	/*if (!IsLoadData) OnStart?.Invoke();*/
-	//}
-
-	//private void Initialize()
-	//{
-	//	IncomeResources = new IncomeResource(FoodBuildingV.GetCurrentResourceValue(), CurrentLevel.EffectValue);
-	//	IncomeResources.ResourceTimer.OnTimerEnd += Effects;
-	//	OnStart?.Invoke();
-	//}
 
 	public void Initializing()
 	{
@@ -71,14 +45,14 @@ public class FoodBuildingTimer : MonoBehaviour
 
 	public void AddResources(int value)
 	{
-		IncomeResources.Resource += value;
+		IncomeResources.CurrentResourceCount += value;
 
 		OnChange?.Invoke();
 	}
 
 	public float GetResources()
 	{
-		return IncomeResources.Resource;
+		return IncomeResources.CurrentResourceCount;
 	}
 
 	public void Upgrade()
@@ -96,12 +70,12 @@ public class FoodBuildingTimer : MonoBehaviour
 		IncomeResources.ChangeIncomeValue(FoodBuildingV.CurrentLevelData().IncomePerSecondValue);
 	}
 
-	public Improvement_Level_New CurrentLevelData()
+	public ImprovementLevel CurrentLevelData()
 	{
 		return CurrentLevel;
 	}
 
-	public Improvement_Level_New NextLevelData()
+	public ImprovementLevel NextLevelData()
 	{
 		if (CurrentLevel.CurrentLevelNumber <= levels_config.levels.Count - 1) return levels_config.levels[CurrentLevel.CurrentLevelNumber];
 		else return null;
@@ -116,11 +90,10 @@ public class FoodBuildingTimer : MonoBehaviour
 	{
 		IsLoadData = true;
 
-		IncomeResources.Resource = value;
+		IncomeResources.CurrentResourceCount = value;
 		CurrentLevel = levels_config.levels[levelnumber - 1];
 		UpdateData();
-		OnChange?.Invoke();
-		//OnStart?.Invoke();
+		OnChange?.Invoke(); 
 	}
 
 	void Update()                                                                                   //Срабатывает каждый кадр, отвечает за работу таймера

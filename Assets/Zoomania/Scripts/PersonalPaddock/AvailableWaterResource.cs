@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AvailableWaterResource : MonoBehaviour
 {
-	[field: SerializeField] private GameObject ResourceBuilding { get; set; }
+	/*[field: SerializeField] private GameObject ResourceBuilding { get; set; }
 	[field: SerializeField] private GameObject Resource { get; set; }
 	public WaterBuildingValue WaterValue { get; set; }
 	public WaterBuildingTimer WaterTimer { get; set; }
@@ -16,35 +16,6 @@ public class AvailableWaterResource : MonoBehaviour
 
 	public event Action OnChange;
 	public event Action OnStart;
-
-	//public void Start()
-	//{
-	//	start = false;
-	//	someresources = false;
-
-	//	WaterValue = ResourceBuilding.GetComponent<WaterBuildingValue>();
-	//	WaterTimer = ResourceBuilding.GetComponent<WaterBuildingTimer>();
-	//	//WaterTimer.OnStart += Initialize;
-
-	//	if (Input.touchSupported)
-	//	{
-	//		Initialize();
-	//	}
-	//	else if (Input.mousePresent)
-	//	{
-	//		WaterTimer.OnStart += Initialize;
-	//	}
-	//}
-
-	//private void Initialize()
-	//{
-	//	Water = Resource.GetComponent<WaterResource>();
-	//	Water.ChangeCapacity(WaterValue.CurrentLevelData().DragResourceCapacity);
-
-	//	WaterValue.OnUpgrade += UpdateData;
-	//	OnStart?.Invoke();
-	//	OnChange?.Invoke();
-	//}
 
 	public void Initializing()
 	{
@@ -101,5 +72,5 @@ public class AvailableWaterResource : MonoBehaviour
 		WaterTimer.IncomeResources.Resource += value;
 		OnChange?.Invoke();
 		WaterTimer.Change();
-	}
+	}*/
 }

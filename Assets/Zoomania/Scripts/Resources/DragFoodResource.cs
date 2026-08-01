@@ -18,7 +18,7 @@ public class DragFoodResource : MonoBehaviour
 			if (gameObject.transform.position.x == Point.x && gameObject.transform.position.y == Point.y)
 			{
 
-				GetComponentInParent<AvailableFoodResource>().PutResource(GetComponent<FoodResource>().GetCapacity());
+				//GetComponentInParent<AvailableFoodResource>().PutResource(GetComponent<FoodResource>().GetCapacity());
 				Destroy(gameObject);
 			}
 		}

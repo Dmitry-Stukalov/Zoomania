@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Deep_Sleep_Text : ShopTextBase
 {
-	[field: SerializeField] private Deep_Sleep Sleep { get; set; }
+	/*[field: SerializeField] private Deep_Sleep Sleep { get; set; }
 
 	protected override void Start()
 	{
@@ -22,5 +22,5 @@ public class Deep_Sleep_Text : ShopTextBase
 		LevelNumber.text = Sleep.CurrentLevelData().CurrentLevelNumber.ToString();
 
 		Text.text = $"Клики: +{Sleep.CurrentLevelData().EffectValue}\n";
-	}
+	}*/
 }
